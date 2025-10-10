@@ -83,7 +83,7 @@ const HomePage: React.FC = () => {
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
         </button>
 
-        <div className="relative container mx-auto px-6 h-full flex flex-col justify-center items-center text-center text-white z-20">
+        <div className="relative container mx-auto px-5 lg:px-20 h-full flex flex-col justify-center items-center text-center text-white z-20">
           <div key={currentSlide} className="w-full">
             <h1 className="text-4xl md:text-5xl font-serif mb-4 animate-fade-in-up">{t(slides[currentSlide].title)}</h1>
             <p className="text-lg md:text-xl max-w-3xl mx-auto mb-8 animate-fade-in-up animation-delay-300">{t(slides[currentSlide].subtitle)}</p>
@@ -121,6 +121,7 @@ const HomePage: React.FC = () => {
 
       <ExpertiseSection />
       <AboutSection />
+      <MasterpiecesSection />
       <ProjectsSection />
       <ValuesSection />
       <RseSection />
@@ -142,7 +143,7 @@ const LogoIcon = () => (
 const AboutSection: React.FC = () => {
     return (
         <section className="py-20 bg-white">
-            <div className="container mx-auto px-6">
+            <div className="container mx-auto px-5 lg:px-20">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl font-bold font-serif text-brand-primary mb-2 uppercase flex items-center justify-center flex-wrap">
                         <LogoIcon />
@@ -175,13 +176,127 @@ const AboutSection: React.FC = () => {
     );
 };
 
+const MasterpiecesSection: React.FC = () => {
+    const { t } = useLocalization();
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    const masterpieces = [
+        {
+            src: 'https://images.pexels.com/photos/1216544/pexels-photo-1216544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+            titleKey: 'masterpieceBtpTitle',
+            descriptionKey: 'masterpieceBtpDesc'
+        },
+        {
+            src: 'https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+            titleKey: 'masterpieceReTitle',
+            descriptionKey: 'masterpieceReDesc'
+        },
+        {
+            src: 'https://images.pexels.com/photos/859895/pexels-photo-859895.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+            titleKey: 'masterpieceMinesTitle',
+            descriptionKey: 'masterpieceMinesDesc'
+        }
+    ];
+
+    const prevSlide = () => {
+        const isFirstSlide = currentIndex === 0;
+        const newIndex = isFirstSlide ? masterpieces.length - 1 : currentIndex - 1;
+        setCurrentIndex(newIndex);
+    };
+
+    const nextSlide = () => {
+        const isLastSlide = currentIndex === masterpieces.length - 1;
+        const newIndex = isLastSlide ? 0 : currentIndex + 1;
+        setCurrentIndex(newIndex);
+    };
+
+    return (
+        <section className="py-20 bg-white">
+            <div className="container mx-auto px-5 lg:px-20">
+                <div className="text-center mb-16">
+                    <h2 className="text-4xl font-bold font-serif text-brand-primary mb-2 uppercase">
+                       {t('homeMasterpiecesTitle')}
+                    </h2>
+                    <p className="text-md text-gray-600 italic">
+                        {t('homeMasterpiecesSubtitle')}
+                    </p>
+                </div>
+
+                {/* Desktop View: 3-column grid */}
+                <div className="hidden md:grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    {masterpieces.map((masterpiece, index) => (
+                        <div key={index} className="group relative overflow-hidden rounded-lg shadow-lg h-[450px]">
+                            <img src={masterpiece.src} alt={t(masterpiece.titleKey)} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                             <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                             <div className="absolute bottom-0 left-0 p-6 text-white">
+                                <h3 className="text-2xl font-bold">{t(masterpiece.titleKey)}</h3>
+                                <p className="text-sm opacity-90">{t(masterpiece.descriptionKey)}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                {/* Mobile View: Slider */}
+                <div className="md:hidden relative w-full max-w-5xl mx-auto">
+                    <div className="overflow-hidden relative rounded-lg shadow-xl">
+                        <div className="flex transition-transform ease-out duration-500" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+                            {masterpieces.map((masterpiece, index) => (
+                                <div key={index} className="min-w-full h-[500px] relative">
+                                    <img src={masterpiece.src} alt={t(masterpiece.titleKey)} className="w-full h-full object-cover" />
+                                    <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/70 to-transparent text-white">
+                                        <h3 className="text-2xl font-bold">{t(masterpiece.titleKey)}</h3>
+                                        <p className="text-sm">{t(masterpiece.descriptionKey)}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Left Arrow */}
+                    <button onClick={prevSlide} className="absolute top-1/2 -translate-y-1/2 left-2 text-white bg-black/30 hover:bg-black/50 rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-white transition" aria-label="Previous image">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+                    </button>
+                    {/* Right Arrow */}
+                    <button onClick={nextSlide} className="absolute top-1/2 -translate-y-1/2 right-2 text-white bg-black/30 hover:bg-black/50 rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-white transition" aria-label="Next image">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+    );
+};
+
+
+const ExpertiseLogoIcon = () => (
+    <svg width="40" height="35" viewBox="0 0 135 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="inline-block h-10 w-auto -mt-1 mr-3" aria-hidden="true">
+        <defs>
+            <linearGradient id="red-gradient" x1="0.5" y1="0" x2="0.5" y2="1">
+                <stop offset="0%" stopColor="#FF6B33" />
+                <stop offset="100%" stopColor="#FF4500" />
+            </linearGradient>
+            <filter id="red-glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feDropShadow dx="0" dy="0" stdDeviation="6" floodColor="#FF4500" floodOpacity="0.75" />
+            </filter>
+            <filter id="blue-glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feDropShadow dx="0" dy="0" stdDeviation="6" floodColor="#003366" floodOpacity="0.75" />
+            </filter>
+        </defs>
+        <g>
+            <path d="M90 5 L50 95 L130 95 Z" fill="#003366" style={{ filter: 'url(#blue-glow)' }}/>
+            <path d="M55 15 L5 85 L95 85 Z" fill="url(#red-gradient)" style={{ filter: 'url(#red-glow)' }} />
+        </g>
+    </svg>
+);
 
 const ExpertiseSection: React.FC = () => {
     const { t } = useLocalization();
     return (
       <section className="py-20 bg-brand-light">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold font-serif text-brand-primary mb-4">{t('homeServicesTitle')}</h2>
+        <div className="container mx-auto px-5 lg:px-20 text-center">
+          <h2 className="text-4xl font-bold font-serif text-brand-primary mb-4 flex items-center justify-center">
+            <ExpertiseLogoIcon />
+            <span>{t('homeServicesTitle')}</span>
+          </h2>
           <p className="text-lg text-brand-text max-w-3xl mx-auto mb-16">Au cœur de la transformation du Sénégal, SOCABEG déploie son savoir-faire sur trois pôles stratégiques.</p>
           <div className="grid md:grid-cols-3 gap-8">
             <ServiceCard
@@ -218,7 +333,7 @@ const ProjectsSection: React.FC = () => {
   ];
   return (
     <section className="py-20 bg-brand-light">
-      <div className="container mx-auto px-6 text-center">
+      <div className="container mx-auto px-5 lg:px-20 text-center">
         <h2 className="text-4xl font-bold font-serif text-brand-primary mb-12">{t('homeProjectsTitle')}</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {projects.map(p => (
@@ -241,7 +356,7 @@ const ValuesSection: React.FC = () => {
     const values = ['valueExcellence', 'valueIntegrity', 'valueSustainability', 'valueCommunity'];
     return (
         <section className="py-20 bg-white">
-            <div className="container mx-auto px-6 text-center">
+            <div className="container mx-auto px-5 lg:px-20 text-center">
                 <h2 className="text-4xl font-bold font-serif text-brand-primary mb-12">{t('homeValuesTitle')}</h2>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     {values.map(valueKey => (
@@ -259,7 +374,7 @@ const RseSection: React.FC = () => {
     const { t } = useLocalization();
     return (
         <section className="py-20 bg-brand-light">
-            <div className="container mx-auto px-6">
+            <div className="container mx-auto px-5 lg:px-20">
                 <div className="grid md:grid-cols-2 gap-16 items-center">
                     <div>
                         <img src="https://picsum.photos/800/600?random=20" alt="Engagement communautaire" className="rounded-lg shadow-xl"/>
@@ -286,7 +401,7 @@ const NewsSection: React.FC = () => {
     ];
     return (
       <section className="py-20 bg-white">
-        <div className="container mx-auto px-6 text-center">
+        <div className="container mx-auto px-5 lg:px-20 text-center">
           <h2 className="text-4xl font-bold font-serif text-brand-primary mb-12">{t('homeNewsTitle')}</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {newsItems.map(item => (
@@ -311,7 +426,7 @@ const ContactCtaSection: React.FC = () => {
     const { t } = useLocalization();
     return (
         <section className="bg-brand-primary text-white">
-            <div className="container mx-auto px-6 py-20 text-center">
+            <div className="container mx-auto px-5 lg:px-20 py-20 text-center">
                 <h2 className="text-4xl font-serif font-bold mb-4">{t('homeContactCtaTitle')}</h2>
                 <p className="text-lg max-w-2xl mx-auto mb-8">{t('homeContactCtaText')}</p>
                 <Link

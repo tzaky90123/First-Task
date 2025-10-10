@@ -32,6 +32,15 @@ export const content: LocalizedContent = {
   homeProjectsTitle: { [Language.FR]: 'Nos Projets', [Language.EN]: 'Our Projects' },
   homeValuesTitle: { [Language.FR]: 'Nos Valeurs', [Language.EN]: 'Our Values' },
 
+  homeMasterpiecesTitle: { [Language.FR]: 'Nos Chefs-d\'œuvre', [Language.EN]: 'Our Masterpieces' },
+  homeMasterpiecesSubtitle: { [Language.FR]: 'Des chefs-d\'œuvre complets, une vision communautaire', [Language.EN]: 'Complete Masterpieces, a Community Vision' },
+  masterpieceBtpTitle: { [Language.FR]: 'Construction & BTP', [Language.EN]: 'Construction & BTP' },
+  masterpieceBtpDesc: { [Language.FR]: 'Des fondations solides pour l\'avenir du Sénégal.', [Language.EN]: 'Solid foundations for Senegal\'s future.' },
+  masterpieceReTitle: { [Language.FR]: 'Promotion Immobilière', [Language.EN]: 'Real Estate Development' },
+  masterpieceReDesc: { [Language.FR]: 'Créer des espaces de vie qui inspirent.', [Language.EN]: 'Creating living spaces that inspire.' },
+  masterpieceMinesTitle: { [Language.FR]: 'Opérations Minières', [Language.EN]: 'Mining Operations' },
+  masterpieceMinesDesc: { [Language.FR]: 'Exploiter les ressources avec responsabilité.', [Language.EN]: 'Harnessing resources responsibly.' },
+
   homeRseTitle: { [Language.FR]: 'Notre engagement RSE', [Language.EN]: 'Our CSR Commitment' },
   homeRseText: { [Language.FR]: 'Chez SOCABEG, la Responsabilité Sociétale d\'Entreprise est au cœur de notre stratégie. Nous nous engageons à minimiser notre impact environnemental, à promouvoir le bien-être de nos employés et à investir dans les communautés locales à travers des programmes d\'éducation et de santé.', [Language.EN]: 'At SOCABEG, Corporate Social Responsibility is at the heart of our strategy. We are committed to minimizing our environmental impact, promoting the well-being of our employees, and investing in local communities through education and health programs.' },
   homeRseCta: { [Language.FR]: 'Lire notre rapport', [Language.EN]: 'Read our report' },
