@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocalization } from '../context/LocalizationContext';
 import MainNavigation from '../components/MainNavigation';
@@ -6,31 +7,52 @@ import MainNavigation from '../components/MainNavigation';
 const slides = [
   {
     img: 'https://images.pexels.com/photos/224924/pexels-photo-224924.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    title: 'homeHeroTitle1',
-    subtitle: 'homeHeroSubtitle1',
+    title: 'heroSlide1Title',
+    subtitle: 'heroSlide1Subtitle',
   },
   {
     img: 'https://images.pexels.com/photos/1115804/pexels-photo-1115804.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    title: 'homeHeroTitle2',
-    subtitle: 'homeHeroSubtitle2',
+    title: 'heroSlide2Title',
+    subtitle: 'heroSlide2Subtitle',
   },
   {
     img: 'https://images.pexels.com/photos/774455/pexels-photo-774455.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    title: 'homeHeroTitle3',
-    subtitle: 'homeHeroSubtitle3',
+    title: 'heroSlide3Title',
+    subtitle: 'heroSlide3Subtitle',
   },
 ];
 
 const HomePage: React.FC = () => {
   const { t } = useLocalization();
   const [currentSlide, setCurrentSlide] = useState(0);
+  const intervalRef = useRef<number | null>(null);
+
+  const startAutoSlide = useCallback(() => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    intervalRef.current = window.setInterval(() => {
+      setCurrentSlide(prev => (prev + 1) % slides.length);
+    }, 7000);
+  }, []);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 7000); // Change slide every 7 seconds
-    return () => clearInterval(timer);
-  }, []);
+    startAutoSlide();
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, [startAutoSlide]);
+
+  const goToSlide = (slideIndex: number) => {
+    setCurrentSlide(slideIndex);
+    startAutoSlide(); // Reset timer on manual navigation
+  };
+
+  const nextSlide = () => {
+    goToSlide((currentSlide + 1) % slides.length);
+  };
+  
+  const prevSlide = () => {
+    goToSlide((currentSlide - 1 + slides.length) % slides.length);
+  };
 
   return (
     <div>
@@ -44,9 +66,28 @@ const HomePage: React.FC = () => {
             />
         ))}
         <div className="absolute inset-0 bg-brand-dark opacity-50 z-10"></div>
+        
+        {/* Navigation Arrows */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-black/30 hover:bg-black/50 text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white"
+          aria-label="Previous slide"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+        </button>
+        <button
+          onClick={nextSlide}
+          className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-black/30 hover:bg-black/50 text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white"
+          aria-label="Next slide"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+        </button>
+
         <div className="relative container mx-auto px-6 h-full flex flex-col justify-center items-center text-center text-white z-20">
-          <h1 className="text-4xl md:text-5xl font-serif mb-4 animate-fade-in-up">{t(slides[currentSlide].title)}</h1>
-          <p className="text-lg md:text-xl max-w-3xl mb-8 animate-fade-in-up animation-delay-300">{t(slides[currentSlide].subtitle)}</p>
+          <div key={currentSlide} className="w-full">
+            <h1 className="text-4xl md:text-5xl font-serif mb-4 animate-fade-in-up">{t(slides[currentSlide].title)}</h1>
+            <p className="text-lg md:text-xl max-w-3xl mx-auto mb-8 animate-fade-in-up animation-delay-300">{t(slides[currentSlide].subtitle)}</p>
+          </div>
           <Link
             to="/promotion-immobiliere"
             className="bg-transparent border-2 border-white text-white font-bold py-3 px-10 rounded-full hover:bg-white hover:text-brand-primary transition duration-300 text-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brand-dark animate-fade-in-up animation-delay-600"
@@ -54,7 +95,21 @@ const HomePage: React.FC = () => {
             {t('homeCta')}
           </Link>
 
-          <div className="absolute bottom-24 w-full animate-fade-in-up animation-delay-800">
+           {/* Pagination Dots */}
+          <div className="absolute bottom-40 left-1/2 -translate-x-1/2 z-30 flex space-x-3">
+            {slides.map((_, index) => (
+                <button
+                    key={index}
+                    onClick={() => goToSlide(index)}
+                    aria-label={`Go to slide ${index + 1}`}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                        index === currentSlide ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white'
+                    }`}
+                />
+            ))}
+          </div>
+
+          <div className="absolute bottom-24 w-full">
             <MainNavigation />
           </div>
 
@@ -65,6 +120,7 @@ const HomePage: React.FC = () => {
       </div>
 
       <ExpertiseSection />
+      <AboutSection />
       <ProjectsSection />
       <ValuesSection />
       <RseSection />
@@ -74,11 +130,56 @@ const HomePage: React.FC = () => {
   );
 };
 
+const LogoIcon = () => (
+    <svg width="40" height="35" viewBox="0 0 48 42" fill="none" xmlns="http://www.w3.org/2000/svg" className="inline-block h-10 w-auto -mt-1 mr-3" aria-hidden="true">
+        <g>
+            <path d="M30.5 39.5L47 6L14 6L30.5 39.5Z" fill="#003366" />
+            <path d="M17.5 33L31 6H4L17.5 33Z" fill="#FF4500" />
+        </g>
+    </svg>
+);
+
+const AboutSection: React.FC = () => {
+    return (
+        <section className="py-20 bg-white">
+            <div className="container mx-auto px-6">
+                <div className="text-center mb-16">
+                    <h2 className="text-4xl font-bold font-serif text-brand-primary mb-2 uppercase flex items-center justify-center flex-wrap">
+                        <LogoIcon />
+                        <span>QUI SOMMES-NOUS</span>
+                    </h2>
+                    <p className="text-md text-gray-600 italic">
+                        DEPUIS PLUS DE 35 ANS À VOTRE SERVICE
+                    </p>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+                    <div>
+                        <img 
+                            src="https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+                            alt="Ingénieurs SOCABEG planifiant un projet" 
+                            className="rounded-lg shadow-xl w-full h-auto object-cover"
+                        />
+                    </div>
+                    <div className="text-brand-text text-base md:text-lg leading-relaxed">
+                        <p className="mb-6"><strong>SOCABEG s’investit aux côtés des Sénégalais pour réaliser leurs projets immobiliers.</strong></p>
+                        <p className="mb-6">Fondée en 1986 par M. Mamoune SAMB, SOCABEG s'est imposée comme un acteur majeur reconnu dans le domaine de la construction et de la promotion immobilière au Sénégal. Le Groupe SOCABEG exerce aujourd'hui ses activités dans les domaines du BTP, de la Promotion immobilière et le secteur minier.</p>
+                        <p className="mb-6">Elle dispose d'une très grande notoriété dans le paysage des affaires au Sénégal rassemblant les compétences de constructeur bien équipé et aménageur de site avec un très riche savoir-faire acquis dans l'habitat social. SOCABEG a une forte maîtrise de la chaîne de valeur en tant que développeur-constructeur avec une offre verticalisée et une gamme de produits en adéquation avec le marché immobilier sénégalais.</p>
+                        <p className="mb-6">L'entreprise a achevé avec succès de nombreux projets de logements sociaux, de lotissements de terrains à bâtir, la construction de bureaux administratifs, complexes résidentiels, de bâtiments publics pour le compte d'institutions publiques, de coopératives d'habitats et de clients privés. Ces réalisations ont renforcé notre réputation.</p>
+                        <p className="mb-6">Elle promeut la réalisation et l'aménagement d'écoquartiers résidentiels et de loisirs, de bâtiments vertueux pour une meilleure qualité de vie, dans un environnement éco-responsable au bénéfice de ses clients. Elle reste ancrée dans ses valeurs fondamentales : l'intégrité, la recherche de la qualité, l'innovation et la responsabilité sociale, qui guident toutes ses activités et décisions.</p>
+                        <p>En proposant des projets immobiliers novateurs et de qualité, accessibles à un coût raisonnable, elle vise à allier excellence de construction et accessibilité financière. SOCABEG a joué un rôle clé dans l'essor de nouvelles zones urbaines en construisant des milliers de logements sociaux, répondant ainsi aux besoins d'une large part de la population sénégalaise aux revenus variés.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+};
+
 
 const ExpertiseSection: React.FC = () => {
     const { t } = useLocalization();
     return (
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-brand-light">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-4xl font-bold font-serif text-brand-primary mb-4">{t('homeServicesTitle')}</h2>
           <p className="text-lg text-brand-text max-w-3xl mx-auto mb-16">Au cœur de la transformation du Sénégal, SOCABEG déploie son savoir-faire sur trois pôles stratégiques.</p>

@@ -11,13 +11,15 @@ export const content: LocalizedContent = {
   navContact: { [Language.FR]: 'Contact', [Language.EN]: 'Contact' },
 
   // Home Page
-  homeHeroTitle1: { [Language.FR]: "BÂTIR L'AVENIR, ENSEMBLE", [Language.EN]: 'BUILDING THE FUTURE, TOGETHER' },
-  homeHeroSubtitle1: { [Language.FR]: "Acteur majeur du BTP et de la promotion immobilière au Sénégal, nous façonnons les paysages de demain.", [Language.EN]: 'As a major player in construction and real estate in Senegal, we are shaping the landscapes of tomorrow.' },
-  homeHeroTitle2: { [Language.FR]: 'VOTRE VISION, NOTRE SIGNATURE', [Language.EN]: 'YOUR VISION, OUR SIGNATURE' },
-  homeHeroSubtitle2: { [Language.FR]: "De la conception à la réalisation, nous donnons vie à vos projets les plus ambitieux.", [Language.EN]: 'From design to completion, we bring your most ambitious projects to life.' },
-  homeHeroTitle3: { [Language.FR]: 'EXCELLENCE ET RESPONSABILITÉ', [Language.EN]: 'EXCELLENCE AND RESPONSIBILITY' },
-  homeHeroSubtitle3: { [Language.FR]: "Nous nous engageons pour un développement durable et une exploitation minière respectueuse.", [Language.EN]: 'We are committed to sustainable development and responsible mining operations.' },
+  heroSlide1Title: { [Language.EN]: 'Innovation and progress: passionate about your project services.', [Language.FR]: 'Innovation et progrès : passionnés par les services de votre projet.' },
+  heroSlide1Subtitle: { [Language.EN]: 'Prioritization: simplify the acquisition of property for our partners with simple solutions.', [Language.FR]: "Priorité : simplifier l'acquisition de biens immobiliers pour nos partenaires avec des solutions simples." },
   
+  heroSlide2Title: { [Language.EN]: 'Leader in social housing construction in Senegal', [Language.FR]: 'Leader dans la construction de logements sociaux au Sénégal' },
+  heroSlide2Subtitle: { [Language.EN]: 'More than 5,000 homes delivered across the country, shaping the Senegalese urban landscape since 1986.', [Language.FR]: 'Plus de 5 000 logements livrés à travers le pays, façonnant ainsi le paysage urbain sénégalais depuis 1986.' },
+  
+  heroSlide3Title: { [Language.EN]: 'Strong values to build your heritage sustainably', [Language.FR]: 'Des valeurs fortes pour construire durablement votre patrimoine' },
+  heroSlide3Subtitle: { [Language.EN]: 'Committed to a sustainable and quality future, where environmental harmony enriches our community.', [Language.FR]: 'Engagés pour un avenir durable et qualitatif, où l’harmonie environnementale enrichit notre communauté.' },
+
   homeCta: { [Language.FR]: 'Découvrir nos projets', [Language.EN]: 'Discover our projects' },
   homeServicesTitle: { [Language.FR]: 'Nos Domaines d\'Expertise', [Language.EN]: 'Our Areas of Expertise' },
   homeServicesBtpTitle: { [Language.FR]: 'Construction & BTP', [Language.EN]: 'Construction & BTP' },
@@ -94,6 +96,7 @@ export const content: LocalizedContent = {
   email: { [Language.FR]: 'E-mail', [Language.EN]: 'Email' },
   
   // Footer
+  footerDescription: { [Language.FR]: "Acteur majeur du BTP et de la promotion immobilière au Sénégal, nous façonnons les paysages de demain.", [Language.EN]: 'As a major player in construction and real estate in Senegal, we are shaping the landscapes of tomorrow.' },
   footerRights: { [Language.FR]: 'Tous droits réservés.', [Language.EN]: 'All rights reserved.' },
   footerFollow: { [Language.FR]: 'Suivez-nous', [Language.EN]: 'Follow Us' },
 };

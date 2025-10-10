@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLocalization } from '../context/LocalizationContext';
@@ -13,7 +12,7 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <h3 className="text-xl font-serif text-brand-secondary mb-4">SOCABEG</h3>
-            <p className="text-gray-400">{t('homeHeroSubtitle')}</p>
+            <p className="text-gray-400">{t('footerDescription')}</p>
           </div>
           <div>
             <h4 className="font-semibold mb-4">{t('contactInfoTitle')}</h4>
