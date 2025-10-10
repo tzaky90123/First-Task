@@ -17,8 +17,8 @@ export const content: LocalizedContent = {
   heroSlide2Title: { [Language.EN]: 'Leader in social housing construction in Senegal', [Language.FR]: 'Leader dans la construction de logements sociaux au Sénégal' },
   heroSlide2Subtitle: { [Language.EN]: 'More than 5,000 homes delivered across the country, shaping the Senegalese urban landscape since 1986.', [Language.FR]: 'Plus de 5 000 logements livrés à travers le pays, façonnant ainsi le paysage urbain sénégalais depuis 1986.' },
   
-  heroSlide3Title: { [Language.EN]: 'Strong values to build your heritage sustainably', [Language.FR]: 'Des valeurs fortes pour construire durablement votre patrimoine' },
-  heroSlide3Subtitle: { [Language.EN]: 'Committed to a sustainable and quality future, where environmental harmony enriches our community.', [Language.FR]: 'Engagés pour un avenir durable et qualitatif, où l’harmonie environnementale enrichit notre communauté.' },
+  heroSlide3Title: { [Language.EN]: 'The strong values for building a durable home', [Language.FR]: 'Des valeurs fortes pour construire un habitat durable' },
+  heroSlide3Subtitle: { [Language.EN]: 'Engage in a durable and quality creation, or a harmonious environment that enriches the community.', [Language.FR]: "S'engager dans une création durable et de qualité, ou un environnement harmonieux qui enrichit la communauté." },
 
   homeCta: { [Language.FR]: 'Découvrir nos projets', [Language.EN]: 'Discover our projects' },
   homeServicesTitle: { [Language.FR]: 'Nos Domaines d\'Expertise', [Language.EN]: 'Our Areas of Expertise' },

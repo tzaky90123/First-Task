@@ -16,7 +16,7 @@ const slides = [
     subtitle: 'heroSlide2Subtitle',
   },
   {
-    img: 'https://images.pexels.com/photos/774455/pexels-photo-774455.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    img: 'https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     title: 'heroSlide3Title',
     subtitle: 'heroSlide3Subtitle',
   },
