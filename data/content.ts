@@ -11,9 +11,14 @@ export const content: LocalizedContent = {
   navContact: { [Language.FR]: 'Contact', [Language.EN]: 'Contact' },
 
   // Home Page
-  homeHeroTitle: { [Language.FR]: 'Votre Vision, Notre Signature', [Language.EN]: 'Your Vision, Our Signature' },
-  homeHeroSubtitle: { [Language.FR]: "Artisans de l'immobilier de luxe et bâtisseurs d'infrastructures d'envergure au Sénégal.", [Language.EN]: 'Artisans of luxury real estate and builders of major infrastructure in Senegal.' },
-  homeCta: { [Language.FR]: 'Découvrir', [Language.EN]: 'Discover' },
+  homeHeroTitle1: { [Language.FR]: "BÂTIR L'AVENIR, ENSEMBLE", [Language.EN]: 'BUILDING THE FUTURE, TOGETHER' },
+  homeHeroSubtitle1: { [Language.FR]: "Acteur majeur du BTP et de la promotion immobilière au Sénégal, nous façonnons les paysages de demain.", [Language.EN]: 'As a major player in construction and real estate in Senegal, we are shaping the landscapes of tomorrow.' },
+  homeHeroTitle2: { [Language.FR]: 'VOTRE VISION, NOTRE SIGNATURE', [Language.EN]: 'YOUR VISION, OUR SIGNATURE' },
+  homeHeroSubtitle2: { [Language.FR]: "De la conception à la réalisation, nous donnons vie à vos projets les plus ambitieux.", [Language.EN]: 'From design to completion, we bring your most ambitious projects to life.' },
+  homeHeroTitle3: { [Language.FR]: 'EXCELLENCE ET RESPONSABILITÉ', [Language.EN]: 'EXCELLENCE AND RESPONSIBILITY' },
+  homeHeroSubtitle3: { [Language.FR]: "Nous nous engageons pour un développement durable et une exploitation minière respectueuse.", [Language.EN]: 'We are committed to sustainable development and responsible mining operations.' },
+  
+  homeCta: { [Language.FR]: 'Découvrir nos projets', [Language.EN]: 'Discover our projects' },
   homeServicesTitle: { [Language.FR]: 'Nos Domaines d\'Expertise', [Language.EN]: 'Our Areas of Expertise' },
   homeServicesBtpTitle: { [Language.FR]: 'Construction & BTP', [Language.EN]: 'Construction & BTP' },
   homeServicesBtpText: { [Language.FR]: 'Des infrastructures publiques aux projets privés, nous construisons des fondations solides pour le développement.', [Language.EN]: 'From public infrastructure to private projects, we build strong foundations for development.' },
@@ -21,6 +26,21 @@ export const content: LocalizedContent = {
   homeServicesReText: { [Language.FR]: 'Création d\'espaces de vie et de travail modernes, durables et intégrés à leur environnement.', [Language.EN]: 'Creating modern, sustainable living and working spaces integrated into their environment.' },
   homeServicesMinesTitle: { [Language.FR]: 'Opérations Minières', [Language.EN]: 'Mining Operations' },
   homeServicesMinesText: { [Language.FR]: 'Exploitation responsable des ressources naturelles pour soutenir la croissance économique du pays.', [Language.EN]: 'Responsible exploitation of natural resources to support the country\'s economic growth.' },
+  
+  homeProjectsTitle: { [Language.FR]: 'Nos Projets', [Language.EN]: 'Our Projects' },
+  homeValuesTitle: { [Language.FR]: 'Nos Valeurs', [Language.EN]: 'Our Values' },
+
+  homeRseTitle: { [Language.FR]: 'Notre engagement RSE', [Language.EN]: 'Our CSR Commitment' },
+  homeRseText: { [Language.FR]: 'Chez SOCABEG, la Responsabilité Sociétale d\'Entreprise est au cœur de notre stratégie. Nous nous engageons à minimiser notre impact environnemental, à promouvoir le bien-être de nos employés et à investir dans les communautés locales à travers des programmes d\'éducation et de santé.', [Language.EN]: 'At SOCABEG, Corporate Social Responsibility is at the heart of our strategy. We are committed to minimizing our environmental impact, promoting the well-being of our employees, and investing in local communities through education and health programs.' },
+  homeRseCta: { [Language.FR]: 'Lire notre rapport', [Language.EN]: 'Read our report' },
+
+  homeNewsTitle: { [Language.FR]: 'Actualités', [Language.EN]: 'News' },
+  
+  homeContactCtaTitle: { [Language.FR]: 'Un projet en tête ?', [Language.EN]: 'Have a project in mind?' },
+  homeContactCtaText: { [Language.FR]: 'Notre équipe est prête à transformer votre vision en réalité. Contactez-nous pour discuter de vos ambitions.', [Language.EN]: 'Our team is ready to turn your vision into reality. Contact us to discuss your ambitions.' },
+  homeContactCtaButton: { [Language.FR]: 'Contactez-nous', [Language.EN]: 'Contact Us' },
+
+  learnMore: { [Language.FR]: 'En savoir plus', [Language.EN]: 'Learn more' },
 
   // About Page
   aboutHeroTitle: { [Language.FR]: 'Notre Engagement pour le Sénégal', [Language.EN]: 'Our Commitment to Senegal' },

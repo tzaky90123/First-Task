@@ -1,38 +1,59 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocalization } from '../context/LocalizationContext';
 import MainNavigation from '../components/MainNavigation';
 
+const slides = [
+  {
+    img: 'https://images.pexels.com/photos/224924/pexels-photo-224924.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    title: 'homeHeroTitle1',
+    subtitle: 'homeHeroSubtitle1',
+  },
+  {
+    img: 'https://images.pexels.com/photos/1115804/pexels-photo-1115804.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    title: 'homeHeroTitle2',
+    subtitle: 'homeHeroSubtitle2',
+  },
+  {
+    img: 'https://images.pexels.com/photos/774455/pexels-photo-774455.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    title: 'homeHeroTitle3',
+    subtitle: 'homeHeroSubtitle3',
+  },
+];
+
 const HomePage: React.FC = () => {
   const { t } = useLocalization();
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 7000); // Change slide every 7 seconds
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <div>
       {/* Hero Section */}
       <div className="relative h-screen w-full overflow-hidden">
-        <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute top-0 left-0 w-full h-full object-cover z-0"
-            poster="https://picsum.photos/1920/1080?random=1"
-        >
-            <source src="https://videos.pexels.com/video-files/3209828/3209828-hd_1920_1080_25fps.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-        </video>
+        {slides.map((slide, index) => (
+            <div
+                key={index}
+                className="absolute top-0 left-0 w-full h-full bg-cover bg-center transition-opacity duration-1000 ease-in-out"
+                style={{ backgroundImage: `url(${slide.img})`, opacity: index === currentSlide ? 1 : 0 }}
+            />
+        ))}
         <div className="absolute inset-0 bg-brand-dark opacity-50 z-10"></div>
         <div className="relative container mx-auto px-6 h-full flex flex-col justify-center items-center text-center text-white z-20">
-          <h1 className="text-4xl md:text-5xl font-serif mb-4 animate-fade-in-up">{t('homeHeroTitle')}</h1>
-          <p className="text-lg md:text-xl max-w-3xl mb-8 animate-fade-in-up animation-delay-300">{t('homeHeroSubtitle')}</p>
+          <h1 className="text-4xl md:text-5xl font-serif mb-4 animate-fade-in-up">{t(slides[currentSlide].title)}</h1>
+          <p className="text-lg md:text-xl max-w-3xl mb-8 animate-fade-in-up animation-delay-300">{t(slides[currentSlide].subtitle)}</p>
           <Link
-            to="/btp"
+            to="/promotion-immobiliere"
             className="bg-transparent border-2 border-white text-white font-bold py-3 px-10 rounded-full hover:bg-white hover:text-brand-primary transition duration-300 text-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brand-dark animate-fade-in-up animation-delay-600"
           >
             {t('homeCta')}
           </Link>
 
-          {/* New Main Navigation - positioned absolutely near bottom */}
           <div className="absolute bottom-24 w-full animate-fade-in-up animation-delay-800">
             <MainNavigation />
           </div>
@@ -43,11 +64,25 @@ const HomePage: React.FC = () => {
         </div>
       </div>
 
-      {/* Services Section */}
+      <ExpertiseSection />
+      <ProjectsSection />
+      <ValuesSection />
+      <RseSection />
+      <NewsSection />
+      <ContactCtaSection />
+    </div>
+  );
+};
+
+
+const ExpertiseSection: React.FC = () => {
+    const { t } = useLocalization();
+    return (
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold font-serif text-brand-primary mb-12">{t('homeServicesTitle')}</h2>
-          <div className="grid md:grid-cols-3 gap-12">
+          <h2 className="text-4xl font-bold font-serif text-brand-primary mb-4">{t('homeServicesTitle')}</h2>
+          <p className="text-lg text-brand-text max-w-3xl mx-auto mb-16">Au cœur de la transformation du Sénégal, SOCABEG déploie son savoir-faire sur trois pôles stratégiques.</p>
+          <div className="grid md:grid-cols-3 gap-8">
             <ServiceCard
               icon={<IconBuilding />}
               title={t('homeServicesBtpTitle')}
@@ -69,9 +104,127 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </section>
-    </div>
+    );
+}
+
+const ProjectsSection: React.FC = () => {
+  const { t } = useLocalization();
+  const projects = [
+    { image: 'https://picsum.photos/600/400?random=11', title: "Cité des affaires de Diamniadio", category: "Promotion Immobilière"},
+    { image: 'https://picsum.photos/600/400?random=6', title: "Pont de l'Avenir", category: "BTP"},
+    { image: 'https://picsum.photos/600/400?random=12', title: "Résidences Teranga", category: "Promotion Immobilière"},
+    { image: 'https://picsum.photos/600/400?random=16', title: "Mine d'Or de Sabodala", category: "Mines"},
+  ];
+  return (
+    <section className="py-20 bg-brand-light">
+      <div className="container mx-auto px-6 text-center">
+        <h2 className="text-4xl font-bold font-serif text-brand-primary mb-12">{t('homeProjectsTitle')}</h2>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {projects.map(p => (
+            <div key={p.title} className="bg-white rounded-lg shadow-lg overflow-hidden group">
+              <img src={p.image} alt={p.title} className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" />
+              <div className="p-6">
+                  <p className="text-sm text-brand-secondary font-semibold uppercase">{p.category}</p>
+                  <h3 className="text-xl font-bold text-brand-primary mt-1">{p.title}</h3>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
+}
+
+const ValuesSection: React.FC = () => {
+    const { t } = useLocalization();
+    const values = ['valueExcellence', 'valueIntegrity', 'valueSustainability', 'valueCommunity'];
+    return (
+        <section className="py-20 bg-white">
+            <div className="container mx-auto px-6 text-center">
+                <h2 className="text-4xl font-bold font-serif text-brand-primary mb-12">{t('homeValuesTitle')}</h2>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    {values.map(valueKey => (
+                        <div key={valueKey} className="bg-brand-light p-8 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                            <h3 className="text-2xl font-semibold text-brand-primary">{t(valueKey)}</h3>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
 };
+
+const RseSection: React.FC = () => {
+    const { t } = useLocalization();
+    return (
+        <section className="py-20 bg-brand-light">
+            <div className="container mx-auto px-6">
+                <div className="grid md:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <img src="https://picsum.photos/800/600?random=20" alt="Engagement communautaire" className="rounded-lg shadow-xl"/>
+                    </div>
+                    <div>
+                        <h2 className="text-3xl font-bold font-serif text-brand-primary mb-4">{t('homeRseTitle')}</h2>
+                        <p className="text-lg text-brand-text leading-relaxed mb-6">{t('homeRseText')}</p>
+                        <Link to="/a-propos" className="font-semibold text-brand-secondary hover:underline text-lg">
+                            {t('homeRseCta')} &rarr;
+                        </Link>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+};
+
+const NewsSection: React.FC = () => {
+    const { t } = useLocalization();
+    const newsItems = [
+      { image: 'https://picsum.photos/600/400?random=22', title: "SOCABEG lance un nouveau programme de logements sociaux", date: "15 Octobre 2024"},
+      { image: 'https://picsum.photos/600/400?random=23', title: "Certification ISO 9001 obtenue pour nos opérations BTP", date: "02 Septembre 2024"},
+      { image: 'https://picsum.photos/600/400?random=24', title: "Partenariat pour la formation des jeunes aux métiers du BTP", date: "28 Juillet 2024"},
+    ];
+    return (
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="text-4xl font-bold font-serif text-brand-primary mb-12">{t('homeNewsTitle')}</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {newsItems.map(item => (
+              <div key={item.title} className="bg-white rounded-lg shadow-lg overflow-hidden text-left">
+                  <img src={item.image} alt={item.title} className="w-full h-48 object-cover" />
+                  <div className="p-6">
+                      <p className="text-sm text-gray-500 mb-2">{item.date}</p>
+                      <h3 className="text-xl font-bold text-brand-primary mb-4 h-24">{item.title}</h3>
+                      <Link to="#" className="font-semibold text-brand-secondary hover:underline">
+                          Lire la suite
+                      </Link>
+                  </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+};
+
+const ContactCtaSection: React.FC = () => {
+    const { t } = useLocalization();
+    return (
+        <section className="bg-brand-primary text-white">
+            <div className="container mx-auto px-6 py-20 text-center">
+                <h2 className="text-4xl font-serif font-bold mb-4">{t('homeContactCtaTitle')}</h2>
+                <p className="text-lg max-w-2xl mx-auto mb-8">{t('homeContactCtaText')}</p>
+                <Link
+                    to="/contact"
+                    className="bg-brand-secondary text-brand-primary font-bold py-4 px-12 rounded-full hover:bg-yellow-400 transition duration-300 text-lg focus:outline-none focus:ring-2 focus:ring-brand-secondary focus:ring-offset-2 focus:ring-offset-brand-primary"
+                >
+                    {t('homeContactCtaButton')}
+                </Link>
+            </div>
+        </section>
+    );
+};
+
+// --- Helper Components ---
 
 interface ServiceCardProps {
     icon: React.ReactNode;
@@ -81,13 +234,14 @@ interface ServiceCardProps {
 }
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, linkTo }) => {
+    const { t } = useLocalization();
     return (
-        <div className="bg-brand-light p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+        <div className="bg-brand-light p-8 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
             <div className="text-brand-secondary mx-auto mb-6 h-16 w-16 flex items-center justify-center">{icon}</div>
             <h3 className="text-2xl font-bold font-serif text-brand-primary mb-4">{title}</h3>
             <p className="text-brand-text mb-6">{description}</p>
             <Link to={linkTo} className="font-semibold text-brand-secondary hover:underline">
-                En savoir plus
+                {t('learnMore')}
             </Link>
         </div>
     )
