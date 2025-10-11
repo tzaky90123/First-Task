@@ -156,16 +156,17 @@ const SectionLogoIcon = ({ className }: { className?: string }) => (
 
 
 const AboutSection: React.FC = () => {
+    const { t } = useLocalization();
     return (
         <section className="py-20 bg-white">
             <div className="container mx-auto px-5 lg:px-20">
                 <div className="text-center mb-16">
                     <h3 className="text-sm font-semibold text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
                         <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
-                        <span>QUI SOMMES-NOUS</span>
+                        <span>{t('homeAboutSectionTitle')}</span>
                     </h3>
                     <p className="text-3xl md:text-4xl font-bold font-serif text-brand-dark">
-                        DEPUIS PLUS DE 35 ANS À VOTRE SERVICE
+                        {t('homeAboutSectionHeadline')}
                     </p>
                 </div>
 
@@ -178,12 +179,12 @@ const AboutSection: React.FC = () => {
                         />
                     </div>
                     <div className="text-brand-text text-base md:text-lg leading-relaxed">
-                        <p className="mb-6"><strong>SOCABEG s’investit aux côtés des Sénégalais pour réaliser leurs projets immobiliers.</strong></p>
-                        <p className="mb-6">Fondée en 1986 par M. Mamoune SAMB, SOCABEG s'est imposée comme un acteur majeur reconnu dans le domaine de la construction et de la promotion immobilière au Sénégal. Le Groupe SOCABEG exerce aujourd'hui ses activités dans les domaines du BTP, de la Promotion immobilière et le secteur minier.</p>
-                        <p className="mb-6">Elle dispose d'une très grande notoriété dans le paysage des affaires au Sénégal rassemblant les compétences de constructeur bien équipé et aménageur de site avec un très riche savoir-faire acquis dans l'habitat social. SOCABEG a une forte maîtrise de la chaîne de valeur en tant que développeur-constructeur avec une offre verticalisée et une gamme de produits en adéquation avec le marché immobilier sénégalais.</p>
-                        <p className="mb-6">L'entreprise a achevé avec succès de nombreux projets de logements sociaux, de lotissements de terrains à bâtir, la construction de bureaux administratifs, complexes résidentiels, de bâtiments publics pour le compte d'institutions publiques, de coopératives d'habitats et de clients privés. Ces réalisations ont renforcé notre réputation.</p>
-                        <p className="mb-6">Elle promeut la réalisation et l'aménagement d'écoquartiers résidentiels et de loisirs, de bâtiments vertueux pour une meilleure qualité de vie, dans un environnement éco-responsable au bénéfice de ses clients. Elle reste ancrée dans ses valeurs fondamentales : l'intégrité, la recherche de la qualité, l'innovation et la responsabilité sociale, qui guident toutes ses activités et décisions.</p>
-                        <p>En proposant des projets immobiliers novateurs et de qualité, accessibles à un coût raisonnable, elle vise à allier excellence de construction et accessibilité financière. SOCABEG a joué un rôle clé dans l'essor de nouvelles zones urbaines en construisant des milliers de logements sociaux, répondant ainsi aux besoins d'une large part de la population sénégalaise aux revenus variés.</p>
+                        <p className="mb-6" dangerouslySetInnerHTML={{ __html: t('homeAboutP1') }} />
+                        <p className="mb-6" dangerouslySetInnerHTML={{ __html: t('homeAboutP2') }} />
+                        <p className="mb-6" dangerouslySetInnerHTML={{ __html: t('homeAboutP3') }} />
+                        <p className="mb-6" dangerouslySetInnerHTML={{ __html: t('homeAboutP4') }} />
+                        <p className="mb-6" dangerouslySetInnerHTML={{ __html: t('homeAboutP5') }} />
+                        <p dangerouslySetInnerHTML={{ __html: t('homeAboutP6') }} />
                     </div>
                 </div>
             </div>
@@ -283,18 +284,17 @@ const MasterpiecesSection: React.FC = () => {
 };
 
 const StatisticsIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-    </svg>
+    <img src="https://socabeg.com/favicon.png" alt="" className="h-5 w-5 mr-2" aria-hidden="true" />
 );
 
 const StatisticsSection: React.FC = () => {
+    const { t } = useLocalization();
     const stats = [
-        { value: "+ 2,000", label: "Parcelles viabilisées et terrains nus" },
-        { value: "02", label: "Filiales: Keur Invest & SOCABEG Mining" },
-        { value: "+ 150", label: "Collaborateurs" },
-        { value: "+ 200 km", label: "Voiries et réseaux divers réalisés" },
-        { value: "+ 100 ha", label: "D'assiettes foncières" }
+        { value: "+ 2,000", labelKey: "stat1Label" },
+        { value: "02", labelKey: "stat2Label" },
+        { value: "+ 150", labelKey: "stat3Label" },
+        { value: "+ 200 km", labelKey: "stat4Label" },
+        { value: "+ 100 ha", labelKey: "stat5Label" }
     ];
 
     return (
@@ -303,17 +303,17 @@ const StatisticsSection: React.FC = () => {
                 <div className="text-center mb-16">
                     <h3 className="text-sm font-semibold text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
                         <StatisticsIcon />
-                        <span>CHIFFRES-CLÉS</span>
+                        <span>{t('statisticsSectionTitle')}</span>
                     </h3>
                     <h2 className="text-3xl md:text-4xl font-bold font-serif text-brand-dark">
-                        NOTRE IMPACT
+                        {t('statisticsSectionHeadline')}
                     </h2>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 text-center">
                     {stats.map((stat, index) => (
                         <div key={index} className="animate-fade-in-up" style={{ animationDelay: `${index * 150}ms` }}>
                             <p className="text-4xl lg:text-5xl font-bold text-brand-secondary font-serif">{stat.value}</p>
-                            <p className="text-brand-text mt-2">{stat.label}</p>
+                            <p className="text-brand-text mt-2">{t(stat.labelKey)}</p>
                         </div>
                     ))}
                 </div>
@@ -323,30 +323,31 @@ const StatisticsSection: React.FC = () => {
 };
 
 const WhyChooseUsSection: React.FC = () => {
+    const { t } = useLocalization();
     const values = [
         {
-            title: "Expérience reconnue",
-            description: "Plus de 35 ans d’activité dans le BTP et l’immobilier au Sénégal, avec des milliers de logements livrés."
+            titleKey: "value1Title",
+            descriptionKey: "value1Desc"
         },
         {
-            title: "Maîtrise des projets",
-            description: "Une expertise complète du cycle de construction : études, réalisation, viabilisation, commercialisation."
+            titleKey: "value2Title",
+            descriptionKey: "value2Desc"
         },
         {
-            title: "Responsabilité durable",
-            description: "Techniques modernes à faible empreinte carbone et formation de la main-d’œuvre locale."
+            titleKey: "value3Title",
+            descriptionKey: "value3Desc"
         },
         {
-            title: "Innovation technique",
-            description: "BIM, ERP BTP, Geoplast® coffrages, usine de préfabrication… SOCABEG investit dans la modernité."
+            titleKey: "value4Title",
+            descriptionKey: "value4Desc"
         },
         {
-            title: "Projets emblématiques",
-            description: "Tivaouane Peulh, HLM Castor, Darou Salam, Cité IPRES… des projets qui transforment la ville."
+            titleKey: "value5Title",
+            descriptionKey: "value5Desc"
         },
         {
-            title: "Confiance et proximité",
-            description: "Entreprise 100 % sénégalaise à taille humaine, proche de ses clients et de leurs besoins."
+            titleKey: "value6Title",
+            descriptionKey: "value6Desc"
         }
     ];
 
@@ -356,17 +357,17 @@ const WhyChooseUsSection: React.FC = () => {
                 <div className="text-center mb-16">
                     <h3 className="text-sm font-semibold text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
                         <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
-                        <span>POURQUOI NOUS CHOISIR</span>
+                        <span>{t('whyChooseUsSectionTitle')}</span>
                     </h3>
                     <h2 className="text-3xl md:text-4xl font-bold font-serif text-brand-dark">
-                        NOTRE VALEUR AJOUTÉE
+                        {t('whyChooseUsSectionHeadline')}
                     </h2>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {values.map((value, index) => (
                         <div key={index} className="bg-brand-light p-8 rounded-lg shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
-                            <h3 className="text-xl font-bold text-brand-primary mb-3 font-serif">{value.title}</h3>
-                            <p className="text-brand-text text-sm leading-relaxed">{value.description}</p>
+                            <h3 className="text-xl font-bold text-brand-primary mb-3 font-serif">{t(value.titleKey)}</h3>
+                            <p className="text-brand-text text-sm leading-relaxed">{t(value.descriptionKey)}</p>
                         </div>
                     ))}
                 </div>
@@ -377,48 +378,49 @@ const WhyChooseUsSection: React.FC = () => {
 
 const IconBed = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1.5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" /></svg>;
 const IconBath = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1.5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" /></svg>;
-const IconArea = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1.5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 0h-4m4 0l-5-5" /></svg>;
+const IconArea = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1.5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5-5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 0h-4m4 0l-5-5" /></svg>;
 const IconLocation = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1.5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>;
 
 const ProgramSection: React.FC = () => {
+    const { t } = useLocalization();
     const programs = [
         {
             image: 'https://socabeg.com/images/balena.jpg',
-            title: 'Les Résidences BALENA – Almadies',
-            type: 'Villa R+1 – 500 m²',
+            titleKey: 'program1Title',
+            typeKey: 'program1Type',
             details: [
-                { icon: <IconBed />, text: '5 Ch.' },
-                { icon: <IconBath />, text: '4 Sdb' },
-                { icon: <IconArea />, text: '500 m²' },
-                { icon: <IconLocation />, text: 'ALMADIES' },
+                { icon: <IconBed />, textKey: 'program1Bedrooms' },
+                { icon: <IconBath />, textKey: 'program1Bathrooms' },
+                { icon: <IconArea />, textKey: 'program1Area' },
+                { icon: <IconLocation />, textKey: 'program1Location' },
             ],
-            description: 'Situé dans le quartier huppé des Almadies, ce programme immobilier d\'exception allie luxe et durabilité. Les villas spac...',
-            price: 'PRIX : NOUS CONSULTER',
+            descriptionKey: 'program1Desc',
+            priceKey: 'program1Price',
         },
         {
             image: 'https://socabeg.com/images/hlm.jpg',
-            title: '105 Magasins à vendre – HLM 5',
-            type: 'Magasin – 12 m²',
+            titleKey: 'program2Title',
+            typeKey: 'program2Type',
             details: [
-                { icon: <IconBath />, text: '1 Sdb' },
-                { icon: <IconArea />, text: '12 m²' },
-                { icon: <IconLocation />, text: 'HLM 5' },
+                { icon: <IconBath />, textKey: 'program2Bathrooms' },
+                { icon: <IconArea />, textKey: 'program2Area' },
+                { icon: <IconLocation />, textKey: 'program2Location' },
             ],
-            description: 'Idéalement situés dans le quartier dynamique de HLM 5, ces 105 locaux commerciaux de 12 m² chacun représentent une oppor...',
-            price: 'À PARTIR DE 15 000 000 FCFA',
+            descriptionKey: 'program2Desc',
+            priceKey: 'program2Price',
         },
         {
             image: 'https://socabeg.com/images/lac.jpg',
-            title: 'Logements F3 – Niague Lac Rose',
-            type: 'Apartment – 75 m²',
+            titleKey: 'program3Title',
+            typeKey: 'program3Type',
             details: [
-                { icon: <IconBed />, text: '2 Ch.' },
-                { icon: <IconBath />, text: '1 Sdb' },
-                { icon: <IconArea />, text: '75 m²' },
-                { icon: <IconLocation />, text: 'NIAGUE' },
+                { icon: <IconBed />, textKey: 'program3Bedrooms' },
+                { icon: <IconBath />, textKey: 'program3Bathrooms' },
+                { icon: <IconArea />, textKey: 'program3Area' },
+                { icon: <IconLocation />, textKey: 'program3Location' },
             ],
-            description: 'À quelques minutes du célèbre Lac Rose, ce programme de logements F3 allie confort et authenticité. Les appartements de...',
-            price: 'À PARTIR DE 17 000 000 FCFA',
+            descriptionKey: 'program3Desc',
+            priceKey: 'program3Price',
         },
     ];
 
@@ -428,36 +430,36 @@ const ProgramSection: React.FC = () => {
                 <div className="text-center mb-16">
                     <h3 className="text-sm font-semibold text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
                         <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
-                        <span>NOS RÉALISATIONS</span>
+                        <span>{t('programsSectionTitle')}</span>
                     </h3>
                     <h2 className="text-3xl md:text-4xl font-bold font-serif text-brand-dark">
-                        PROGRAMMES À LA UNE
+                        {t('programsSectionHeadline')}
                     </h2>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {programs.map((program, index) => (
                         <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
-                            <img src={program.image} alt={program.title} className="w-full h-56 object-cover" />
+                            <img src={program.image} alt={t(program.titleKey)} className="w-full h-56 object-cover" />
                             <div className="p-6 flex flex-col flex-grow">
-                                <h3 className="text-lg font-bold text-brand-primary font-serif">{program.title}</h3>
-                                <p className="text-xs text-gray-500 mb-3">{program.type}</p>
+                                <h3 className="text-lg font-bold text-brand-primary font-serif">{t(program.titleKey)}</h3>
+                                <p className="text-xs text-gray-500 mb-3">{t(program.typeKey)}</p>
                                 
                                 <div className="flex flex-wrap items-center text-xs text-gray-600 mb-4 border-y py-2">
                                     {program.details.map((detail, i) => (
-                                        <span key={i} className="flex items-center mr-4 mb-1">{detail.icon}{detail.text}</span>
+                                        <span key={i} className="flex items-center mr-4 mb-1">{detail.icon}{t(detail.textKey)}</span>
                                     ))}
                                 </div>
                                 
-                                <p className="text-brand-text text-sm leading-relaxed mb-4 flex-grow">{program.description}</p>
+                                <p className="text-brand-text text-sm leading-relaxed mb-4 flex-grow">{t(program.descriptionKey)}</p>
 
                                 <div className="mt-auto">
-                                    <p className="font-semibold text-brand-secondary text-sm mb-4">{program.price}</p>
+                                    <p className="font-semibold text-brand-secondary text-sm mb-4">{t(program.priceKey)}</p>
                                     <div className="flex flex-col sm:flex-row sm:space-x-2 space-y-2 sm:space-y-0 text-sm">
                                         <Link to="#" className="w-full text-center px-4 py-2 rounded-full bg-brand-primary text-white font-semibold hover:bg-opacity-90 transition">
-                                            View the details
+                                            {t('programDetailsButton')}
                                         </Link>
                                         <Link to="/contact" className="w-full text-center px-4 py-2 rounded-full bg-gray-200 text-brand-primary font-semibold hover:bg-gray-300 transition">
-                                            Nous Contacter
+                                            {t('programContactButton')}
                                         </Link>
                                     </div>
                                 </div>
@@ -471,13 +473,14 @@ const ProgramSection: React.FC = () => {
 };
 
 const TestimonialsSection: React.FC = () => {
+    const { t } = useLocalization();
     const testimonials = [
-        { quote: "SOCABEG nous a accompagnés du début à la fin du projet avec un professionnalisme exceptionnel. Leur équipe a su allier qualité, rigueur et respect des délais.", name: "Mamadou Diallo" },
-        { quote: "Une expérience très positive, des solutions innovantes et un suivi de chantier exemplaire. SOCABEG est un partenaire de confiance.", name: "Fatou Ndiaye, Architecte" },
-        { quote: "Leur maîtrise du secteur immobilier au Sénégal est incontestable. Ils ont su nous guider pour un investissement sûr et rentable.", name: "Ibrahima Sow, Investisseur" },
-        { quote: "La qualité de construction des résidences est remarquable. Nous sommes ravis de notre nouvelle maison, qui a dépassé toutes nos attentes.", name: "Aïssatou Gueye" },
-        { quote: "En tant que coopérative d'habitat, nous avons trouvé en SOCABEG un partenaire fiable et à l'écoute, qui a su concrétiser le rêve de nos membres.", name: "Ousmane Camara, Président Coopérative" },
-        { quote: "Leur engagement pour le développement durable et l'utilisation de techniques modernes nous ont convaincus. Un vrai bâtisseur d'avenir.", name: "Mariama Ba" }
+        { quoteKey: "testimonial1Quote", nameKey: "testimonial1Name" },
+        { quoteKey: "testimonial2Quote", nameKey: "testimonial2Name" },
+        { quoteKey: "testimonial3Quote", nameKey: "testimonial3Name" },
+        { quoteKey: "testimonial4Quote", nameKey: "testimonial4Name" },
+        { quoteKey: "testimonial5Quote", nameKey: "testimonial5Name" },
+        { quoteKey: "testimonial6Quote", nameKey: "testimonial6Name" }
     ];
 
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -515,10 +518,10 @@ const TestimonialsSection: React.FC = () => {
                 <div className="text-center mb-16">
                     <h3 className="text-sm font-semibold text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
                         <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
-                        <span>TÉMOIGNAGES</span>
+                        <span>{t('testimonialsSectionTitle')}</span>
                     </h3>
                     <h2 className="text-3xl md:text-4xl font-bold font-serif text-brand-dark">
-                        ILS NOUS FONT CONFIANCE
+                        {t('testimonialsSectionHeadline')}
                     </h2>
                 </div>
                 <div className="relative">
@@ -529,20 +532,20 @@ const TestimonialsSection: React.FC = () => {
                                     <div className="bg-brand-light p-8 md:p-12 rounded-lg shadow-sm max-w-3xl mx-auto text-center">
                                         <svg className="w-10 h-10 text-brand-secondary mx-auto mb-4" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true"><path d="M9.333 8h-5.333v8h5.333c0-4.418 3.582-8 8-8v-5.333c-7.364 0-13.333 5.97-13.333 13.333v10.667h13.333v-10.667h-8v-6zM29.333 8h-5.333v8h5.333c0-4.418 3.582-8 8-8v-5.333c-7.364 0-13.333 5.97-13.333 13.333v10.667h13.333v-10.667h-8v-6z"></path></svg>
                                         <blockquote className="text-lg text-brand-text italic leading-relaxed mb-6">
-                                            “{testimonial.quote}”
+                                            “{t(testimonial.quoteKey)}”
                                         </blockquote>
                                         <cite className="not-italic font-semibold text-brand-primary font-serif">
-                                            — {testimonial.name}
+                                            — {t(testimonial.nameKey)}
                                         </cite>
                                     </div>
                                 </div>
                             ))}
                         </div>
                     </div>
-                     <button onClick={goPrev} className="absolute top-1/2 -translate-y-1/2 left-0 md:-left-10 text-brand-primary bg-white/50 hover:bg-white rounded-full p-3 shadow-md focus:outline-none focus:ring-2 focus:ring-brand-secondary transition" aria-label="Previous testimonial">
+                     <button onClick={goPrev} className="absolute top-1/2 -translate-y-1/2 left-0 md:-left-10 text-brand-primary bg-white/50 hover:bg-white rounded-full p-3 shadow-md focus:outline-none focus:ring-2 focus:ring-brand-secondary transition" aria-label={t('prevTestimonialAria')}>
                         <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
                     </button>
-                    <button onClick={goNext} className="absolute top-1/2 -translate-y-1/2 right-0 md:-right-10 text-brand-primary bg-white/50 hover:bg-white rounded-full p-3 shadow-md focus:outline-none focus:ring-2 focus:ring-brand-secondary transition" aria-label="Next testimonial">
+                    <button onClick={goNext} className="absolute top-1/2 -translate-y-1/2 right-0 md:-right-10 text-brand-primary bg-white/50 hover:bg-white rounded-full p-3 shadow-md focus:outline-none focus:ring-2 focus:ring-brand-secondary transition" aria-label={t('nextTestimonialAria')}>
                         <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                     </button>
                 </div>
@@ -552,6 +555,7 @@ const TestimonialsSection: React.FC = () => {
 };
 
 const PartnerSection: React.FC = () => {
+    const { t } = useLocalization();
     const partners = [
         { name: 'BHS', src: 'https://socabeg.com/partners/bhs.png' },
         { name: 'Geoplast', src: 'https://socabeg.com/partners/geoplast.png' },
@@ -572,10 +576,10 @@ const PartnerSection: React.FC = () => {
                 <div className="text-center mb-16">
                     <h3 className="text-sm font-semibold text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
                         <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
-                        <span>NOS PARTENAIRES</span>
+                        <span>{t('partnersSectionTitle')}</span>
                     </h3>
                     <h2 className="text-3xl md:text-4xl font-bold font-serif text-brand-dark">
-                        ENSEMBLE, NOUS CRÉONS DES OPPORTUNITÉS
+                        {t('partnersSectionHeadline')}
                     </h2>
                 </div>
                 <div className="logo-scroller">
@@ -605,7 +609,7 @@ const ExpertiseSection: React.FC = () => {
           <h2 className="text-4xl font-bold font-serif text-brand-primary mb-4">
             {t('homeServicesTitle')}
           </h2>
-          <p className="text-base text-brand-text max-w-3xl mx-auto mb-16">Au cœur de la transformation du Sénégal, SOCABEG déploie son savoir-faire sur trois pôles stratégiques.</p>
+          <p className="text-base text-brand-text max-w-3xl mx-auto mb-16">{t('homeExpertiseSubtitle')}</p>
           <div className="grid md:grid-cols-3 gap-8">
             <ServiceCard
               icon={<IconBuilding />}

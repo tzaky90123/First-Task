@@ -1,5 +1,5 @@
 
-import React, { createContext, useState, useContext, ReactNode, useCallback } from 'react';
+import React, { createContext, useState, useContext, ReactNode, useCallback, useEffect } from 'react';
 import { Language } from '../types';
 import { content } from '../data/content';
 
@@ -12,7 +12,14 @@ interface LocalizationContextType {
 const LocalizationContext = createContext<LocalizationContextType | undefined>(undefined);
 
 export const LocalizationProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>(Language.FR);
+  const [language, setLanguage] = useState<Language>(() => {
+    const storedLang = localStorage.getItem('socabeg_lang');
+    return (storedLang as Language) || Language.FR;
+  });
+
+  useEffect(() => {
+    localStorage.setItem('socabeg_lang', language);
+  }, [language]);
 
   const t = useCallback((key: string): string => {
     return content[key]?.[language] || key;

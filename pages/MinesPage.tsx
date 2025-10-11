@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useLocalization } from '../context/LocalizationContext';
 import PageHero from '../components/PageHero';
@@ -25,11 +26,11 @@ const MinesPage: React.FC = () => {
       </section>
       <section className="py-20 bg-brand-light">
           <div className="container mx-auto px-6">
-              <h2 className="text-4xl font-bold font-serif text-brand-primary mb-12 text-center">Nos Opérations</h2>
+              <h2 className="text-4xl font-bold font-serif text-brand-primary mb-12 text-center">{t('minesProjectsTitle')}</h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  <ProjectCard image="https://picsum.photos/600/400?random=16" title="Mine d'Or de Sabodala" description="Participation à l'une des plus grandes exploitations aurifères d'Afrique de l'Ouest." />
-                  <ProjectCard image="https://picsum.photos/600/400?random=17" title="Phosphates de Taïba" description="Extraction et valorisation des phosphates, un pilier de l'économie." />
-                  <ProjectCard image="https://picsum.photos/600/400?random=18" title="Zircon de Grande Côte" description="Exploitation de sables minéralisés pour les marchés internationaux." />
+                  <ProjectCard image="https://picsum.photos/600/400?random=16" title={t('minesProject1Title')} description={t('minesProject1Desc')} />
+                  <ProjectCard image="https://picsum.photos/600/400?random=17" title={t('minesProject2Title')} description={t('minesProject2Desc')} />
+                  <ProjectCard image="https://picsum.photos/600/400?random=18" title={t('minesProject3Title')} description={t('minesProject3Desc')} />
               </div>
           </div>
       </section>

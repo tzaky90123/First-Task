@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useLocalization } from '../context/LocalizationContext';
 import PageHero from '../components/PageHero';
@@ -25,11 +26,11 @@ const RealEstatePage: React.FC = () => {
       </section>
        <section className="py-20 bg-brand-light">
           <div className="container mx-auto px-6">
-              <h2 className="text-4xl font-bold font-serif text-brand-primary mb-12 text-center">Nos Programmes Immobiliers</h2>
+              <h2 className="text-4xl font-bold font-serif text-brand-primary mb-12 text-center">{t('reProjectsTitle')}</h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  <ProjectCard image="https://picsum.photos/600/400?random=11" title="Les Résidences Teranga" description="Appartements haut standing au coeur de Dakar." />
-                  <ProjectCard image="https://picsum.photos/600/400?random=12" title="Cité de l'Émergence" description="Un nouveau quartier d'affaires et résidentiel moderne." />
-                  <ProjectCard image="https://picsum.photos/600/400?random=13" title="Villas de Saly" description="Des villas de luxe en bord de mer sur la Petite Côte." />
+                  <ProjectCard image="https://picsum.photos/600/400?random=11" title={t('reProject1Title')} description={t('reProject1Desc')} />
+                  <ProjectCard image="https://picsum.photos/600/400?random=12" title={t('reProject2Title')} description={t('reProject2Desc')} />
+                  <ProjectCard image="https://picsum.photos/600/400?random=13" title={t('reProject3Title')} description={t('reProject3Desc')} />
               </div>
           </div>
       </section>

@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useLocalization } from '../context/LocalizationContext';
 import PageHero from '../components/PageHero';
@@ -11,12 +12,11 @@ const ContactPage: React.FC = () => {
     setFormState(prevState => ({ ...prevState, [name]: value }));
   };
 
-  // Fix: Corrected typo from FormEvert to FormEvent.
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission logic here
     console.log('Form submitted:', formState);
-    alert('Message envoyé !');
+    alert(t('contactFormSuccess'));
   };
 
   return (

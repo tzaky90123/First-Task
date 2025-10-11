@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLocalization } from '../context/LocalizationContext';
@@ -17,13 +18,13 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="font-semibold mb-4">{t('contactInfoTitle')}</h4>
             <ul className="space-y-2 text-gray-400">
-              <li>{t('address')}: 123 Rue de Dakar, Sénégal</li>
-              <li>{t('phone')}: +221 33 800 00 00</li>
-              <li>{t('email')}: contact@socabeg.sn</li>
+              <li><strong>{t('address')}:</strong> 123 Rue de Dakar, Sénégal</li>
+              <li><strong>{t('phone')}:</strong> +221 33 800 00 00</li>
+              <li><strong>{t('email')}:</strong> contact@socabeg.sn</li>
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold mb-4">Liens Rapides</h4>
+            <h4 className="font-semibold mb-4">{t('footerQuickLinks')}</h4>
             <ul className="space-y-2 text-gray-400">
               <li><Link to="/a-propos" className="hover:text-brand-secondary transition-colors">{t('navAbout')}</Link></li>
               <li><Link to="/btp" className="hover:text-brand-secondary transition-colors">{t('navBTP')}</Link></li>
@@ -34,9 +35,9 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="font-semibold mb-4">{t('footerFollow')}</h4>
             <div className="flex space-x-4">
-              <a href="#" aria-label="LinkedIn" className="text-gray-400 hover:text-brand-secondary transition-colors"><IconLinkedin /></a>
-              <a href="#" aria-label="Twitter" className="text-gray-400 hover:text-brand-secondary transition-colors"><IconTwitter /></a>
-              <a href="#" aria-label="Facebook" className="text-gray-400 hover:text-brand-secondary transition-colors"><IconFacebook /></a>
+              <a href="#" aria-label={t('ariaLinkedin')} className="text-gray-400 hover:text-brand-secondary transition-colors"><IconLinkedin /></a>
+              <a href="#" aria-label={t('ariaTwitter')} className="text-gray-400 hover:text-brand-secondary transition-colors"><IconTwitter /></a>
+              <a href="#" aria-label={t('ariaFacebook')} className="text-gray-400 hover:text-brand-secondary transition-colors"><IconFacebook /></a>
             </div>
           </div>
         </div>

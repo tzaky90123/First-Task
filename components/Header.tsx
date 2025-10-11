@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { NavLink as RouterNavLink } from 'react-router-dom';
 import { useLocalization } from '../context/LocalizationContext';
@@ -47,13 +48,13 @@ const Header: React.FC = () => {
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="flex items-center space-x-3 text-white focus:outline-none focus:ring-2 focus:ring-brand-secondary/70 rounded-md p-1"
-              aria-label="Toggle menu"
+              aria-label={t('headerToggleMenuAria')}
               aria-expanded={isMenuOpen}
             >
               <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16"></path>
               </svg>
-              <span className="hidden md:inline text-sm uppercase tracking-wider font-semibold">Menu</span>
+              <span className="hidden md:inline text-sm uppercase tracking-wider font-semibold">{t('headerMenuLabel')}</span>
             </button>
           </div>
 
@@ -96,7 +97,7 @@ const Header: React.FC = () => {
             <button
                 onClick={() => setIsMenuOpen(false)}
                 className="absolute top-7 right-6 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-gray-500 rounded-full p-1"
-                aria-label="Close menu"
+                aria-label={t('headerCloseMenuAria')}
             >
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -131,14 +132,14 @@ const Header: React.FC = () => {
 };
 
 const LanguageSwitcher: React.FC = () => {
-    const { language, setLanguage } = useLocalization();
+    const { language, setLanguage, t } = useLocalization();
 
     return (
         <div className="flex items-center justify-center text-sm space-x-2">
             <button
                 onClick={() => setLanguage(Language.FR)}
                 className={`px-1 py-1 transition-colors duration-300 uppercase ${language === Language.FR ? 'text-white font-semibold' : 'text-gray-400 hover:text-white'}`}
-                aria-label="Switch to French"
+                aria-label={t('langSwitchFR')}
             >
                 Français
             </button>
@@ -146,7 +147,7 @@ const LanguageSwitcher: React.FC = () => {
              <button
                 onClick={() => setLanguage(Language.EN)}
                 className={`px-1 py-1 transition-colors duration-300 uppercase ${language === Language.EN ? 'text-white font-semibold' : 'text-gray-400 hover:text-white'}`}
-                aria-label="Switch to English"
+                aria-label={t('langSwitchEN')}
             >
                 English
             </button>

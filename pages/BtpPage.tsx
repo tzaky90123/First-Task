@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useLocalization } from '../context/LocalizationContext';
 import PageHero from '../components/PageHero';
@@ -25,11 +26,11 @@ const BtpPage: React.FC = () => {
       </section>
       <section className="py-20 bg-brand-light">
           <div className="container mx-auto px-6">
-              <h2 className="text-4xl font-bold font-serif text-brand-primary mb-12 text-center">Nos Projets BTP</h2>
+              <h2 className="text-4xl font-bold font-serif text-brand-primary mb-12 text-center">{t('btpProjectsTitle')}</h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  <ProjectCard image="https://picsum.photos/600/400?random=6" title="Pont de l'Avenir" description="Un ouvrage d'art majeur reliant deux régions clés." />
-                  <ProjectCard image="https://picsum.photos/600/400?random=7" title="Hôpital Régional de Kaolack" description="Infrastructure sanitaire moderne pour des milliers de citoyens." />
-                  <ProjectCard image="https://picsum.photos/600/400?random=8" title="Autoroute Dakar-Diamniadio" description="Contribution à un axe vital pour l'économie nationale." />
+                  <ProjectCard image="https://picsum.photos/600/400?random=6" title={t('btpProject1Title')} description={t('btpProject1Desc')} />
+                  <ProjectCard image="https://picsum.photos/600/400?random=7" title={t('btpProject2Title')} description={t('btpProject2Desc')} />
+                  <ProjectCard image="https://picsum.photos/600/400?random=8" title={t('btpProject3Title')} description={t('btpProject3Desc')} />
               </div>
           </div>
       </section>
