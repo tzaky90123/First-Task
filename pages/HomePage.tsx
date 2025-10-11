@@ -124,9 +124,8 @@ const HomePage: React.FC = () => {
       <StatisticsSection />
       <WhyChooseUsSection />
       <ProgramSection />
-      <ProjectsSection />
-      <RseSection />
-      <NewsSection />
+      <TestimonialsSection />
+      <PartnerSection />
       <ContactCtaSection />
     </div>
   );
@@ -172,7 +171,7 @@ const AboutSection: React.FC = () => {
                 <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
                     <div>
                         <img 
-                            src="https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+                            src="https://storage.googleapis.com/aistudio-hosting/generations/a5a54452-9721-4f0f-af01-f2f31f7956a1.jpeg" 
                             alt="Ingénieurs SOCABEG planifiant un projet" 
                             className="rounded-lg shadow-xl w-full h-auto object-cover"
                         />
@@ -470,6 +469,133 @@ const ProgramSection: React.FC = () => {
     );
 };
 
+const TestimonialsSection: React.FC = () => {
+    const testimonials = [
+        { quote: "SOCABEG nous a accompagnés du début à la fin du projet avec un professionnalisme exceptionnel. Leur équipe a su allier qualité, rigueur et respect des délais.", name: "Mamadou Diallo" },
+        { quote: "Une expérience très positive, des solutions innovantes et un suivi de chantier exemplaire. SOCABEG est un partenaire de confiance.", name: "Fatou Ndiaye, Architecte" },
+        { quote: "Leur maîtrise du secteur immobilier au Sénégal est incontestable. Ils ont su nous guider pour un investissement sûr et rentable.", name: "Ibrahima Sow, Investisseur" },
+        { quote: "La qualité de construction des résidences est remarquable. Nous sommes ravis de notre nouvelle maison, qui a dépassé toutes nos attentes.", name: "Aïssatou Gueye" },
+        { quote: "En tant que coopérative d'habitat, nous avons trouvé en SOCABEG un partenaire fiable et à l'écoute, qui a su concrétiser le rêve de nos membres.", name: "Ousmane Camara, Président Coopérative" },
+        { quote: "Leur engagement pour le développement durable et l'utilisation de techniques modernes nous ont convaincus. Un vrai bâtisseur d'avenir.", name: "Mariama Ba" }
+    ];
+
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const timeoutRef = useRef<number | null>(null);
+
+    const resetTimeout = useCallback(() => {
+        if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current);
+        }
+    }, []);
+
+    useEffect(() => {
+        resetTimeout();
+        timeoutRef.current = window.setTimeout(
+            () => setCurrentIndex((prevIndex) => (prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1)),
+            5000
+        );
+
+        return () => {
+            resetTimeout();
+        };
+    }, [currentIndex, testimonials.length, resetTimeout]);
+
+    const goNext = () => {
+        setCurrentIndex((prevIndex) => (prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1));
+    };
+
+    const goPrev = () => {
+        setCurrentIndex((prevIndex) => (prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1));
+    };
+
+    return (
+        <section className="py-20 bg-white">
+            <div className="container mx-auto px-5 lg:px-20">
+                <div className="text-center mb-16">
+                    <h3 className="text-sm font-semibold text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
+                        <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
+                        <span>TÉMOIGNAGES</span>
+                    </h3>
+                    <h2 className="text-3xl md:text-4xl font-bold font-serif text-brand-dark">
+                        ILS NOUS FONT CONFIANCE
+                    </h2>
+                </div>
+                <div className="relative">
+                    <div className="overflow-hidden">
+                        <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+                            {testimonials.map((testimonial, index) => (
+                                <div key={index} className="w-full flex-shrink-0">
+                                    <div className="bg-brand-light p-8 md:p-12 rounded-lg shadow-sm max-w-3xl mx-auto text-center">
+                                        <svg className="w-10 h-10 text-brand-secondary mx-auto mb-4" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true"><path d="M9.333 8h-5.333v8h5.333c0-4.418 3.582-8 8-8v-5.333c-7.364 0-13.333 5.97-13.333 13.333v10.667h13.333v-10.667h-8v-6zM29.333 8h-5.333v8h5.333c0-4.418 3.582-8 8-8v-5.333c-7.364 0-13.333 5.97-13.333 13.333v10.667h13.333v-10.667h-8v-6z"></path></svg>
+                                        <blockquote className="text-lg text-brand-text italic leading-relaxed mb-6">
+                                            “{testimonial.quote}”
+                                        </blockquote>
+                                        <cite className="not-italic font-semibold text-brand-primary font-serif">
+                                            — {testimonial.name}
+                                        </cite>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                     <button onClick={goPrev} className="absolute top-1/2 -translate-y-1/2 left-0 md:-left-10 text-brand-primary bg-white/50 hover:bg-white rounded-full p-3 shadow-md focus:outline-none focus:ring-2 focus:ring-brand-secondary transition" aria-label="Previous testimonial">
+                        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+                    </button>
+                    <button onClick={goNext} className="absolute top-1/2 -translate-y-1/2 right-0 md:-right-10 text-brand-primary bg-white/50 hover:bg-white rounded-full p-3 shadow-md focus:outline-none focus:ring-2 focus:ring-brand-secondary transition" aria-label="Next testimonial">
+                        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+    );
+};
+
+const PartnerSection: React.FC = () => {
+    const partners = [
+        { name: 'BHS', src: 'https://storage.googleapis.com/aistudio-hosting/generations/009a96e9-e31d-4eb4-b6bd-1e96f1311029.png' },
+        { name: 'Geoplast', src: 'https://storage.googleapis.com/aistudio-hosting/generations/1179ab8b-1e64-469b-9807-ca9069d3f9b2.png' },
+        { name: 'IPRES', src: 'https://storage.googleapis.com/aistudio-hosting/generations/6ac0c1d6-419b-449e-b2d2-8b010f443b87.png' },
+        { name: 'SAR', src: 'https://storage.googleapis.com/aistudio-hosting/generations/07474a00-3444-4ebc-8064-9b2f69e63496.png' },
+        { name: 'SGS', src: 'https://storage.googleapis.com/aistudio-hosting/generations/4a0364c7-c79b-40f4-8848-0d12224df378.png' },
+        { name: 'SAIH', src: 'https://storage.googleapis.com/aistudio-hosting/generations/01eb65ad-58ca-4303-9e5c-c6c7ac019c01.png' },
+        { name: 'République du Sénégal', src: 'https://storage.googleapis.com/aistudio-hosting/generations/20563459-7157-410a-b30f-b44c0423985d.png' },
+        { name: 'SNHLM', src: 'https://storage.googleapis.com/aistudio-hosting/generations/d935492d-5369-4e01-9f93-0e86b461f0e1.png' },
+        { name: 'Sonatel', src: 'https://storage.googleapis.com/aistudio-hosting/generations/a4de33f6-4148-4e1b-b461-8250005d5d88.png' }
+    ];
+
+    const duplicatedPartners = [...partners, ...partners]; // Duplicate for seamless loop
+
+    return (
+        <section className="py-20 bg-brand-light">
+            <div className="container mx-auto px-5 lg:px-20">
+                <div className="text-center mb-16">
+                    <h3 className="text-sm font-semibold text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
+                        <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
+                        <span>NOS PARTENAIRES</span>
+                    </h3>
+                    <h2 className="text-3xl md:text-4xl font-bold font-serif text-brand-dark">
+                        ENSEMBLE, NOUS CRÉONS DES OPPORTUNITÉS
+                    </h2>
+                </div>
+                <div className="logo-scroller">
+                    <div className="logo-scroller-inner">
+                        {duplicatedPartners.map((partner, index) => (
+                            <div key={index} className="partner-logo flex-shrink-0 mx-10 flex items-center justify-center" style={{ width: '150px' }}>
+                                <img
+                                    src={partner.src}
+                                    alt={partner.name}
+                                    className="max-h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                                    title={partner.name}
+                                />
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+};
+
 const ExpertiseSection: React.FC = () => {
     const { t } = useLocalization();
     return (
@@ -503,86 +629,6 @@ const ExpertiseSection: React.FC = () => {
       </section>
     );
 }
-
-const ProjectsSection: React.FC = () => {
-  const { t } = useLocalization();
-  const projects = [
-    { image: 'https://picsum.photos/600/400?random=11', title: "Cité des affaires de Diamniadio", category: "Promotion Immobilière"},
-    { image: 'https://picsum.photos/600/400?random=6', title: "Pont de l'Avenir", category: "BTP"},
-    { image: 'https://picsum.photos/600/400?random=12', title: "Résidences Teranga", category: "Promotion Immobilière"},
-    { image: 'https://picsum.photos/600/400?random=16', title: "Mine d'Or de Sabodala", category: "Mines"},
-  ];
-  return (
-    <section className="py-20 bg-brand-light">
-      <div className="container mx-auto px-5 lg:px-20 text-center">
-        <h2 className="text-4xl font-bold font-serif text-brand-primary mb-12">{t('homeProjectsTitle')}</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {projects.map(p => (
-            <div key={p.title} className="bg-white rounded-lg shadow-lg overflow-hidden group">
-              <img src={p.image} alt={p.title} className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" />
-              <div className="p-6">
-                  <p className="text-sm text-brand-secondary font-semibold uppercase">{p.category}</p>
-                  <h3 className="text-xl font-bold text-brand-primary mt-1">{p.title}</h3>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-const RseSection: React.FC = () => {
-    const { t } = useLocalization();
-    return (
-        <section className="py-20 bg-brand-light">
-            <div className="container mx-auto px-5 lg:px-20">
-                <div className="grid md:grid-cols-2 gap-16 items-center">
-                    <div>
-                        <img src="https://picsum.photos/800/600?random=20" alt="Engagement communautaire" className="rounded-lg shadow-xl"/>
-                    </div>
-                    <div>
-                        <h2 className="text-3xl font-bold font-serif text-brand-primary mb-4">{t('homeRseTitle')}</h2>
-                        <p className="text-base text-brand-text leading-relaxed mb-6">{t('homeRseText')}</p>
-                        <Link to="/a-propos" className="font-semibold text-brand-secondary hover:underline text-base">
-                            {t('homeRseCta')} &rarr;
-                        </Link>
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
-};
-
-const NewsSection: React.FC = () => {
-    const { t } = useLocalization();
-    const newsItems = [
-      { image: 'https://picsum.photos/600/400?random=22', title: "SOCABEG lance un nouveau programme de logements sociaux", date: "15 Octobre 2024"},
-      { image: 'https://picsum.photos/600/400?random=23', title: "Certification ISO 9001 obtenue pour nos opérations BTP", date: "02 Septembre 2024"},
-      { image: 'https://picsum.photos/600/400?random=24', title: "Partenariat pour la formation des jeunes aux métiers du BTP", date: "28 Juillet 2024"},
-    ];
-    return (
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-5 lg:px-20 text-center">
-          <h2 className="text-4xl font-bold font-serif text-brand-primary mb-12">{t('homeNewsTitle')}</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {newsItems.map(item => (
-              <div key={item.title} className="bg-white rounded-lg shadow-lg overflow-hidden text-left">
-                  <img src={item.image} alt={item.title} className="w-full h-48 object-cover" />
-                  <div className="p-6">
-                      <p className="text-sm text-gray-500 mb-2">{item.date}</p>
-                      <h3 className="text-xl font-bold text-brand-primary mb-4 h-24">{item.title}</h3>
-                      <Link to="#" className="font-semibold text-brand-secondary hover:underline">
-                          Lire la suite
-                      </Link>
-                  </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    );
-};
 
 const ContactCtaSection: React.FC = () => {
     const { t } = useLocalization();

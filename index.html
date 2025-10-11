@@ -63,6 +63,31 @@
     .animate-slide-down {
       animation: slideDown 0.3s ease-out forwards;
     }
+    .logo-scroller {
+        width: 100%;
+        overflow: hidden;
+        -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+        mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+    }
+    .logo-scroller-inner {
+        display: flex;
+        width: fit-content;
+        animation: scroll 60s linear infinite;
+    }
+    .logo-scroller:hover .logo-scroller-inner {
+        animation-play-state: paused;
+    }
+    @keyframes scroll {
+        to {
+            transform: translateX(calc(-100% / 2));
+        }
+    }
+    .partner-logo {
+        transition: transform 0.3s ease;
+    }
+    .partner-logo:hover {
+        transform: scale(1.1);
+    }
   </style>
   <script type="importmap">
 {
