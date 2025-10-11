@@ -12,7 +12,7 @@ const AboutPage: React.FC = () => {
       <PageHero
         title={t('aboutHeroTitle')}
         subtitle={t('aboutHeroSubtitle')}
-        imageUrl="https://picsum.photos/1920/1080?random=2"
+        imageUrl="https://socabeg.com/images/socabeg.jpg"
       />
       
       <section className="py-20 bg-white">
