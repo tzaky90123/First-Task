@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocalization } from '../context/LocalizationContext';
@@ -171,7 +172,7 @@ const AboutSection: React.FC = () => {
                 <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
                     <div>
                         <img 
-                            src="https://storage.googleapis.com/aistudio-hosting/generations/a5a54452-9721-4f0f-af01-f2f31f7956a1.jpeg" 
+                            src="https://socabeg.com/images/socabeg.jpg" 
                             alt="Ingénieurs SOCABEG planifiant un projet" 
                             className="rounded-lg shadow-xl w-full h-auto object-cover"
                         />
