@@ -383,7 +383,7 @@ const IconLocation = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-
 const ProgramSection: React.FC = () => {
     const programs = [
         {
-            image: 'https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+            image: 'https://socabeg.com/images/balena.jpg',
             title: 'Les Résidences BALENA – Almadies',
             type: 'Villa R+1 – 500 m²',
             details: [
@@ -396,7 +396,7 @@ const ProgramSection: React.FC = () => {
             price: 'PRIX : NOUS CONSULTER',
         },
         {
-            image: 'https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+            image: 'https://socabeg.com/images/hlm.jpg',
             title: '105 Magasins à vendre – HLM 5',
             type: 'Magasin – 12 m²',
             details: [
@@ -408,7 +408,7 @@ const ProgramSection: React.FC = () => {
             price: 'À PARTIR DE 15 000 000 FCFA',
         },
         {
-            image: 'https://images.pexels.com/photos/210617/pexels-photo-210617.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+            image: 'https://socabeg.com/images/lac.jpg',
             title: 'Logements F3 – Niague Lac Rose',
             type: 'Apartment – 75 m²',
             details: [
@@ -553,15 +553,15 @@ const TestimonialsSection: React.FC = () => {
 
 const PartnerSection: React.FC = () => {
     const partners = [
-        { name: 'BHS', src: 'https://storage.googleapis.com/aistudio-hosting/generations/009a96e9-e31d-4eb4-b6bd-1e96f1311029.png' },
-        { name: 'Geoplast', src: 'https://storage.googleapis.com/aistudio-hosting/generations/1179ab8b-1e64-469b-9807-ca9069d3f9b2.png' },
-        { name: 'IPRES', src: 'https://storage.googleapis.com/aistudio-hosting/generations/6ac0c1d6-419b-449e-b2d2-8b010f443b87.png' },
-        { name: 'SAR', src: 'https://storage.googleapis.com/aistudio-hosting/generations/07474a00-3444-4ebc-8064-9b2f69e63496.png' },
-        { name: 'SGS', src: 'https://storage.googleapis.com/aistudio-hosting/generations/4a0364c7-c79b-40f4-8848-0d12224df378.png' },
-        { name: 'SAIH', src: 'https://storage.googleapis.com/aistudio-hosting/generations/01eb65ad-58ca-4303-9e5c-c6c7ac019c01.png' },
-        { name: 'République du Sénégal', src: 'https://storage.googleapis.com/aistudio-hosting/generations/20563459-7157-410a-b30f-b44c0423985d.png' },
-        { name: 'SNHLM', src: 'https://storage.googleapis.com/aistudio-hosting/generations/d935492d-5369-4e01-9f93-0e86b461f0e1.png' },
-        { name: 'Sonatel', src: 'https://storage.googleapis.com/aistudio-hosting/generations/a4de33f6-4148-4e1b-b461-8250005d5d88.png' }
+        { name: 'BHS', src: 'https://socabeg.com/partners/bhs.png' },
+        { name: 'Geoplast', src: 'https://socabeg.com/partners/geoplast.png' },
+        { name: 'IPRES', src: 'https://socabeg.com/partners/ipres.jpg' },
+        { name: 'SAR', src: 'https://socabeg.com/partners/sar.png' },
+        { name: 'SGS', src: 'https://socabeg.com/partners/sgs.png' },
+        { name: 'SAIH', src: 'https://socabeg.com/partners/sicap.jpg' },
+        { name: 'République du Sénégal', src: 'https://socabeg.com/partners/sn.jpg' },
+        { name: 'SNHLM', src: 'https://socabeg.com/partners/snhlm.jpg' },
+        { name: 'Sonatel', src: 'https://socabeg.com/partners/sonatel.png' }
     ];
 
     const duplicatedPartners = [...partners, ...partners]; // Duplicate for seamless loop
