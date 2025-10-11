@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocalization } from '../context/LocalizationContext';
@@ -122,8 +121,10 @@ const HomePage: React.FC = () => {
       <ExpertiseSection />
       <AboutSection />
       <MasterpiecesSection />
+      <StatisticsSection />
+      <WhyChooseUsSection />
+      <ProgramSection />
       <ProjectsSection />
-      <ValuesSection />
       <RseSection />
       <NewsSection />
       <ContactCtaSection />
@@ -131,25 +132,39 @@ const HomePage: React.FC = () => {
   );
 };
 
-const LogoIcon = () => (
-    <svg width="40" height="35" viewBox="0 0 48 42" fill="none" xmlns="http://www.w3.org/2000/svg" className="inline-block h-10 w-auto -mt-1 mr-3" aria-hidden="true">
+// Unified logo icon based on user-provided image
+const SectionLogoIcon = ({ className }: { className?: string }) => (
+    <svg viewBox="0 0 135 100" fill="none" xmlns="http://www.w3.org/2000/svg" className={className || "inline-block h-10 w-auto -mt-1 mr-3"} aria-hidden="true">
+        <defs>
+            <linearGradient id="red-gradient" x1="0.5" y1="0" x2="0.5" y2="1">
+                <stop offset="0%" stopColor="#FF6B33" />
+                <stop offset="100%" stopColor="#FF4500" />
+            </linearGradient>
+            <filter id="red-glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feDropShadow dx="0" dy="0" stdDeviation="6" floodColor="#FF4500" floodOpacity="0.75" />
+            </filter>
+            <filter id="blue-glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feDropShadow dx="0" dy="0" stdDeviation="6" floodColor="#003366" floodOpacity="0.75" />
+            </filter>
+        </defs>
         <g>
-            <path d="M30.5 39.5L47 6L14 6L30.5 39.5Z" fill="#003366" />
-            <path d="M17.5 33L31 6H4L17.5 33Z" fill="#FF4500" />
+            <path d="M90 5 L50 95 L130 95 Z" fill="#003366" style={{ filter: 'url(#blue-glow)' }}/>
+            <path d="M55 15 L5 85 L95 85 Z" fill="url(#red-gradient)" style={{ filter: 'url(#red-glow)' }} />
         </g>
     </svg>
 );
+
 
 const AboutSection: React.FC = () => {
     return (
         <section className="py-20 bg-white">
             <div className="container mx-auto px-5 lg:px-20">
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl font-bold font-serif text-brand-primary mb-2 uppercase flex items-center justify-center flex-wrap">
-                        <LogoIcon />
+                    <h3 className="text-sm font-semibold text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
+                        <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
                         <span>QUI SOMMES-NOUS</span>
-                    </h2>
-                    <p className="text-md text-gray-600 italic">
+                    </h3>
+                    <p className="text-3xl md:text-4xl font-bold font-serif text-brand-dark">
                         DEPUIS PLUS DE 35 ANS À VOTRE SERVICE
                     </p>
                 </div>
@@ -182,17 +197,17 @@ const MasterpiecesSection: React.FC = () => {
 
     const masterpieces = [
         {
-            src: 'https://images.pexels.com/photos/1216544/pexels-photo-1216544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+            src: 'https://storage.googleapis.com/aistudio-hosting/generations/131a4734-d03b-4c46-8107-1b04523a54d5.jpeg',
             titleKey: 'masterpieceBtpTitle',
             descriptionKey: 'masterpieceBtpDesc'
         },
         {
-            src: 'https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+            src: 'https://storage.googleapis.com/aistudio-hosting/generations/a8e0e7a2-f671-4713-9a3b-9a996f4b321a.jpeg',
             titleKey: 'masterpieceReTitle',
             descriptionKey: 'masterpieceReDesc'
         },
         {
-            src: 'https://images.pexels.com/photos/859895/pexels-photo-859895.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+            src: 'https://storage.googleapis.com/aistudio-hosting/generations/e7d56687-f87c-4034-8c8d-195f00e964b4.jpeg',
             titleKey: 'masterpieceMinesTitle',
             descriptionKey: 'masterpieceMinesDesc'
         }
@@ -214,10 +229,11 @@ const MasterpiecesSection: React.FC = () => {
         <section className="py-20 bg-white">
             <div className="container mx-auto px-5 lg:px-20">
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl font-bold font-serif text-brand-primary mb-2 uppercase">
-                       {t('homeMasterpiecesTitle')}
-                    </h2>
-                    <p className="text-md text-gray-600 italic">
+                    <h3 className="text-sm font-semibold text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
+                       <SectionLogoIcon className="inline-block h-5 w-auto mr-2"/>
+                       <span>{t('homeMasterpiecesTitle')}</span>
+                    </h3>
+                    <p className="text-3xl md:text-4xl font-bold font-serif text-brand-dark">
                         {t('homeMasterpiecesSubtitle')}
                     </p>
                 </div>
@@ -266,38 +282,203 @@ const MasterpiecesSection: React.FC = () => {
     );
 };
 
-
-const ExpertiseLogoIcon = () => (
-    <svg width="40" height="35" viewBox="0 0 135 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="inline-block h-10 w-auto -mt-1 mr-3" aria-hidden="true">
-        <defs>
-            <linearGradient id="red-gradient" x1="0.5" y1="0" x2="0.5" y2="1">
-                <stop offset="0%" stopColor="#FF6B33" />
-                <stop offset="100%" stopColor="#FF4500" />
-            </linearGradient>
-            <filter id="red-glow" x="-50%" y="-50%" width="200%" height="200%">
-                <feDropShadow dx="0" dy="0" stdDeviation="6" floodColor="#FF4500" floodOpacity="0.75" />
-            </filter>
-            <filter id="blue-glow" x="-50%" y="-50%" width="200%" height="200%">
-                <feDropShadow dx="0" dy="0" stdDeviation="6" floodColor="#003366" floodOpacity="0.75" />
-            </filter>
-        </defs>
-        <g>
-            <path d="M90 5 L50 95 L130 95 Z" fill="#003366" style={{ filter: 'url(#blue-glow)' }}/>
-            <path d="M55 15 L5 85 L95 85 Z" fill="url(#red-gradient)" style={{ filter: 'url(#red-glow)' }} />
-        </g>
+const StatisticsIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
     </svg>
 );
+
+const StatisticsSection: React.FC = () => {
+    const stats = [
+        { value: "+ 2,000", label: "Parcelles viabilisées et terrains nus" },
+        { value: "02", label: "Filiales: Keur Invest & SOCABEG Mining" },
+        { value: "+ 150", label: "Collaborateurs" },
+        { value: "+ 200 km", label: "Voiries et réseaux divers réalisés" },
+        { value: "+ 100 ha", label: "D'assiettes foncières" }
+    ];
+
+    return (
+        <section className="py-20 bg-brand-light">
+            <div className="container mx-auto px-5 lg:px-20">
+                <div className="text-center mb-16">
+                    <h3 className="text-sm font-semibold text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
+                        <StatisticsIcon />
+                        <span>CHIFFRES-CLÉS</span>
+                    </h3>
+                    <h2 className="text-3xl md:text-4xl font-bold font-serif text-brand-dark">
+                        NOTRE IMPACT
+                    </h2>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 text-center">
+                    {stats.map((stat, index) => (
+                        <div key={index} className="animate-fade-in-up" style={{ animationDelay: `${index * 150}ms` }}>
+                            <p className="text-4xl lg:text-5xl font-bold text-brand-secondary font-serif">{stat.value}</p>
+                            <p className="text-brand-text mt-2">{stat.label}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+};
+
+const WhyChooseUsSection: React.FC = () => {
+    const values = [
+        {
+            title: "Expérience reconnue",
+            description: "Plus de 35 ans d’activité dans le BTP et l’immobilier au Sénégal, avec des milliers de logements livrés."
+        },
+        {
+            title: "Maîtrise des projets",
+            description: "Une expertise complète du cycle de construction : études, réalisation, viabilisation, commercialisation."
+        },
+        {
+            title: "Responsabilité durable",
+            description: "Techniques modernes à faible empreinte carbone et formation de la main-d’œuvre locale."
+        },
+        {
+            title: "Innovation technique",
+            description: "BIM, ERP BTP, Geoplast® coffrages, usine de préfabrication… SOCABEG investit dans la modernité."
+        },
+        {
+            title: "Projets emblématiques",
+            description: "Tivaouane Peulh, HLM Castor, Darou Salam, Cité IPRES… des projets qui transforment la ville."
+        },
+        {
+            title: "Confiance et proximité",
+            description: "Entreprise 100 % sénégalaise à taille humaine, proche de ses clients et de leurs besoins."
+        }
+    ];
+
+    return (
+        <section className="py-20 bg-white">
+            <div className="container mx-auto px-5 lg:px-20">
+                <div className="text-center mb-16">
+                    <h3 className="text-sm font-semibold text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
+                        <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
+                        <span>POURQUOI NOUS CHOISIR</span>
+                    </h3>
+                    <h2 className="text-3xl md:text-4xl font-bold font-serif text-brand-dark">
+                        NOTRE VALEUR AJOUTÉE
+                    </h2>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {values.map((value, index) => (
+                        <div key={index} className="bg-brand-light p-8 rounded-lg shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
+                            <h3 className="text-xl font-bold text-brand-primary mb-3 font-serif">{value.title}</h3>
+                            <p className="text-brand-text text-sm leading-relaxed">{value.description}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+};
+
+const IconBed = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1.5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" /></svg>;
+const IconBath = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1.5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" /></svg>;
+const IconArea = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1.5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 0h-4m4 0l-5-5" /></svg>;
+const IconLocation = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1.5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>;
+
+const ProgramSection: React.FC = () => {
+    const programs = [
+        {
+            image: 'https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+            title: 'Les Résidences BALENA – Almadies',
+            type: 'Villa R+1 – 500 m²',
+            details: [
+                { icon: <IconBed />, text: '5 Ch.' },
+                { icon: <IconBath />, text: '4 Sdb' },
+                { icon: <IconArea />, text: '500 m²' },
+                { icon: <IconLocation />, text: 'ALMADIES' },
+            ],
+            description: 'Situé dans le quartier huppé des Almadies, ce programme immobilier d\'exception allie luxe et durabilité. Les villas spac...',
+            price: 'PRIX : NOUS CONSULTER',
+        },
+        {
+            image: 'https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+            title: '105 Magasins à vendre – HLM 5',
+            type: 'Magasin – 12 m²',
+            details: [
+                { icon: <IconBath />, text: '1 Sdb' },
+                { icon: <IconArea />, text: '12 m²' },
+                { icon: <IconLocation />, text: 'HLM 5' },
+            ],
+            description: 'Idéalement situés dans le quartier dynamique de HLM 5, ces 105 locaux commerciaux de 12 m² chacun représentent une oppor...',
+            price: 'À PARTIR DE 15 000 000 FCFA',
+        },
+        {
+            image: 'https://images.pexels.com/photos/210617/pexels-photo-210617.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+            title: 'Logements F3 – Niague Lac Rose',
+            type: 'Apartment – 75 m²',
+            details: [
+                { icon: <IconBed />, text: '2 Ch.' },
+                { icon: <IconBath />, text: '1 Sdb' },
+                { icon: <IconArea />, text: '75 m²' },
+                { icon: <IconLocation />, text: 'NIAGUE' },
+            ],
+            description: 'À quelques minutes du célèbre Lac Rose, ce programme de logements F3 allie confort et authenticité. Les appartements de...',
+            price: 'À PARTIR DE 17 000 000 FCFA',
+        },
+    ];
+
+    return (
+        <section className="py-20 bg-brand-light">
+            <div className="container mx-auto px-5 lg:px-20">
+                <div className="text-center mb-16">
+                    <h3 className="text-sm font-semibold text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
+                        <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
+                        <span>NOS RÉALISATIONS</span>
+                    </h3>
+                    <h2 className="text-3xl md:text-4xl font-bold font-serif text-brand-dark">
+                        PROGRAMMES À LA UNE
+                    </h2>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {programs.map((program, index) => (
+                        <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
+                            <img src={program.image} alt={program.title} className="w-full h-56 object-cover" />
+                            <div className="p-6 flex flex-col flex-grow">
+                                <h3 className="text-lg font-bold text-brand-primary font-serif">{program.title}</h3>
+                                <p className="text-xs text-gray-500 mb-3">{program.type}</p>
+                                
+                                <div className="flex flex-wrap items-center text-xs text-gray-600 mb-4 border-y py-2">
+                                    {program.details.map((detail, i) => (
+                                        <span key={i} className="flex items-center mr-4 mb-1">{detail.icon}{detail.text}</span>
+                                    ))}
+                                </div>
+                                
+                                <p className="text-brand-text text-sm leading-relaxed mb-4 flex-grow">{program.description}</p>
+
+                                <div className="mt-auto">
+                                    <p className="font-semibold text-brand-secondary text-sm mb-4">{program.price}</p>
+                                    <div className="flex flex-col sm:flex-row sm:space-x-2 space-y-2 sm:space-y-0 text-sm">
+                                        <Link to="#" className="w-full text-center px-4 py-2 rounded-full bg-brand-primary text-white font-semibold hover:bg-opacity-90 transition">
+                                            View the details
+                                        </Link>
+                                        <Link to="/contact" className="w-full text-center px-4 py-2 rounded-full bg-gray-200 text-brand-primary font-semibold hover:bg-gray-300 transition">
+                                            Nous Contacter
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+};
 
 const ExpertiseSection: React.FC = () => {
     const { t } = useLocalization();
     return (
       <section className="py-20 bg-brand-light">
         <div className="container mx-auto px-5 lg:px-20 text-center">
-          <h2 className="text-4xl font-bold font-serif text-brand-primary mb-4 flex items-center justify-center">
-            <ExpertiseLogoIcon />
-            <span>{t('homeServicesTitle')}</span>
+          <h2 className="text-4xl font-bold font-serif text-brand-primary mb-4">
+            {t('homeServicesTitle')}
           </h2>
-          <p className="text-lg text-brand-text max-w-3xl mx-auto mb-16">Au cœur de la transformation du Sénégal, SOCABEG déploie son savoir-faire sur trois pôles stratégiques.</p>
+          <p className="text-base text-brand-text max-w-3xl mx-auto mb-16">Au cœur de la transformation du Sénégal, SOCABEG déploie son savoir-faire sur trois pôles stratégiques.</p>
           <div className="grid md:grid-cols-3 gap-8">
             <ServiceCard
               icon={<IconBuilding />}
@@ -351,25 +532,6 @@ const ProjectsSection: React.FC = () => {
   );
 }
 
-const ValuesSection: React.FC = () => {
-    const { t } = useLocalization();
-    const values = ['valueExcellence', 'valueIntegrity', 'valueSustainability', 'valueCommunity'];
-    return (
-        <section className="py-20 bg-white">
-            <div className="container mx-auto px-5 lg:px-20 text-center">
-                <h2 className="text-4xl font-bold font-serif text-brand-primary mb-12">{t('homeValuesTitle')}</h2>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {values.map(valueKey => (
-                        <div key={valueKey} className="bg-brand-light p-8 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-                            <h3 className="text-2xl font-semibold text-brand-primary">{t(valueKey)}</h3>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
-};
-
 const RseSection: React.FC = () => {
     const { t } = useLocalization();
     return (
@@ -381,8 +543,8 @@ const RseSection: React.FC = () => {
                     </div>
                     <div>
                         <h2 className="text-3xl font-bold font-serif text-brand-primary mb-4">{t('homeRseTitle')}</h2>
-                        <p className="text-lg text-brand-text leading-relaxed mb-6">{t('homeRseText')}</p>
-                        <Link to="/a-propos" className="font-semibold text-brand-secondary hover:underline text-lg">
+                        <p className="text-base text-brand-text leading-relaxed mb-6">{t('homeRseText')}</p>
+                        <Link to="/a-propos" className="font-semibold text-brand-secondary hover:underline text-base">
                             {t('homeRseCta')} &rarr;
                         </Link>
                     </div>
@@ -428,10 +590,10 @@ const ContactCtaSection: React.FC = () => {
         <section className="bg-brand-primary text-white">
             <div className="container mx-auto px-5 lg:px-20 py-20 text-center">
                 <h2 className="text-4xl font-serif font-bold mb-4">{t('homeContactCtaTitle')}</h2>
-                <p className="text-lg max-w-2xl mx-auto mb-8">{t('homeContactCtaText')}</p>
+                <p className="text-base max-w-2xl mx-auto mb-8">{t('homeContactCtaText')}</p>
                 <Link
                     to="/contact"
-                    className="bg-brand-secondary text-brand-primary font-bold py-4 px-12 rounded-full hover:bg-yellow-400 transition duration-300 text-lg focus:outline-none focus:ring-2 focus:ring-brand-secondary focus:ring-offset-2 focus:ring-offset-brand-primary"
+                    className="bg-brand-secondary text-brand-primary font-bold py-4 px-12 rounded-full hover:bg-yellow-400 transition duration-300 text-base focus:outline-none focus:ring-2 focus:ring-brand-secondary focus:ring-offset-2 focus:ring-offset-brand-primary"
                 >
                     {t('homeContactCtaButton')}
                 </Link>
