@@ -197,17 +197,17 @@ const MasterpiecesSection: React.FC = () => {
 
     const masterpieces = [
         {
-            src: 'https://storage.googleapis.com/aistudio-hosting/generations/131a4734-d03b-4c46-8107-1b04523a54d5.jpeg',
+            src: 'https://socabeg.com/images/btp.png',
             titleKey: 'masterpieceBtpTitle',
             descriptionKey: 'masterpieceBtpDesc'
         },
         {
-            src: 'https://storage.googleapis.com/aistudio-hosting/generations/a8e0e7a2-f671-4713-9a3b-9a996f4b321a.jpeg',
+            src: 'https://socabeg.com/images/mdlac2.jpg',
             titleKey: 'masterpieceReTitle',
             descriptionKey: 'masterpieceReDesc'
         },
         {
-            src: 'https://storage.googleapis.com/aistudio-hosting/generations/e7d56687-f87c-4034-8c8d-195f00e964b4.jpeg',
+            src: 'https://socabeg.com/images/mines.png',
             titleKey: 'masterpieceMinesTitle',
             descriptionKey: 'masterpieceMinesDesc'
         }
