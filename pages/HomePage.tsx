@@ -147,9 +147,9 @@ const AboutSection: React.FC = () => {
                         <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
                         <span>{t('homeAboutSectionTitle')}</span>
                     </h3>
-                    <p className="text-3xl md:text-4xl font-bold font-serif text-brand-dark">
+                    <h2 className="text-2xl font-medium font-serif text-brand-primary">
                         {t('homeAboutSectionHeadline')}
-                    </p>
+                    </h2>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
@@ -216,9 +216,9 @@ const MasterpiecesSection: React.FC = () => {
                        <SectionLogoIcon className="inline-block h-5 w-auto mr-2"/>
                        <span>{t('homeMasterpiecesTitle')}</span>
                     </h3>
-                    <p className="text-3xl md:text-4xl font-bold font-serif text-brand-dark">
+                    <h2 className="text-2xl font-medium font-serif text-brand-primary">
                         {t('homeMasterpiecesSubtitle')}
-                    </p>
+                    </h2>
                 </div>
 
                 {/* Desktop View: 3-column grid */}
@@ -287,7 +287,7 @@ const StatisticsSection: React.FC = () => {
                         <StatisticsIcon />
                         <span>{t('statisticsSectionTitle')}</span>
                     </h3>
-                    <h2 className="text-3xl md:text-4xl font-bold font-serif text-brand-dark">
+                    <h2 className="text-2xl font-medium font-serif text-brand-primary">
                         {t('statisticsSectionHeadline')}
                     </h2>
                 </div>
@@ -341,7 +341,7 @@ const WhyChooseUsSection: React.FC = () => {
                         <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
                         <span>{t('whyChooseUsSectionTitle')}</span>
                     </h3>
-                    <h2 className="text-3xl md:text-4xl font-bold font-serif text-brand-dark">
+                    <h2 className="text-2xl font-medium font-serif text-brand-primary">
                         {t('whyChooseUsSectionHeadline')}
                     </h2>
                 </div>
@@ -414,7 +414,7 @@ const ProgramSection: React.FC = () => {
                         <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
                         <span>{t('programsSectionTitle')}</span>
                     </h3>
-                    <h2 className="text-3xl md:text-4xl font-bold font-serif text-brand-dark">
+                    <h2 className="text-2xl font-medium font-serif text-brand-primary">
                         {t('programsSectionHeadline')}
                     </h2>
                 </div>
@@ -502,7 +502,7 @@ const TestimonialsSection: React.FC = () => {
                         <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
                         <span>{t('testimonialsSectionTitle')}</span>
                     </h3>
-                    <h2 className="text-3xl md:text-4xl font-bold font-serif text-brand-dark">
+                    <h2 className="text-2xl font-medium font-serif text-brand-primary">
                         {t('testimonialsSectionHeadline')}
                     </h2>
                 </div>
@@ -562,7 +562,7 @@ const PartnerSection: React.FC = () => {
                         <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
                         <span>{t('partnersSectionTitle')}</span>
                     </h3>
-                    <h2 className="text-3xl md:text-4xl font-bold font-serif text-brand-dark">
+                    <h2 className="text-2xl font-medium font-serif text-brand-primary">
                         {t('partnersSectionHeadline')}
                     </h2>
                 </div>
@@ -590,7 +590,7 @@ const ExpertiseSection: React.FC = () => {
     return (
       <section className="py-20 bg-brand-light">
         <div className="container mx-auto px-5 lg:px-20 text-center">
-          <h2 className="text-4xl font-bold font-serif text-brand-primary mb-4">
+          <h2 className="text-3xl font-bold font-serif text-brand-primary mb-4">
             {t('homeServicesTitle')}
           </h2>
           <p className="text-base text-brand-text max-w-3xl mx-auto mb-16">{t('homeExpertiseSubtitle')}</p>
