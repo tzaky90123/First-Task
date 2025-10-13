@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-xl font-serif text-brand-secondary mb-4">SOCABEG</h3>
+            <img src="https://socabeg.com/logo.png" alt="SOCABEG Logo" className="h-12 w-auto mb-4" />
             <p className="text-gray-400">{t('footerDescription')}</p>
           </div>
           <div>

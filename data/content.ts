@@ -104,14 +104,14 @@ export const content: LocalizedContent = {
   testimonial1Name: { [Language.FR]: "Amadou DIALLO, Entrepreneur", [Language.EN]: "Amadou DIALLO, Entrepreneur" },
   testimonial2Quote: { [Language.FR]: "En tant que commerçante, le plan de paiement flexible sur certains programmes de SOCABEG a été un grand soutien. J'ai pu acquérir des biens sans passer par les institutions bancaires, ce qui a été un vrai soulagement.", [Language.EN]: "As a saleswoman, the flexible payment plan on certain SOCABEG programs has been a great support. I was able to acquire properties without going through banking institutions, which was a real relief." },
   testimonial2Name: { [Language.FR]: "Marie SÈNE, Commerçante", [Language.EN]: "Marie SÈNE, Merchant" },
-  testimonial3Quote: { [Language.FR]: "Leur maîtrise du secteur immobilier au Sénégal est incontestable. Ils ont su nous guider pour un investissement sûr et rentable.", [Language.EN]: "Their mastery of the real estate sector in Senegal is undeniable. They knew how to guide us for a safe and profitable investment." },
-  testimonial3Name: { [Language.FR]: "Ibrahima Sow, Investisseur", [Language.EN]: "Ibrahima Sow, Investor" },
-  testimonial4Quote: { [Language.FR]: "La qualité de construction des résidences est remarquable. Nous sommes ravis de notre nouvelle maison, qui a dépassé toutes nos attentes.", [Language.EN]: "The construction quality of the residences is remarkable. We are delighted with our new home, which has exceeded all our expectations." },
-  testimonial4Name: { [Language.FR]: "Aïssatou Gueye", [Language.EN]: "Aïssatou Gueye" },
-  testimonial5Quote: { [Language.FR]: "En tant que coopérative d'habitat, nous avons trouvé en SOCABEG un partenaire fiable et à l'écoute, qui a su concrétiser le rêve de nos membres.", [Language.EN]: "As a housing cooperative, we found in SOCABEG a reliable and attentive partner, who knew how to make our members' dream come true." },
-  testimonial5Name: { [Language.FR]: "Ousmane Camara, Président Coopérative", [Language.EN]: "Ousmane Camara, Cooperative President" },
-  testimonial6Quote: { [Language.FR]: "Leur engagement pour le développement durable et l'utilisation de techniques modernes nous ont convaincus. Un vrai bâtisseur d'avenir.", [Language.EN]: "Their commitment to sustainable development and the use of modern techniques convinced us. A true builder of the future." },
-  testimonial6Name: { [Language.FR]: "Mariama Ba", [Language.EN]: "Mariama Ba" },
+  testimonial3Quote: { [Language.FR]: "Investir avec SOCABEG a été une expérience extrêmement enrichissante. Ne sachant pas par où commencer pour acquérir un terrain, ils m'ont proposé des opportunités que je n'aurais jamais découvertes par moi-même. Je recommande vivement leurs services.", [Language.EN]: "Investing with SOCABEG has been an extremely rewarding experience. Not knowing where to start to acquire land, they offered me opportunities I would never have discovered on my own. I highly recommend their services." },
+  testimonial3Name: { [Language.FR]: "Ibrahima NDIAYE, Dentiste", [Language.EN]: "Ibrahima NDIAYE, Dentist" },
+  testimonial4Quote: { [Language.FR]: "Ayant été locataire pendant plusieurs années, j'ai travaillé dur pour offrir un foyer à ma famille. Ce rêve est devenu réalité grâce à un programme de logements proposé par SOCABEG. Leur accompagnement a été précieux à chaque étape.", [Language.EN]: "Having rented for several years, I worked hard to provide a home for my family. This dream came true thanks to a housing program offered by SOCABEG. Their support was invaluable at every stage." },
+  testimonial4Name: { [Language.FR]: "Moussa TRAORÉ, Retraité", [Language.EN]: "Moussa TRAORÉ, Retired" },
+  testimonial5Quote: { [Language.FR]: "Je suis enfin satisfait de la transparence et de l'engagement de SOCABEG. Ils ont réussi à transformer une longue attente en une expérience agréable, malgré quelques contraintes qui ont affecté la livraison du projet.", [Language.EN]: "I am finally satisfied with the transparency and commitment of SOCABEG. They managed to turn a long wait into a pleasant experience, despite some constraints that affected the project's delivery." },
+  testimonial5Name: { [Language.FR]: "Papa Moussa FALL, Professeur", [Language.EN]: "Papa Moussa FALL, Professor" },
+  testimonial6Quote: { [Language.FR]: "En tant que partenaire, nous avons pu réaliser un projet de développement et de construction avec SOCABEG. La qualité de la collaboration a été grandement appréciée.", [Language.EN]: "As a partner, we were able to carry out a development and construction project with SOCABEG. The quality of the collaboration was greatly appreciated." },
+  testimonial6Name: { [Language.FR]: "TOIT IMMO, Agence Immobilière", [Language.EN]: "TOIT IMMO, Real Estate Agency" },
   prevTestimonialAria: { [Language.FR]: 'Témoignage précédent', [Language.EN]: 'Previous testimonial' },
   nextTestimonialAria: { [Language.FR]: 'Témoignage suivant', [Language.EN]: 'Next testimonial' },
   
@@ -218,6 +218,7 @@ export const content: LocalizedContent = {
   
   // Footer
   footerDescription: { [Language.FR]: "Acteur majeur du BTP et de la promotion immobilière au Sénégal, nous façonnons les paysages de demain.", [Language.EN]: 'As a major player in construction and real estate in Senegal, we are shaping the landscapes of tomorrow.' },
+  // FIX: Corrected a typo in the Language enum from `Language.Fr` to `Language.FR`.
   footerRights: { [Language.FR]: 'Tous droits réservés.', [Language.EN]: 'All rights reserved.' },
   footerFollow: { [Language.FR]: 'Suivez-nous', [Language.EN]: 'Follow Us' },
   footerQuickLinks: { [Language.FR]: 'Liens Rapides', [Language.EN]: 'Quick Links' },

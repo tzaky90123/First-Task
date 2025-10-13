@@ -62,10 +62,10 @@ const Header: React.FC = () => {
           <div className="w-1/3 flex justify-center">
             <RouterNavLink
               to="/"
-              className="text-2xl md:text-3xl font-bold font-serif text-white tracking-widest focus:outline-none focus:ring-2 focus:ring-brand-secondary rounded-md"
+              className="p-1 focus:outline-none focus:ring-2 focus:ring-brand-secondary/70 rounded-md"
               onClick={() => setIsMenuOpen(false)}
             >
-              SOCABEG
+              <img src="https://socabeg.com/logo.png" alt="SOCABEG Logo" className="h-10 md:h-12 w-auto" />
             </RouterNavLink>
           </div>
 

@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocalization } from '../context/LocalizationContext';
@@ -134,24 +133,7 @@ const HomePage: React.FC = () => {
 
 // Unified logo icon based on user-provided image
 const SectionLogoIcon = ({ className }: { className?: string }) => (
-    <svg viewBox="0 0 135 100" fill="none" xmlns="http://www.w3.org/2000/svg" className={className || "inline-block h-10 w-auto -mt-1 mr-3"} aria-hidden="true">
-        <defs>
-            <linearGradient id="red-gradient" x1="0.5" y1="0" x2="0.5" y2="1">
-                <stop offset="0%" stopColor="#FF6B33" />
-                <stop offset="100%" stopColor="#FF4500" />
-            </linearGradient>
-            <filter id="red-glow" x="-50%" y="-50%" width="200%" height="200%">
-                <feDropShadow dx="0" dy="0" stdDeviation="6" floodColor="#FF4500" floodOpacity="0.75" />
-            </filter>
-            <filter id="blue-glow" x="-50%" y="-50%" width="200%" height="200%">
-                <feDropShadow dx="0" dy="0" stdDeviation="6" floodColor="#003366" floodOpacity="0.75" />
-            </filter>
-        </defs>
-        <g>
-            <path d="M90 5 L50 95 L130 95 Z" fill="#003366" style={{ filter: 'url(#blue-glow)' }}/>
-            <path d="M55 15 L5 85 L95 85 Z" fill="url(#red-gradient)" style={{ filter: 'url(#red-glow)' }} />
-        </g>
-    </svg>
+    <img src="https://socabeg.com/favicon.png" alt="" className={className || "inline-block h-10 w-auto -mt-1 mr-3"} aria-hidden="true" />
 );
 
 
@@ -528,12 +510,14 @@ const TestimonialsSection: React.FC = () => {
                     <div className="overflow-hidden">
                         <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
                             {testimonials.map((testimonial, index) => (
-                                <div key={index} className="w-full flex-shrink-0">
-                                    <div className="bg-brand-light p-8 md:p-12 rounded-lg shadow-sm max-w-3xl mx-auto text-center">
-                                        <svg className="w-10 h-10 text-brand-secondary mx-auto mb-4" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true"><path d="M9.333 8h-5.333v8h5.333c0-4.418 3.582-8 8-8v-5.333c-7.364 0-13.333 5.97-13.333 13.333v10.667h13.333v-10.667h-8v-6zM29.333 8h-5.333v8h5.333c0-4.418 3.582-8 8-8v-5.333c-7.364 0-13.333 5.97-13.333 13.333v10.667h13.333v-10.667h-8v-6z"></path></svg>
-                                        <blockquote className="text-lg text-brand-text italic leading-relaxed mb-6">
-                                            “{t(testimonial.quoteKey)}”
-                                        </blockquote>
+                                <div key={index} className="w-full flex-shrink-0 px-4">
+                                    <div className="bg-brand-light p-8 md:p-12 rounded-lg shadow-sm max-w-3xl mx-auto text-center h-[450px] md:h-[380px] flex flex-col justify-between">
+                                        <div>
+                                          <svg className="w-10 h-10 text-brand-secondary mx-auto mb-4" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true"><path d="M9.333 8h-5.333v8h5.333c0-4.418 3.582-8 8-8v-5.333c-7.364 0-13.333 5.97-13.333 13.333v10.667h13.333v-10.667h-8v-6zM29.333 8h-5.333v8h5.333c0-4.418 3.582-8 8-8v-5.333c-7.364 0-13.333 5.97-13.333 13.333v10.667h13.333v-10.667h-8v-6z"></path></svg>
+                                          <blockquote className="text-lg text-brand-text italic leading-relaxed mb-6">
+                                              “{t(testimonial.quoteKey)}”
+                                          </blockquote>
+                                        </div>
                                         <cite className="not-italic font-semibold text-brand-primary font-serif">
                                             — {t(testimonial.nameKey)}
                                         </cite>
