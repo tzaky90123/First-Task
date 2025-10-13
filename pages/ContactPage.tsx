@@ -29,7 +29,7 @@ const ContactPage: React.FC = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6 grid md:grid-cols-2 gap-16">
           <div>
-            <h2 className="text-3xl font-bold font-serif text-brand-primary mb-6">{t('contactFormTitle')}</h2>
+            <h2 className="text-3xl font-bold font-sans text-brand-primary mb-6">{t('contactFormTitle')}</h2>
             <form onSubmit={handleSubmit} className="space-y-6">
               <InputField id="name" name="name" label={t('formName')} type="text" value={formState.name} onChange={handleInputChange} required />
               <InputField id="email" name="email" label={t('formEmail')} type="email" value={formState.email} onChange={handleInputChange} required />
@@ -52,7 +52,7 @@ const ContactPage: React.FC = () => {
             </form>
           </div>
           <div className="bg-brand-light p-8 rounded-lg">
-            <h2 className="text-3xl font-bold font-serif text-brand-primary mb-6">{t('contactInfoTitle')}</h2>
+            <h2 className="text-3xl font-bold font-sans text-brand-primary mb-6">{t('contactInfoTitle')}</h2>
             <div className="space-y-4 text-brand-text text-lg">
               <p><strong>{t('address')}:</strong> 123 Rue de Dakar, Sénégal</p>
               <p><strong>{t('phone')}:</strong> +221 33 800 00 00</p>

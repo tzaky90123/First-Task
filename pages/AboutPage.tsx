@@ -22,7 +22,7 @@ const AboutPage: React.FC = () => {
               <img src="https://picsum.photos/800/600?random=3" alt="Équipe SOCABEG" className="rounded-lg shadow-xl"/>
             </div>
             <div>
-              <h2 className="text-3xl font-bold font-serif text-brand-primary mb-4">{t('aboutMissionTitle')}</h2>
+              <h2 className="text-3xl font-bold font-sans text-brand-primary mb-4">{t('aboutMissionTitle')}</h2>
               <p className="text-lg text-brand-text leading-relaxed">{t('aboutMissionText')}</p>
             </div>
           </div>
@@ -31,7 +31,7 @@ const AboutPage: React.FC = () => {
 
       <section className="py-20 bg-brand-light">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold font-serif text-brand-primary mb-12">{t('aboutValuesTitle')}</h2>
+          <h2 className="text-4xl font-bold font-sans text-brand-primary mb-12">{t('aboutValuesTitle')}</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map(valueKey => (
               <div key={valueKey} className="bg-white p-8 rounded-lg shadow-md">

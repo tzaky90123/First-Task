@@ -84,8 +84,8 @@ const HomePage: React.FC = () => {
 
         <div className="relative container mx-auto px-5 lg:px-20 h-full flex flex-col justify-center items-center text-center text-white z-20">
           <div key={currentSlide} className="w-full">
-            <h1 className="text-[26px] md:text-[32px] font-montserrat font-bold mb-4 animate-fade-in-up">{t(slides[currentSlide].title)}</h1>
-            <p className="text-lg md:text-xl font-montserrat max-w-3xl mx-auto mb-8 animate-fade-in-up animation-delay-300">{t(slides[currentSlide].subtitle)}</p>
+            <h1 className="text-[26px] md:text-[32px] font-sans font-bold mb-4 animate-fade-in-up">{t(slides[currentSlide].title)}</h1>
+            <p className="text-lg md:text-xl font-sans max-w-3xl mx-auto mb-8 animate-fade-in-up animation-delay-300">{t(slides[currentSlide].subtitle)}</p>
           </div>
           <Link
             to="/promotion-immobiliere"
@@ -147,7 +147,7 @@ const AboutSection: React.FC = () => {
                         <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
                         <span>{t('homeAboutSectionTitle')}</span>
                     </h3>
-                    <h2 className="text-2xl font-medium font-serif text-brand-primary">
+                    <h2 className="text-2xl font-medium font-sans text-brand-primary">
                         {t('homeAboutSectionHeadline')}
                     </h2>
                 </div>
@@ -216,7 +216,7 @@ const MasterpiecesSection: React.FC = () => {
                        <SectionLogoIcon className="inline-block h-5 w-auto mr-2"/>
                        <span>{t('homeMasterpiecesTitle')}</span>
                     </h3>
-                    <h2 className="text-2xl font-medium font-serif text-brand-primary">
+                    <h2 className="text-2xl font-medium font-sans text-brand-primary">
                         {t('homeMasterpiecesSubtitle')}
                     </h2>
                 </div>
@@ -287,7 +287,7 @@ const StatisticsSection: React.FC = () => {
                         <StatisticsIcon />
                         <span>{t('statisticsSectionTitle')}</span>
                     </h3>
-                    <h2 className="text-2xl font-medium font-serif text-brand-primary">
+                    <h2 className="text-2xl font-medium font-sans text-brand-primary">
                         {t('statisticsSectionHeadline')}
                     </h2>
                 </div>
@@ -298,7 +298,7 @@ const StatisticsSection: React.FC = () => {
                             className="bg-transparent p-6 rounded-lg text-center animate-fade-in-up border border-gray-300 shadow-md" 
                             style={{ animationDelay: `${index * 150}ms` }}
                         >
-                            <p className="text-2xl lg:text-3xl font-bold text-brand-secondary font-serif">{stat.value}</p>
+                            <p className="text-2xl lg:text-3xl font-bold text-brand-secondary font-sans">{stat.value}</p>
                             <p className="text-brand-text mt-2 text-sm">{t(stat.labelKey)}</p>
                         </div>
                     ))}
@@ -345,14 +345,14 @@ const WhyChooseUsSection: React.FC = () => {
                         <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
                         <span>{t('whyChooseUsSectionTitle')}</span>
                     </h3>
-                    <h2 className="text-2xl font-medium font-serif text-brand-primary">
+                    <h2 className="text-2xl font-medium font-sans text-brand-primary">
                         {t('whyChooseUsSectionHeadline')}
                     </h2>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {values.map((value, index) => (
                         <div key={index} className="bg-brand-light p-8 rounded-lg shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
-                            <h3 className="text-xl font-bold text-brand-primary mb-3 font-serif">{t(value.titleKey)}</h3>
+                            <h3 className="text-xl font-bold text-brand-primary mb-3 font-sans">{t(value.titleKey)}</h3>
                             <p className="text-brand-text text-sm leading-relaxed">{t(value.descriptionKey)}</p>
                         </div>
                     ))}
@@ -418,7 +418,7 @@ const ProgramSection: React.FC = () => {
                         <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
                         <span>{t('programsSectionTitle')}</span>
                     </h3>
-                    <h2 className="text-2xl font-medium font-serif text-brand-primary">
+                    <h2 className="text-2xl font-medium font-sans text-brand-primary">
                         {t('programsSectionHeadline')}
                     </h2>
                 </div>
@@ -427,7 +427,7 @@ const ProgramSection: React.FC = () => {
                         <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
                             <img src={program.image} alt={t(program.titleKey)} className="w-full h-56 object-cover" />
                             <div className="p-6 flex flex-col flex-grow">
-                                <h3 className="text-lg font-bold text-brand-primary font-serif">{t(program.titleKey)}</h3>
+                                <h3 className="text-lg font-bold text-brand-primary font-sans">{t(program.titleKey)}</h3>
                                 <p className="text-xs text-gray-500 mb-3">{t(program.typeKey)}</p>
                                 
                                 <div className="flex flex-wrap items-center text-xs text-gray-600 mb-4 border-y py-2">
@@ -506,7 +506,7 @@ const TestimonialsSection: React.FC = () => {
                         <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
                         <span>{t('testimonialsSectionTitle')}</span>
                     </h3>
-                    <h2 className="text-2xl font-medium font-serif text-brand-primary">
+                    <h2 className="text-2xl font-medium font-sans text-brand-primary">
                         {t('testimonialsSectionHeadline')}
                     </h2>
                 </div>
@@ -522,7 +522,7 @@ const TestimonialsSection: React.FC = () => {
                                               “{t(testimonial.quoteKey)}”
                                           </blockquote>
                                         </div>
-                                        <cite className="not-italic font-semibold text-brand-primary font-serif">
+                                        <cite className="not-italic font-semibold text-brand-primary font-sans">
                                             — {t(testimonial.nameKey)}
                                         </cite>
                                     </div>
@@ -566,7 +566,7 @@ const PartnerSection: React.FC = () => {
                         <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
                         <span>{t('partnersSectionTitle')}</span>
                     </h3>
-                    <h2 className="text-2xl font-medium font-serif text-brand-primary">
+                    <h2 className="text-2xl font-medium font-sans text-brand-primary">
                         {t('partnersSectionHeadline')}
                     </h2>
                 </div>
@@ -594,7 +594,7 @@ const ExpertiseSection: React.FC = () => {
     return (
       <section className="py-20 bg-brand-light">
         <div className="container mx-auto px-5 lg:px-20 text-center">
-          <h2 className="text-3xl font-bold font-serif text-brand-primary mb-4">
+          <h2 className="text-3xl font-bold font-sans text-brand-primary mb-4">
             {t('homeServicesTitle')}
           </h2>
           <p className="text-base text-brand-text max-w-3xl mx-auto mb-16">{t('homeExpertiseSubtitle')}</p>
@@ -628,7 +628,7 @@ const ContactCtaSection: React.FC = () => {
     return (
         <section className="bg-brand-primary text-white">
             <div className="container mx-auto px-5 lg:px-20 py-20 text-center">
-                <h2 className="text-4xl font-serif font-bold mb-4">{t('homeContactCtaTitle')}</h2>
+                <h2 className="text-4xl font-sans font-bold mb-4">{t('homeContactCtaTitle')}</h2>
                 <p className="text-base max-w-2xl mx-auto mb-8">{t('homeContactCtaText')}</p>
                 <Link
                     to="/contact"
@@ -655,7 +655,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, lin
     return (
         <div className="bg-brand-light p-8 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
             <div className="text-brand-secondary mx-auto mb-6 h-16 w-16 flex items-center justify-center">{icon}</div>
-            <h3 className="text-2xl font-bold font-serif text-brand-primary mb-4">{title}</h3>
+            <h3 className="text-2xl font-bold font-sans text-brand-primary mb-4">{title}</h3>
             <p className="text-brand-text mb-6">{description}</p>
             <Link to={linkTo} className="font-semibold text-brand-secondary hover:underline">
                 {t('learnMore')}

@@ -19,14 +19,14 @@ const RealEstatePage: React.FC = () => {
               <img src="https://picsum.photos/800/600?random=10" alt="Résidence de luxe" className="rounded-lg shadow-xl"/>
             </div>
            <div className="order-1 md:order-2">
-              <h2 className="text-3xl font-bold font-serif text-brand-primary mb-4">{t('reVisionTitle')}</h2>
+              <h2 className="text-3xl font-bold font-sans text-brand-primary mb-4">{t('reVisionTitle')}</h2>
               <p className="text-lg text-brand-text leading-relaxed">{t('reVisionText')}</p>
             </div>
         </div>
       </section>
        <section className="py-20 bg-brand-light">
           <div className="container mx-auto px-6">
-              <h2 className="text-4xl font-bold font-serif text-brand-primary mb-12 text-center">{t('reProjectsTitle')}</h2>
+              <h2 className="text-4xl font-bold font-sans text-brand-primary mb-12 text-center">{t('reProjectsTitle')}</h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                   <ProjectCard image="https://picsum.photos/600/400?random=11" title={t('reProject1Title')} description={t('reProject1Desc')} />
                   <ProjectCard image="https://picsum.photos/600/400?random=12" title={t('reProject2Title')} description={t('reProject2Desc')} />
