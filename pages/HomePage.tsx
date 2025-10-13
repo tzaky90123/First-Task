@@ -84,7 +84,7 @@ const HomePage: React.FC = () => {
 
         <div className="relative container mx-auto px-5 lg:px-20 h-full flex flex-col justify-center items-center text-center text-white z-20">
           <div key={currentSlide} className="w-full">
-            <h1 className="text-4xl md:text-5xl font-montserrat font-bold mb-4 animate-fade-in-up">{t(slides[currentSlide].title)}</h1>
+            <h1 className="text-3xl md:text-4xl font-montserrat font-bold mb-4 animate-fade-in-up">{t(slides[currentSlide].title)}</h1>
             <p className="text-lg md:text-xl font-montserrat max-w-3xl mx-auto mb-8 animate-fade-in-up animation-delay-300">{t(slides[currentSlide].subtitle)}</p>
           </div>
           <Link
@@ -295,10 +295,10 @@ const StatisticsSection: React.FC = () => {
                     {stats.map((stat, index) => (
                         <div 
                             key={index} 
-                            className="bg-white p-6 rounded-lg shadow-md text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1 animate-fade-in-up" 
+                            className="bg-transparent p-6 rounded-lg text-center animate-fade-in-up border border-gray-300 shadow-md" 
                             style={{ animationDelay: `${index * 150}ms` }}
                         >
-                            <p className="text-3xl lg:text-4xl font-bold text-brand-secondary font-serif">{stat.value}</p>
+                            <p className="text-2xl lg:text-3xl font-bold text-brand-secondary font-serif">{stat.value}</p>
                             <p className="text-brand-text mt-2 text-sm">{t(stat.labelKey)}</p>
                         </div>
                     ))}
