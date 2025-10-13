@@ -84,8 +84,8 @@ const HomePage: React.FC = () => {
 
         <div className="relative container mx-auto px-5 lg:px-20 h-full flex flex-col justify-center items-center text-center text-white z-20">
           <div key={currentSlide} className="w-full">
-            <h1 className="text-4xl md:text-5xl font-serif mb-4 animate-fade-in-up">{t(slides[currentSlide].title)}</h1>
-            <p className="text-lg md:text-xl max-w-3xl mx-auto mb-8 animate-fade-in-up animation-delay-300">{t(slides[currentSlide].subtitle)}</p>
+            <h1 className="text-4xl md:text-5xl font-montserrat font-bold mb-4 animate-fade-in-up">{t(slides[currentSlide].title)}</h1>
+            <p className="text-lg md:text-xl font-montserrat max-w-3xl mx-auto mb-8 animate-fade-in-up animation-delay-300">{t(slides[currentSlide].subtitle)}</p>
           </div>
           <Link
             to="/promotion-immobiliere"
