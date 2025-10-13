@@ -18,7 +18,7 @@ export const content: LocalizedContent = {
   langSwitchEN: { [Language.FR]: 'Passer en Anglais', [Language.EN]: 'Switch to English' },
 
   // Home Page
-  heroSlide1Title: { [Language.EN]: 'Innovation and progress: passionate about your project services.', [Language.FR]: 'Innovation et progrès : passionnés par les services de votre projet.' },
+  heroSlide1Title: { [Language.EN]: 'Innovation and progress: passionate about your project services', [Language.FR]: 'Innovation et progrès : passionnés par les services de votre projet' },
   heroSlide1Subtitle: { [Language.EN]: 'Prioritization: simplify the acquisition of property for our partners with simple solutions.', [Language.FR]: "Priorité : simplifier l'acquisition de biens immobiliers pour nos partenaires avec des solutions simples." },
   
   heroSlide2Title: { [Language.EN]: 'Leader in social housing construction in Senegal', [Language.FR]: 'Leader dans la construction de logements sociaux au Sénégal' },
