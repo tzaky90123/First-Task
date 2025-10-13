@@ -291,11 +291,15 @@ const StatisticsSection: React.FC = () => {
                         {t('statisticsSectionHeadline')}
                     </h2>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 text-center">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
                     {stats.map((stat, index) => (
-                        <div key={index} className="animate-fade-in-up" style={{ animationDelay: `${index * 150}ms` }}>
-                            <p className="text-4xl lg:text-5xl font-bold text-brand-secondary font-serif">{stat.value}</p>
-                            <p className="text-brand-text mt-2">{t(stat.labelKey)}</p>
+                        <div 
+                            key={index} 
+                            className="bg-white p-6 rounded-lg shadow-md text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1 animate-fade-in-up" 
+                            style={{ animationDelay: `${index * 150}ms` }}
+                        >
+                            <p className="text-3xl lg:text-4xl font-bold text-brand-secondary font-serif">{stat.value}</p>
+                            <p className="text-brand-text mt-2 text-sm">{t(stat.labelKey)}</p>
                         </div>
                     ))}
                 </div>
