@@ -200,6 +200,10 @@ const StatisticsSection: React.FC = () => {
     );
 };
 
+const AwardIcon = () => (
+    <img src="image/Award.png" alt="Award Icon" className="mx-auto mb-4 h-12 w-12" />
+);
+
 const WhyChooseUsSection: React.FC = () => {
     const { t } = useLocalization();
     const values = [
@@ -244,7 +248,8 @@ const WhyChooseUsSection: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {values.map((value, index) => (
                         <div key={index} className="bg-brand-light p-8 rounded-lg shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
-                            <h3 className="text-xl font-bold text-brand-primary mb-3 font-sans">{t(value.titleKey)}</h3>
+                            <AwardIcon />
+                            <h3 className="text-xl font-bold text-brand-primary mb-3 font-sans text-center">{t(value.titleKey)}</h3>
                             <p className="text-brand-text text-sm leading-relaxed">{t(value.descriptionKey)}</p>
                         </div>
                     ))}

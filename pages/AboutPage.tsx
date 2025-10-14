@@ -2,6 +2,13 @@ import React from 'react';
 import { useLocalization } from '../context/LocalizationContext';
 import PageHero from '../components/PageHero';
 
+const AwardIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" className="mx-auto mb-4 h-12 w-12 text-brand-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="8" r="7"></circle>
+    <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+  </svg>
+);
+
 const AboutPage: React.FC = () => {
   const { t } = useLocalization();
 
@@ -35,6 +42,7 @@ const AboutPage: React.FC = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map(valueKey => (
               <div key={valueKey} className="bg-white p-8 rounded-lg shadow-md">
+                <AwardIcon />
                 <h3 className="text-2xl font-semibold text-brand-secondary">{t(valueKey)}</h3>
               </div>
             ))}
