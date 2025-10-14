@@ -200,64 +200,88 @@ const StatisticsSection: React.FC = () => {
     );
 };
 
-const AwardIcon = () => (
-    <img src="image/Award.png" alt="Award Icon" className="mx-auto mb-4 h-12 w-12" />
-);
+import AwardIcon from "@/image/award.png";
+import ConfigureIcon from "@/image/configuration.png"; 
+import LeafIcon from "@/image/leaf.png";
+import MultipleIcon from "@/image/multiple.png";
+import OfficeIcon from "@/image/office.png";
+import RepairIcon from "@/image/repair.png";
+
 
 const WhyChooseUsSection: React.FC = () => {
     const { t } = useLocalization();
     const values = [
         {
+            icon: AwardIcon,
             titleKey: "value1Title",
-            descriptionKey: "value1Desc"
+            descriptionKey: "value1Desc",
         },
         {
+            icon: ConfigureIcon,
             titleKey: "value2Title",
-            descriptionKey: "value2Desc"
+            descriptionKey: "value2Desc",
         },
         {
+            icon: LeafIcon,
             titleKey: "value3Title",
-            descriptionKey: "value3Desc"
+            descriptionKey: "value3Desc",
         },
         {
+            icon: MultipleIcon,
             titleKey: "value4Title",
-            descriptionKey: "value4Desc"
+            descriptionKey: "value4Desc",
         },
         {
+            icon: OfficeIcon,
             titleKey: "value5Title",
-            descriptionKey: "value5Desc"
+            descriptionKey: "value5Desc",
         },
         {
+            icon: RepairIcon,
             titleKey: "value6Title",
-            descriptionKey: "value6Desc"
-        }
+            descriptionKey: "value6Desc",
+        },
     ];
+}
 
     return (
-        <section className="py-20 bg-white">
-            <div className="container mx-auto px-5 lg:px-20">
-                <div className="text-center mb-16">
-                    <h3 className="text-sm font-semibold text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
-                        <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
-                        <span>{t('whyChooseUsSectionTitle')}</span>
-                    </h3>
-                    <h2 className="text-2xl font-medium font-sans text-brand-primary">
-                        {t('whyChooseUsSectionHeadline')}
-                    </h2>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {values.map((value, index) => (
-                        <div key={index} className="bg-brand-light p-8 rounded-lg shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
-                            <AwardIcon />
-                            <h3 className="text-xl font-bold text-brand-primary mb-3 font-sans text-center">{t(value.titleKey)}</h3>
-                            <p className="text-brand-text text-sm leading-relaxed">{t(value.descriptionKey)}</p>
-                        </div>
-                    ))}
-                </div>
+    <section className="py-20 bg-white">
+        <div className="container mx-auto px-5 lg:px-20">
+        <div className="text-center mb-16">
+            <h3 className="text-sm font-semibold text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
+            <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
+            <span>{t('whyChooseUsSectionTitle')}</span>
+            </h3>
+            <h2 className="text-2xl font-medium font-sans text-brand-primary">
+            {t('whyChooseUsSectionHeadline')}
+            </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {values.map((value, index) => (
+            <div
+                key={index}
+                className="bg-brand-light p-8 rounded-lg shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 animate-fade-in-up flex flex-col items-center text-center"
+                style={{ animationDelay: `${index * 100}ms` }}
+            >
+                <img
+                src={value.icon}
+                alt={t(value.titleKey)}
+                className="w-16 h-16 mb-4 object-contain transition-transform duration-300 hover:scale-110"
+                />
+                <h3 className="text-xl font-bold text-brand-primary mb-3 font-sans">
+                {t(value.titleKey)}
+                </h3>
+                <p className="text-brand-text text-sm leading-relaxed">
+                {t(value.descriptionKey)}
+                </p>
             </div>
-        </section>
-    );
-};
+            ))}
+        </div>
+        </div>
+    </section>
+);
+
 
 const IconBed = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1.5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" /></svg>;
 const IconBath = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1.5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" /></svg>;
