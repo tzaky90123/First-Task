@@ -1,8 +1,8 @@
-
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocalization } from '../context/LocalizationContext';
 import MainNavigation from '../components/MainNavigation';
+
 
 const slides = [
   {
@@ -200,87 +200,55 @@ const StatisticsSection: React.FC = () => {
     );
 };
 
-import AwardIcon from "@/image/award.png";
-import ConfigureIcon from "@/image/configuration.png"; 
-import LeafIcon from "@/image/leaf.png";
-import MultipleIcon from "@/image/multiple.png";
-import OfficeIcon from "@/image/office.png";
-import RepairIcon from "@/image/repair.png";
-
 
 const WhyChooseUsSection: React.FC = () => {
-    const { t } = useLocalization();
-    const values = [
-        {
-            icon: AwardIcon,
-            titleKey: "value1Title",
-            descriptionKey: "value1Desc",
-        },
-        {
-            icon: ConfigureIcon,
-            titleKey: "value2Title",
-            descriptionKey: "value2Desc",
-        },
-        {
-            icon: LeafIcon,
-            titleKey: "value3Title",
-            descriptionKey: "value3Desc",
-        },
-        {
-            icon: MultipleIcon,
-            titleKey: "value4Title",
-            descriptionKey: "value4Desc",
-        },
-        {
-            icon: OfficeIcon,
-            titleKey: "value5Title",
-            descriptionKey: "value5Desc",
-        },
-        {
-            icon: RepairIcon,
-            titleKey: "value6Title",
-            descriptionKey: "value6Desc",
-        },
-    ];
+  const { t } = useLocalization();
+
+  const values = [
+    { titleKey: "value1Title", descriptionKey: "value1Desc", },
+    { titleKey: "value2Title", descriptionKey: "value2Desc", },
+    { titleKey: "value3Title", descriptionKey: "value3Desc", },
+    { titleKey: "value4Title", descriptionKey: "value4Desc", },
+    { titleKey: "value5Title", descriptionKey: "value5Desc", },
+    { titleKey: "value6Title", descriptionKey: "value6Desc", },
+  ];
+
+  return (
+  <section className="py-20 bg-white">
+    <div className="container mx-auto px-5 lg:px-20">
+      {/* Header */}
+      <div className="text-center mb-16">
+        <h3 className="text-sm font-semibold text-brand-primary uppercase tracking-widest mb-2">
+          {t("whyChooseUsSectionTitle")}
+        </h3>
+        <h2 className="text-2xl font-medium font-sans text-brand-primary">
+          {t("whyChooseUsSectionHeadline")}
+        </h2>
+      </div>
+
+      {/* Values Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {values.map((value, index) => (
+          <div
+            key={index}
+            className="bg-brand-light p-8 rounded-lg shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 text-center"
+            style={{ animationDelay: `${index * 100}ms` }}
+          >
+            {/* Hapus ikon di sini */}
+            <h3 className="text-xl font-bold text-brand-primary mb-3 font-sans">
+              {t(value.titleKey)}
+            </h3>
+            <p className="text-brand-text text-sm leading-relaxed">
+              {t(value.descriptionKey)}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
 }
 
-    return (
-    <section className="py-20 bg-white">
-        <div className="container mx-auto px-5 lg:px-20">
-        <div className="text-center mb-16">
-            <h3 className="text-sm font-semibold text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
-            <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
-            <span>{t('whyChooseUsSectionTitle')}</span>
-            </h3>
-            <h2 className="text-2xl font-medium font-sans text-brand-primary">
-            {t('whyChooseUsSectionHeadline')}
-            </h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {values.map((value, index) => (
-            <div
-                key={index}
-                className="bg-brand-light p-8 rounded-lg shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 animate-fade-in-up flex flex-col items-center text-center"
-                style={{ animationDelay: `${index * 100}ms` }}
-            >
-                <img
-                src={value.icon}
-                alt={t(value.titleKey)}
-                className="w-16 h-16 mb-4 object-contain transition-transform duration-300 hover:scale-110"
-                />
-                <h3 className="text-xl font-bold text-brand-primary mb-3 font-sans">
-                {t(value.titleKey)}
-                </h3>
-                <p className="text-brand-text text-sm leading-relaxed">
-                {t(value.descriptionKey)}
-                </p>
-            </div>
-            ))}
-        </div>
-        </div>
-    </section>
-);
 
 
 const IconBed = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1.5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" /></svg>;
@@ -609,92 +577,111 @@ const HomePage: React.FC = () => {
 
   const goToSlide = (slideIndex: number) => {
     setCurrentSlide(slideIndex);
-    startAutoSlide(); // Reset timer on manual navigation
+    startAutoSlide(); // reset timer on manual navigation
   };
 
-  const nextSlide = () => {
-    goToSlide((currentSlide + 1) % slides.length);
-  };
-  
-  const prevSlide = () => {
-    goToSlide((currentSlide - 1 + slides.length) % slides.length);
-  };
+  const nextSlide = useCallback(() => goToSlide((currentSlide + 1) % slides.length), [currentSlide]);
+  const prevSlide = useCallback(() => goToSlide((currentSlide - 1 + slides.length) % slides.length), [currentSlide]);
 
   return (
-    <div>
+    <>
       {/* Hero Section */}
-      <div className="relative h-screen w-full overflow-hidden">
+      <section className="relative h-screen overflow-hidden text-white">
+        {/* Background Image Slider */}
         {slides.map((slide, index) => (
-            <div
-                key={index}
-                className="absolute top-0 left-0 w-full h-full bg-cover bg-center transition-opacity duration-1000 ease-in-out"
-                style={{ backgroundImage: `url(${slide.img})`, opacity: index === currentSlide ? 1 : 0 }}
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              index === currentSlide ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <img
+              src={slide.img}
+              alt="" // Alt text is decorative as content is in the overlay
+              className="w-full h-full object-cover"
             />
+          </div>
         ))}
-        <div className="absolute inset-0 bg-brand-dark opacity-50 z-10"></div>
-        
+
+        {/* Content Overlay */}
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
+          
+          {/* Animated Text Content */}
+          <div className="w-full">
+            <h1 className="text-3xl md:text-4xl font-bold mb-4 animate-fade-in-up" key={`${currentSlide}-title`}>
+              {t(slides[currentSlide].title)}
+            </h1>
+            <p className="text-base md:text-xl max-w-3xl mx-auto mb-8 animate-fade-in-up animation-delay-300" key={`${currentSlide}-subtitle`}>
+                {t(slides[currentSlide].subtitle)}
+            </p>
+          </div>
+
+          <div className="animate-fade-in-up animation-delay-600">
+            <Link
+              to="/promotion-immobiliere"
+              className="inline-block bg-white/20 backdrop-blur-sm border border-white/40 text-white font-bold py-3 px-10 rounded-full hover:bg-white/30 transition-colors duration-300 text-lg focus:outline-none focus:ring-2 focus:ring-white/70 focus:ring-offset-2 focus:ring-offset-black/30"
+            >
+              {t('homeCta')}
+            </Link>
+          </div>
+
+          {/* Main Navigation */}
+          <div className="mt-10 animate-fade-in-up animation-delay-800">
+             <MainNavigation />
+          </div>
+
+        </div>
+
         {/* Navigation Arrows */}
         <button
           onClick={prevSlide}
-          className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-black/30 hover:bg-black/50 text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white"
-          aria-label="Previous slide"
+          className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white p-3 rounded-full focus:outline-none z-20"
+          aria-label="Previous Slide"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
         </button>
         <button
           onClick={nextSlide}
-          className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-black/30 hover:bg-black/50 text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white"
-          aria-label="Next slide"
+          className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white p-3 rounded-full focus:outline-none z-20"
+          aria-label="Next Slide"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
         </button>
 
-        <div className="relative container mx-auto px-5 lg:px-20 h-full flex flex-col justify-center items-center text-center text-white z-20">
-          <div key={currentSlide} className="w-full">
-            <h1 className="text-[26px] md:text-[32px] font-sans font-bold mb-4 animate-fade-in-up">{t(slides[currentSlide].title)}</h1>
-            <p className="text-lg md:text-xl font-sans max-w-3xl mx-auto mb-8 animate-fade-in-up animation-delay-300">{t(slides[currentSlide].subtitle)}</p>
-          </div>
-          <Link
-            to="/promotion-immobiliere"
-            className="bg-transparent border-2 border-white text-white font-bold py-3 px-10 rounded-full hover:bg-white hover:text-brand-primary transition duration-300 text-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brand-dark animate-fade-in-up animation-delay-600"
-          >
-            {t('homeCta')}
-          </Link>
-
-           {/* Pagination Dots */}
-          <div className="absolute bottom-40 left-1/2 -translate-x-1/2 z-30 flex space-x-3">
-            {slides.map((_, index) => (
-                <button
-                    key={index}
-                    onClick={() => goToSlide(index)}
-                    aria-label={`Go to slide ${index + 1}`}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                        index === currentSlide ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white'
-                    }`}
-                />
-            ))}
-          </div>
-
-          <div className="absolute bottom-24 w-full">
-            <MainNavigation />
-          </div>
-
+        {/* Slide Indicators */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-1/4 max-w-xs flex items-center space-x-2 z-20">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className="flex-1 h-0.5 bg-white/30 rounded-full overflow-hidden"
+              aria-label={`Go to slide ${index + 1}`}
+            >
+              <div
+                className={`h-full bg-brand-secondary rounded-full ${index === currentSlide ? 'animate-slide-indicator' : (index < currentSlide ? 'w-full' : 'w-0')}`}
+                style={index === currentSlide ? { animationDuration: '7s' } : {}}
+              ></div>
+            </button>
+          ))}
         </div>
-         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 animate-bounce">
-            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
-        </div>
-      </div>
+      </section>
 
+      {/* Other Sections */}
       <ExpertiseSection />
       <AboutSection />
       <MasterpiecesSection />
+      <ProgramSection />
       <StatisticsSection />
       <WhyChooseUsSection />
-      <ProgramSection />
       <TestimonialsSection />
       <PartnerSection />
       <ContactCtaSection />
-    </div>
+    </>
   );
 };
 
