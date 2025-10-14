@@ -200,30 +200,68 @@ const StatisticsSection: React.FC = () => {
     );
 };
 
+const IconMedal = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" className="w-full h-full" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M10.88,14.06l3.18,3.18l-1.06,1.06l-4.24-4.24l1.06-1.06L10.88,14.06z M13.12,9.94l-1.06-1.06l4.24-4.24l1.06,1.06 L13.12,9.94z M12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10S17.5,2,12,2z M12,20c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8 S16.4,20,12,20z M17.4,8.5c0-0.2-0.1-0.4-0.2-0.6l-1.1-1.1c-0.3-0.3-0.8-0.3-1.1,0l-2.4,2.4l-0.7-0.7c-0.3-0.3-0.8-0.3-1.1,0l-1.1,1.1 C10.9,10,10.9,10.5,11.2,10.8l0.7,0.7L9.5,13.9c-0.3,0.3-0.3,0.8,0,1.1l1.1,1.1c0.2,0.2,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2l2.4-2.4 l0.7,0.7c0.3,0.3,0.8,0.3,1.1,0l1.1-1.1C17.7,11,17.7,10.5,17.4,10.8L16.3,9.7l1.1-1.1C17.6,8.3,17.5,8.4,17.4,8.5z" />
+  </svg>
+);
+const IconTools = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" className="w-full h-full" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.48,1.82l2.12,2.12L5.3,18.22l-2.12-2.12L17.48,1.82z M12.8,19.35l2.83,2.83L3.8,10.34l-2.83,2.83l8.49,8.48 c0,0,0,0,0,0l0,0l2.83-2.83L12.8,19.35z M15.63,5.21L10,10.84l-2.83-2.83L10,5.18L15.63,5.21z M8.04,10l2.83,2.83l-2.83,2.83 l-2.83-2.83L8.04,10z"/>
+    </svg>
+);
+const IconLeaf = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" className="w-full h-full" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17,8C8,10,5.9,16.17,3.82,21.34L5.71,22l1.62-7.24L11,14v-2a1,1,0,0,0-1-1H8.74c1.81-2.16,4.1-3.28,7.26-3.15V8Z"/>
+    </svg>
+);
+const IconGears = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" className="w-full h-full" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M20.73,15.41a2,2,0,0,1,0-2.82l1-1.74a2,2,0,0,0-.5-2.75l-2-2a2,2,0,0,0-2.75-.5l-1.74,1a2,2,0,0,1-2.82,0L9.1,4.78a2,2,0,0,0-2.75-.5l-2,2a2,2,0,0,0-.5,2.75l1,1.74a2,2,0,0,1,0,2.82l-1,1.74a2,2,0,0,0,.5,2.75l2,2a2,2,0,0,0,2.75.5l1.74-1a2,2,0,0,1,2.82,0l2.82,2.82a2,2,0,0,0,2.75.5l2-2a2,2,0,0,0,.5-2.75Zm-5.32-3a3,3,0,1,0,3,3A3,3,0,0,0,15.41,12.41Z"/>
+        <path d="M11.6,11.6l-6.82,2.1a2,2,0,0,0-1,2.75l1,1a2,2,0,0,0,2.75-1l2.1-6.82A2.83,2.83,0,0,1,11.6,11.6Z"/>
+    </svg>
+);
+const IconBuilding = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+        <path d="M16,11V5a2,2,0,0,0-2-2H10A2,2,0,0,0,8,5v6H2v8h8V17h4v2h8V11ZM10,5h4v6H10ZM4,17V13H6v4Zm6,0V13h4v4Zm10,0H16V13h2Z"/>
+    </svg>
+);
+const IconPeople = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+        <path d="M12 5.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zM5 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm14 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM12 14.5c2.67 0 8 1.34 8 4v3H4v-3c0-2.66 5.33-4 8-4zm-8-3.5c0 1 .62 1.85 1.5 2.22a5.5 5.5 0 0 1 0-4.44C4.62 9.15 4 9.99 4 11zm16 0c0-1-.62-1.85-1.5-2.22a5.5 5.5 0 0 1 0 4.44c.88-.37 1.5-1.22 1.5-2.22z"/>
+    </svg>
+);
+
 const WhyChooseUsSection: React.FC = () => {
     const { t } = useLocalization();
     const values = [
         {
+            icon: <IconMedal />,
             titleKey: "value1Title",
             descriptionKey: "value1Desc"
         },
         {
+            icon: <IconTools />,
             titleKey: "value2Title",
             descriptionKey: "value2Desc"
         },
         {
+            icon: <IconLeaf />,
             titleKey: "value3Title",
             descriptionKey: "value3Desc"
         },
         {
+            icon: <IconGears />,
             titleKey: "value4Title",
             descriptionKey: "value4Desc"
         },
         {
+            icon: <IconBuilding />,
             titleKey: "value5Title",
             descriptionKey: "value5Desc"
         },
         {
+            icon: <IconPeople />,
             titleKey: "value6Title",
             descriptionKey: "value6Desc"
         }
@@ -244,6 +282,9 @@ const WhyChooseUsSection: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {values.map((value, index) => (
                         <div key={index} className="bg-brand-light p-8 rounded-lg shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
+                            <div className="h-12 w-12 text-brand-text mb-4">
+                                {value.icon}
+                            </div>
                             <h3 className="text-xl font-bold text-brand-primary mb-3 font-sans">{t(value.titleKey)}</h3>
                             <p className="text-brand-text text-sm leading-relaxed">{t(value.descriptionKey)}</p>
                         </div>
@@ -488,7 +529,7 @@ interface ServiceCardProps {
     linkTo: string;
 }
 
-const IconBuilding = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m-1 4h1m5-8h1m-1 4h1m-1 4h1M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16" /></svg>;
+const IconBuildingExpertise = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m-1 4h1m5-8h1m-1 4h1m-1 4h1M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16" /></svg>;
 const IconHome = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>;
 const IconMine = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>;
 
@@ -518,7 +559,7 @@ const ExpertiseSection: React.FC = () => {
           <p className="text-base text-brand-text max-w-3xl mx-auto mb-16">{t('homeExpertiseSubtitle')}</p>
           <div className="grid md:grid-cols-3 gap-8">
             <ServiceCard
-              icon={<IconBuilding />}
+              icon={<IconBuildingExpertise />}
               title={t('homeServicesBtpTitle')}
               description={t('homeServicesBtpText')}
               linkTo="/btp"
