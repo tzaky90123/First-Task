@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocalization } from '../context/LocalizationContext';
@@ -510,8 +511,9 @@ const ExpertiseSection: React.FC = () => {
     return (
       <section className="py-20 bg-brand-light">
         <div className="container mx-auto px-5 lg:px-20 text-center">
-          <h2 className="text-3xl font-bold font-sans text-brand-primary mb-4">
-            {t('homeServicesTitle')}
+          <h2 className="text-2xl font-medium font-sans text-brand-primary mb-4 flex items-center justify-center">
+            <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
+            <span>{t('homeServicesTitle')}</span>
           </h2>
           <p className="text-base text-brand-text max-w-3xl mx-auto mb-16">{t('homeExpertiseSubtitle')}</p>
           <div className="grid md:grid-cols-3 gap-8">
