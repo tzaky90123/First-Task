@@ -3,6 +3,31 @@ import React, { useState } from 'react';
 import { useLocalization } from '../context/LocalizationContext';
 import PageHero from '../components/PageHero';
 
+interface InputFieldProps {
+  id: string;
+  name: string;
+  label: string;
+  type: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  required?: boolean;
+}
+
+const InputField: React.FC<InputFieldProps> = ({ id, name, label, type, value, onChange, required }) => (
+  <div>
+    <label htmlFor={id} className="block text-sm font-medium text-brand-text mb-2">{label}</label>
+    <input
+      type={type}
+      id={id}
+      name={name}
+      value={value}
+      onChange={onChange}
+      required={required}
+      className="w-full p-3 border border-gray-300 rounded-md focus:ring-brand-secondary focus:border-brand-secondary"
+    />
+  </div>
+);
+
 const ContactPage: React.FC = () => {
   const { t } = useLocalization();
   const [formState, setFormState] = useState({ name: '', email: '', subject: '', message: '' });
@@ -77,31 +102,5 @@ const ContactPage: React.FC = () => {
     </div>
   );
 };
-
-interface InputFieldProps {
-  id: string;
-  name: string;
-  label: string;
-  type: string;
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  required?: boolean;
-}
-
-const InputField: React.FC<InputFieldProps> = ({ id, name, label, type, value, onChange, required }) => (
-  <div>
-    <label htmlFor={id} className="block text-sm font-medium text-brand-text mb-2">{label}</label>
-    <input
-      type={type}
-      id={id}
-      name={name}
-      value={value}
-      onChange={onChange}
-      required={required}
-      className="w-full p-3 border border-gray-300 rounded-md focus:ring-brand-secondary focus:border-brand-secondary"
-    />
-  </div>
-);
-
 
 export default ContactPage;

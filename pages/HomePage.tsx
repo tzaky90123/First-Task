@@ -21,128 +21,19 @@ const slides = [
   },
 ];
 
-const HomePage: React.FC = () => {
-  const { t } = useLocalization();
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const intervalRef = useRef<number | null>(null);
-
-  const startAutoSlide = useCallback(() => {
-    if (intervalRef.current) clearInterval(intervalRef.current);
-    intervalRef.current = window.setInterval(() => {
-      setCurrentSlide(prev => (prev + 1) % slides.length);
-    }, 7000);
-  }, []);
-
-  useEffect(() => {
-    startAutoSlide();
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
-  }, [startAutoSlide]);
-
-  const goToSlide = (slideIndex: number) => {
-    setCurrentSlide(slideIndex);
-    startAutoSlide(); // Reset timer on manual navigation
-  };
-
-  const nextSlide = () => {
-    goToSlide((currentSlide + 1) % slides.length);
-  };
-  
-  const prevSlide = () => {
-    goToSlide((currentSlide - 1 + slides.length) % slides.length);
-  };
-
-  return (
-    <div>
-      {/* Hero Section */}
-      <div className="relative h-screen w-full overflow-hidden">
-        {slides.map((slide, index) => (
-            <div
-                key={index}
-                className="absolute top-0 left-0 w-full h-full bg-cover bg-center transition-opacity duration-1000 ease-in-out"
-                style={{ backgroundImage: `url(${slide.img})`, opacity: index === currentSlide ? 1 : 0 }}
-            />
-        ))}
-        <div className="absolute inset-0 bg-brand-dark opacity-50 z-10"></div>
-        
-        {/* Navigation Arrows */}
-        <button
-          onClick={prevSlide}
-          className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-black/30 hover:bg-black/50 text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white"
-          aria-label="Previous slide"
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
-        </button>
-        <button
-          onClick={nextSlide}
-          className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-black/30 hover:bg-black/50 text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white"
-          aria-label="Next slide"
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-        </button>
-
-        <div className="relative container mx-auto px-5 lg:px-20 h-full flex flex-col justify-center items-center text-center text-white z-20">
-          <div key={currentSlide} className="w-full">
-            <h1 className="text-[26px] md:text-[32px] font-sans font-bold mb-4 animate-fade-in-up">{t(slides[currentSlide].title)}</h1>
-            <p className="text-lg md:text-xl font-sans max-w-3xl mx-auto mb-8 animate-fade-in-up animation-delay-300">{t(slides[currentSlide].subtitle)}</p>
-          </div>
-          <Link
-            to="/promotion-immobiliere"
-            className="bg-transparent border-2 border-white text-white font-bold py-3 px-10 rounded-full hover:bg-white hover:text-brand-primary transition duration-300 text-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brand-dark animate-fade-in-up animation-delay-600"
-          >
-            {t('homeCta')}
-          </Link>
-
-           {/* Pagination Dots */}
-          <div className="absolute bottom-40 left-1/2 -translate-x-1/2 z-30 flex space-x-3">
-            {slides.map((_, index) => (
-                <button
-                    key={index}
-                    onClick={() => goToSlide(index)}
-                    aria-label={`Go to slide ${index + 1}`}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                        index === currentSlide ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white'
-                    }`}
-                />
-            ))}
-          </div>
-
-          <div className="absolute bottom-24 w-full">
-            <MainNavigation />
-          </div>
-
-        </div>
-         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 animate-bounce">
-            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
-        </div>
-      </div>
-
-      <ExpertiseSection />
-      <AboutSection />
-      <MasterpiecesSection />
-      <StatisticsSection />
-      <WhyChooseUsSection />
-      <ProgramSection />
-      <TestimonialsSection />
-      <PartnerSection />
-      <ContactCtaSection />
-    </div>
-  );
-};
+// --- Helper Components ---
 
 // Unified logo icon based on user-provided image
 const SectionLogoIcon = ({ className }: { className?: string }) => (
     <img src="https://socabeg.com/favicon.png" alt="" className={className || "inline-block h-10 w-auto -mt-1 mr-3"} aria-hidden="true" />
 );
 
-
 const AboutSection: React.FC = () => {
     const { t } = useLocalization();
     return (
-        <section className="py-20 bg-white">
+        <section className="py-8 bg-white">
             <div className="container mx-auto px-5 lg:px-20">
-                <div className="text-center mb-16">
+                <div className="text-center mb-8">
                     <h3 className="text-sm font-semibold text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
                         <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
                         <span>{t('homeAboutSectionTitle')}</span>
@@ -152,20 +43,20 @@ const AboutSection: React.FC = () => {
                     </h2>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-                    <div>
+                <div className="grid grid-cols-1 md:grid-cols-5 gap-y-6 gap-x-12 items-center">
+                    <div className="md:col-span-2">
                         <img 
                             src="https://socabeg.com/images/socabeg.jpg" 
                             alt="Ingénieurs SOCABEG planifiant un projet" 
                             className="rounded-lg shadow-xl w-full h-auto object-cover"
                         />
                     </div>
-                    <div className="text-brand-text text-base md:text-lg leading-relaxed">
-                        <p className="mb-6" dangerouslySetInnerHTML={{ __html: t('homeAboutP1') }} />
-                        <p className="mb-6" dangerouslySetInnerHTML={{ __html: t('homeAboutP2') }} />
-                        <p className="mb-6" dangerouslySetInnerHTML={{ __html: t('homeAboutP3') }} />
-                        <p className="mb-6" dangerouslySetInnerHTML={{ __html: t('homeAboutP4') }} />
-                        <p className="mb-6" dangerouslySetInnerHTML={{ __html: t('homeAboutP5') }} />
+                    <div className="md:col-span-3 text-brand-text text-xs md:text-sm leading-snug">
+                        <p className="mb-2" dangerouslySetInnerHTML={{ __html: t('homeAboutP1') }} />
+                        <p className="mb-2" dangerouslySetInnerHTML={{ __html: t('homeAboutP2') }} />
+                        <p className="mb-2" dangerouslySetInnerHTML={{ __html: t('homeAboutP3') }} />
+                        <p className="mb-2" dangerouslySetInnerHTML={{ __html: t('homeAboutP4') }} />
+                        <p className="mb-2" dangerouslySetInnerHTML={{ __html: t('homeAboutP5') }} />
                         <p dangerouslySetInnerHTML={{ __html: t('homeAboutP6') }} />
                     </div>
                 </div>
@@ -589,6 +480,31 @@ const PartnerSection: React.FC = () => {
     );
 };
 
+interface ServiceCardProps {
+    icon: React.ReactNode;
+    title: string;
+    description: string;
+    linkTo: string;
+}
+
+const IconBuilding = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m-1 4h1m5-8h1m-1 4h1m-1 4h1M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16" /></svg>;
+const IconHome = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>;
+const IconMine = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>;
+
+const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, linkTo }) => {
+    const { t } = useLocalization();
+    return (
+        <div className="bg-brand-light p-8 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+            <div className="text-brand-secondary mx-auto mb-6 h-16 w-16 flex items-center justify-center">{icon}</div>
+            <h3 className="text-2xl font-bold font-sans text-brand-primary mb-4">{title}</h3>
+            <p className="text-brand-text mb-6">{description}</p>
+            <Link to={linkTo} className="font-semibold text-brand-secondary hover:underline">
+                {t('learnMore')}
+            </Link>
+        </div>
+    )
+}
+
 const ExpertiseSection: React.FC = () => {
     const { t } = useLocalization();
     return (
@@ -641,31 +557,114 @@ const ContactCtaSection: React.FC = () => {
     );
 };
 
-// --- Helper Components ---
+const HomePage: React.FC = () => {
+  const { t } = useLocalization();
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const intervalRef = useRef<number | null>(null);
 
-interface ServiceCardProps {
-    icon: React.ReactNode;
-    title: string;
-    description: string;
-    linkTo: string;
-}
+  const startAutoSlide = useCallback(() => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    intervalRef.current = window.setInterval(() => {
+      setCurrentSlide(prev => (prev + 1) % slides.length);
+    }, 7000);
+  }, []);
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, linkTo }) => {
-    const { t } = useLocalization();
-    return (
-        <div className="bg-brand-light p-8 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-            <div className="text-brand-secondary mx-auto mb-6 h-16 w-16 flex items-center justify-center">{icon}</div>
-            <h3 className="text-2xl font-bold font-sans text-brand-primary mb-4">{title}</h3>
-            <p className="text-brand-text mb-6">{description}</p>
-            <Link to={linkTo} className="font-semibold text-brand-secondary hover:underline">
-                {t('learnMore')}
-            </Link>
+  useEffect(() => {
+    startAutoSlide();
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, [startAutoSlide]);
+
+  const goToSlide = (slideIndex: number) => {
+    setCurrentSlide(slideIndex);
+    startAutoSlide(); // Reset timer on manual navigation
+  };
+
+  const nextSlide = () => {
+    goToSlide((currentSlide + 1) % slides.length);
+  };
+  
+  const prevSlide = () => {
+    goToSlide((currentSlide - 1 + slides.length) % slides.length);
+  };
+
+  return (
+    <div>
+      {/* Hero Section */}
+      <div className="relative h-screen w-full overflow-hidden">
+        {slides.map((slide, index) => (
+            <div
+                key={index}
+                className="absolute top-0 left-0 w-full h-full bg-cover bg-center transition-opacity duration-1000 ease-in-out"
+                style={{ backgroundImage: `url(${slide.img})`, opacity: index === currentSlide ? 1 : 0 }}
+            />
+        ))}
+        <div className="absolute inset-0 bg-brand-dark opacity-50 z-10"></div>
+        
+        {/* Navigation Arrows */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-black/30 hover:bg-black/50 text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white"
+          aria-label="Previous slide"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+        </button>
+        <button
+          onClick={nextSlide}
+          className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-black/30 hover:bg-black/50 text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white"
+          aria-label="Next slide"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+        </button>
+
+        <div className="relative container mx-auto px-5 lg:px-20 h-full flex flex-col justify-center items-center text-center text-white z-20">
+          <div key={currentSlide} className="w-full">
+            <h1 className="text-[26px] md:text-[32px] font-sans font-bold mb-4 animate-fade-in-up">{t(slides[currentSlide].title)}</h1>
+            <p className="text-lg md:text-xl font-sans max-w-3xl mx-auto mb-8 animate-fade-in-up animation-delay-300">{t(slides[currentSlide].subtitle)}</p>
+          </div>
+          <Link
+            to="/promotion-immobiliere"
+            className="bg-transparent border-2 border-white text-white font-bold py-3 px-10 rounded-full hover:bg-white hover:text-brand-primary transition duration-300 text-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brand-dark animate-fade-in-up animation-delay-600"
+          >
+            {t('homeCta')}
+          </Link>
+
+           {/* Pagination Dots */}
+          <div className="absolute bottom-40 left-1/2 -translate-x-1/2 z-30 flex space-x-3">
+            {slides.map((_, index) => (
+                <button
+                    key={index}
+                    onClick={() => goToSlide(index)}
+                    aria-label={`Go to slide ${index + 1}`}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                        index === currentSlide ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white'
+                    }`}
+                />
+            ))}
+          </div>
+
+          <div className="absolute bottom-24 w-full">
+            <MainNavigation />
+          </div>
+
         </div>
-    )
-}
+         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 animate-bounce">
+            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
+        </div>
+      </div>
 
-const IconBuilding = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m-1 4h1m5-8h1m-1 4h1m-1 4h1M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16" /></svg>;
-const IconHome = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>;
-const IconMine = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>;
+      <ExpertiseSection />
+      <AboutSection />
+      <MasterpiecesSection />
+      <StatisticsSection />
+      <WhyChooseUsSection />
+      <ProgramSection />
+      <TestimonialsSection />
+      <PartnerSection />
+      <ContactCtaSection />
+    </div>
+  );
+};
 
 export default HomePage;

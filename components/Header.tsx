@@ -42,7 +42,7 @@ const Header: React.FC = () => {
           isScrolled ? 'bg-brand-dark/95 text-white shadow-lg backdrop-blur-sm' : 'bg-transparent text-white'
         } ${isMenuOpen ? '-translate-y-full' : ''}`}
       >
-        <div className="container mx-auto px-6 h-24 flex justify-between items-center w-full">
+        <div className="container mx-auto px-6 h-16 flex justify-between items-center w-full">
           {/* Left Side - Menu Toggle */}
           <div className="w-1/3 flex justify-start">
             <button
@@ -65,7 +65,7 @@ const Header: React.FC = () => {
               className="p-1 focus:outline-none focus:ring-2 focus:ring-brand-secondary/70 rounded-md"
               onClick={() => setIsMenuOpen(false)}
             >
-              <img src="https://socabeg.com/logo.png" alt="SOCABEG Logo" className="h-10 md:h-12 w-auto" />
+              <img src="https://socabeg.com/logo.png" alt="SOCABEG Logo" className="h-6 md:h-8 w-auto" />
             </RouterNavLink>
           </div>
 
@@ -93,7 +93,7 @@ const Header: React.FC = () => {
           isMenuOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
-        <div className="h-full flex flex-col p-6 pt-24">
+        <div className="h-full flex flex-col p-6 pt-20">
             <button
                 onClick={() => setIsMenuOpen(false)}
                 className="absolute top-7 right-6 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-gray-500 rounded-full p-1"
@@ -122,7 +122,7 @@ const Header: React.FC = () => {
                     ))}
                 </ul>
             </nav>
-            <div className="pt-6 border-t border-gray-700 md:hidden">
+            <div className="pt-6 border-t border-gray-700">
                 <LanguageSwitcher />
             </div>
         </div>
