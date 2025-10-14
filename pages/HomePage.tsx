@@ -285,6 +285,9 @@ const WhyChooseUsSection: React.FC = () => {
                             <div className="h-12 w-12 text-brand-text mb-4">
                                 {value.icon}
                             </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="text-brand-secondary text-4xl mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
+                            </svg>
                             <h3 className="text-xl font-bold text-brand-primary mb-3 font-sans">{t(value.titleKey)}</h3>
                             <p className="text-brand-text text-sm leading-relaxed">{t(value.descriptionKey)}</p>
                         </div>
