@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocalization } from '../context/LocalizationContext';
@@ -205,49 +206,78 @@ const WhyChooseUsSection: React.FC = () => {
   const { t } = useLocalization();
 
   const values = [
-    { titleKey: "value1Title", descriptionKey: "value1Desc", },
-    { titleKey: "value2Title", descriptionKey: "value2Desc", },
-    { titleKey: "value3Title", descriptionKey: "value3Desc", },
-    { titleKey: "value4Title", descriptionKey: "value4Desc", },
-    { titleKey: "value5Title", descriptionKey: "value5Desc", },
-    { titleKey: "value6Title", descriptionKey: "value6Desc", },
+    {
+      titleKey: "value1Title",
+      descriptionKey: "value1Desc",
+      icon: "https://cdn-icons-png.flaticon.com/512/506/506420.png",
+    },
+    {
+      titleKey: "value2Title",
+      descriptionKey: "value2Desc",
+      icon: "https://cdn-icons-png.flaticon.com/512/100/100852.png",
+    },
+    {
+      titleKey: "value3Title",
+      descriptionKey: "value3Desc",
+      icon: "https://cdn-icons-png.flaticon.com/512/5631/5631194.png",
+    },
+    {
+      titleKey: "value4Title",
+      descriptionKey: "value4Desc",
+      icon: "https://cdn-icons-png.flaticon.com/512/10556/10556522.png",
+    },
+    {
+      titleKey: "value5Title",
+      descriptionKey: "value5Desc",
+      icon: "https://cdn-icons-png.flaticon.com/512/798/798008.png",
+    },
+    {
+      titleKey: "value6Title",
+      descriptionKey: "value6Desc",
+      icon: "https://cdn-icons-png.flaticon.com/512/33/33308.png",
+    },
   ];
 
   return (
-  <section className="py-20 bg-white">
-    <div className="container mx-auto px-5 lg:px-20">
-      {/* Header */}
-      <div className="text-center mb-16">
-        <h3 className="text-sm font-semibold text-brand-primary uppercase tracking-widest mb-2">
-          {t("whyChooseUsSectionTitle")}
-        </h3>
-        <h2 className="text-2xl font-medium font-sans text-brand-primary">
-          {t("whyChooseUsSectionHeadline")}
-        </h2>
+    <section className="py-20 bg-white">
+      <div className="container mx-auto px-5 lg:px-20">
+        <div className="text-center mb-16">
+          <h3 className="text-sm font-semibold text-brand-primary uppercase tracking-widest mb-2">
+            {t("whyChooseUsSectionTitle")}
+          </h3>
+          <h2 className="text-2xl font-medium font-sans text-brand-primary">
+            {t("whyChooseUsSectionHeadline")}
+          </h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {values.map((value, index) => (
+            <div
+              key={index}
+              className="bg-brand-light p-8 rounded-lg shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
+              {value.icon && (
+                <img
+                  src={value.icon}
+                  alt="" // Decorative icon
+                  className="h-10 w-10 mb-4"
+                />
+              )}
+              <div>
+                <h3 className="text-xl font-bold text-brand-primary mb-2 font-sans">
+                  {t(value.titleKey)}
+                </h3>
+                <p className="text-brand-text text-sm leading-relaxed">
+                  {t(value.descriptionKey)}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-
-      {/* Values Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {values.map((value, index) => (
-          <div
-            key={index}
-            className="bg-brand-light p-8 rounded-lg shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 text-center"
-            style={{ animationDelay: `${index * 100}ms` }}
-          >
-            {/* Hapus ikon di sini */}
-            <h3 className="text-xl font-bold text-brand-primary mb-3 font-sans">
-              {t(value.titleKey)}
-            </h3>
-            <p className="text-brand-text text-sm leading-relaxed">
-              {t(value.descriptionKey)}
-            </p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-);
-}
+    </section>
+  );
+};
 
 
 
