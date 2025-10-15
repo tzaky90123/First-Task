@@ -71,7 +71,7 @@ const AboutSection: React.FC = () => {
                             <div className="mt-8">
                                 <Link
                                     to="/a-propos"
-                                    className="inline-flex items-center bg-brand-primary text-white text-sm font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition duration-300 focus:outline-none focus:ring-2 focus:ring-brand-secondary focus:ring-offset-2 group"
+                                    className="inline-flex items-center bg-black/5 border border-black/10 text-brand-dark text-sm font-bold py-3 px-8 rounded-full hover:bg-black/10 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-brand-dark focus:ring-offset-2 group"
                                 >
                                     <span>{t('learnMore')}</span>
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
