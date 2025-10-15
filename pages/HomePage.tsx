@@ -655,12 +655,6 @@ const HomePage: React.FC = () => {
               {t('homeCta')}
             </Link>
           </div>
-
-          {/* Main Navigation */}
-          <div className="mt-10 animate-fade-in-up animation-delay-800">
-             <MainNavigation />
-          </div>
-
         </div>
 
         {/* Navigation Arrows */}
@@ -683,21 +677,29 @@ const HomePage: React.FC = () => {
           </svg>
         </button>
 
-        {/* Slide Indicators */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-1/4 max-w-xs flex items-center space-x-2 z-20">
-          {slides.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => goToSlide(index)}
-              className="flex-1 h-0.5 bg-white/30 rounded-full overflow-hidden"
-              aria-label={`Go to slide ${index + 1}`}
-            >
-              <div
-                className={`h-full bg-brand-secondary rounded-full ${index === currentSlide ? 'animate-slide-indicator' : (index < currentSlide ? 'w-full' : 'w-0')}`}
-                style={index === currentSlide ? { animationDuration: '7s' } : {}}
-              ></div>
-            </button>
-          ))}
+        {/* Bottom controls */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-full flex flex-col items-center space-y-4 z-20">
+            {/* Slide Indicators */}
+            <div className="w-1/4 max-w-xs flex items-center space-x-2">
+              {slides.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className="flex-1 h-0.5 bg-white/30 rounded-full overflow-hidden"
+                  aria-label={`Go to slide ${index + 1}`}
+                >
+                  <div
+                    className={`h-full bg-brand-secondary rounded-full ${index === currentSlide ? 'animate-slide-indicator' : (index < currentSlide ? 'w-full' : 'w-0')}`}
+                    style={index === currentSlide ? { animationDuration: '7s' } : {}}
+                  ></div>
+                </button>
+              ))}
+            </div>
+            
+            {/* Main Navigation */}
+            <div className="animate-fade-in-up animation-delay-800">
+                <MainNavigation />
+            </div>
         </div>
       </section>
 

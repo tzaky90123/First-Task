@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { NavLink as RouterNavLink } from 'react-router-dom';
 import { useLocalization } from '../context/LocalizationContext';
@@ -39,7 +38,7 @@ const Header: React.FC = () => {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-brand-dark/95 text-white shadow-lg backdrop-blur-sm' : 'bg-transparent text-white'
+          isScrolled ? 'bg-brand-dark/95 text-white shadow-lg backdrop-blur-sm' : 'bg-gradient-to-b from-black/40 to-transparent text-white'
         } ${isMenuOpen ? '-translate-y-full' : ''}`}
       >
         <div className="container mx-auto px-6 h-16 flex justify-between items-center w-full">
@@ -65,7 +64,7 @@ const Header: React.FC = () => {
               className="p-1 focus:outline-none focus:ring-2 focus:ring-brand-secondary/70 rounded-md"
               onClick={() => setIsMenuOpen(false)}
             >
-              <img src="https://socabeg.com/logo.png" alt="SOCABEG Logo" className="h-6 md:h-8 w-auto" />
+              <img src="https://socabeg.com/logo.png" alt="SOCABEG Logo" className="h-8 md:h-10 w-auto logo-shadow" />
             </RouterNavLink>
           </div>
 
