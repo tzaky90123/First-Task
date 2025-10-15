@@ -33,9 +33,9 @@ const SectionLogoIcon = ({ className }: { className?: string }) => (
 const AboutSection: React.FC = () => {
     const { t } = useLocalization();
     return (
-        <section className="py-8 bg-white">
+        <section className="py-20 bg-white">
             <div className="container mx-auto px-5 lg:px-20">
-                <div className="text-center mb-8">
+                <div className="text-center mb-16">
                     <h3 className="text-sm font-semibold text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
                         <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
                         <span>{t('homeAboutSectionTitle')}</span>
@@ -45,21 +45,42 @@ const AboutSection: React.FC = () => {
                     </h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-5 gap-y-6 gap-x-12 items-center">
+                <div className="grid grid-cols-1 md:grid-cols-5 gap-y-8 gap-x-12 items-stretch">
                     <div className="md:col-span-2">
                         <img 
                             src="https://socabeg.com/images/socabeg.jpg" 
                             alt="Ingénieurs SOCABEG planifiant un projet" 
-                            className="rounded-lg shadow-xl w-full h-auto object-cover"
+                            className="rounded-lg shadow-xl w-full h-full object-cover"
                         />
                     </div>
-                    <div className="md:col-span-3 text-brand-text text-xs md:text-sm leading-snug">
-                        <p className="mb-2" dangerouslySetInnerHTML={{ __html: t('homeAboutP1') }} />
-                        <p className="mb-2" dangerouslySetInnerHTML={{ __html: t('homeAboutP2') }} />
-                        <p className="mb-2" dangerouslySetInnerHTML={{ __html: t('homeAboutP3') }} />
-                        <p className="mb-2" dangerouslySetInnerHTML={{ __html: t('homeAboutP4') }} />
-                        <p className="mb-2" dangerouslySetInnerHTML={{ __html: t('homeAboutP5') }} />
-                        <p dangerouslySetInnerHTML={{ __html: t('homeAboutP6') }} />
+                    
+                    <div className="md:col-span-3 flex flex-col justify-center bg-brand-light p-8 lg:p-12 rounded-lg relative overflow-hidden">
+                        {/* Subtle background element */}
+                        <div className="absolute -top-10 -right-10 w-48 h-48 border-4 border-brand-primary/5 rounded-full" aria-hidden="true"></div>
+                        <div className="absolute -bottom-12 -left-12 w-48 h-48 bg-brand-primary/5 rounded-full" aria-hidden="true"></div>
+
+                        <div className="relative z-10">
+                            <div className="space-y-2 text-brand-text text-xs md:text-sm leading-snug">
+                                <p dangerouslySetInnerHTML={{ __html: t('homeAboutP1') }} />
+                                <p dangerouslySetInnerHTML={{ __html: t('homeAboutP2') }} />
+                                <p dangerouslySetInnerHTML={{ __html: t('homeAboutP3') }} />
+                                <p dangerouslySetInnerHTML={{ __html: t('homeAboutP4') }} />
+                                <p dangerouslySetInnerHTML={{ __html: t('homeAboutP5') }} />
+                                <p dangerouslySetInnerHTML={{ __html: t('homeAboutP6') }} />
+                            </div>
+                            
+                            <div className="mt-8">
+                                <Link
+                                    to="/a-propos"
+                                    className="inline-flex items-center text-sm font-bold text-brand-primary hover:text-brand-secondary transition-colors duration-300 group"
+                                >
+                                    <span>{t('learnMore')}</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                    </svg>
+                                </Link>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
