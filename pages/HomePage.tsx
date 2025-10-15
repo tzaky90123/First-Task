@@ -33,9 +33,9 @@ const SectionLogoIcon = ({ className }: { className?: string }) => (
 const AboutSection: React.FC = () => {
     const { t } = useLocalization();
     return (
-        <section className="py-20 bg-white">
+        <section className="py-8 bg-white">
             <div className="container mx-auto px-5 lg:px-20">
-                <div className="text-center mb-16">
+                <div className="text-center mb-8">
                     <h3 className="text-sm font-semibold text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
                         <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
                         <span>{t('homeAboutSectionTitle')}</span>
@@ -53,12 +53,12 @@ const AboutSection: React.FC = () => {
                             className="rounded-lg shadow-xl w-full h-auto object-cover"
                         />
                     </div>
-                    <div className="md:col-span-3 text-brand-text text-sm md:text-base leading-relaxed">
-                        <p className="mb-4" dangerouslySetInnerHTML={{ __html: t('homeAboutP1') }} />
-                        <p className="mb-4" dangerouslySetInnerHTML={{ __html: t('homeAboutP2') }} />
-                        <p className="mb-4" dangerouslySetInnerHTML={{ __html: t('homeAboutP3') }} />
-                        <p className="mb-4" dangerouslySetInnerHTML={{ __html: t('homeAboutP4') }} />
-                        <p className="mb-4" dangerouslySetInnerHTML={{ __html: t('homeAboutP5') }} />
+                    <div className="md:col-span-3 text-brand-text text-xs md:text-sm leading-snug">
+                        <p className="mb-2" dangerouslySetInnerHTML={{ __html: t('homeAboutP1') }} />
+                        <p className="mb-2" dangerouslySetInnerHTML={{ __html: t('homeAboutP2') }} />
+                        <p className="mb-2" dangerouslySetInnerHTML={{ __html: t('homeAboutP3') }} />
+                        <p className="mb-2" dangerouslySetInnerHTML={{ __html: t('homeAboutP4') }} />
+                        <p className="mb-2" dangerouslySetInnerHTML={{ __html: t('homeAboutP5') }} />
                         <p dangerouslySetInnerHTML={{ __html: t('homeAboutP6') }} />
                     </div>
                 </div>
