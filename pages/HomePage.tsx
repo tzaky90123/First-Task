@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocalization } from '../context/LocalizationContext';
@@ -56,7 +55,7 @@ const AboutSection: React.FC = () => {
                     
                     <div className="md:col-span-3 flex flex-col justify-center bg-brand-light p-8 lg:p-12 rounded-lg relative overflow-hidden">
                         {/* Subtle background element */}
-                        <div className="absolute -top-10 -right-10 w-48 h-48 border-4 border-brand-primary/5 rounded-full" aria-hidden="true"></div>
+                        <div className="absolute -top-10 -right-10 w-48 h-48 border-4 border-brand-primary/10 rounded-full" aria-hidden="true"></div>
                         <div className="absolute -bottom-12 -left-12 w-48 h-48 bg-brand-primary/5 rounded-full" aria-hidden="true"></div>
 
                         <div className="relative z-10">
@@ -72,10 +71,10 @@ const AboutSection: React.FC = () => {
                             <div className="mt-8">
                                 <Link
                                     to="/a-propos"
-                                    className="inline-flex items-center text-sm font-bold text-brand-primary hover:text-brand-secondary transition-colors duration-300 group"
+                                    className="inline-flex items-center bg-brand-primary text-white text-sm font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition duration-300 focus:outline-none focus:ring-2 focus:ring-brand-secondary focus:ring-offset-2 group"
                                 >
                                     <span>{t('learnMore')}</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                     </svg>
                                 </Link>
@@ -194,7 +193,7 @@ const StatisticsSection: React.FC = () => {
     ];
 
     return (
-        <section className="py-20 bg-brand-light">
+        <section className="py-20 bg-white">
             <div className="container mx-auto px-5 lg:px-20">
                 <div className="text-center mb-16">
                     <h3 className="text-sm font-semibold text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
@@ -209,7 +208,7 @@ const StatisticsSection: React.FC = () => {
                     {stats.map((stat, index) => (
                         <div 
                             key={index} 
-                            className="bg-transparent p-6 rounded-lg text-center animate-fade-in-up border border-gray-300 shadow-md" 
+                            className="bg-brand-light p-6 rounded-lg text-center animate-fade-in-up shadow-sm" 
                             style={{ animationDelay: `${index * 150}ms` }}
                         >
                             <p className="text-2xl lg:text-3xl font-bold text-brand-secondary font-sans">{stat.value}</p>
@@ -260,7 +259,7 @@ const WhyChooseUsSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-brand-light">
       <div className="container mx-auto px-5 lg:px-20">
         <div className="text-center mb-16">
           <h3 className="text-sm font-semibold text-brand-primary uppercase tracking-widest mb-2">
@@ -274,7 +273,7 @@ const WhyChooseUsSection: React.FC = () => {
           {values.map((value, index) => (
             <div
               key={index}
-              className="bg-brand-light p-8 rounded-lg shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+              className="bg-white p-8 rounded-lg shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               {value.icon && (
@@ -470,10 +469,10 @@ const TestimonialsSection: React.FC = () => {
                             ))}
                         </div>
                     </div>
-                     <button onClick={goPrev} className="absolute top-1/2 -translate-y-1/2 left-0 md:-left-10 text-brand-primary bg-white/50 hover:bg-white rounded-full p-3 shadow-md focus:outline-none focus:ring-2 focus:ring-brand-secondary transition" aria-label={t('prevTestimonialAria')}>
+                     <button onClick={goPrev} className="absolute top-1/2 -translate-y-1/2 left-0 md:-left-10 text-brand-primary bg-white hover:bg-gray-100 rounded-full p-3 shadow-md focus:outline-none focus:ring-2 focus:ring-brand-secondary transition" aria-label={t('prevTestimonialAria')}>
                         <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
                     </button>
-                    <button onClick={goNext} className="absolute top-1/2 -translate-y-1/2 right-0 md:-right-10 text-brand-primary bg-white/50 hover:bg-white rounded-full p-3 shadow-md focus:outline-none focus:ring-2 focus:ring-brand-secondary transition" aria-label={t('nextTestimonialAria')}>
+                    <button onClick={goNext} className="absolute top-1/2 -translate-y-1/2 right-0 md:-right-10 text-brand-primary bg-white hover:bg-gray-100 rounded-full p-3 shadow-md focus:outline-none focus:ring-2 focus:ring-brand-secondary transition" aria-label={t('nextTestimonialAria')}>
                         <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                     </button>
                 </div>
@@ -543,11 +542,11 @@ const IconMine = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w
 const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, linkTo }) => {
     const { t } = useLocalization();
     return (
-        <div className="bg-brand-light p-8 rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
-            <div className="text-brand-secondary mx-auto mb-6 h-16 w-16 flex items-center justify-center">{icon}</div>
+        <div className="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
+            <div className="text-brand-primary mx-auto mb-6 h-16 w-16 flex items-center justify-center">{icon}</div>
             <h3 className="text-2xl font-bold font-sans text-brand-primary mb-4">{title}</h3>
             <p className="text-brand-text mb-6">{description}</p>
-            <Link to={linkTo} className="font-semibold text-brand-secondary hover:underline">
+            <Link to={linkTo} className="font-semibold text-brand-primary hover:underline">
                 {t('learnMore')}
             </Link>
         </div>
@@ -592,13 +591,13 @@ const ExpertiseSection: React.FC = () => {
 const ContactCtaSection: React.FC = () => {
     const { t } = useLocalization();
     return (
-        <section className="bg-brand-primary text-white">
+        <section className="bg-brand-light text-brand-dark">
             <div className="container mx-auto px-5 lg:px-20 py-20 text-center">
                 <h2 className="text-4xl font-sans font-bold mb-4">{t('homeContactCtaTitle')}</h2>
                 <p className="text-base max-w-2xl mx-auto mb-8">{t('homeContactCtaText')}</p>
                 <Link
                     to="/contact"
-                    className="bg-brand-secondary text-brand-primary font-bold py-4 px-12 rounded-full hover:bg-yellow-400 transition duration-300 text-base focus:outline-none focus:ring-2 focus:ring-brand-secondary focus:ring-offset-2 focus:ring-offset-brand-primary"
+                    className="bg-brand-secondary text-brand-dark font-bold py-4 px-12 rounded-full hover:bg-yellow-400 transition duration-300 text-base focus:outline-none focus:ring-2 focus:ring-brand-secondary focus:ring-offset-2 focus:ring-offset-brand-light"
                 >
                     {t('homeContactCtaButton')}
                 </Link>
@@ -727,12 +726,12 @@ const HomePage: React.FC = () => {
       {/* Other Sections */}
       <ExpertiseSection />
       <AboutSection />
+      <PartnerSection />
       <MasterpiecesSection />
       <ProgramSection />
       <StatisticsSection />
       <WhyChooseUsSection />
       <TestimonialsSection />
-      <PartnerSection />
       <ContactCtaSection />
     </>
   );

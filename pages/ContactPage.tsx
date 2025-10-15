@@ -71,7 +71,7 @@ const ContactPage: React.FC = () => {
                   className="w-full p-3 border border-gray-300 rounded-md focus:ring-brand-secondary focus:border-brand-secondary"
                 ></textarea>
               </div>
-              <button type="submit" className="bg-brand-secondary text-brand-primary font-bold py-3 px-8 rounded-full hover:bg-yellow-400 transition duration-300 focus:outline-none focus:ring-2 focus:ring-brand-secondary focus:ring-offset-2">
+              <button type="submit" className="bg-brand-primary text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition duration-300 focus:outline-none focus:ring-2 focus:ring-brand-secondary focus:ring-offset-2">
                 {t('formSend')}
               </button>
             </form>

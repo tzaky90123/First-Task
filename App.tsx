@@ -16,7 +16,7 @@ const App: React.FC = () => {
   return (
     <LocalizationProvider>
       <HashRouter>
-        <div className="bg-brand-light text-brand-text font-sans antialiased">
+        <div className="bg-white text-brand-text font-sans antialiased">
           <Header />
           <main>
             <Routes>
