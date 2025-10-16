@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocalization } from '../context/LocalizationContext';
@@ -459,16 +458,16 @@ const StatisticsSection: React.FC = () => {
                         {t('statisticsSectionHeadline')}
                     </h2>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+                <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-8">
                     {stats.map((stat, index) => (
                         <div 
                             key={index} 
-                            className="bg-white p-6 rounded-lg text-center animate-fade-in-up shadow-sm flex flex-col h-full" 
+                            className={`bg-white p-6 rounded-lg text-center animate-fade-in-up shadow-sm flex flex-col h-full md:col-span-2 ${index === 3 ? 'md:col-start-2' : ''} ${index === 4 ? 'sm:col-span-2' : ''}`}
                             style={{ animationDelay: `${index * 150}ms` }}
                         >
                             <p className="text-2xl lg:text-3xl font-bold text-brand-secondary font-sans">{stat.value}</p>
                             <div className="mt-2 flex-grow flex items-center justify-center">
-                                <p className="text-brand-text text-sm leading-snug">{t(stat.labelKey)}</p>
+                                <p className="text-brand-text text-sm leading-snug whitespace-nowrap">{t(stat.labelKey)}</p>
                             </div>
                         </div>
                     ))}
