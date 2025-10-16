@@ -35,7 +35,7 @@ const AboutSection: React.FC = () => {
         <section className="py-20 bg-white">
             <div className="container mx-auto px-5 lg:px-20">
                 <div className="text-center mb-16">
-                    <h3 className="text-sm font-semibold text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
+                    <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
                         <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
                         <span>{t('homeAboutSectionTitle')}</span>
                     </h3>
@@ -125,7 +125,7 @@ const MasterpiecesSection: React.FC = () => {
         <section className="py-20 bg-white">
             <div className="container mx-auto px-5 lg:px-20">
                 <div className="text-center mb-16">
-                    <h3 className="text-sm font-semibold text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
+                    <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
                        <SectionLogoIcon className="inline-block h-5 w-auto mr-2"/>
                        <span>{t('homeMasterpiecesTitle')}</span>
                     </h3>
@@ -141,7 +141,7 @@ const MasterpiecesSection: React.FC = () => {
                             <img src={masterpiece.src} alt={t(masterpiece.titleKey)} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
                              <div className="absolute bottom-0 left-0 p-6 text-white">
-                                <h3 className="text-2xl font-bold">{t(masterpiece.titleKey)}</h3>
+                                <h3 className="text-2xl font-medium">{t(masterpiece.titleKey)}</h3>
                                 <p className="text-sm opacity-90">{t(masterpiece.descriptionKey)}</p>
                             </div>
                         </div>
@@ -156,7 +156,7 @@ const MasterpiecesSection: React.FC = () => {
                                 <div key={index} className="min-w-full h-[500px] relative">
                                     <img src={masterpiece.src} alt={t(masterpiece.titleKey)} className="w-full h-full object-cover" />
                                     <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/70 to-transparent text-white">
-                                        <h3 className="text-2xl font-bold">{t(masterpiece.titleKey)}</h3>
+                                        <h3 className="text-2xl font-medium">{t(masterpiece.titleKey)}</h3>
                                         <p className="text-sm">{t(masterpiece.descriptionKey)}</p>
                                     </div>
                                 </div>
@@ -196,7 +196,7 @@ const StatisticsSection: React.FC = () => {
         <section className="py-20 bg-white">
             <div className="container mx-auto px-5 lg:px-20">
                 <div className="text-center mb-16">
-                    <h3 className="text-sm font-semibold text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
+                    <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
                         <StatisticsIcon />
                         <span>{t('statisticsSectionTitle')}</span>
                     </h3>
@@ -262,7 +262,7 @@ const WhyChooseUsSection: React.FC = () => {
     <section className="py-20 bg-brand-light">
       <div className="container mx-auto px-5 lg:px-20">
         <div className="text-center mb-16">
-          <h3 className="text-sm font-semibold text-brand-primary uppercase tracking-widest mb-2">
+          <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest mb-2">
             {t("whyChooseUsSectionTitle")}
           </h3>
           <h2 className="text-2xl font-medium font-sans text-brand-primary">
@@ -284,7 +284,7 @@ const WhyChooseUsSection: React.FC = () => {
                 />
               )}
               <div>
-                <h3 className="text-xl font-bold text-brand-primary mb-2 font-sans">
+                <h3 className="text-xl font-medium text-brand-primary mb-2 font-sans">
                   {t(value.titleKey)}
                 </h3>
                 <p className="text-brand-text text-sm leading-relaxed">
@@ -353,7 +353,7 @@ const ProgramSection: React.FC = () => {
         <section className="py-20 bg-brand-light">
             <div className="container mx-auto px-5 lg:px-20">
                 <div className="text-center mb-16">
-                    <h3 className="text-sm font-semibold text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
+                    <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
                         <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
                         <span>{t('programsSectionTitle')}</span>
                     </h3>
@@ -366,7 +366,7 @@ const ProgramSection: React.FC = () => {
                         <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
                             <img src={program.image} alt={t(program.titleKey)} className="w-full h-56 object-cover" />
                             <div className="p-6 flex flex-col flex-grow">
-                                <h3 className="text-lg font-bold text-brand-primary font-sans">{t(program.titleKey)}</h3>
+                                <h3 className="text-lg font-medium text-brand-primary font-sans">{t(program.titleKey)}</h3>
                                 <p className="text-xs text-gray-500 mb-3">{t(program.typeKey)}</p>
                                 
                                 <div className="flex flex-wrap items-center text-xs text-gray-600 mb-4 border-y py-2">
@@ -441,7 +441,7 @@ const TestimonialsSection: React.FC = () => {
         <section className="py-20 bg-white">
             <div className="container mx-auto px-5 lg:px-20">
                 <div className="text-center mb-16">
-                    <h3 className="text-sm font-semibold text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
+                    <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
                         <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
                         <span>{t('testimonialsSectionTitle')}</span>
                     </h3>
@@ -473,268 +473,4 @@ const TestimonialsSection: React.FC = () => {
                         <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
                     </button>
                     <button onClick={goNext} className="absolute top-1/2 -translate-y-1/2 right-0 md:-right-10 text-brand-primary bg-white hover:bg-gray-100 rounded-full p-3 shadow-md focus:outline-none focus:ring-2 focus:ring-brand-secondary transition" aria-label={t('nextTestimonialAria')}>
-                        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-                    </button>
-                </div>
-            </div>
-        </section>
-    );
-};
-
-const PartnerSection: React.FC = () => {
-    const { t } = useLocalization();
-    const partners = [
-        { name: 'BHS', src: 'https://socabeg.com/partners/bhs.png' },
-        { name: 'Geoplast', src: 'https://socabeg.com/partners/geoplast.png' },
-        { name: 'IPRES', src: 'https://socabeg.com/partners/ipres.jpg' },
-        { name: 'SAR', src: 'https://socabeg.com/partners/sar.png' },
-        { name: 'SGS', src: 'https://socabeg.com/partners/sgs.png' },
-        { name: 'SAIH', src: 'https://socabeg.com/partners/sicap.jpg' },
-        { name: 'République du Sénégal', src: 'https://socabeg.com/partners/sn.jpg' },
-        { name: 'SNHLM', src: 'https://socabeg.com/partners/snhlm.jpg' },
-        { name: 'Sonatel', src: 'https://socabeg.com/partners/sonatel.png' }
-    ];
-
-    const duplicatedPartners = [...partners, ...partners]; // Duplicate for seamless loop
-
-    return (
-        <section className="py-20 bg-brand-light">
-            <div className="container mx-auto px-5 lg:px-20">
-                <div className="text-center mb-16">
-                    <h3 className="text-sm font-semibold text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
-                        <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
-                        <span>{t('partnersSectionTitle')}</span>
-                    </h3>
-                    <h2 className="text-2xl font-medium font-sans text-brand-primary">
-                        {t('partnersSectionHeadline')}
-                    </h2>
-                </div>
-                <div className="logo-scroller">
-                    <div className="logo-scroller-inner">
-                        {duplicatedPartners.map((partner, index) => (
-                            <div key={index} className="partner-logo flex-shrink-0 mx-10 flex items-center justify-center" style={{ width: '150px' }}>
-                                <img
-                                    src={partner.src}
-                                    alt={partner.name}
-                                    className="max-h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
-                                    title={partner.name}
-                                />
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
-};
-
-interface ServiceCardProps {
-    icon: React.ReactNode;
-    title: string;
-    description: string;
-    linkTo: string;
-}
-
-const IconBuildingExpertise = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m-1 4h1m5-8h1m-1 4h1m-1 4h1M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16" /></svg>;
-const IconHome = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>;
-const IconMine = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>;
-
-const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, linkTo }) => {
-    const { t } = useLocalization();
-    return (
-        <div className="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
-            <div className="text-brand-primary mx-auto mb-6 h-16 w-16 flex items-center justify-center">{icon}</div>
-            <h3 className="text-2xl font-bold font-sans text-brand-primary mb-4">{title}</h3>
-            <p className="text-brand-text mb-6">{description}</p>
-            <Link to={linkTo} className="font-semibold text-brand-primary hover:underline">
-                {t('learnMore')}
-            </Link>
-        </div>
-    )
-}
-
-const ExpertiseSection: React.FC = () => {
-    const { t } = useLocalization();
-    return (
-      <section className="py-20 bg-brand-light">
-        <div className="container mx-auto px-5 lg:px-20 text-center">
-          <h2 className="text-2xl font-medium font-sans text-brand-primary mb-4 flex items-center justify-center">
-            <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
-            <span>{t('homeServicesTitle')}</span>
-          </h2>
-          <p className="text-base text-brand-text max-w-3xl mx-auto mb-16">{t('homeExpertiseSubtitle')}</p>
-          <div className="grid md:grid-cols-3 gap-8">
-            <ServiceCard
-              icon={<IconBuildingExpertise />}
-              title={t('homeServicesBtpTitle')}
-              description={t('homeServicesBtpText')}
-              linkTo="/btp"
-            />
-            <ServiceCard
-              icon={<IconHome />}
-              title={t('homeServicesReTitle')}
-              description={t('homeServicesReText')}
-              linkTo="/promotion-immobiliere"
-            />
-            <ServiceCard
-              icon={<IconMine />}
-              title={t('homeServicesMinesTitle')}
-              description={t('homeServicesMinesText')}
-              linkTo="/mines"
-            />
-          </div>
-        </div>
-      </section>
-    );
-}
-
-const ContactCtaSection: React.FC = () => {
-    const { t } = useLocalization();
-    return (
-        <section className="bg-brand-light text-brand-dark">
-            <div className="container mx-auto px-5 lg:px-20 py-20 text-center">
-                <h2 className="text-4xl font-sans font-bold mb-4">{t('homeContactCtaTitle')}</h2>
-                <p className="text-base max-w-2xl mx-auto mb-8">{t('homeContactCtaText')}</p>
-                <Link
-                    to="/contact"
-                    className="bg-brand-secondary text-brand-dark font-bold py-4 px-12 rounded-full hover:bg-yellow-400 transition duration-300 text-base focus:outline-none focus:ring-2 focus:ring-brand-secondary focus:ring-offset-2 focus:ring-offset-brand-light"
-                >
-                    {t('homeContactCtaButton')}
-                </Link>
-            </div>
-        </section>
-    );
-};
-
-const HomePage: React.FC = () => {
-  const { t } = useLocalization();
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const intervalRef = useRef<number | null>(null);
-
-  const startAutoSlide = useCallback(() => {
-    if (intervalRef.current) clearInterval(intervalRef.current);
-    intervalRef.current = window.setInterval(() => {
-      setCurrentSlide(prev => (prev + 1) % slides.length);
-    }, 7000);
-  }, []);
-
-  useEffect(() => {
-    startAutoSlide();
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
-  }, [startAutoSlide]);
-
-  const goToSlide = (slideIndex: number) => {
-    setCurrentSlide(slideIndex);
-    startAutoSlide(); // reset timer on manual navigation
-  };
-
-  const nextSlide = useCallback(() => goToSlide((currentSlide + 1) % slides.length), [currentSlide]);
-  const prevSlide = useCallback(() => goToSlide((currentSlide - 1 + slides.length) % slides.length), [currentSlide]);
-
-  return (
-    <>
-      {/* Hero Section */}
-      <section className="relative h-screen overflow-hidden text-white">
-        {/* Background Image Slider */}
-        {slides.map((slide, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === currentSlide ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            <img
-              src={slide.img}
-              alt="" // Alt text is decorative as content is in the overlay
-              className="w-full h-full object-cover"
-            />
-          </div>
-        ))}
-
-        {/* Content Overlay */}
-        <div className="absolute inset-0 bg-black/50" />
-        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
-          
-          {/* Animated Text Content */}
-          <div className="w-full">
-            <h1 className="text-3xl md:text-4xl font-bold mb-4 animate-fade-in-up" key={`${currentSlide}-title`}>
-              {t(slides[currentSlide].title)}
-            </h1>
-            <p className="text-base md:text-xl max-w-3xl mx-auto mb-8 animate-fade-in-up animation-delay-300" key={`${currentSlide}-subtitle`}>
-                {t(slides[currentSlide].subtitle)}
-            </p>
-          </div>
-
-          <div className="animate-fade-in-up animation-delay-600">
-            <Link
-              to="/promotion-immobiliere"
-              className="inline-block bg-white/20 backdrop-blur-sm border border-white/40 text-white font-bold py-3 px-10 rounded-full hover:bg-white/30 transition-colors duration-300 text-lg focus:outline-none focus:ring-2 focus:ring-white/70 focus:ring-offset-2 focus:ring-offset-black/30"
-            >
-              {t('homeCta')}
-            </Link>
-          </div>
-        </div>
-
-        {/* Navigation Arrows */}
-        <button
-          onClick={prevSlide}
-          className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white p-3 rounded-full focus:outline-none z-20"
-          aria-label="Previous Slide"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-        </button>
-        <button
-          onClick={nextSlide}
-          className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white p-3 rounded-full focus:outline-none z-20"
-          aria-label="Next Slide"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </button>
-
-        {/* Bottom controls */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-full flex flex-col items-center space-y-4 z-20">
-            {/* Slide Indicators */}
-            <div className="w-1/4 max-w-xs flex items-center space-x-2">
-              {slides.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => goToSlide(index)}
-                  className="flex-1 h-0.5 bg-white/30 rounded-full overflow-hidden"
-                  aria-label={`Go to slide ${index + 1}`}
-                >
-                  <div
-                    className={`h-full bg-brand-secondary rounded-full ${index === currentSlide ? 'animate-slide-indicator' : (index < currentSlide ? 'w-full' : 'w-0')}`}
-                    style={index === currentSlide ? { animationDuration: '7s' } : {}}
-                  ></div>
-                </button>
-              ))}
-            </div>
-            
-            {/* Main Navigation */}
-            <div className="animate-fade-in-up animation-delay-800">
-                <MainNavigation />
-            </div>
-        </div>
-      </section>
-
-      {/* Other Sections */}
-      <ExpertiseSection />
-      <AboutSection />
-      <PartnerSection />
-      <MasterpiecesSection />
-      <ProgramSection />
-      <StatisticsSection />
-      <WhyChooseUsSection />
-      <TestimonialsSection />
-      <ContactCtaSection />
-    </>
-  );
-};
-
-export default HomePage;
+                        <
