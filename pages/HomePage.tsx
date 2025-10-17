@@ -162,7 +162,7 @@ const ExpertiseSection: React.FC = () => {
         <div className="container mx-auto px-5 lg:px-20">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold font-sans text-brand-dark mb-4">{t('homeServicesTitle')}</h2>
-            <p className="text-base text-brand-text max-w-3xl mx-auto">{t('homeExpertiseSubtitle')}</p>
+            <p className="text-base text-black max-w-3xl mx-auto">{t('homeExpertiseSubtitle')}</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((service, index) => (
@@ -192,7 +192,7 @@ const AboutSection: React.FC = () => {
                         <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
                         <span>{t('homeAboutSectionTitle')}</span>
                     </h3>
-                    <h2 className="text-2xl font-bold font-sans text-brand-primary">
+                    <h2 className="text-2xl font-bold font-sans text-black">
                         {t('homeAboutSectionHeadline')}
                     </h2>
                 </div>
@@ -244,10 +244,15 @@ const AboutSection: React.FC = () => {
 const PartnersSection: React.FC = () => {
     const { t } = useLocalization();
     const partnerLogos = [
-        'https://socabeg.com/images/partenaires/bhs.png', 'https://socabeg.com/images/partenaires/bnde.png',
-        'https://socabeg.com/images/partenaires/caisse.png', 'https://socabeg.com/images/partenaires/villededakar.png',
-        'https://socabeg.com/images/partenaires/etat.png', 'https://socabeg.com/images/partenaires/apix.png',
-        'https://socabeg.com/images/partenaires/dgf.png', 'https://socabeg.com/images/partenaires/ipres.png',
+        'https://socabeg.com/partners/bhs.png',
+        'https://socabeg.com/partners/geoplast.png',
+        'https://socabeg.com/partners/ipres.jpg',
+        'https://socabeg.com/partners/sar.png',
+        'https://socabeg.com/partners/sgs.png',
+        'https://socabeg.com/partners/sicap.jpg',
+        'https://socabeg.com/partners/sn.jpg',
+        'https://socabeg.com/partners/snhlm.jpg',
+        'https://socabeg.com/partners/sonatel.png',
     ];
     const duplicatedLogos = [...partnerLogos, ...partnerLogos];
 
@@ -259,7 +264,7 @@ const PartnersSection: React.FC = () => {
                         <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
                         <span>{t('partnersSectionTitle')}</span>
                     </h3>
-                    <h2 className="text-2xl font-bold font-sans text-brand-primary">{t('partnersSectionHeadline')}</h2>
+                    <h2 className="text-2xl font-bold font-sans text-black">{t('partnersSectionHeadline')}</h2>
                 </div>
                 <div className="logo-scroller">
                     <div className="logo-scroller-inner">
@@ -317,7 +322,7 @@ const MasterpiecesSection: React.FC = () => {
                        <SectionLogoIcon className="inline-block h-5 w-auto mr-2"/>
                        <span>{t('homeMasterpiecesTitle')}</span>
                     </h3>
-                    <h2 className="text-2xl font-bold font-sans text-brand-primary">
+                    <h2 className="text-2xl font-bold font-sans text-black">
                         {t('homeMasterpiecesSubtitle')}
                     </h2>
                 </div>
@@ -404,7 +409,7 @@ const ProgramSection: React.FC = () => {
                         <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
                         <span>{t('programsSectionTitle')}</span>
                     </h3>
-                    <h2 className="text-2xl font-bold font-sans text-brand-primary">{t('programsSectionHeadline')}</h2>
+                    <h2 className="text-2xl font-bold font-sans text-black">{t('programsSectionHeadline')}</h2>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {programs.map((program, index) => (
@@ -455,7 +460,7 @@ const StatisticsSection: React.FC = () => {
                         <StatisticsIcon />
                         <span>{t('statisticsSectionTitle')}</span>
                     </h3>
-                    <h2 className="text-2xl font-bold font-sans text-brand-primary">
+                    <h2 className="text-2xl font-bold font-sans text-black">
                         {t('statisticsSectionHeadline')}
                     </h2>
                 </div>
@@ -494,8 +499,11 @@ const WhyChooseUsSection: React.FC = () => {
     <section className="py-20 bg-white">
       <div className="container mx-auto px-5 lg:px-20">
         <div className="text-center mb-16">
-          <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest mb-2">{t("whyChooseUsSectionTitle")}</h3>
-          <h2 className="text-2xl font-bold font-sans text-brand-primary">{t("whyChooseUsSectionHeadline")}</h2>
+          <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
+            <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
+            <span>{t("whyChooseUsSectionTitle")}</span>
+          </h3>
+          <h2 className="text-2xl font-bold font-sans text-black">{t("whyChooseUsSectionHeadline")}</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {values.map((value, index) => (
@@ -543,7 +551,7 @@ const TestimonialsSection: React.FC = () => {
                         <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
                         <span>{t('testimonialsSectionTitle')}</span>
                     </h3>
-                    <h2 className="text-2xl font-bold font-sans text-brand-primary">{t('testimonialsSectionHeadline')}</h2>
+                    <h2 className="text-2xl font-bold font-sans text-black">{t('testimonialsSectionHeadline')}</h2>
                 </div>
                 <div className="relative">
                     <div className="overflow-hidden">
