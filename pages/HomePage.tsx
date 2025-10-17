@@ -595,7 +595,7 @@ const ContactCTASection: React.FC = () => {
             <div className="container mx-auto px-6 text-center">
                 <h2 className="text-3xl font-bold font-sans mb-4 text-black">{t('homeContactCtaTitle')}</h2>
                 <p className="text-lg text-black max-w-2xl mx-auto mb-8">{t('homeContactCtaText')}</p>
-                <Link to="/contact" className="inline-block bg-brand-secondary text-brand-dark font-bold py-3 px-10 rounded-full text-lg hover:bg-opacity-90 transition duration-300 focus:outline-none focus:ring-2 focus:ring-brand-secondary focus:ring-offset-2 focus:ring-offset-white">
+                <Link to="/contact" className="inline-block bg-transparent border-2 border-black text-black font-bold py-3 px-10 rounded-full text-lg hover:bg-black hover:text-white transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 focus:ring-offset-white">
                     {t('homeContactCtaButton')}
                 </Link>
             </div>
