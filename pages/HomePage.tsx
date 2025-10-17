@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocalization } from '../context/LocalizationContext';
@@ -92,13 +93,13 @@ const HeroSection: React.FC = () => {
 
 
       <div className="relative z-20 h-full flex flex-col justify-center items-center text-center container mx-auto px-6">
-          <div className="max-w-5xl">
+          <div className="">
               {slides.map((slide, index) => (
                   <div key={index} className={`${index === currentSlide ? 'block' : 'hidden'}`}>
-                      <h1 className="text-xl md:text-3xl font-bold leading-tight mb-4 animate-fade-in-up">
+                      <h1 className="text-3xl md:text-[2.5rem] font-bold leading-tight mb-4 animate-fade-in-up">
                         {t(slide.title)}
                       </h1>
-                      <p className="text-base md:text-lg mb-8 animate-fade-in-up animation-delay-300">
+                      <p className="text-base md:text-lg mb-8 animate-fade-in-up animation-delay-300 max-w-5xl mx-auto">
                         {t(slide.subtitle)}
                       </p>
                   </div>
@@ -142,17 +143,17 @@ const ExpertiseSection: React.FC = () => {
       { 
         titleKey: "homeServicesBtpTitle", 
         textKey: "homeServicesBtpText", 
-        icon: "https://www.flaticon.com/free-icon/office_798008"
+        icon: "https://cdn-icons-png.flaticon.com/512/798/798008.png"
       },
       { 
         titleKey: "homeServicesReTitle", 
         textKey: "homeServicesReText", 
-        icon: "https://www.flaticon.com/free-icon/home_25694"
+        icon: "https://cdn-icons-png.flaticon.com/512/25/25694.png"
       },
       { 
         titleKey: "homeServicesMinesTitle", 
         textKey: "homeServicesMinesText", 
-        icon: "https://www.flaticon.com/free-icon/briefcase_522510"
+        icon: "https://cdn-icons-png.flaticon.com/512/522/522510.png"
       },
     ];
   

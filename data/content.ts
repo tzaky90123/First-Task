@@ -34,7 +34,7 @@ export const content: LocalizedContent = {
   homeServicesReTitle: { [Language.FR]: 'Promotion Immobilière', [Language.EN]: 'Real Estate Development' },
   homeServicesReText: { [Language.FR]: 'Création d\'espaces de vie et de travail modernes, durables et intégrés à leur environnement.', [Language.EN]: 'Creating modern, sustainable living and working spaces integrated into their environment.' },
   homeServicesMinesTitle: { [Language.FR]: 'Opérations Minières', [Language.EN]: 'Mining Operations' },
-  homeServicesMinesText: { [Language.FR]: 'Exploitation responsable des ressources naturelles pour soutenir la croissance économique du pays.', [Language.EN]: 'Responsible exploitation of natural resources to support the country\'s economic growth.' },
+  homeServicesMinesText: { [Language.FR]: 'Exploitation responsable des ressources naturelles pour soutenir la croissance économique du Sénégal.', [Language.EN]: 'Responsible exploitation of natural resources to support the economic growth of the Senegalese economy.' },
   
   homeExpertiseSubtitle: { [Language.FR]: 'Au cœur de la transformation du Sénégal, SOCABEG déploie son savoir-faire sur trois pôles stratégiques.', [Language.EN]: 'At the heart of Senegal\'s transformation, SOCABEG deploys its expertise across three strategic areas.' },
 
