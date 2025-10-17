@@ -212,7 +212,7 @@ const AboutSection: React.FC = () => {
                     </div>
                     
                     <div 
-                        className="md:col-span-3 flex flex-col justify-center p-8 lg:p-12 rounded-lg relative overflow-hidden"
+                        className="md:col-span-3 flex flex-col justify-start p-8 lg:p-12 rounded-lg relative overflow-hidden"
                         style={{ backgroundImage: "url('https://www.toptal.com/designers/subtlepatterns/uploads/concrete-texture.png')" }}
                     >
                         <div className="absolute inset-0 bg-white/95" aria-hidden="true"></div>
@@ -239,6 +239,8 @@ const AboutSection: React.FC = () => {
                                 </Link>
                             </div>
                         </div>
+
+                        <div className="absolute bottom-8 left-12 right-12 h-px bg-gradient-to-r from-transparent via-brand-secondary/40 to-transparent" aria-hidden="true"></div>
                     </div>
                 </div>
             </div>
