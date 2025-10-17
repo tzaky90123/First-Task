@@ -161,8 +161,13 @@ const ExpertiseSection: React.FC = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-5 lg:px-20">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold font-sans text-brand-dark mb-4">{t('homeServicesTitle')}</h2>
-            <p className="text-base text-black max-w-3xl mx-auto">{t('homeExpertiseSubtitle')}</p>
+            <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
+                <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
+                <span>{t('homeServicesTitle')}</span>
+            </h3>
+            <h2 className="text-2xl font-bold font-sans text-black max-w-3xl mx-auto">
+                {t('homeExpertiseSubtitle')}
+            </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((service, index) => (
@@ -584,11 +589,11 @@ const TestimonialsSection: React.FC = () => {
 const ContactCTASection: React.FC = () => {
     const { t } = useLocalization();
     return (
-        <section className="py-20 bg-brand-dark text-white">
+        <section className="py-20 bg-white">
             <div className="container mx-auto px-6 text-center">
-                <h2 className="text-3xl font-bold font-sans mb-4">{t('homeContactCtaTitle')}</h2>
-                <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-8">{t('homeContactCtaText')}</p>
-                <Link to="/contact" className="inline-block bg-brand-secondary text-brand-dark font-bold py-3 px-10 rounded-full text-lg hover:bg-opacity-90 transition duration-300 focus:outline-none focus:ring-2 focus:ring-brand-secondary focus:ring-offset-2 focus:ring-offset-brand-dark">
+                <h2 className="text-3xl font-bold font-sans mb-4 text-black">{t('homeContactCtaTitle')}</h2>
+                <p className="text-lg text-black max-w-2xl mx-auto mb-8">{t('homeContactCtaText')}</p>
+                <Link to="/contact" className="inline-block bg-brand-secondary text-brand-dark font-bold py-3 px-10 rounded-full text-lg hover:bg-opacity-90 transition duration-300 focus:outline-none focus:ring-2 focus:ring-brand-secondary focus:ring-offset-2 focus:ring-offset-white">
                     {t('homeContactCtaButton')}
                 </Link>
             </div>
