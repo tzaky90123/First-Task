@@ -274,7 +274,7 @@ const AboutSection: React.FC = () => {
                 style={{ backgroundImage: "url('https://www.toptal.com/designers/subtlepatterns/uploads/project-paper.png')" }}
             >
                 <div className="absolute inset-0 bg-brand-light/95" aria-hidden="true"></div>
-                <div className="relative container mx-auto px-5 lg:px-20 py-32">
+                <div className="relative container mx-auto px-5 lg:px-20 py-20">
                     <div className="text-center mb-16">
                         <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
                             <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
@@ -295,7 +295,7 @@ const AboutSection: React.FC = () => {
                         </div>
                         
                         <div 
-                            className="md:col-span-3 flex flex-col justify-center p-24 lg:p-28 rounded-lg relative overflow-hidden"
+                            className="md:col-span-3 flex flex-col justify-center p-16 lg:p-20 rounded-lg relative overflow-hidden"
                             style={{ backgroundImage: "url('https://www.toptal.com/designers/subtlepatterns/uploads/concrete-texture.png')" }}
                         >
                             <div className="absolute inset-0 bg-white/95" aria-hidden="true"></div>
