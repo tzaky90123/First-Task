@@ -68,7 +68,7 @@ const FullScreenSection: React.FC<FullScreenSectionProps> = ({ children, classNa
     : '';
 
   return (
-    <section ref={ref} className={`h-screen w-full flex items-center justify-center relative overflow-hidden ${className}`}>
+    <section ref={ref} className={`w-full relative overflow-hidden py-20 lg:py-24 ${className}`}>
         <div className={wrapperClasses}>
             {children}
         </div>
@@ -222,7 +222,7 @@ const ExpertiseSection: React.FC = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <div key={index} className="bg-brand-light p-6 rounded-lg shadow-sm text-center transition-all duration-300 hover:shadow-lg">
+              <div key={index} className="bg-brand-light p-6 rounded-lg shadow-sm text-center transition-all duration-300 hover:shadow-lg flex flex-col justify-center">
                 <img src={service.icon} alt={t(service.titleKey)} className="h-12 w-12 mx-auto mb-6 opacity-75" />
                 <h3 className="text-xl font-medium text-brand-primary mb-3 font-sans">{t(service.titleKey)}</h3>
                 <p className="text-brand-text text-sm leading-relaxed">{t(service.textKey)}</p>
@@ -681,10 +681,10 @@ const HomePage: React.FC = () => {
       <section><AboutSection /></section>
       <section className="bg-white py-16 lg:py-20"><PartnersSection /></section>
       <FullScreenSection className="bg-brand-light" useTransition><MasterpiecesSection /></FullScreenSection>
-      <FullScreenSection className="bg-white"><ProgramSection /></FullScreenSection>
+      <FullScreenSection className="bg-white" useTransition><ProgramSection /></FullScreenSection>
       <section className="bg-brand-light py-16 lg:py-20"><StatisticsSection /></section>
       <FullScreenSection className="bg-white" useTransition><WhyChooseUsSection /></FullScreenSection>
-      <FullScreenSection className="bg-brand-light"><TestimonialsSection /></FullScreenSection>
+      <FullScreenSection className="bg-brand-light" useTransition><TestimonialsSection /></FullScreenSection>
       <section className="bg-white py-16 lg:py-20">
         <ContactCTASection />
       </section>
