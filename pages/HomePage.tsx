@@ -1,8 +1,8 @@
-
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback, ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocalization } from '../context/LocalizationContext';
 import MainNavigation from '../components/MainNavigation';
+import Footer from '../components/Footer';
 
 const slides = [
   {
@@ -23,6 +23,58 @@ const slides = [
 ];
 
 // --- Helper Components ---
+
+interface FullScreenSectionProps {
+  children: React.ReactNode;
+  className?: string;
+  useTransition?: boolean;
+}
+
+const FullScreenSection: React.FC<FullScreenSectionProps> = ({ children, className = '', useTransition = false }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    if (!useTransition) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          if (ref.current) {
+            observer.unobserve(ref.current);
+          }
+        }
+      },
+      {
+        threshold: 0.2,
+      }
+    );
+    
+    const currentRef = ref.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, [useTransition]);
+
+  const wrapperClasses = useTransition 
+    ? `transition-section ${inView ? 'is-in-view' : ''}`
+    : '';
+
+  return (
+    <section ref={ref} className={`h-screen w-full flex items-center justify-center relative overflow-hidden ${className}`}>
+        <div className={wrapperClasses}>
+            {children}
+        </div>
+    </section>
+  );
+};
 
 const SectionLogoIcon = ({ className }: { className?: string }) => (
     <img src="https://socabeg.com/favicon.png" alt="" className={className || "inline-block h-10 w-auto -mt-1 mr-3"} aria-hidden="true" />
@@ -61,7 +113,7 @@ const HeroSection: React.FC = () => {
   };
     
   return (
-    <div className="relative h-screen text-white overflow-hidden">
+    <section className="relative h-screen text-white overflow-hidden">
       {slides.map((slide, index) => (
         <div
           key={index}
@@ -133,7 +185,7 @@ const HeroSection: React.FC = () => {
             <MainNavigation />
           </div>
       </div>
-    </div>
+    </section>
   );
 };
 
@@ -158,7 +210,6 @@ const ExpertiseSection: React.FC = () => {
     ];
   
     return (
-      <section className="min-h-screen bg-white flex flex-col justify-center py-20">
         <div className="container mx-auto px-5 lg:px-20">
           <div className="text-center mb-16">
             <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
@@ -179,15 +230,14 @@ const ExpertiseSection: React.FC = () => {
             ))}
           </div>
         </div>
-      </section>
     );
 };
 
 const AboutSection: React.FC = () => {
     const { t } = useLocalization();
     return (
-        <section 
-            className="min-h-screen relative flex flex-col justify-center py-20" 
+        <div 
+            className="relative w-full" 
             style={{ backgroundImage: "url('https://www.toptal.com/designers/subtlepatterns/uploads/project-paper.png')" }}
         >
             <div className="absolute inset-0 bg-brand-light/95" aria-hidden="true"></div>
@@ -244,7 +294,7 @@ const AboutSection: React.FC = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     );
 };
 
@@ -264,26 +314,24 @@ const PartnersSection: React.FC = () => {
     const duplicatedLogos = [...partnerLogos, ...partnerLogos];
 
     return (
-        <section className="min-h-screen bg-white flex flex-col justify-center py-20">
-            <div className="container mx-auto px-5 lg:px-20">
-                <div className="text-center mb-16">
-                    <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
-                        <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
-                        <span>{t('partnersSectionTitle')}</span>
-                    </h3>
-                    <h2 className="text-2xl font-bold font-sans text-black">{t('partnersSectionHeadline')}</h2>
-                </div>
-                <div className="logo-scroller">
-                    <div className="logo-scroller-inner">
-                        {duplicatedLogos.map((logo, index) => (
-                            <div key={index} className="flex-shrink-0 w-48 h-24 flex items-center justify-center p-4 mx-4">
-                                <img src={logo} alt={`Partner logo ${index + 1}`} className="max-h-full max-w-full object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 partner-logo" />
-                            </div>
-                        ))}
-                    </div>
+        <div className="container mx-auto px-5 lg:px-20">
+            <div className="text-center mb-16">
+                <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
+                    <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
+                    <span>{t('partnersSectionTitle')}</span>
+                </h3>
+                <h2 className="text-2xl font-bold font-sans text-black">{t('partnersSectionHeadline')}</h2>
+            </div>
+            <div className="logo-scroller">
+                <div className="logo-scroller-inner">
+                    {duplicatedLogos.map((logo, index) => (
+                        <div key={index} className="flex-shrink-0 w-48 h-24 flex items-center justify-center p-4 mx-4">
+                            <img src={logo} alt={`Partner logo ${index + 1}`} className="max-h-full max-w-full object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 partner-logo" />
+                        </div>
+                    ))}
                 </div>
             </div>
-        </section>
+        </div>
     );
 };
 
@@ -322,55 +370,53 @@ const MasterpiecesSection: React.FC = () => {
     };
 
     return (
-        <section className="min-h-screen bg-brand-light flex flex-col justify-center py-20">
-            <div className="container mx-auto px-5 lg:px-20">
-                <div className="text-center mb-16">
-                    <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
-                       <SectionLogoIcon className="inline-block h-5 w-auto mr-2"/>
-                       <span>{t('homeMasterpiecesTitle')}</span>
-                    </h3>
-                    <h2 className="text-2xl font-bold font-sans text-black">
-                        {t('homeMasterpiecesSubtitle')}
-                    </h2>
-                </div>
+        <div className="container mx-auto px-5 lg:px-20">
+            <div className="text-center mb-16">
+                <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
+                   <SectionLogoIcon className="inline-block h-5 w-auto mr-2"/>
+                   <span>{t('homeMasterpiecesTitle')}</span>
+                </h3>
+                <h2 className="text-2xl font-bold font-sans text-black">
+                    {t('homeMasterpiecesSubtitle')}
+                </h2>
+            </div>
 
-                <div className="hidden md:grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    {masterpieces.map((masterpiece, index) => (
-                        <div key={index} className="group relative overflow-hidden rounded-lg shadow-lg h-[450px]">
-                            <img src={masterpiece.src} alt={t(masterpiece.titleKey)} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                             <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                             <div className="absolute bottom-0 left-0 p-6 text-white">
-                                <h3 className="text-2xl font-medium">{t(masterpiece.titleKey)}</h3>
-                                <p className="text-sm opacity-90">{t(masterpiece.descriptionKey)}</p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-
-                <div className="md:hidden relative w-full max-w-5xl mx-auto">
-                    <div className="overflow-hidden relative rounded-lg shadow-xl">
-                        <div className="flex transition-transform ease-out duration-500" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
-                            {masterpieces.map((masterpiece, index) => (
-                                <div key={index} className="min-w-full h-[500px] relative">
-                                    <img src={masterpiece.src} alt={t(masterpiece.titleKey)} className="w-full h-full object-cover" />
-                                    <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/70 to-transparent text-white">
-                                        <h3 className="text-2xl font-medium">{t(masterpiece.titleKey)}</h3>
-                                        <p className="text-sm">{t(masterpiece.descriptionKey)}</p>
-                                    </div>
-                                </div>
-                            ))}
+            <div className="hidden md:grid grid-cols-1 lg:grid-cols-3 gap-8">
+                {masterpieces.map((masterpiece, index) => (
+                    <div key={index} className="group relative overflow-hidden rounded-lg shadow-lg h-[450px]">
+                        <img src={masterpiece.src} alt={t(masterpiece.titleKey)} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                         <div className="absolute bottom-0 left-0 p-6 text-white">
+                            <h3 className="text-2xl font-medium">{t(masterpiece.titleKey)}</h3>
+                            <p className="text-sm opacity-90">{t(masterpiece.descriptionKey)}</p>
                         </div>
                     </div>
-
-                    <button onClick={prevSlide} className="absolute top-1/2 -translate-y-1/2 left-2 text-white bg-black/30 hover:bg-black/50 rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-white transition" aria-label="Previous image">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
-                    </button>
-                    <button onClick={nextSlide} className="absolute top-1/2 -translate-y-1/2 right-2 text-white bg-black/30 hover:bg-black/50 rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-white transition" aria-label="Next image">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-                    </button>
-                </div>
+                ))}
             </div>
-        </section>
+
+            <div className="md:hidden relative w-full max-w-5xl mx-auto">
+                <div className="overflow-hidden relative rounded-lg shadow-xl">
+                    <div className="flex transition-transform ease-out duration-500" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+                        {masterpieces.map((masterpiece, index) => (
+                            <div key={index} className="min-w-full h-[500px] relative">
+                                <img src={masterpiece.src} alt={t(masterpiece.titleKey)} className="w-full h-full object-cover" />
+                                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/70 to-transparent text-white">
+                                    <h3 className="text-2xl font-medium">{t(masterpiece.titleKey)}</h3>
+                                    <p className="text-sm">{t(masterpiece.descriptionKey)}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                <button onClick={prevSlide} className="absolute top-1/2 -translate-y-1/2 left-2 text-white bg-black/30 hover:bg-black/50 rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-white transition" aria-label="Previous image">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+                </button>
+                <button onClick={nextSlide} className="absolute top-1/2 -translate-y-1/2 right-2 text-white bg-black/30 hover:bg-black/50 rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-white transition" aria-label="Next image">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                </button>
+            </div>
+        </div>
     );
 };
 
@@ -409,39 +455,37 @@ const ProgramSection: React.FC = () => {
     ];
 
     return (
-        <section className="min-h-screen bg-white flex flex-col justify-center py-20">
-            <div className="container mx-auto px-5 lg:px-20">
-                <div className="text-center mb-16">
-                    <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
-                        <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
-                        <span>{t('programsSectionTitle')}</span>
-                    </h3>
-                    <h2 className="text-2xl font-bold font-sans text-black">{t('programsSectionHeadline')}</h2>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {programs.map((program, index) => (
-                        <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
-                            <img src={program.image} alt={t(program.titleKey)} className="w-full h-56 object-cover" />
-                            <div className="p-6 flex flex-col flex-grow">
-                                <h3 className="text-lg font-medium text-brand-primary font-sans">{t(program.titleKey)}</h3>
-                                <p className="text-xs text-gray-500 mb-3">{t(program.typeKey)}</p>
-                                <div className="flex flex-wrap items-center text-xs text-gray-600 mb-4 border-y py-2">
-                                    {program.details.map((detail, i) => (<span key={i} className="flex items-center mr-4 mb-1">{detail.icon}{t(detail.textKey)}</span>))}
-                                </div>
-                                <p className="text-brand-text text-sm leading-relaxed mb-4 flex-grow">{t(program.descriptionKey)}</p>
-                                <div className="mt-auto">
-                                    <p className="font-semibold text-brand-secondary text-sm mb-4">{t(program.priceKey)}</p>
-                                    <div className="flex flex-col sm:flex-row sm:space-x-2 space-y-2 sm:space-y-0 text-sm">
-                                        <Link to="#" className="w-full text-center px-4 py-2 rounded-full bg-brand-primary text-white font-semibold hover:bg-opacity-90 transition">{t('programDetailsButton')}</Link>
-                                        <Link to="/contact" className="w-full text-center px-4 py-2 rounded-full bg-gray-200 text-brand-primary font-semibold hover:bg-gray-300 transition">{t('programContactButton')}</Link>
-                                    </div>
+        <div className="container mx-auto px-5 lg:px-20">
+            <div className="text-center mb-16">
+                <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
+                    <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
+                    <span>{t('programsSectionTitle')}</span>
+                </h3>
+                <h2 className="text-2xl font-bold font-sans text-black">{t('programsSectionHeadline')}</h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {programs.map((program, index) => (
+                    <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
+                        <img src={program.image} alt={t(program.titleKey)} className="w-full h-56 object-cover" />
+                        <div className="p-6 flex flex-col flex-grow">
+                            <h3 className="text-lg font-medium text-brand-primary font-sans">{t(program.titleKey)}</h3>
+                            <p className="text-xs text-gray-500 mb-3">{t(program.typeKey)}</p>
+                            <div className="flex flex-wrap items-center text-xs text-gray-600 mb-4 border-y py-2">
+                                {program.details.map((detail, i) => (<span key={i} className="flex items-center mr-4 mb-1">{detail.icon}{t(detail.textKey)}</span>))}
+                            </div>
+                            <p className="text-brand-text text-sm leading-relaxed mb-4 flex-grow">{t(program.descriptionKey)}</p>
+                            <div className="mt-auto">
+                                <p className="font-semibold text-brand-secondary text-sm mb-4">{t(program.priceKey)}</p>
+                                <div className="flex flex-col sm:flex-row sm:space-x-2 space-y-2 sm:space-y-0 text-sm">
+                                    <Link to="#" className="w-full text-center px-4 py-2 rounded-full bg-brand-primary text-white font-semibold hover:bg-opacity-90 transition">{t('programDetailsButton')}</Link>
+                                    <Link to="/contact" className="w-full text-center px-4 py-2 rounded-full bg-gray-200 text-brand-primary font-semibold hover:bg-gray-300 transition">{t('programContactButton')}</Link>
                                 </div>
                             </div>
                         </div>
-                    ))}
-                </div>
+                    </div>
+                ))}
             </div>
-        </section>
+        </div>
     );
 };
 
@@ -460,33 +504,31 @@ const StatisticsSection: React.FC = () => {
     ];
 
     return (
-        <section className="min-h-screen bg-brand-light flex flex-col justify-center py-20">
-            <div className="container mx-auto px-5 lg:px-20">
-                <div className="text-center mb-16">
-                    <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
-                        <StatisticsIcon />
-                        <span>{t('statisticsSectionTitle')}</span>
-                    </h3>
-                    <h2 className="text-2xl font-bold font-sans text-black">
-                        {t('statisticsSectionHeadline')}
-                    </h2>
-                </div>
-                <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-8">
-                    {stats.map((stat, index) => (
-                        <div 
-                            key={index} 
-                            className={`bg-white p-6 rounded-lg text-center animate-fade-in-up shadow-sm flex flex-col h-full md:col-span-2 ${index === 3 ? 'md:col-start-2' : ''} ${index === 4 ? 'sm:col-span-2' : ''}`}
-                            style={{ animationDelay: `${index * 150}ms` }}
-                        >
-                            <p className="text-2xl lg:text-3xl font-bold text-brand-secondary font-sans">{stat.value}</p>
-                            <div className="mt-2 flex-grow flex items-center justify-center">
-                                <p className="text-brand-text text-sm leading-snug whitespace-nowrap">{t(stat.labelKey)}</p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+        <div className="container mx-auto px-5 lg:px-20">
+            <div className="text-center mb-16">
+                <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
+                    <StatisticsIcon />
+                    <span>{t('statisticsSectionTitle')}</span>
+                </h3>
+                <h2 className="text-2xl font-bold font-sans text-black">
+                    {t('statisticsSectionHeadline')}
+                </h2>
             </div>
-        </section>
+            <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-8">
+                {stats.map((stat, index) => (
+                    <div 
+                        key={index} 
+                        className={`bg-white p-6 rounded-lg text-center animate-fade-in-up shadow-sm flex flex-col h-full md:col-span-2 ${index === 3 ? 'md:col-start-2' : ''} ${index === 4 ? 'sm:col-span-2' : ''}`}
+                        style={{ animationDelay: `${index * 150}ms` }}
+                    >
+                        <p className="text-2xl lg:text-3xl font-bold text-brand-secondary font-sans">{stat.value}</p>
+                        <div className="mt-2 flex-grow flex items-center justify-center">
+                            <p className="text-brand-text text-sm leading-snug whitespace-nowrap">{t(stat.labelKey)}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
     );
 };
 
@@ -503,7 +545,6 @@ const WhyChooseUsSection: React.FC = () => {
   ];
 
   return (
-    <section className="min-h-screen bg-white flex flex-col justify-center py-20">
       <div className="container mx-auto px-5 lg:px-20">
         <div className="text-center mb-16">
           <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
@@ -524,7 +565,6 @@ const WhyChooseUsSection: React.FC = () => {
           ))}
         </div>
       </div>
-    </section>
   );
 };
 
@@ -551,72 +591,153 @@ const TestimonialsSection: React.FC = () => {
     const goPrev = () => setCurrentIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
 
     return (
-        <section className="min-h-screen bg-brand-light flex flex-col justify-center py-20">
-            <div className="container mx-auto px-5 lg:px-20">
-                <div className="text-center mb-16">
-                    <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
-                        <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
-                        <span>{t('testimonialsSectionTitle')}</span>
-                    </h3>
-                    <h2 className="text-2xl font-bold font-sans text-black">{t('testimonialsSectionHeadline')}</h2>
-                </div>
-                <div className="relative">
-                    <div className="overflow-hidden">
-                        <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
-                            {testimonials.map((testimonial, index) => (
-                                <div key={index} className="w-full flex-shrink-0 px-4">
-                                    <div className="bg-white px-8 py-4 md:px-12 md:py-8 rounded-lg shadow-sm max-w-3xl mx-auto text-center h-[400px] md:h-[340px] flex flex-col justify-center">
-                                        <div>
-                                          <svg className="w-10 h-10 text-brand-secondary mx-auto mb-4" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true"><path d="M9.333 8h-5.333v8h5.333c0-4.418 3.582-8 8-8v-5.333c-7.364 0-13.333 5.97-13.333 13.333v10.667h13.333v-10.667h-8v-6zM29.333 8h-5.333v8h5.333c0-4.418 3.582-8 8-8v-5.333c-7.364 0-13.333 5.97-13.333 13.333v10.667h13.333v-10.667h-8v-6z"></path></svg>
-                                          <blockquote className="text-lg text-brand-text italic leading-relaxed mb-6">“{t(testimonial.quoteKey)}”</blockquote>
-                                        </div>
-                                        <cite className="not-italic font-semibold text-brand-primary font-sans">— {t(testimonial.nameKey)}</cite>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                     <button onClick={goPrev} className="absolute top-1/2 -translate-y-1/2 left-0 md:-left-10 text-brand-primary bg-white hover:bg-gray-100 rounded-full p-3 shadow-md focus:outline-none focus:ring-2 focus:ring-brand-secondary transition" aria-label={t('prevTestimonialAria')}>
-                        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
-                    </button>
-                    <button onClick={goNext} className="absolute top-1/2 -translate-y-1/2 right-0 md:-right-10 text-brand-primary bg-white hover:bg-gray-100 rounded-full p-3 shadow-md focus:outline-none focus:ring-2 focus:ring-brand-secondary transition" aria-label={t('nextTestimonialAria')}>
-                        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-                    </button>
-                </div>
+        <div className="container mx-auto px-5 lg:px-20">
+            <div className="text-center mb-16">
+                <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
+                    <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
+                    <span>{t('testimonialsSectionTitle')}</span>
+                </h3>
+                <h2 className="text-2xl font-bold font-sans text-black">{t('testimonialsSectionHeadline')}</h2>
             </div>
-        </section>
+            <div className="relative">
+                <div className="overflow-hidden">
+                    <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+                        {testimonials.map((testimonial, index) => (
+                            <div key={index} className="w-full flex-shrink-0 px-4">
+                                <div className="bg-white px-8 py-4 md:px-12 md:py-8 rounded-lg shadow-sm max-w-3xl mx-auto text-center h-[400px] md:h-[340px] flex flex-col justify-center">
+                                    <div>
+                                      <svg className="w-10 h-10 text-brand-secondary mx-auto mb-4" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true"><path d="M9.333 8h-5.333v8h5.333c0-4.418 3.582-8 8-8v-5.333c-7.364 0-13.333 5.97-13.333 13.333v10.667h13.333v-10.667h-8v-6zM29.333 8h-5.333v8h5.333c0-4.418 3.582-8 8-8v-5.333c-7.364 0-13.333 5.97-13.333 13.333v10.667h13.333v-10.667h-8v-6z"></path></svg>
+                                      <blockquote className="text-lg text-brand-text italic leading-relaxed mb-6">“{t(testimonial.quoteKey)}”</blockquote>
+                                    </div>
+                                    <cite className="not-italic font-semibold text-brand-primary font-sans">— {t(testimonial.nameKey)}</cite>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                 <button onClick={goPrev} className="absolute top-1/2 -translate-y-1/2 left-0 md:-left-10 text-brand-primary bg-white hover:bg-gray-100 rounded-full p-3 shadow-md focus:outline-none focus:ring-2 focus:ring-brand-secondary transition" aria-label={t('prevTestimonialAria')}>
+                    <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+                </button>
+                <button onClick={goNext} className="absolute top-1/2 -translate-y-1/2 right-0 md:-right-10 text-brand-primary bg-white hover:bg-gray-100 rounded-full p-3 shadow-md focus:outline-none focus:ring-2 focus:ring-brand-secondary transition" aria-label={t('nextTestimonialAria')}>
+                    <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                </button>
+            </div>
+        </div>
     );
 };
 
 const ContactCTASection: React.FC = () => {
     const { t } = useLocalization();
     return (
-        <section className="min-h-screen bg-white flex flex-col justify-center py-20">
-            <div className="container mx-auto px-6 text-center">
-                <h2 className="text-3xl font-bold font-sans mb-4 text-black">{t('homeContactCtaTitle')}</h2>
-                <p className="text-lg text-black max-w-2xl mx-auto mb-8">{t('homeContactCtaText')}</p>
-                <Link to="/contact" className="inline-block bg-transparent border-2 border-black text-black font-bold py-3 px-10 rounded-full text-lg hover:bg-black hover:text-white transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 focus:ring-offset-white">
-                    {t('homeContactCtaButton')}
-                </Link>
-            </div>
-        </section>
+        <div className="container mx-auto px-6 text-center">
+            <h2 className="text-3xl font-bold font-sans mb-4 text-black">{t('homeContactCtaTitle')}</h2>
+            <p className="text-lg text-black max-w-2xl mx-auto mb-8">{t('homeContactCtaText')}</p>
+            <Link to="/contact" className="inline-block bg-transparent border-2 border-black text-black font-bold py-3 px-10 rounded-full text-lg hover:bg-black hover:text-white transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 focus:ring-offset-white">
+                {t('homeContactCtaButton')}
+            </Link>
+        </div>
     );
 };
 
 const HomePage: React.FC = () => {
+  const sections: ReactNode[] = [
+    <HeroSection />,
+    <FullScreenSection className="bg-white"><ExpertiseSection /></FullScreenSection>,
+    <FullScreenSection useTransition><AboutSection /></FullScreenSection>,
+    <FullScreenSection className="bg-white"><PartnersSection /></FullScreenSection>,
+    <FullScreenSection className="bg-brand-light" useTransition><MasterpiecesSection /></FullScreenSection>,
+    <FullScreenSection className="bg-white"><ProgramSection /></FullScreenSection>,
+    <FullScreenSection className="bg-brand-light"><StatisticsSection /></FullScreenSection>,
+    <FullScreenSection className="bg-white" useTransition><WhyChooseUsSection /></FullScreenSection>,
+    <FullScreenSection className="bg-brand-light"><TestimonialsSection /></FullScreenSection>,
+    <FullScreenSection className="bg-white"><ContactCTASection /></FullScreenSection>,
+    <section className="h-screen w-full flex items-end bg-brand-dark"><Footer /></section>
+  ];
+
+  const [activeIndex, setActiveIndex] = useState(0);
+  const isScrolling = useRef(false);
+  const touchStartY = useRef(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const handleScroll = useCallback((deltaY: number) => {
+    if (isScrolling.current) return;
+
+    isScrolling.current = true;
+
+    if (deltaY > 0) {
+      setActiveIndex(prev => Math.min(prev + 1, sections.length - 1));
+    } else if (deltaY < 0) {
+      setActiveIndex(prev => Math.max(prev - 1, 0));
+    }
+
+    setTimeout(() => {
+      isScrolling.current = false;
+    }, 1500); // Debounce time (longer than CSS transition)
+  }, [sections.length]);
+
+  useEffect(() => {
+    document.body.classList.add('fullscreen-scroll-active');
+    
+    const handleWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      handleScroll(e.deltaY);
+    };
+
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartY.current = e.touches[0].clientY;
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      e.preventDefault();
+      const touchEndY = e.touches[0].clientY;
+      const delta = touchStartY.current - touchEndY;
+      
+      if (Math.abs(delta) > 30) {
+        handleScroll(delta);
+        touchStartY.current = touchEndY;
+      }
+    };
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+        e.preventDefault();
+        handleScroll(1);
+      } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+        e.preventDefault();
+        handleScroll(-1);
+      }
+    }
+
+    const currentContainer = containerRef.current;
+    if (currentContainer) {
+        currentContainer.addEventListener('wheel', handleWheel, { passive: false });
+        currentContainer.addEventListener('touchstart', handleTouchStart, { passive: false });
+        currentContainer.addEventListener('touchmove', handleTouchMove, { passive: false });
+    }
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.classList.remove('fullscreen-scroll-active');
+      if (currentContainer) {
+        currentContainer.removeEventListener('wheel', handleWheel);
+        currentContainer.removeEventListener('touchstart', handleTouchStart);
+        currentContainer.removeEventListener('touchmove', handleTouchMove);
+      }
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [handleScroll]);
+
   return (
-    <>
-      <HeroSection />
-      <ExpertiseSection />
-      <AboutSection />
-      <PartnersSection />
-      <MasterpiecesSection />
-      <ProgramSection />
-      <StatisticsSection />
-      <WhyChooseUsSection />
-      <TestimonialsSection />
-      <ContactCTASection />
-    </>
+    <div ref={containerRef} className="fullscreen-container">
+      <div
+        className="fullscreen-scroller"
+        style={{ transform: `translateY(-${activeIndex * 100}vh)` }}
+      >
+        {sections.map((section, index) => (
+          <React.Fragment key={index}>{section}</React.Fragment>
+        ))}
+      </div>
+    </div>
   );
 };
 

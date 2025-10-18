@@ -11,6 +11,6 @@ export interface LocalizedContent {
 }
 
 export interface NavLink {
-  label: keyof LocalizedContent;
+  label: string;
   path: string;
 }

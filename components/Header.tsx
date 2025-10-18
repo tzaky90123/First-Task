@@ -115,7 +115,7 @@ const Header: React.FC = () => {
                                 }`
                             }
                         >
-                        {t(link.label as string)}
+                        {t(link.label)}
                         </RouterNavLink>
                     </li>
                     ))}

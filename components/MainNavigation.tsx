@@ -36,7 +36,7 @@ const MainNavigation: React.FC = () => {
                                 ${isActive ? 'after:w-full' : 'hover:after:w-full'}`
                             }
                         >
-                            {t(link.label as string)}
+                            {t(link.label)}
                         </RouterNavLink>
                     </li>
                 ))}

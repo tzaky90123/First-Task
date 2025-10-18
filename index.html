@@ -30,8 +30,14 @@
       }
     </script>
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       font-family: 'Satoshi', sans-serif;
+    }
+    body.fullscreen-scroll-active {
+        overflow: hidden;
     }
     @keyframes fadeInUp {
       from {
@@ -116,11 +122,14 @@
       justify-content: center;
       align-items: center;
       z-index: 9999;
-      transition: transform 0.8s cubic-bezier(0.76, 0, 0.24, 1);
+      transition: opacity 1.2s cubic-bezier(0.76, 0, 0.24, 1), visibility 1.2s cubic-bezier(0.76, 0, 0.24, 1);
+      opacity: 1;
+      visibility: visible;
     }
 
     .loading-screen.exit {
-      transform: translateY(-100%);
+      opacity: 0;
+      visibility: hidden;
     }
 
     .loading-icon {
@@ -138,6 +147,31 @@
         opacity: 1;
         transform: scale(1);
       }
+    }
+
+    /* Section Transition Styles */
+    .transition-section {
+      opacity: 0;
+      transform: translateY(80px);
+      transition: opacity 1.5s cubic-bezier(0.19, 1, 0.22, 1), transform 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+      will-change: transform, opacity;
+    }
+
+    .transition-section.is-in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Fullscreen Scrolling Styles */
+    .fullscreen-container {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+    }
+    .fullscreen-scroller {
+      height: 100%;
+      transition: transform 1.2s cubic-bezier(0.76, 0, 0.24, 1);
+      will-change: transform;
     }
   </style>
   <script type="importmap">
