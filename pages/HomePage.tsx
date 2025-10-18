@@ -112,7 +112,7 @@ const HeroSection: React.FC = () => {
   };
     
   return (
-    <div className="relative h-screen text-white overflow-hidden">
+    <section className="relative h-screen text-white overflow-hidden snap-section">
       {slides.map((slide, index) => (
         <div
           key={index}
@@ -184,7 +184,7 @@ const HeroSection: React.FC = () => {
             <MainNavigation />
           </div>
       </div>
-    </div>
+    </section>
   );
 };
 
@@ -588,7 +588,7 @@ const WhyChooseUsSection: React.FC = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {values.map((value, index) => (
-            <div key={index} className="bg-brand-light p-8 rounded-lg shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1" style={{ animationDelay: `${index * 100}ms` }}>
+            <div key={index} className="bg-brand-light p-8 rounded-lg shadow-sm transition-all duration-300 hover:shadow-xl" style={{ animationDelay: `${index * 100}ms` }}>
               {value.icon && (<img src={value.icon} alt="" className="h-10 w-10 mb-4" />)}
               <div>
                 <h3 className="text-xl font-medium text-brand-primary mb-2 font-sans">{t(value.titleKey)}</h3>
@@ -676,15 +676,15 @@ const HomePage: React.FC = () => {
   return (
     <>
       <HeroSection />
-      <section className="bg-white py-16 lg:py-20"><ExpertiseSection /></section>
-      <section><AboutSection /></section>
-      <section className="bg-white py-16 lg:py-20"><PartnersSection /></section>
-      <FullScreenSection className="bg-brand-light" useTransition><MasterpiecesSection /></FullScreenSection>
-      <FullScreenSection className="bg-white" useTransition><ProgramSection /></FullScreenSection>
-      <section className="bg-brand-light py-16 lg:py-20"><StatisticsSection /></section>
-      <FullScreenSection className="bg-white" useTransition><WhyChooseUsSection /></FullScreenSection>
-      <FullScreenSection className="bg-brand-light" useTransition><TestimonialsSection /></FullScreenSection>
-      <section className="bg-white py-16 lg:py-20">
+      <section className="bg-white py-16 lg:py-20 snap-section"><ExpertiseSection /></section>
+      <section className="snap-section"><AboutSection /></section>
+      <section className="bg-white py-16 lg:py-20 snap-section"><PartnersSection /></section>
+      <FullScreenSection className="bg-brand-light snap-section" useTransition><MasterpiecesSection /></FullScreenSection>
+      <FullScreenSection className="bg-white snap-section" useTransition><ProgramSection /></FullScreenSection>
+      <section className="bg-brand-light py-16 lg:py-20 snap-section"><StatisticsSection /></section>
+      <FullScreenSection className="bg-white snap-section" useTransition><WhyChooseUsSection /></FullScreenSection>
+      <FullScreenSection className="bg-brand-light snap-section" useTransition><TestimonialsSection /></FullScreenSection>
+      <section className="bg-white py-16 lg:py-20 snap-section">
         <ContactCTASection />
       </section>
     </>
