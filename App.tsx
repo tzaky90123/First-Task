@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { LocalizationProvider } from './context/LocalizationContext';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -24,7 +24,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ isLoading }) => {
       // Wait for the exit animation to complete before unmounting
       const timer = setTimeout(() => {
         setShouldRender(false);
-      }, 1200); // Duration of the fade-out animation
+      }, 800); // Duration of the slide-up animation
       return () => clearTimeout(timer);
     }
   }, [isLoading]);
@@ -44,52 +44,41 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ isLoading }) => {
   );
 };
 
-const AppContent: React.FC = () => {
-  const location = useLocation();
-  const isHomePage = location.pathname === '/';
+const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
     const timer = setTimeout(() => {
       setIsLoading(false);
-      if (!isHomePage) {
-         document.body.style.overflow = 'auto';
-      }
+      document.body.style.overflow = 'auto';
     }, 2500);
 
     return () => {
       clearTimeout(timer);
       document.body.style.overflow = 'auto';
     };
-  }, [isHomePage]);
-  
-  return (
-    <div className="bg-white text-brand-text font-sans antialiased">
-      <LoadingScreen isLoading={isLoading} />
-      <Header />
-      <main>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/a-propos" element={<AboutPage />} />
-          <Route path="/btp" element={<BtpPage />} />
-          <Route path="/promotion-immobiliere" element={<RealEstatePage />} />
-          <Route path="/mines" element={<MinesPage />} />
-          <Route path="/carrieres" element={<CareersPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-        </Routes>
-      </main>
-      {!isHomePage && <Footer />}
-    </div>
-  );
-}
+  }, []);
 
-
-const App: React.FC = () => {
   return (
     <LocalizationProvider>
       <HashRouter>
-        <AppContent />
+        <div className="bg-white text-brand-text font-sans antialiased">
+          <LoadingScreen isLoading={isLoading} />
+          <Header />
+          <main>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/a-propos" element={<AboutPage />} />
+              <Route path="/btp" element={<BtpPage />} />
+              <Route path="/promotion-immobiliere" element={<RealEstatePage />} />
+              <Route path="/mines" element={<MinesPage />} />
+              <Route path="/carrieres" element={<CareersPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
       </HashRouter>
     </LocalizationProvider>
   );

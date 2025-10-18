@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef, useCallback, ReactNode } from 'react';
+
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocalization } from '../context/LocalizationContext';
 import MainNavigation from '../components/MainNavigation';
-import Footer from '../components/Footer';
 
 const slides = [
   {
@@ -113,7 +113,7 @@ const HeroSection: React.FC = () => {
   };
     
   return (
-    <section className="relative h-screen text-white overflow-hidden">
+    <div className="relative h-screen text-white overflow-hidden">
       {slides.map((slide, index) => (
         <div
           key={index}
@@ -185,7 +185,7 @@ const HeroSection: React.FC = () => {
             <MainNavigation />
           </div>
       </div>
-    </section>
+    </div>
   );
 };
 
@@ -222,7 +222,7 @@ const ExpertiseSection: React.FC = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <div key={index} className="bg-brand-light p-8 rounded-lg shadow-sm text-center transition-all duration-300 hover:shadow-lg">
+              <div key={index} className="bg-brand-light p-6 rounded-lg shadow-sm text-center transition-all duration-300 hover:shadow-lg">
                 <img src={service.icon} alt={t(service.titleKey)} className="h-12 w-12 mx-auto mb-6 opacity-75" />
                 <h3 className="text-xl font-medium text-brand-primary mb-3 font-sans">{t(service.titleKey)}</h3>
                 <p className="text-brand-text text-sm leading-relaxed">{t(service.textKey)}</p>
@@ -235,62 +235,96 @@ const ExpertiseSection: React.FC = () => {
 
 const AboutSection: React.FC = () => {
     const { t } = useLocalization();
+    const ref = useRef<HTMLDivElement>(null);
+    const [inView, setInView] = useState(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setInView(true);
+                    if (ref.current) {
+                        observer.unobserve(ref.current);
+                    }
+                }
+            },
+            {
+                threshold: 0.2,
+            }
+        );
+
+        const currentRef = ref.current;
+        if (currentRef) {
+            observer.observe(currentRef);
+        }
+
+        return () => {
+            if (currentRef) {
+                observer.unobserve(currentRef);
+            }
+        };
+    }, []);
+
+    const wrapperClasses = `transition-section ${inView ? 'is-in-view' : ''}`;
+
     return (
-        <div 
-            className="relative w-full" 
-            style={{ backgroundImage: "url('https://www.toptal.com/designers/subtlepatterns/uploads/project-paper.png')" }}
-        >
-            <div className="absolute inset-0 bg-brand-light/95" aria-hidden="true"></div>
-            <div className="relative container mx-auto px-5 lg:px-20">
-                <div className="text-center mb-16">
-                    <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
-                        <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
-                        <span>{t('homeAboutSectionTitle')}</span>
-                    </h3>
-                    <h2 className="text-2xl font-bold font-sans text-black">
-                        {t('homeAboutSectionHeadline')}
-                    </h2>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-5 gap-y-8 gap-x-12 items-stretch">
-                    <div className="md:col-span-2">
-                        <img 
-                            src="https://socabeg.com/images/socabeg.jpg" 
-                            alt="Ingénieurs SOCABEG planifiant un projet" 
-                            className="rounded-lg shadow-xl w-full h-full object-cover"
-                        />
+        <div ref={ref} className={wrapperClasses}>
+            <div 
+                className="relative w-full" 
+                style={{ backgroundImage: "url('https://www.toptal.com/designers/subtlepatterns/uploads/project-paper.png')" }}
+            >
+                <div className="absolute inset-0 bg-brand-light/95" aria-hidden="true"></div>
+                <div className="relative container mx-auto px-5 lg:px-20 py-32">
+                    <div className="text-center mb-16">
+                        <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
+                            <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
+                            <span>{t('homeAboutSectionTitle')}</span>
+                        </h3>
+                        <h2 className="text-2xl font-bold font-sans text-black">
+                            {t('homeAboutSectionHeadline')}
+                        </h2>
                     </div>
-                    
-                    <div 
-                        className="md:col-span-3 flex flex-col justify-start p-8 lg:p-12 rounded-lg relative overflow-hidden"
-                        style={{ backgroundImage: "url('https://www.toptal.com/designers/subtlepatterns/uploads/concrete-texture.png')" }}
-                    >
-                        <div className="absolute inset-0 bg-white/95" aria-hidden="true"></div>
 
-                        <div className="relative z-10">
-                            <div className="space-y-2 text-brand-text text-xs md:text-sm leading-snug">
-                                <p dangerouslySetInnerHTML={{ __html: t('homeAboutP1') }} />
-                                <p dangerouslySetInnerHTML={{ __html: t('homeAboutP2') }} />
-                                <p dangerouslySetInnerHTML={{ __html: t('homeAboutP3') }} />
-                                <p dangerouslySetInnerHTML={{ __html: t('homeAboutP4') }} />
-                                <p dangerouslySetInnerHTML={{ __html: t('homeAboutP5') }} />
-                                <p dangerouslySetInnerHTML={{ __html: t('homeAboutP6') }} />
-                            </div>
-                            
-                            <div className="mt-8">
-                                <Link
-                                    to="/a-propos"
-                                    className="inline-flex items-center bg-black/5 border border-black/10 text-brand-dark text-sm font-bold py-3 px-8 rounded-full hover:bg-black/10 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-brand-dark focus:ring-offset-2 group"
-                                >
-                                    <span>{t('learnMore')}</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                    </svg>
-                                </Link>
-                            </div>
+                    <div className="grid grid-cols-1 md:grid-cols-5 gap-y-8 gap-x-12 items-center">
+                        <div className="md:col-span-2">
+                            <img 
+                                src="https://socabeg.com/images/socabeg.jpg" 
+                                alt="Ingénieurs SOCABEG planifiant un projet" 
+                                className="rounded-lg shadow-xl w-full"
+                            />
                         </div>
+                        
+                        <div 
+                            className="md:col-span-3 flex flex-col justify-center p-24 lg:p-28 rounded-lg relative overflow-hidden"
+                            style={{ backgroundImage: "url('https://www.toptal.com/designers/subtlepatterns/uploads/concrete-texture.png')" }}
+                        >
+                            <div className="absolute inset-0 bg-white/95" aria-hidden="true"></div>
 
-                        <div className="absolute bottom-8 left-12 right-12 h-px bg-gradient-to-r from-transparent via-brand-secondary/40 to-transparent" aria-hidden="true"></div>
+                            <div className="relative z-10">
+                                <div className="space-y-2 text-brand-text text-xs md:text-sm leading-snug">
+                                    <p dangerouslySetInnerHTML={{ __html: t('homeAboutP1') }} />
+                                    <p dangerouslySetInnerHTML={{ __html: t('homeAboutP2') }} />
+                                    <p dangerouslySetInnerHTML={{ __html: t('homeAboutP3') }} />
+                                    <p dangerouslySetInnerHTML={{ __html: t('homeAboutP4') }} />
+                                    <p dangerouslySetInnerHTML={{ __html: t('homeAboutP5') }} />
+                                    <p dangerouslySetInnerHTML={{ __html: t('homeAboutP6') }} />
+                                </div>
+                                
+                                <div className="mt-8">
+                                    <Link
+                                        to="/a-propos"
+                                        className="inline-flex items-center bg-black/5 border border-black/10 text-brand-dark text-sm font-bold py-3 px-8 rounded-full hover:bg-black/10 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-brand-dark focus:ring-offset-2 group"
+                                    >
+                                        <span>{t('learnMore')}</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                        </svg>
+                                    </Link>
+                                </div>
+                            </div>
+
+                            <div className="absolute bottom-8 left-12 right-12 h-px bg-gradient-to-r from-transparent via-brand-secondary/40 to-transparent" aria-hidden="true"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -640,104 +674,21 @@ const ContactCTASection: React.FC = () => {
 };
 
 const HomePage: React.FC = () => {
-  const sections: ReactNode[] = [
-    <HeroSection />,
-    <FullScreenSection className="bg-white"><ExpertiseSection /></FullScreenSection>,
-    <FullScreenSection useTransition><AboutSection /></FullScreenSection>,
-    <FullScreenSection className="bg-white"><PartnersSection /></FullScreenSection>,
-    <FullScreenSection className="bg-brand-light" useTransition><MasterpiecesSection /></FullScreenSection>,
-    <FullScreenSection className="bg-white"><ProgramSection /></FullScreenSection>,
-    <FullScreenSection className="bg-brand-light"><StatisticsSection /></FullScreenSection>,
-    <FullScreenSection className="bg-white" useTransition><WhyChooseUsSection /></FullScreenSection>,
-    <FullScreenSection className="bg-brand-light"><TestimonialsSection /></FullScreenSection>,
-    <FullScreenSection className="bg-white"><ContactCTASection /></FullScreenSection>,
-    <section className="h-screen w-full flex items-end bg-brand-dark"><Footer /></section>
-  ];
-
-  const [activeIndex, setActiveIndex] = useState(0);
-  const isScrolling = useRef(false);
-  const touchStartY = useRef(0);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  const handleScroll = useCallback((deltaY: number) => {
-    if (isScrolling.current) return;
-
-    isScrolling.current = true;
-
-    if (deltaY > 0) {
-      setActiveIndex(prev => Math.min(prev + 1, sections.length - 1));
-    } else if (deltaY < 0) {
-      setActiveIndex(prev => Math.max(prev - 1, 0));
-    }
-
-    setTimeout(() => {
-      isScrolling.current = false;
-    }, 1500); // Debounce time (longer than CSS transition)
-  }, [sections.length]);
-
-  useEffect(() => {
-    document.body.classList.add('fullscreen-scroll-active');
-    
-    const handleWheel = (e: WheelEvent) => {
-      e.preventDefault();
-      handleScroll(e.deltaY);
-    };
-
-    const handleTouchStart = (e: TouchEvent) => {
-      touchStartY.current = e.touches[0].clientY;
-    };
-
-    const handleTouchMove = (e: TouchEvent) => {
-      e.preventDefault();
-      const touchEndY = e.touches[0].clientY;
-      const delta = touchStartY.current - touchEndY;
-      
-      if (Math.abs(delta) > 30) {
-        handleScroll(delta);
-        touchStartY.current = touchEndY;
-      }
-    };
-
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowDown' || e.key === 'PageDown') {
-        e.preventDefault();
-        handleScroll(1);
-      } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
-        e.preventDefault();
-        handleScroll(-1);
-      }
-    }
-
-    const currentContainer = containerRef.current;
-    if (currentContainer) {
-        currentContainer.addEventListener('wheel', handleWheel, { passive: false });
-        currentContainer.addEventListener('touchstart', handleTouchStart, { passive: false });
-        currentContainer.addEventListener('touchmove', handleTouchMove, { passive: false });
-    }
-    window.addEventListener('keydown', handleKeyDown);
-
-    return () => {
-      document.body.classList.remove('fullscreen-scroll-active');
-      if (currentContainer) {
-        currentContainer.removeEventListener('wheel', handleWheel);
-        currentContainer.removeEventListener('touchstart', handleTouchStart);
-        currentContainer.removeEventListener('touchmove', handleTouchMove);
-      }
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [handleScroll]);
-
   return (
-    <div ref={containerRef} className="fullscreen-container">
-      <div
-        className="fullscreen-scroller"
-        style={{ transform: `translateY(-${activeIndex * 100}vh)` }}
-      >
-        {sections.map((section, index) => (
-          <React.Fragment key={index}>{section}</React.Fragment>
-        ))}
-      </div>
-    </div>
+    <>
+      <HeroSection />
+      <section className="bg-white py-16 lg:py-20"><ExpertiseSection /></section>
+      <section><AboutSection /></section>
+      <section className="bg-white py-16 lg:py-20"><PartnersSection /></section>
+      <FullScreenSection className="bg-brand-light" useTransition><MasterpiecesSection /></FullScreenSection>
+      <FullScreenSection className="bg-white"><ProgramSection /></FullScreenSection>
+      <section className="bg-brand-light py-16 lg:py-20"><StatisticsSection /></section>
+      <FullScreenSection className="bg-white" useTransition><WhyChooseUsSection /></FullScreenSection>
+      <FullScreenSection className="bg-brand-light"><TestimonialsSection /></FullScreenSection>
+      <section className="bg-white py-16 lg:py-20">
+        <ContactCTASection />
+      </section>
+    </>
   );
 };
 
