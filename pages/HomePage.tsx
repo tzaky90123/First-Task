@@ -158,7 +158,7 @@ const ExpertiseSection: React.FC = () => {
     ];
   
     return (
-      <section className="py-20 bg-white">
+      <section className="min-h-screen bg-white flex flex-col justify-center py-20">
         <div className="container mx-auto px-5 lg:px-20">
           <div className="text-center mb-16">
             <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
@@ -187,7 +187,7 @@ const AboutSection: React.FC = () => {
     const { t } = useLocalization();
     return (
         <section 
-            className="py-20 relative" 
+            className="min-h-screen relative flex flex-col justify-center py-20" 
             style={{ backgroundImage: "url('https://www.toptal.com/designers/subtlepatterns/uploads/project-paper.png')" }}
         >
             <div className="absolute inset-0 bg-brand-light/95" aria-hidden="true"></div>
@@ -264,7 +264,7 @@ const PartnersSection: React.FC = () => {
     const duplicatedLogos = [...partnerLogos, ...partnerLogos];
 
     return (
-        <section className="py-20 bg-white">
+        <section className="min-h-screen bg-white flex flex-col justify-center py-20">
             <div className="container mx-auto px-5 lg:px-20">
                 <div className="text-center mb-16">
                     <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
@@ -322,7 +322,7 @@ const MasterpiecesSection: React.FC = () => {
     };
 
     return (
-        <section className="py-20 bg-brand-light">
+        <section className="min-h-screen bg-brand-light flex flex-col justify-center py-20">
             <div className="container mx-auto px-5 lg:px-20">
                 <div className="text-center mb-16">
                     <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
@@ -409,7 +409,7 @@ const ProgramSection: React.FC = () => {
     ];
 
     return (
-        <section className="py-20 bg-white">
+        <section className="min-h-screen bg-white flex flex-col justify-center py-20">
             <div className="container mx-auto px-5 lg:px-20">
                 <div className="text-center mb-16">
                     <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
@@ -460,7 +460,7 @@ const StatisticsSection: React.FC = () => {
     ];
 
     return (
-        <section className="py-20 bg-brand-light">
+        <section className="min-h-screen bg-brand-light flex flex-col justify-center py-20">
             <div className="container mx-auto px-5 lg:px-20">
                 <div className="text-center mb-16">
                     <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
@@ -503,7 +503,7 @@ const WhyChooseUsSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="min-h-screen bg-white flex flex-col justify-center py-20">
       <div className="container mx-auto px-5 lg:px-20">
         <div className="text-center mb-16">
           <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
@@ -551,7 +551,7 @@ const TestimonialsSection: React.FC = () => {
     const goPrev = () => setCurrentIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
 
     return (
-        <section className="py-20 bg-brand-light">
+        <section className="min-h-screen bg-brand-light flex flex-col justify-center py-20">
             <div className="container mx-auto px-5 lg:px-20">
                 <div className="text-center mb-16">
                     <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
@@ -591,7 +591,7 @@ const TestimonialsSection: React.FC = () => {
 const ContactCTASection: React.FC = () => {
     const { t } = useLocalization();
     return (
-        <section className="py-20 bg-white">
+        <section className="min-h-screen bg-white flex flex-col justify-center py-20">
             <div className="container mx-auto px-6 text-center">
                 <h2 className="text-3xl font-bold font-sans mb-4 text-black">{t('homeContactCtaTitle')}</h2>
                 <p className="text-lg text-black max-w-2xl mx-auto mb-8">{t('homeContactCtaText')}</p>

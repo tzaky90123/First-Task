@@ -104,7 +104,40 @@
       animation: slideIndicator linear forwards;
     }
     .logo-shadow {
-      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.9));
+      /* No shadow effect */
+    }
+
+    /* Loading Screen Styles */
+    .loading-screen {
+      position: fixed;
+      inset: 0;
+      background-color: #1C1C1C; /* brand-dark */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: transform 0.8s cubic-bezier(0.76, 0, 0.24, 1);
+    }
+
+    .loading-screen.exit {
+      transform: translateY(-100%);
+    }
+
+    .loading-icon {
+      width: 80px;
+      height: 80px;
+      animation: scale-in 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+    }
+
+    @keyframes scale-in {
+      from {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
   </style>
   <script type="importmap">
