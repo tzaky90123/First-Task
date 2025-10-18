@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocalization } from '../context/LocalizationContext';
@@ -295,7 +294,7 @@ const AboutSection: React.FC = () => {
                         </div>
                         
                         <div 
-                            className="md:col-span-3 flex flex-col justify-center p-16 lg:p-20 rounded-lg relative overflow-hidden"
+                            className="md:col-span-3 flex flex-col justify-center p-12 lg:p-16 rounded-lg relative overflow-hidden"
                             style={{ backgroundImage: "url('https://www.toptal.com/designers/subtlepatterns/uploads/concrete-texture.png')" }}
                         >
                             <div className="absolute inset-0 bg-white/95" aria-hidden="true"></div>
