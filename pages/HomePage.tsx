@@ -76,7 +76,7 @@ const HeroSection: React.FC = () => {
   };
     
   return (
-    <section className="relative h-screen text-white overflow-hidden snap-section">
+    <section className="relative h-screen text-white overflow-hidden">
       {slides.map((slide, index) => (
         <div
           key={index}
@@ -605,21 +605,83 @@ const ContactCTASection: React.FC = () => {
 };
 
 const HomePage: React.FC = () => {
+  const contentRef = useRef<HTMLDivElement>(null);
+  const scrollData = useRef({
+    target: 0,
+    current: 0,
+    ease: 0.075,
+  });
+  const animationFrameId = useRef<number | null>(null);
+
+  const updateScroll = useCallback(() => {
+    const diff = scrollData.current.target - scrollData.current.current;
+    
+    // Only run animation if there's a difference to be interpolated
+    if (Math.abs(diff) > 0.01) {
+      scrollData.current.current += diff * scrollData.current.ease;
+      if (contentRef.current) {
+        contentRef.current.style.transform = `translateY(-${scrollData.current.current}px)`;
+      }
+    } else if (scrollData.current.current !== scrollData.current.target) {
+      // Snap to target if difference is negligible
+      scrollData.current.current = scrollData.current.target;
+      if (contentRef.current) {
+        contentRef.current.style.transform = `translateY(-${scrollData.current.current}px)`;
+      }
+    }
+    
+    animationFrameId.current = requestAnimationFrame(updateScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      scrollData.current.target = window.scrollY;
+    };
+    
+    const setBodyHeight = () => {
+      if (contentRef.current) {
+        const height = contentRef.current.getBoundingClientRect().height;
+        document.body.style.height = `${height}px`;
+      }
+    };
+
+    const ro = new ResizeObserver(() => {
+        setBodyHeight();
+    });
+
+    if (contentRef.current) {
+        ro.observe(contentRef.current);
+    }
+    
+    setBodyHeight();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    animationFrameId.current = requestAnimationFrame(updateScroll);
+
+    return () => {
+      ro.disconnect();
+      window.removeEventListener('scroll', handleScroll);
+      if (animationFrameId.current) {
+        cancelAnimationFrame(animationFrameId.current);
+      }
+      document.body.style.height = ''; // Reset body height
+    };
+  }, [updateScroll]);
+
   return (
-    <>
+    <div ref={contentRef} className="fixed top-0 left-0 w-full will-change-transform bg-white">
       <HeroSection />
-      <FullScreenSection className="bg-white py-16 snap-section"><ExpertiseSection /></FullScreenSection>
-      <FullScreenSection className="snap-section"><AboutSection /></FullScreenSection>
-      <FullScreenSection className="bg-white py-12 snap-section"><PartnersSection /></FullScreenSection>
-      <FullScreenSection className="bg-brand-light snap-section py-16 md:py-20"><MasterpiecesSection /></FullScreenSection>
-      <FullScreenSection className="bg-white snap-section py-16 md:py-20"><ProgramSection /></FullScreenSection>
-      <FullScreenSection className="bg-brand-light py-16 snap-section"><StatisticsSection /></FullScreenSection>
-      <FullScreenSection className="bg-white snap-section py-16 md:py-20"><WhyChooseUsSection /></FullScreenSection>
-      <FullScreenSection className="bg-brand-light snap-section py-16 md:py-20"><TestimonialsSection /></FullScreenSection>
-      <FullScreenSection className="bg-white py-16 snap-section">
+      <FullScreenSection className="bg-white py-16"><ExpertiseSection /></FullScreenSection>
+      <FullScreenSection><AboutSection /></FullScreenSection>
+      <FullScreenSection className="bg-white py-12"><PartnersSection /></FullScreenSection>
+      <FullScreenSection className="bg-brand-light py-16 md:py-20"><MasterpiecesSection /></FullScreenSection>
+      <FullScreenSection className="bg-white py-16 md:py-20"><ProgramSection /></FullScreenSection>
+      <FullScreenSection className="bg-brand-light py-16"><StatisticsSection /></FullScreenSection>
+      <FullScreenSection className="bg-white py-16 md:py-20"><WhyChooseUsSection /></FullScreenSection>
+      <FullScreenSection className="bg-brand-light py-16 md:py-20"><TestimonialsSection /></FullScreenSection>
+      <FullScreenSection className="bg-white py-16">
         <ContactCTASection />
       </FullScreenSection>
-    </>
+    </div>
   );
 };
 
