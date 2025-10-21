@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocalization } from '../context/LocalizationContext';
@@ -165,7 +166,7 @@ const HeroSection: React.FC = () => {
           
           <div className="absolute bottom-16 left-1/2 -translate-x-1/2 z-30 flex space-x-3">
               {slides.map((_, index) => (
-                  <button key={index} onClick={() => goToSlide(index)} className="relative w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors" aria-label={`Go to slide ${index + 1}`}>
+                  <button key={index} onClick={() => goToSlide(index)} className="relative w-6 h-1 rounded-full bg-white/50 hover:bg-white transition-colors" aria-label={`Go to slide ${index + 1}`}>
                        <div
                           className={`h-full rounded-full bg-white transition-all duration-200 ${index === currentSlide ? 'w-full opacity-100' : 'w-0 opacity-0'}`}
                       ></div>
