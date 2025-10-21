@@ -108,7 +108,7 @@ const HeroSection: React.FC = () => {
 
 
       <div className="relative z-20 h-full flex flex-col justify-center items-center text-center container mx-auto px-6">
-          <div className="">
+          <div className="max-w-md md:max-w-4xl">
               {slides.map((slide, index) => (
                   <div key={index} className={`${index === currentSlide ? 'block' : 'hidden'}`}>
                       <h1 className="text-2xl md:text-4xl font-bold leading-tight mb-4 animate-fade-in-up">
@@ -121,7 +121,7 @@ const HeroSection: React.FC = () => {
               ))}
               <Link
                 to="/promotion-immobiliere"
-                className="bg-transparent border-2 border-white text-white text-lg font-bold py-3 px-10 rounded-full hover:bg-white hover:text-brand-dark transition-colors duration-300 inline-block animate-fade-in-up animation-delay-600"
+                className="bg-transparent border-2 border-white text-white text-lg font-bold py-3 px-8 sm:px-10 rounded-full hover:bg-white hover:text-brand-dark transition-colors duration-300 inline-block animate-fade-in-up animation-delay-600"
               >
                 {t('homeCta')}
               </Link>
@@ -174,7 +174,7 @@ const ExpertiseSection: React.FC = () => {
   
     return (
         <div className="container mx-auto px-5 lg:px-20">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
                 <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
                 <span>{t('homeServicesTitle')}</span>
@@ -206,8 +206,8 @@ const AboutSection: React.FC = () => {
                 style={{ backgroundImage: "url('https://www.toptal.com/designers/subtlepatterns/uploads/project-paper.png')" }}
             >
                 <div className="absolute inset-0 bg-brand-light/95" aria-hidden="true"></div>
-                <div className="relative container mx-auto px-5 lg:px-20 py-20">
-                    <div className="text-center mb-16">
+                <div className="relative container mx-auto px-5 lg:px-20 py-16 md:py-20">
+                    <div className="text-center mb-12 md:mb-16">
                         <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
                             <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
                             <span>{t('homeAboutSectionTitle')}</span>
@@ -227,7 +227,7 @@ const AboutSection: React.FC = () => {
                         </div>
                         
                         <div 
-                            className="md:col-span-3 flex flex-col justify-center p-12 lg:p-16 rounded-lg relative overflow-hidden"
+                            className="md:col-span-3 flex flex-col justify-center p-6 md:p-12 lg:p-16 rounded-lg relative overflow-hidden"
                             style={{ backgroundImage: "url('https://www.toptal.com/designers/subtlepatterns/uploads/concrete-texture.png')" }}
                         >
                             <div className="absolute inset-0 bg-white/95" aria-hidden="true"></div>
@@ -281,7 +281,7 @@ const PartnersSection: React.FC = () => {
 
     return (
         <div className="container mx-auto px-5 lg:px-20">
-            <div className="text-center mb-16">
+            <div className="text-center mb-12 md:mb-16">
                 <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
                     <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
                     <span>{t('partnersSectionTitle')}</span>
@@ -291,7 +291,7 @@ const PartnersSection: React.FC = () => {
             <div className="logo-scroller">
                 <div className="logo-scroller-inner">
                     {duplicatedLogos.map((logo, index) => (
-                        <div key={index} className="flex-shrink-0 w-48 h-24 flex items-center justify-center p-4 mx-4">
+                        <div key={index} className="flex-shrink-0 w-36 sm:w-48 h-24 flex items-center justify-center p-2 sm:p-4 mx-2 sm:mx-4">
                             <img src={logo} alt={`Partner logo ${index + 1}`} className="max-h-full max-w-full object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 partner-logo" />
                         </div>
                     ))}
@@ -337,7 +337,7 @@ const MasterpiecesSection: React.FC = () => {
 
     return (
         <div className="container mx-auto px-5 lg:px-20">
-            <div className="text-center mb-16">
+            <div className="text-center mb-12 md:mb-16">
                 <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
                    <SectionLogoIcon className="inline-block h-5 w-auto mr-2"/>
                    <span>{t('homeMasterpiecesTitle')}</span>
@@ -364,7 +364,7 @@ const MasterpiecesSection: React.FC = () => {
                 <div className="overflow-hidden relative rounded-lg shadow-xl">
                     <div className="flex transition-transform ease-out duration-500" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
                         {masterpieces.map((masterpiece, index) => (
-                            <div key={index} className="min-w-full h-[500px] relative">
+                            <div key={index} className="min-w-full h-[450px] sm:h-[500px] relative">
                                 <img src={masterpiece.src} alt={t(masterpiece.titleKey)} className="w-full h-full object-cover" />
                                 <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/70 to-transparent text-white">
                                     <h3 className="text-2xl font-medium">{t(masterpiece.titleKey)}</h3>
@@ -422,7 +422,7 @@ const ProgramSection: React.FC = () => {
 
     return (
         <div className="container mx-auto px-5 lg:px-20">
-            <div className="text-center mb-16">
+            <div className="text-center mb-12 md:mb-16">
                 <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
                     <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
                     <span>{t('programsSectionTitle')}</span>
@@ -431,7 +431,7 @@ const ProgramSection: React.FC = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {programs.map((program, index) => (
-                    <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
+                    <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                         <img src={program.image} alt={t(program.titleKey)} className="w-full h-56 object-cover" />
                         <div className="p-6 flex flex-col flex-grow">
                             <h3 className="text-lg font-medium text-brand-primary font-sans">{t(program.titleKey)}</h3>
@@ -471,7 +471,7 @@ const StatisticsSection: React.FC = () => {
 
     return (
         <div className="container mx-auto px-5 lg:px-20">
-            <div className="text-center mb-16">
+            <div className="text-center mb-12 md:mb-16">
                 <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
                     <StatisticsIcon />
                     <span>{t('statisticsSectionTitle')}</span>
@@ -484,8 +484,7 @@ const StatisticsSection: React.FC = () => {
                 {stats.map((stat, index) => (
                     <div 
                         key={index} 
-                        className={`bg-white p-6 rounded-lg text-center animate-fade-in-up shadow-sm flex flex-col h-full md:col-span-2 ${index === 3 ? 'md:col-start-2' : ''} ${index === 4 ? 'sm:col-span-2' : ''}`}
-                        style={{ animationDelay: `${index * 150}ms` }}
+                        className={`bg-white p-6 rounded-lg text-center shadow-sm flex flex-col h-full md:col-span-2 ${index === 3 ? 'md:col-start-2' : ''} ${index === 4 ? 'sm:col-span-2' : ''}`}
                     >
                         <p className="text-2xl lg:text-3xl font-bold text-brand-secondary font-sans">{stat.value}</p>
                         <div className="mt-2 flex-grow flex items-center justify-center">
@@ -512,7 +511,7 @@ const WhyChooseUsSection: React.FC = () => {
 
   return (
       <div className="container mx-auto px-5 lg:px-20">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12 md:mb-16">
           <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
             <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
             <span>{t("whyChooseUsSectionTitle")}</span>
@@ -521,7 +520,7 @@ const WhyChooseUsSection: React.FC = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {values.map((value, index) => (
-            <div key={index} className="bg-brand-light p-8 rounded-lg shadow-sm transition-all duration-300 hover:shadow-xl" style={{ animationDelay: `${index * 100}ms` }}>
+            <div key={index} className="bg-brand-light p-8 rounded-lg shadow-sm transition-all duration-300 hover:shadow-xl">
               {value.icon && (<img src={value.icon} alt="" className="h-10 w-10 mb-4" />)}
               <div>
                 <h3 className="text-xl font-medium text-brand-primary mb-2 font-sans">{t(value.titleKey)}</h3>
@@ -558,7 +557,7 @@ const TestimonialsSection: React.FC = () => {
 
     return (
         <div className="container mx-auto px-5 lg:px-20">
-            <div className="text-center mb-16">
+            <div className="text-center mb-12 md:mb-16">
                 <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
                     <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
                     <span>{t('testimonialsSectionTitle')}</span>
@@ -598,7 +597,7 @@ const ContactCTASection: React.FC = () => {
         <div className="container mx-auto px-6 text-center">
             <h2 className="text-3xl font-bold font-sans mb-4 text-black">{t('homeContactCtaTitle')}</h2>
             <p className="text-lg text-black max-w-2xl mx-auto mb-8">{t('homeContactCtaText')}</p>
-            <Link to="/contact" className="inline-block bg-transparent border-2 border-black text-black font-bold py-3 px-10 rounded-full text-lg hover:bg-black hover:text-white transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 focus:ring-offset-white">
+            <Link to="/contact" className="inline-block bg-transparent border-2 border-black text-black font-bold py-3 px-8 sm:px-10 rounded-full text-lg hover:bg-black hover:text-white transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 focus:ring-offset-white">
                 {t('homeContactCtaButton')}
             </Link>
         </div>
@@ -609,15 +608,15 @@ const HomePage: React.FC = () => {
   return (
     <>
       <HeroSection />
-      <FullScreenSection className="bg-white py-16 lg:py-20 snap-section"><ExpertiseSection /></FullScreenSection>
+      <FullScreenSection className="bg-white py-16 snap-section"><ExpertiseSection /></FullScreenSection>
       <FullScreenSection className="snap-section"><AboutSection /></FullScreenSection>
-      <FullScreenSection className="bg-white py-8 lg:py-10 snap-section"><PartnersSection /></FullScreenSection>
-      <FullScreenSection className="bg-brand-light snap-section py-20 lg:py-24"><MasterpiecesSection /></FullScreenSection>
-      <FullScreenSection className="bg-white snap-section py-20 lg:py-24"><ProgramSection /></FullScreenSection>
-      <FullScreenSection className="bg-brand-light py-16 lg:py-20 snap-section"><StatisticsSection /></FullScreenSection>
-      <FullScreenSection className="bg-white snap-section py-20 lg:py-24"><WhyChooseUsSection /></FullScreenSection>
-      <FullScreenSection className="bg-brand-light snap-section py-20 lg:py-24"><TestimonialsSection /></FullScreenSection>
-      <FullScreenSection className="bg-white py-8 lg:py-10 snap-section">
+      <FullScreenSection className="bg-white py-12 snap-section"><PartnersSection /></FullScreenSection>
+      <FullScreenSection className="bg-brand-light snap-section py-16 md:py-20"><MasterpiecesSection /></FullScreenSection>
+      <FullScreenSection className="bg-white snap-section py-16 md:py-20"><ProgramSection /></FullScreenSection>
+      <FullScreenSection className="bg-brand-light py-16 snap-section"><StatisticsSection /></FullScreenSection>
+      <FullScreenSection className="bg-white snap-section py-16 md:py-20"><WhyChooseUsSection /></FullScreenSection>
+      <FullScreenSection className="bg-brand-light snap-section py-16 md:py-20"><TestimonialsSection /></FullScreenSection>
+      <FullScreenSection className="bg-white py-16 snap-section">
         <ContactCTASection />
       </FullScreenSection>
     </>
