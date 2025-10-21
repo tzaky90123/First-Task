@@ -68,7 +68,7 @@ const FullScreenSection: React.FC<FullScreenSectionProps> = ({ children, classNa
     : '';
 
   return (
-    <section ref={ref} className={`w-full relative overflow-hidden py-20 lg:py-24 ${className}`}>
+    <section ref={ref} className={`w-full relative overflow-hidden min-h-screen flex flex-col justify-center items-center ${className}`}>
         <div className={wrapperClasses}>
             {children}
         </div>
@@ -677,17 +677,17 @@ const HomePage: React.FC = () => {
   return (
     <>
       <HeroSection />
-      <section className="bg-white py-16 lg:py-20 snap-section"><ExpertiseSection /></section>
-      <section className="snap-section"><AboutSection /></section>
-      <section className="bg-white py-8 lg:py-10 snap-section"><PartnersSection /></section>
-      <FullScreenSection className="bg-brand-light snap-section" useTransition><MasterpiecesSection /></FullScreenSection>
-      <FullScreenSection className="bg-white snap-section" useTransition><ProgramSection /></FullScreenSection>
-      <section className="bg-brand-light py-16 lg:py-20 snap-section"><StatisticsSection /></section>
-      <FullScreenSection className="bg-white snap-section" useTransition><WhyChooseUsSection /></FullScreenSection>
-      <FullScreenSection className="bg-brand-light snap-section" useTransition><TestimonialsSection /></FullScreenSection>
-      <section className="bg-white py-8 lg:py-10 snap-section">
+      <FullScreenSection className="bg-white py-16 lg:py-20 snap-section"><ExpertiseSection /></FullScreenSection>
+      <FullScreenSection className="snap-section"><AboutSection /></FullScreenSection>
+      <FullScreenSection className="bg-white py-8 lg:py-10 snap-section"><PartnersSection /></FullScreenSection>
+      <FullScreenSection className="bg-brand-light snap-section py-20 lg:py-24" useTransition><MasterpiecesSection /></FullScreenSection>
+      <FullScreenSection className="bg-white snap-section py-20 lg:py-24" useTransition><ProgramSection /></FullScreenSection>
+      <FullScreenSection className="bg-brand-light py-16 lg:py-20 snap-section"><StatisticsSection /></FullScreenSection>
+      <FullScreenSection className="bg-white snap-section py-20 lg:py-24" useTransition><WhyChooseUsSection /></FullScreenSection>
+      <FullScreenSection className="bg-brand-light snap-section py-20 lg:py-24" useTransition><TestimonialsSection /></FullScreenSection>
+      <FullScreenSection className="bg-white py-8 lg:py-10 snap-section">
         <ContactCTASection />
-      </section>
+      </FullScreenSection>
     </>
   );
 };
