@@ -27,49 +27,12 @@ const slides = [
 interface FullScreenSectionProps {
   children: React.ReactNode;
   className?: string;
-  useTransition?: boolean;
 }
 
-const FullScreenSection: React.FC<FullScreenSectionProps> = ({ children, className = '', useTransition = false }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [inView, setInView] = useState(false);
-
-  useEffect(() => {
-    if (!useTransition) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-          if (ref.current) {
-            observer.unobserve(ref.current);
-          }
-        }
-      },
-      {
-        threshold: 0.2,
-      }
-    );
-    
-    const currentRef = ref.current;
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
-
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
-    };
-  }, [useTransition]);
-
-  const wrapperClasses = useTransition 
-    ? `transition-section ${inView ? 'is-in-view' : ''}`
-    : '';
-
+const FullScreenSection: React.FC<FullScreenSectionProps> = ({ children, className = '' }) => {
   return (
-    <section ref={ref} className={`w-full relative overflow-hidden min-h-screen flex flex-col justify-center items-center ${className}`}>
-        <div className={wrapperClasses}>
+    <section className={`w-full relative overflow-hidden min-h-screen flex flex-col justify-center items-center ${className}`}>
+        <div>
             {children}
         </div>
     </section>
@@ -235,40 +198,9 @@ const ExpertiseSection: React.FC = () => {
 
 const AboutSection: React.FC = () => {
     const { t } = useLocalization();
-    const ref = useRef<HTMLDivElement>(null);
-    const [inView, setInView] = useState(false);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setInView(true);
-                    if (ref.current) {
-                        observer.unobserve(ref.current);
-                    }
-                }
-            },
-            {
-                threshold: 0.2,
-            }
-        );
-
-        const currentRef = ref.current;
-        if (currentRef) {
-            observer.observe(currentRef);
-        }
-
-        return () => {
-            if (currentRef) {
-                observer.unobserve(currentRef);
-            }
-        };
-    }, []);
-
-    const wrapperClasses = `transition-section ${inView ? 'is-in-view' : ''}`;
 
     return (
-        <div ref={ref} className={wrapperClasses}>
+        <div>
             <div 
                 className="relative w-full" 
                 style={{ backgroundImage: "url('https://www.toptal.com/designers/subtlepatterns/uploads/project-paper.png')" }}
@@ -680,11 +612,11 @@ const HomePage: React.FC = () => {
       <FullScreenSection className="bg-white py-16 lg:py-20 snap-section"><ExpertiseSection /></FullScreenSection>
       <FullScreenSection className="snap-section"><AboutSection /></FullScreenSection>
       <FullScreenSection className="bg-white py-8 lg:py-10 snap-section"><PartnersSection /></FullScreenSection>
-      <FullScreenSection className="bg-brand-light snap-section py-20 lg:py-24" useTransition><MasterpiecesSection /></FullScreenSection>
-      <FullScreenSection className="bg-white snap-section py-20 lg:py-24" useTransition><ProgramSection /></FullScreenSection>
+      <FullScreenSection className="bg-brand-light snap-section py-20 lg:py-24"><MasterpiecesSection /></FullScreenSection>
+      <FullScreenSection className="bg-white snap-section py-20 lg:py-24"><ProgramSection /></FullScreenSection>
       <FullScreenSection className="bg-brand-light py-16 lg:py-20 snap-section"><StatisticsSection /></FullScreenSection>
-      <FullScreenSection className="bg-white snap-section py-20 lg:py-24" useTransition><WhyChooseUsSection /></FullScreenSection>
-      <FullScreenSection className="bg-brand-light snap-section py-20 lg:py-24" useTransition><TestimonialsSection /></FullScreenSection>
+      <FullScreenSection className="bg-white snap-section py-20 lg:py-24"><WhyChooseUsSection /></FullScreenSection>
+      <FullScreenSection className="bg-brand-light snap-section py-20 lg:py-24"><TestimonialsSection /></FullScreenSection>
       <FullScreenSection className="bg-white py-8 lg:py-10 snap-section">
         <ContactCTASection />
       </FullScreenSection>
