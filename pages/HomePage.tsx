@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocalization } from '../context/LocalizationContext';
 import MainNavigation from '../components/MainNavigation';
+import Footer from '../components/Footer';
 
 const slides = [
   {
@@ -681,6 +682,7 @@ const HomePage: React.FC = () => {
       <FullScreenSection className="bg-white py-16">
         <ContactCTASection />
       </FullScreenSection>
+      <Footer />
     </div>
   );
 };

@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { LocalizationProvider } from './context/LocalizationContext';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -44,6 +44,15 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ isLoading }) => {
   );
 };
 
+const FooterWrapper: React.FC = () => {
+  const location = useLocation();
+  if (location.pathname === '/') {
+    return null; // Don't render footer on homepage, it's handled by HomePage itself
+  }
+  return <Footer />;
+};
+
+
 const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -77,7 +86,7 @@ const App: React.FC = () => {
               <Route path="/contact" element={<ContactPage />} />
             </Routes>
           </main>
-          <Footer />
+          <FooterWrapper />
         </div>
       </HashRouter>
     </LocalizationProvider>
