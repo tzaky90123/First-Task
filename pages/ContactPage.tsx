@@ -2,6 +2,9 @@
 import React, { useState } from 'react';
 import { useLocalization } from '../context/LocalizationContext';
 import PageHero from '../components/PageHero';
+import SmoothScrollLayout from '../components/SmoothScrollLayout';
+import FullScreenSection from '../components/FullScreenSection';
+import Footer from '../components/Footer';
 
 interface InputFieldProps {
   id: string;
@@ -45,13 +48,13 @@ const ContactPage: React.FC = () => {
   };
 
   return (
-    <div>
+    <SmoothScrollLayout>
       <PageHero
         title={t('contactHeroTitle')}
         subtitle={t('contactHeroSubtitle')}
         imageUrl="https://picsum.photos/1920/1080?random=21"
       />
-      <section className="py-20 bg-white">
+      <FullScreenSection className="bg-white py-16 md:py-20">
         <div className="container mx-auto px-6 grid md:grid-cols-2 gap-16">
           <div>
             <h2 className="text-3xl font-bold font-sans text-brand-primary mb-6">{t('contactFormTitle')}</h2>
@@ -98,8 +101,9 @@ const ContactPage: React.FC = () => {
             </div>
           </div>
         </div>
-      </section>
-    </div>
+      </FullScreenSection>
+      <Footer />
+    </SmoothScrollLayout>
   );
 };
 

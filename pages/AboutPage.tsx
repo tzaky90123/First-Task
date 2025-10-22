@@ -1,6 +1,10 @@
+
 import React from 'react';
 import { useLocalization } from '../context/LocalizationContext';
 import PageHero from '../components/PageHero';
+import SmoothScrollLayout from '../components/SmoothScrollLayout';
+import FullScreenSection from '../components/FullScreenSection';
+import Footer from '../components/Footer';
 
 const AwardIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" className="mx-auto mb-4 h-12 w-12 text-brand-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -15,14 +19,14 @@ const AboutPage: React.FC = () => {
   const values = ['valueExcellence', 'valueIntegrity', 'valueSustainability', 'valueCommunity'];
 
   return (
-    <div>
+    <SmoothScrollLayout>
       <PageHero
         title={t('aboutHeroTitle')}
         subtitle={t('aboutHeroSubtitle')}
         imageUrl="https://socabeg.com/images/socabeg.jpg"
       />
       
-      <section className="py-20 bg-white">
+      <FullScreenSection className="bg-white py-16 md:py-20">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
@@ -34,9 +38,9 @@ const AboutPage: React.FC = () => {
             </div>
           </div>
         </div>
-      </section>
+      </FullScreenSection>
 
-      <section className="py-20 bg-brand-light">
+      <FullScreenSection className="bg-brand-light py-16 md:py-20">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-4xl font-bold font-sans text-brand-primary mb-12">{t('aboutValuesTitle')}</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -48,8 +52,9 @@ const AboutPage: React.FC = () => {
             ))}
           </div>
         </div>
-      </section>
-    </div>
+      </FullScreenSection>
+      <Footer />
+    </SmoothScrollLayout>
   );
 };
 

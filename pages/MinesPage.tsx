@@ -2,6 +2,9 @@
 import React from 'react';
 import { useLocalization } from '../context/LocalizationContext';
 import PageHero from '../components/PageHero';
+import SmoothScrollLayout from '../components/SmoothScrollLayout';
+import FullScreenSection from '../components/FullScreenSection';
+import Footer from '../components/Footer';
 
 interface ProjectCardProps {
     image: string;
@@ -23,13 +26,13 @@ const MinesPage: React.FC = () => {
   const { t } = useLocalization();
 
   return (
-    <div>
+    <SmoothScrollLayout>
       <PageHero
         title={t('minesHeroTitle')}
         subtitle={t('minesHeroSubtitle')}
         imageUrl="https://picsum.photos/1920/1080?random=14"
       />
-      <section className="py-20 bg-white">
+      <FullScreenSection className="bg-white py-16 md:py-20">
         <div className="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
            <div>
               <h2 className="text-3xl font-bold font-sans text-brand-primary mb-4">{t('minesApproachTitle')}</h2>
@@ -39,8 +42,8 @@ const MinesPage: React.FC = () => {
               <img src="https://picsum.photos/800/600?random=15" alt="Opération minière" className="rounded-lg shadow-xl"/>
             </div>
         </div>
-      </section>
-      <section className="py-20 bg-brand-light">
+      </FullScreenSection>
+      <FullScreenSection className="bg-brand-light py-16 md:py-20">
           <div className="container mx-auto px-6">
               <h2 className="text-4xl font-bold font-sans text-brand-primary mb-12 text-center">{t('minesProjectsTitle')}</h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -49,8 +52,9 @@ const MinesPage: React.FC = () => {
                   <ProjectCard image="https://picsum.photos/600/400?random=18" title={t('minesProject3Title')} description={t('minesProject3Desc')} />
               </div>
           </div>
-      </section>
-    </div>
+      </FullScreenSection>
+      <Footer />
+    </SmoothScrollLayout>
   );
 };
 

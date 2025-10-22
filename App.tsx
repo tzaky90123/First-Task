@@ -44,30 +44,27 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ isLoading }) => {
   );
 };
 
-const FooterWrapper: React.FC = () => {
-  const location = useLocation();
-  if (location.pathname === '/') {
-    return null; // Don't render footer on homepage, it's handled by HomePage itself
-  }
-  return <Footer />;
-};
-
-
 const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    document.body.style.overflow = 'hidden';
+    // We only want to lock scroll on initial load, not on page navigation
+    if (isLoading) {
+      document.body.style.overflow = 'hidden';
+    }
     const timer = setTimeout(() => {
       setIsLoading(false);
-      document.body.style.overflow = 'auto';
+      // Let individual page layouts control scrolling from now on
+      if (document.body.style.overflow === 'hidden') {
+        document.body.style.overflow = 'auto';
+      }
     }, 2500);
 
     return () => {
       clearTimeout(timer);
       document.body.style.overflow = 'auto';
     };
-  }, []);
+  }, [isLoading]);
 
   return (
     <LocalizationProvider>
@@ -86,7 +83,7 @@ const App: React.FC = () => {
               <Route path="/contact" element={<ContactPage />} />
             </Routes>
           </main>
-          <FooterWrapper />
+          {/* Footer is now handled within each page's SmoothScrollLayout to ensure correct positioning. */}
         </div>
       </HashRouter>
     </LocalizationProvider>

@@ -2,6 +2,9 @@
 import React from 'react';
 import { useLocalization } from '../context/LocalizationContext';
 import PageHero from '../components/PageHero';
+import SmoothScrollLayout from '../components/SmoothScrollLayout';
+import FullScreenSection from '../components/FullScreenSection';
+import Footer from '../components/Footer';
 
 interface ProjectCardProps {
     image: string;
@@ -23,13 +26,13 @@ const RealEstatePage: React.FC = () => {
   const { t } = useLocalization();
 
   return (
-    <div>
+    <SmoothScrollLayout>
       <PageHero
         title={t('reHeroTitle')}
         subtitle={t('reHeroSubtitle')}
         imageUrl="https://picsum.photos/1920/1080?random=9"
       />
-       <section className="py-20 bg-white">
+       <FullScreenSection className="bg-white py-16 md:py-20">
         <div className="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
              <div className="order-2 md:order-1">
               <img src="https://picsum.photos/800/600?random=10" alt="Résidence de luxe" className="rounded-lg shadow-xl"/>
@@ -39,8 +42,8 @@ const RealEstatePage: React.FC = () => {
               <p className="text-lg text-brand-text leading-relaxed">{t('reVisionText')}</p>
             </div>
         </div>
-      </section>
-       <section className="py-20 bg-brand-light">
+      </FullScreenSection>
+       <FullScreenSection className="bg-brand-light py-16 md:py-20">
           <div className="container mx-auto px-6">
               <h2 className="text-4xl font-bold font-sans text-brand-primary mb-12 text-center">{t('reProjectsTitle')}</h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -49,8 +52,9 @@ const RealEstatePage: React.FC = () => {
                   <ProjectCard image="https://picsum.photos/600/400?random=13" title={t('reProject3Title')} description={t('reProject3Desc')} />
               </div>
           </div>
-      </section>
-    </div>
+      </FullScreenSection>
+      <Footer />
+    </SmoothScrollLayout>
   );
 };
 
