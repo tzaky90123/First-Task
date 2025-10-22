@@ -80,6 +80,43 @@ const HomeAboutSection: React.FC = () => {
     );
 };
 
+const PartnersSection: React.FC = () => {
+    const { t } = useLocalization();
+    const partnerLogos = [
+        'https://socabeg.com/partners/bhs.png',
+        'https://socabeg.com/partners/geoplast.png',
+        'https://socabeg.com/partners/ipres.jpg',
+        'https://socabeg.com/partners/sar.png',
+        'https://socabeg.com/partners/sgs.png',
+        'https://socabeg.com/partners/sicap.jpg',
+        'https://socabeg.com/partners/sn.jpg',
+        'https://socabeg.com/partners/snhlm.jpg',
+        'https://socabeg.com/partners/sonatel.png',
+    ];
+    const duplicatedLogos = [...partnerLogos, ...partnerLogos];
+
+    return (
+        <div className="container mx-auto px-5 lg:px-20">
+            <div className="text-center mb-12 md:mb-16">
+                <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
+                    <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
+                    <span>{t('partnersSectionTitle')}</span>
+                </h3>
+                <h2 className="text-2xl font-bold font-sans text-black">{t('partnersSectionHeadline')}</h2>
+            </div>
+            <div className="logo-scroller">
+                <div className="logo-scroller-inner">
+                    {duplicatedLogos.map((logo, index) => (
+                        <div key={index} className="flex-shrink-0 w-36 sm:w-48 h-24 flex items-center justify-center p-2 sm:p-4 mx-2 sm:mx-4">
+                            <img src={logo} alt={`Partner logo ${index + 1}`} className="max-h-full max-w-full object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 partner-logo" />
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+};
+
 
 const AboutPage: React.FC = () => {
   const { t } = useLocalization();
@@ -94,6 +131,10 @@ const AboutPage: React.FC = () => {
       
       <FullScreenSection>
         <HomeAboutSection />
+      </FullScreenSection>
+
+      <FullScreenSection className="bg-white py-16 md:py-20">
+        <PartnersSection />
       </FullScreenSection>
 
       <Footer />
