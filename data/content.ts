@@ -143,8 +143,8 @@ export const content: LocalizedContent = {
   learnMore: { [Language.FR]: 'En savoir plus', [Language.EN]: 'Learn more' },
 
   // About Page
-  aboutHeroTitle: { [Language.FR]: 'Notre Engagement pour le Sénégal', [Language.EN]: 'Our Commitment to Senegal' },
-  aboutHeroSubtitle: { [Language.FR]: 'Plus que des bâtisseurs, nous sommes des partenaires du progrès social et économique.', [Language.EN]: 'More than builders, we are partners in social and economic progress.' },
+  aboutHeroTitle: { [Language.FR]: 'À Propos de Nous', [Language.EN]: 'About Us' },
+  aboutHeroSubtitle: { [Language.FR]: '', [Language.EN]: '' },
   aboutMissionTitle: { [Language.FR]: 'Notre Mission', [Language.EN]: 'Our Mission' },
   aboutMissionText: { [Language.FR]: 'Contribuer activement au développement du Sénégal en réalisant des projets d\'envergure qui améliorent la qualité de vie, créent des emplois et respectent l\'environnement.', [Language.EN]: 'To actively contribute to Senegal\'s development by carrying out major projects that improve quality of life, create jobs, and respect the environment.' },
   aboutValuesTitle: { [Language.FR]: 'Nos Valeurs', [Language.EN]: 'Our Values' },
