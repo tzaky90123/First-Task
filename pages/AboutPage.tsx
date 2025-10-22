@@ -117,6 +117,42 @@ const PartnersSection: React.FC = () => {
     );
 };
 
+const ValuesSection: React.FC = () => {
+  const { t } = useLocalization();
+
+  const values = [
+    { titleKey: "value1Title", descriptionKey: "value1Desc", icon: "https://cdn-icons-png.flaticon.com/512/506/506420.png" },
+    { titleKey: "value2Title", descriptionKey: "value2Desc", icon: "https://cdn-icons-png.flaticon.com/512/100/100852.png" },
+    { titleKey: "value3Title", descriptionKey: "value3Desc", icon: "https://cdn-icons-png.flaticon.com/512/5631/5631194.png" },
+    { titleKey: "value4Title", descriptionKey: "value4Desc", icon: "https://cdn-icons-png.flaticon.com/512/10556/10556522.png" },
+    { titleKey: "value5Title", descriptionKey: "value5Desc", icon: "https://cdn-icons-png.flaticon.com/512/798/798008.png" },
+    { titleKey: "value6Title", descriptionKey: "value6Desc", icon: "https://cdn-icons-png.flaticon.com/512/33/33308.png" },
+  ];
+
+  return (
+      <div className="container mx-auto px-5 lg:px-20">
+        <div className="text-center mb-12 md:mb-16">
+          <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
+            <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
+            <span>{t("whyChooseUsSectionTitle")}</span>
+          </h3>
+          <h2 className="text-2xl font-bold font-sans text-black">{t("whyChooseUsSectionHeadline")}</h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {values.map((value, index) => (
+            <div key={index} className="bg-white p-8 rounded-lg shadow-sm transition-all duration-300 hover:shadow-xl">
+              {value.icon && (<img src={value.icon} alt="" className="h-10 w-10 mb-4" />)}
+              <div>
+                <h3 className="text-xl font-medium text-brand-primary mb-2 font-sans">{t(value.titleKey)}</h3>
+                <p className="text-brand-text text-sm leading-relaxed">{t(value.descriptionKey)}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+  );
+};
+
 
 const AboutPage: React.FC = () => {
   const { t } = useLocalization();
@@ -135,6 +171,10 @@ const AboutPage: React.FC = () => {
 
       <FullScreenSection className="bg-white py-16 md:py-20">
         <PartnersSection />
+      </FullScreenSection>
+
+      <FullScreenSection className="bg-brand-light py-16 md:py-20">
+        <ValuesSection />
       </FullScreenSection>
 
       <Footer />
