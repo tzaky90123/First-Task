@@ -463,6 +463,29 @@ const StatisticsIcon = () => (
     <img src="https://socabeg.com/favicon.png" alt="" className="h-5 w-5 mr-2" aria-hidden="true" />
 );
 
+const StatisticsDiagram = () => (
+    <div className="relative w-full max-w-xs mx-auto aspect-square">
+        <svg width="100%" height="100%" viewBox="0 0 100 100">
+            <defs>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style={{ stopColor: '#0052CC', stopOpacity: 0.8 }} />
+                    <stop offset="100%" style={{ stopColor: '#0052CC', stopOpacity: 0.2 }} />
+                </linearGradient>
+                <linearGradient id="grad2" x1="100%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style={{ stopColor: '#C5A43C', stopOpacity: 0.8 }} />
+                    <stop offset="100%" style={{ stopColor: '#C5A43C', stopOpacity: 0.2 }} />
+                </linearGradient>
+            </defs>
+            <path d="M 10 90 L 10 30 C 10 15, 25 10, 40 10 L 90 10" stroke="#E0E0E0" strokeWidth="2" fill="none" />
+            <rect x="20" y="20" width="60" height="60" rx="4" stroke="url(#grad1)" strokeWidth="3" fill="none" />
+            <circle cx="70" cy="30" r="12" fill="url(#grad2)" />
+            <path d="M 30 70 L 30 50 L 70 50" stroke="#C5A43C" strokeWidth="2" fill="none" strokeDasharray="4 4" />
+            <circle cx="30" cy="70" r="3" fill="#0052CC" />
+            <circle cx="70" cy="50" r="3" fill="#0052CC" />
+        </svg>
+    </div>
+);
+
 const StatisticsSection: React.FC = () => {
     const { t } = useLocalization();
     const stats = [
@@ -484,18 +507,26 @@ const StatisticsSection: React.FC = () => {
                     {t('statisticsSectionHeadline')}
                 </h2>
             </div>
-            <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-8">
-                {stats.map((stat, index) => (
-                    <div 
-                        key={index} 
-                        className={`bg-white p-6 rounded-lg text-center shadow-sm flex flex-col h-full md:col-span-2 ${index === 3 ? 'md:col-start-2' : ''} ${index === 4 ? 'sm:col-span-2' : ''}`}
-                    >
-                        <p className="text-2xl lg:text-3xl font-bold text-brand-secondary font-sans">{stat.value}</p>
-                        <div className="mt-2 flex-grow flex items-center justify-center">
-                            <p className="text-brand-text text-sm leading-snug whitespace-nowrap">{t(stat.labelKey)}</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8 items-center max-w-6xl mx-auto">
+                {/* Left Column: Stats */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    {stats.map((stat, index) => (
+                        <div 
+                            key={index} 
+                            className="bg-white p-6 rounded-lg text-center shadow-sm flex flex-col h-full"
+                        >
+                            <p className="text-xl lg:text-2xl font-bold text-brand-secondary font-sans">{stat.value}</p>
+                            <div className="mt-2 flex-grow flex items-center justify-center">
+                                <p className="text-brand-text text-sm leading-snug whitespace-nowrap">{t(stat.labelKey)}</p>
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
+
+                {/* Right Column: Diagram */}
+                <div className="hidden md:flex items-center justify-center h-full">
+                    <StatisticsDiagram />
+                </div>
             </div>
         </div>
     );
@@ -648,14 +679,20 @@ const ContactCTASection: React.FC = () => {
     };
 
     return (
-        <div className="container mx-auto px-6 py-16 md:py-20 text-brand-dark">
-            <div className="text-center mb-12">
-                <h2 className="text-3xl font-bold font-sans mb-4">{t('homeContactTitle')}</h2>
-                <p className="text-lg max-w-2xl mx-auto">{t('homeContactSubtitle')}</p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-12 lg:gap-24">
-                {/* Left Column: Contact Info */}
+      <>
+        <div className="bg-white">
+          <div className="container mx-auto px-6 pt-16 md:pt-20 pb-12 text-brand-dark">
+              <div className="text-center">
+                  <h2 className="text-3xl font-bold font-sans mb-4">{t('homeContactTitle')}</h2>
+                  <p className="text-lg max-w-2xl mx-auto">{t('homeContactSubtitle')}</p>
+              </div>
+          </div>
+        </div>
+        
+        <div className="grid md:grid-cols-2">
+            {/* Left Column: Contact Info */}
+            <div className="bg-brand-light text-brand-dark flex justify-center md:justify-end">
+              <div className="w-full max-w-lg px-6 md:px-0 md:pr-6 lg:pr-12 py-12 md:py-20">
                 <div className="space-y-8">
                     <div>
                         <h3 className="font-bold uppercase tracking-widest mb-2">{t('homeContactAddressTitle')}</h3>
@@ -679,36 +716,41 @@ const ContactCTASection: React.FC = () => {
                         </div>
                     </div>
                 </div>
+              </div>
+            </div>
 
-                {/* Right Column: Form */}
-                <div>
-                    <form onSubmit={handleSubmit} className="space-y-8">
-                        <InputField id="name" name="name" label={t('homeContactFormName')} type="text" value={formState.name} onChange={handleInputChange} required />
-                        <InputField id="email" name="email" label={t('homeContactFormEmail')} type="email" value={formState.email} onChange={handleInputChange} required />
-                        <InputField id="subject" name="subject" label={t('homeContactFormSubject')} type="text" value={formState.subject} onChange={handleInputChange} required />
-                        <div>
-                            <label htmlFor="message" className="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-2">{t('homeContactFormMessage')}</label>
-                            <textarea
-                                id="message"
-                                name="message"
-                                rows={4}
-                                value={formState.message}
-                                onChange={handleInputChange}
-                                required
-                                className="block w-full px-0 py-2 text-sm text-brand-dark bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-brand-primary"
-                            ></textarea>
-                        </div>
-                        <div className="flex justify-end">
-                            <button type="submit" className="bg-brand-dark text-white py-3 px-12 hover:bg-opacity-90 transition duration-300 focus:outline-none focus:ring-2 focus:ring-brand-dark focus:ring-offset-2">
-                                {t('formSend')}
-                            </button>
-                        </div>
-                    </form>
-                </div>
+            {/* Right Column: Form */}
+            <div className="bg-white text-brand-dark flex justify-center md:justify-start">
+              <div className="w-full max-w-lg px-6 md:px-0 md:pl-6 lg:pl-12 py-12 md:py-20">
+                <form onSubmit={handleSubmit} className="space-y-8">
+                    <InputField id="name" name="name" label={t('homeContactFormName')} type="text" value={formState.name} onChange={handleInputChange} required />
+                    <InputField id="email" name="email" label={t('homeContactFormEmail')} type="email" value={formState.email} onChange={handleInputChange} required />
+                    <InputField id="subject" name="subject" label={t('homeContactFormSubject')} type="text" value={formState.subject} onChange={handleInputChange} required />
+                    <div>
+                        <label htmlFor="message" className="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-2">{t('homeContactFormMessage')}</label>
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows={4}
+                            value={formState.message}
+                            onChange={handleInputChange}
+                            required
+                            className="block w-full px-0 py-2 text-sm text-brand-dark bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-brand-primary"
+                        ></textarea>
+                    </div>
+                    <div className="flex justify-end">
+                        <button type="submit" className="bg-brand-dark text-white py-3 px-12 hover:bg-opacity-90 transition duration-300 focus:outline-none focus:ring-2 focus:ring-brand-dark focus:ring-offset-2">
+                            {t('formSend')}
+                        </button>
+                    </div>
+                </form>
+              </div>
             </div>
         </div>
+      </>
     );
 };
+
 
 const HomePage: React.FC = () => {
   return (
@@ -722,7 +764,7 @@ const HomePage: React.FC = () => {
       <FullScreenSection className="bg-brand-light py-16"><StatisticsSection /></FullScreenSection>
       <FullScreenSection className="bg-white py-16 md:py-20"><WhyChooseUsSection /></FullScreenSection>
       <FullScreenSection className="bg-brand-light py-16 md:py-20"><TestimonialsSection /></FullScreenSection>
-      <section className="w-full bg-white">
+      <section className="w-full">
         <ContactCTASection />
       </section>
       <Footer />
