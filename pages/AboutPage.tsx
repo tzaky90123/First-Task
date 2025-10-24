@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLocalization } from '../context/LocalizationContext';
@@ -27,7 +28,7 @@ const HomeAboutSection: React.FC = () => {
                 </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-y-8 gap-x-12 items-stretch">
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-y-8 gap-x-12 items-start">
                 <div className="md:col-span-2">
                     <img 
                         src="https://socabeg.com/images/socabeg.jpg" 
@@ -37,9 +38,9 @@ const HomeAboutSection: React.FC = () => {
                 </div>
                 
                 <div 
-                    className="md:col-span-3 flex flex-col justify-center p-8 rounded-lg relative bg-white"
+                    className="md:col-span-3 flex flex-col px-8 rounded-lg relative bg-white"
                 >
-                    <div className="relative z-10">
+                    <div className="relative z-10 flex flex-col flex-grow">
                         <div className="space-y-2 text-brand-text text-xs md:text-sm leading-snug">
                             <p dangerouslySetInnerHTML={{ __html: t('homeAboutP1') }} />
                             <p dangerouslySetInnerHTML={{ __html: t('homeAboutP2') }} />
@@ -49,7 +50,7 @@ const HomeAboutSection: React.FC = () => {
                             <p dangerouslySetInnerHTML={{ __html: t('homeAboutP6') }} />
                         </div>
                         
-                        <div className="mt-8">
+                        <div className="mt-auto pt-8">
                             <Link
                                 to="/a-propos"
                                 className="inline-flex items-center bg-black/5 border border-black/10 text-brand-dark text-sm font-bold py-3 px-8 rounded-full hover:bg-black/10 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-brand-dark focus:ring-offset-2 group"
@@ -82,7 +83,6 @@ const PartnersSection: React.FC = () => {
         'https://socabeg.com/partners/snhlm.jpg',
         'https://socabeg.com/partners/sonatel.png',
     ];
-    const duplicatedLogos = [...partnerLogos, ...partnerLogos];
 
     return (
         <div className="container mx-auto px-5 lg:px-20">
@@ -93,14 +93,16 @@ const PartnersSection: React.FC = () => {
                 </h3>
                 <h2 className="text-2xl font-bold font-sans text-black">{t('partnersSectionHeadline')}</h2>
             </div>
-            <div className="logo-scroller">
-                <div className="logo-scroller-inner">
-                    {duplicatedLogos.map((logo, index) => (
-                        <div key={index} className="flex-shrink-0 w-36 sm:w-48 h-24 flex items-center justify-center p-2 sm:p-4 mx-2 sm:mx-4">
-                            <img src={logo} alt={`Partner logo ${index + 1}`} className="max-h-full max-w-full object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 partner-logo" />
-                        </div>
-                    ))}
-                </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-16 items-center justify-items-center">
+                {partnerLogos.map((logo, index) => (
+                    <div key={index} className="flex items-center justify-center">
+                        <img 
+                            src={logo} 
+                            alt={`Partner logo ${index + 1}`} 
+                            className="max-h-20 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 partner-logo" 
+                        />
+                    </div>
+                ))}
             </div>
         </div>
     );
