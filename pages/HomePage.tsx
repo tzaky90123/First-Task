@@ -265,6 +265,9 @@ const PartnersSection: React.FC = () => {
         'https://socabeg.com/partners/sonatel.png',
     ];
 
+    const row1Logos = partnerLogos.slice(0, 5);
+    const row2Logos = partnerLogos.slice(5);
+
     return (
         <div className="container mx-auto px-5 lg:px-20">
             <div className="text-center mb-12 md:mb-16">
@@ -274,16 +277,29 @@ const PartnersSection: React.FC = () => {
                 </h3>
                 <h2 className="text-2xl font-bold font-sans text-black">{t('partnersSectionHeadline')}</h2>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-16 items-center justify-items-center">
-                {partnerLogos.map((logo, index) => (
-                    <div key={index} className="flex items-center justify-center">
-                        <img 
-                            src={logo} 
-                            alt={`Partner logo ${index + 1}`} 
-                            className="max-h-20 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 partner-logo" 
-                        />
-                    </div>
-                ))}
+             <div className="space-y-8 md:space-y-12">
+                <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 lg:gap-x-24">
+                    {row1Logos.map((logo, index) => (
+                        <div key={index} className="flex items-center justify-center">
+                            <img 
+                                src={logo} 
+                                alt={`Partner logo ${index + 1}`} 
+                                className="max-h-20 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 partner-logo" 
+                            />
+                        </div>
+                    ))}
+                </div>
+                <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 lg:gap-x-24">
+                    {row2Logos.map((logo, index) => (
+                        <div key={index} className="flex items-center justify-center">
+                            <img 
+                                src={logo} 
+                                alt={`Partner logo ${index + 1 + row1Logos.length}`} 
+                                className="max-h-20 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 partner-logo" 
+                            />
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     );
