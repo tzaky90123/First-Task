@@ -188,11 +188,10 @@ const AboutSection: React.FC = () => {
     const { t } = useLocalization();
 
     return (
-        <div>
+        <div className="bg-gray-200 w-full">
             <div 
                 className="relative w-full"
             >
-                <div className="absolute inset-0 bg-gray-200" aria-hidden="true"></div>
                 <div className="relative container mx-auto px-5 lg:px-20 py-16 md:py-20">
                     <div className="text-center mb-12 md:mb-16">
                         <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
@@ -214,11 +213,8 @@ const AboutSection: React.FC = () => {
                         </div>
                         
                         <div 
-                            className="md:col-span-3 flex flex-col px-8 md:px-14 lg:px-20 py-6 rounded-lg relative overflow-hidden"
-                            style={{ backgroundImage: "url('https://www.toptal.com/designers/subtlepatterns/uploads/concrete-texture.png')" }}
+                            className="md:col-span-3 flex flex-col px-8 md:px-14 lg:px-20 py-6 rounded-lg relative"
                         >
-                            <div className="absolute inset-0 bg-white/95" aria-hidden="true"></div>
-
                             <div className="relative z-10 flex flex-col flex-grow">
                                 <div className="space-y-2 text-brand-text text-xs md:text-sm leading-snug">
                                     <p dangerouslySetInnerHTML={{ __html: t('homeAboutP1') }} />
@@ -576,19 +572,33 @@ const TestimonialsSection: React.FC = () => {
         { quoteKey: "testimonial5Quote", nameKey: "testimonial5Name" }, { quoteKey: "testimonial6Quote", nameKey: "testimonial6Name" }
     ];
 
+    // Helper to group testimonials into pairs for the slider
+    const chunk = <T,>(arr: T[], size: number): T[][] =>
+        Array.from({ length: Math.ceil(arr.length / size) }, (v, i) =>
+            arr.slice(i * size, i * size + size)
+    );
+    
+    const testimonialPairs = chunk(testimonials, 2);
+    const numSlides = testimonialPairs.length;
+
     const [currentIndex, setCurrentIndex] = useState(0);
     const timeoutRef = useRef<number | null>(null);
 
     const resetTimeout = useCallback(() => { if (timeoutRef.current) { clearTimeout(timeoutRef.current); } }, []);
+    
+    const goNext = useCallback(() => {
+        setCurrentIndex((prev) => (prev === numSlides - 1 ? 0 : prev + 1));
+    }, [numSlides]);
+
+    const goPrev = () => {
+        setCurrentIndex((prev) => (prev === 0 ? numSlides - 1 : prev - 1));
+    };
 
     useEffect(() => {
         resetTimeout();
-        timeoutRef.current = window.setTimeout(() => setCurrentIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1)), 5000);
+        timeoutRef.current = window.setTimeout(goNext, 5000);
         return () => { resetTimeout(); };
-    }, [currentIndex, testimonials.length, resetTimeout]);
-
-    const goNext = () => setCurrentIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
-    const goPrev = () => setCurrentIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
+    }, [currentIndex, goNext, resetTimeout]);
 
     return (
         <div className="container mx-auto px-5 lg:px-20">
@@ -602,14 +612,18 @@ const TestimonialsSection: React.FC = () => {
             <div className="relative">
                 <div className="overflow-hidden">
                     <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
-                        {testimonials.map((testimonial, index) => (
-                            <div key={index} className="w-full flex-shrink-0 px-4">
-                                <div className="bg-white px-8 py-4 md:px-12 md:py-8 rounded-lg shadow-sm max-w-3xl mx-auto text-center h-[400px] md:h-[340px] flex flex-col justify-center">
-                                    <div>
-                                      <svg className="w-10 h-10 text-brand-secondary mx-auto mb-4" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true"><path d="M9.333 8h-5.333v8h5.333c0-4.418 3.582-8 8-8v-5.333c-7.364 0-13.333 5.97-13.333 13.333v10.667h13.333v-10.667h-8v-6zM29.333 8h-5.333v8h5.333c0-4.418 3.582-8 8-8v-5.333c-7.364 0-13.333 5.97-13.333 13.333v10.667h13.333v-10.667h-8v-6z"></path></svg>
-                                      <blockquote className="text-lg text-brand-text italic leading-relaxed mb-6">“{t(testimonial.quoteKey)}”</blockquote>
-                                    </div>
-                                    <cite className="not-italic font-semibold text-brand-primary font-sans">— {t(testimonial.nameKey)}</cite>
+                        {testimonialPairs.map((pair, slideIndex) => (
+                            <div key={slideIndex} className="w-full flex-shrink-0 px-2 md:px-4">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                    {pair.map((testimonial, testimonialIndex) => (
+                                        <div key={testimonialIndex} className="bg-white px-8 py-4 md:px-10 md:py-6 rounded-lg shadow-sm text-center h-[400px] md:h-[340px] flex flex-col justify-center">
+                                            <div>
+                                              <svg className="w-10 h-10 text-brand-secondary mx-auto mb-4" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true"><path d="M9.333 8h-5.333v8h5.333c0-4.418 3.582-8 8-8v-5.333c-7.364 0-13.333 5.97-13.333 13.333v10.667h13.333v-10.667h-8v-6zM29.333 8h-5.333v8h5.333c0-4.418 3.582-8 8-8v-5.333c-7.364 0-13.333 5.97-13.333 13.333v10.667h13.333v-10.667h-8v-6z"></path></svg>
+                                              <blockquote className="text-lg text-brand-text italic leading-relaxed mb-6">“{t(testimonial.quoteKey)}”</blockquote>
+                                            </div>
+                                            <cite className="not-italic font-semibold text-brand-primary font-sans">— {t(testimonial.nameKey)}</cite>
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
                         ))}
