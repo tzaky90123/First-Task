@@ -216,6 +216,23 @@ export const content: LocalizedContent = {
   email: { [Language.FR]: 'E-mail', [Language.EN]: 'Email' },
   contactFormSuccess: { [Language.FR]: 'Message envoyé !', [Language.EN]: 'Message sent!' },
   
+  // Home Page Contact Section
+  homeContactTitle: { [Language.FR]: 'Contact', [Language.EN]: 'Contact' },
+  homeContactSubtitle: { [Language.FR]: 'Un projet ? Une question ? Une envie de collaborer ?', [Language.EN]: 'A project? A question? A desire to collaborate?' },
+  homeContactAddressTitle: { [Language.FR]: 'ADRESSE', [Language.EN]: 'ADDRESS' },
+  homeContactAddress: { [Language.FR]: '123 Rue de Dakar, Sénégal', [Language.EN]: '123 Rue de Dakar, Senegal' },
+  homeContactContactTitle: { [Language.FR]: 'CONTACT', [Language.EN]: 'CONTACT' },
+  homeContactEmail: { [Language.FR]: 'contact@socabeg.sn', [Language.EN]: 'contact@socabeg.sn' },
+  homeContactPhone: { [Language.FR]: '+221 33 800 00 00', [Language.EN]: '+221 33 800 00 00' },
+  homeContactHoursTitle: { [Language.FR]: 'HORAIRES', [Language.EN]: 'HOURS' },
+  homeContactHoursDays: { [Language.FR]: 'Lundi — Vendredi', [Language.EN]: 'Monday — Friday' },
+  homeContactHoursTime: { [Language.FR]: '9h — 18h', [Language.EN]: '9am — 6pm' },
+  homeContactFollowTitle: { [Language.FR]: 'SUIVEZ-NOUS', [Language.EN]: 'FOLLOW US' },
+  homeContactFormName: { [Language.FR]: 'Nom & Prénom', [Language.EN]: 'Name & First Name' },
+  homeContactFormEmail: { [Language.FR]: 'E-mail', [Language.EN]: 'E-mail' },
+  homeContactFormSubject: { [Language.FR]: 'Objet', [Language.EN]: 'Subject' },
+  homeContactFormMessage: { [Language.FR]: 'Message', [Language.EN]: 'Message' },
+
   // Footer
   footerDescription: { [Language.FR]: "Acteur majeur du BTP et de la promotion immobilière au Sénégal, nous façonnons les paysages de demain.", [Language.EN]: 'As a major player in construction and real estate in Senegal, we are shaping the landscapes of tomorrow.' },
   // FIX: Corrected a typo in the Language enum from `Language.Fr` to `Language.FR`.
@@ -225,4 +242,5 @@ export const content: LocalizedContent = {
   ariaLinkedin: { [Language.FR]: 'LinkedIn', [Language.EN]: 'LinkedIn' },
   ariaTwitter: { [Language.FR]: 'Twitter', [Language.EN]: 'Twitter' },
   ariaFacebook: { [Language.FR]: 'Facebook', [Language.EN]: 'Facebook' },
+  ariaInstagram: { [Language.FR]: 'Instagram', [Language.EN]: 'Instagram' },
 };

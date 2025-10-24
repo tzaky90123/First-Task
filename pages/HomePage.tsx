@@ -214,7 +214,7 @@ const AboutSection: React.FC = () => {
                         </div>
                         
                         <div 
-                            className="md:col-span-3 flex flex-col px-6 md:px-12 lg:px-16 rounded-lg relative overflow-hidden"
+                            className="md:col-span-3 flex flex-col px-8 md:px-14 lg:px-20 py-6 rounded-lg relative overflow-hidden"
                             style={{ backgroundImage: "url('https://www.toptal.com/designers/subtlepatterns/uploads/concrete-texture.png')" }}
                         >
                             <div className="absolute inset-0 bg-white/95" aria-hidden="true"></div>
@@ -277,7 +277,7 @@ const PartnersSection: React.FC = () => {
                 </h3>
                 <h2 className="text-2xl font-bold font-sans text-black">{t('partnersSectionHeadline')}</h2>
             </div>
-             <div className="space-y-8 md:space-y-12">
+             <div className="flex flex-col items-center gap-y-8 md:gap-y-12">
                 <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 lg:gap-x-24">
                     {row1Logos.map((logo, index) => (
                         <div key={index} className="flex items-center justify-center">
@@ -595,15 +595,117 @@ const TestimonialsSection: React.FC = () => {
     );
 };
 
+// --- New Contact Section ---
+
+interface InputFieldProps {
+  id: string;
+  name: string;
+  label: string;
+  type: 'text' | 'email';
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  required?: boolean;
+}
+
+const InputField: React.FC<InputFieldProps> = ({ id, name, label, type, value, onChange, required }) => (
+  <div>
+    <label htmlFor={id} className="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-2">{label}</label>
+    <input
+      id={id}
+      name={name}
+      type={type}
+      value={value}
+      onChange={onChange}
+      required={required}
+      className="block w-full px-0 py-2 text-sm text-brand-dark bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-brand-primary"
+    />
+  </div>
+);
+
+const IconLinkedin = () => (
+    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+);
+  
+const IconInstagram = () => (
+    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664 4.771 4.919 4.919 1.266.058 1.644.07 4.85.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.058-1.689-.072-4.948-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44-.645-1.44-1.441-1.44z"/></svg>
+);
+
 const ContactCTASection: React.FC = () => {
     const { t } = useLocalization();
+    const [formState, setFormState] = useState({ name: '', email: '', subject: '', message: '' });
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      const { name, value } = e.target;
+      setFormState(prevState => ({ ...prevState, [name]: value }));
+    };
+  
+    const handleSubmit = (e: React.FormEvent) => {
+      e.preventDefault();
+      // Handle form submission logic here
+      console.log('Form submitted:', formState);
+      alert(t('contactFormSuccess'));
+      setFormState({ name: '', email: '', subject: '', message: '' });
+    };
+
     return (
-        <div className="container mx-auto px-6 text-center">
-            <h2 className="text-3xl font-bold font-sans mb-4 text-black">{t('homeContactCtaTitle')}</h2>
-            <p className="text-lg text-black max-w-2xl mx-auto mb-8">{t('homeContactCtaText')}</p>
-            <Link to="/contact" className="inline-block bg-transparent border-2 border-black text-black font-bold py-3 px-8 sm:px-10 rounded-full text-lg hover:bg-black hover:text-white transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 focus:ring-offset-white">
-                {t('homeContactCtaButton')}
-            </Link>
+        <div className="container mx-auto px-6 py-16 md:py-20 text-brand-dark">
+            <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold font-sans mb-4">{t('homeContactTitle')}</h2>
+                <p className="text-lg max-w-2xl mx-auto">{t('homeContactSubtitle')}</p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-12 lg:gap-24">
+                {/* Left Column: Contact Info */}
+                <div className="space-y-8">
+                    <div>
+                        <h3 className="font-bold uppercase tracking-widest mb-2">{t('homeContactAddressTitle')}</h3>
+                        <p>{t('homeContactAddress')}</p>
+                    </div>
+                    <div>
+                        <h3 className="font-bold uppercase tracking-widest mb-2">{t('homeContactContactTitle')}</h3>
+                        <p><a href={`mailto:${t('homeContactEmail')}`} className="hover:text-brand-primary">{t('homeContactEmail')}</a></p>
+                        <p><a href={`tel:${t('homeContactPhone').replace(/\s/g, '')}`} className="hover:text-brand-primary">{t('homeContactPhone')}</a></p>
+                    </div>
+                    <div>
+                        <h3 className="font-bold uppercase tracking-widest mb-2">{t('homeContactHoursTitle')}</h3>
+                        <p>{t('homeContactHoursDays')}</p>
+                        <p>{t('homeContactHoursTime')}</p>
+                    </div>
+                    <div>
+                        <h3 className="font-bold uppercase tracking-widest mb-2">{t('homeContactFollowTitle')}</h3>
+                        <div className="flex space-x-4">
+                            <a href="#" aria-label={t('ariaInstagram')} className="text-brand-dark hover:text-brand-primary transition-colors"><IconInstagram /></a>
+                            <a href="#" aria-label={t('ariaLinkedin')} className="text-brand-dark hover:text-brand-primary transition-colors"><IconLinkedin /></a>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Right Column: Form */}
+                <div>
+                    <form onSubmit={handleSubmit} className="space-y-8">
+                        <InputField id="name" name="name" label={t('homeContactFormName')} type="text" value={formState.name} onChange={handleInputChange} required />
+                        <InputField id="email" name="email" label={t('homeContactFormEmail')} type="email" value={formState.email} onChange={handleInputChange} required />
+                        <InputField id="subject" name="subject" label={t('homeContactFormSubject')} type="text" value={formState.subject} onChange={handleInputChange} required />
+                        <div>
+                            <label htmlFor="message" className="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-2">{t('homeContactFormMessage')}</label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                rows={4}
+                                value={formState.message}
+                                onChange={handleInputChange}
+                                required
+                                className="block w-full px-0 py-2 text-sm text-brand-dark bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-brand-primary"
+                            ></textarea>
+                        </div>
+                        <div className="flex justify-end">
+                            <button type="submit" className="bg-brand-dark text-white py-3 px-12 hover:bg-opacity-90 transition duration-300 focus:outline-none focus:ring-2 focus:ring-brand-dark focus:ring-offset-2">
+                                {t('formSend')}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     );
 };
@@ -620,9 +722,9 @@ const HomePage: React.FC = () => {
       <FullScreenSection className="bg-brand-light py-16"><StatisticsSection /></FullScreenSection>
       <FullScreenSection className="bg-white py-16 md:py-20"><WhyChooseUsSection /></FullScreenSection>
       <FullScreenSection className="bg-brand-light py-16 md:py-20"><TestimonialsSection /></FullScreenSection>
-      <FullScreenSection className="bg-white py-16">
+      <section className="w-full bg-white">
         <ContactCTASection />
-      </FullScreenSection>
+      </section>
       <Footer />
     </SmoothScrollLayout>
   );
