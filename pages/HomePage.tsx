@@ -204,11 +204,11 @@ const AboutSection: React.FC = () => {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-7 gap-y-8 gap-x-12 items-stretch">
-                        <div className="md:col-span-4">
+                        <div className="md:col-span-4 flex items-center justify-center">
                             <img 
                                 src="https://socabeg.com/images/socabeg.jpg" 
                                 alt="Ingénieurs SOCABEG planifiant un projet" 
-                                className="rounded-lg shadow-xl w-full h-full object-contain"
+                                className="rounded-lg shadow-xl max-w-[75%] max-h-[75%] object-contain"
                             />
                         </div>
                         
