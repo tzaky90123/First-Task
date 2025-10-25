@@ -203,8 +203,8 @@ const AboutSection: React.FC = () => {
                         </h2>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-5 gap-y-8 gap-x-12 items-stretch">
-                        <div className="md:col-span-2">
+                    <div className="grid grid-cols-1 md:grid-cols-7 gap-y-8 gap-x-12 items-stretch">
+                        <div className="md:col-span-4">
                             <img 
                                 src="https://socabeg.com/images/socabeg.jpg" 
                                 alt="Ingénieurs SOCABEG planifiant un projet" 
