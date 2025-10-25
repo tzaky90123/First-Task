@@ -213,9 +213,9 @@ const AboutSection: React.FC = () => {
                         </div>
                         
                         <div 
-                            className="md:col-span-3 flex flex-col px-4 md:px-6 lg:px-2 py-2 rounded-lg relative bg-white shadow-lg"
+                            className="md:col-span-3 flex flex-col p-6 md:p-8 rounded-lg relative bg-white shadow-lg"
                         >
-                            <div className="relative z-10 flex flex-col flex-grow p-3">
+                            <div className="relative z-10 flex flex-col flex-grow">
                                 <div className="space-y-2 text-brand-text text-xs md:text-sm leading-snug">
                                     <p dangerouslySetInnerHTML={{ __html: t('homeAboutP1') }} />
                                     <p dangerouslySetInnerHTML={{ __html: t('homeAboutP2') }} />
