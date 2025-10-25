@@ -216,7 +216,7 @@ const AboutSection: React.FC = () => {
                             className="md:col-span-3 flex flex-col px-4 md:px-6 lg:px-2 py-2 rounded-lg relative bg-white shadow-lg"
                         >
                             <div className="relative z-10 flex flex-col flex-grow p-4">
-                                <div className="space-y-2 text-brand-text text-xs md:text-sm leading-snug">
+                                <div className="space-y-2 text-brand-text text-xs md:text-sm leading-snug max-h-80 overflow-y-auto pr-3 about-text-box">
                                     <p dangerouslySetInnerHTML={{ __html: t('homeAboutP1') }} />
                                     <p dangerouslySetInnerHTML={{ __html: t('homeAboutP2') }} />
                                     <p dangerouslySetInnerHTML={{ __html: t('homeAboutP3') }} />
