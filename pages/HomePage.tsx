@@ -203,7 +203,7 @@ const AboutSection: React.FC = () => {
                         </h2>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-5 gap-y-8 gap-x-12 items-center">
+                    <div className="grid grid-cols-1 md:grid-cols-5 gap-y-8 gap-x-12 items-stretch">
                         <div className="md:col-span-2">
                             <img 
                                 src="https://socabeg.com/images/socabeg.jpg" 
@@ -213,9 +213,9 @@ const AboutSection: React.FC = () => {
                         </div>
                         
                         <div 
-                            className="md:col-span-3 flex flex-col px-4 md:px-6 lg:px-8 py-4 rounded-lg relative bg-white shadow-lg"
+                            className="md:col-span-3 flex flex-col px-4 md:px-6 lg:px-2 py-2 rounded-lg relative bg-white shadow-lg"
                         >
-                            <div className="relative z-10 flex flex-col flex-grow">
+                            <div className="relative z-10 flex flex-col flex-grow p-4">
                                 <div className="space-y-2 text-brand-text text-xs md:text-sm leading-snug">
                                     <p dangerouslySetInnerHTML={{ __html: t('homeAboutP1') }} />
                                     <p dangerouslySetInnerHTML={{ __html: t('homeAboutP2') }} />
@@ -459,29 +459,6 @@ const StatisticsIcon = () => (
     <img src="https://socabeg.com/favicon.png" alt="" className="h-5 w-5 mr-2" aria-hidden="true" />
 );
 
-const StatisticsDiagram = () => (
-    <div className="relative w-full max-w-xs mx-auto aspect-square">
-        <svg width="100%" height="100%" viewBox="0 0 100 100">
-            <defs>
-                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style={{ stopColor: '#0052CC', stopOpacity: 0.8 }} />
-                    <stop offset="100%" style={{ stopColor: '#0052CC', stopOpacity: 0.2 }} />
-                </linearGradient>
-                <linearGradient id="grad2" x1="100%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" style={{ stopColor: '#C5A43C', stopOpacity: 0.8 }} />
-                    <stop offset="100%" style={{ stopColor: '#C5A43C', stopOpacity: 0.2 }} />
-                </linearGradient>
-            </defs>
-            <path d="M 10 90 L 10 30 C 10 15, 25 10, 40 10 L 90 10" stroke="#E0E0E0" strokeWidth="2" fill="none" />
-            <rect x="20" y="20" width="60" height="60" rx="4" stroke="url(#grad1)" strokeWidth="3" fill="none" />
-            <circle cx="70" cy="30" r="12" fill="url(#grad2)" />
-            <path d="M 30 70 L 30 50 L 70 50" stroke="#C5A43C" strokeWidth="2" fill="none" strokeDasharray="4 4" />
-            <circle cx="30" cy="70" r="3" fill="#0052CC" />
-            <circle cx="70" cy="50" r="3" fill="#0052CC" />
-        </svg>
-    </div>
-);
-
 const StatisticsSection: React.FC = () => {
     const { t } = useLocalization();
     const stats = [
@@ -491,6 +468,56 @@ const StatisticsSection: React.FC = () => {
         { value: "+ 200 km", labelKey: "stat4Label" },
         { value: "+ 100 ha", labelKey: "stat5Label" }
     ];
+
+    const StatisticsDashboard = () => {
+        const chartData = [
+            { month: 'Jan', value: 65 }, { month: 'Fév', value: 59 },
+            { month: 'Mar', value: 80 }, { month: 'Avr', value: 81 },
+            { month: 'Mai', value: 56 }, { month: 'Juin', value: 55 },
+            { month: 'Juil', value: 40 },
+        ];
+        const maxValue = 100;
+    
+        return (
+            <div className="bg-white p-6 rounded-lg shadow-lg w-full h-full flex flex-col border border-gray-200">
+                {/* Header */}
+                <div className="mb-6">
+                    <h4 className="font-bold text-lg text-brand-dark font-sans">Nos Statistiques</h4>
+                    <p className="text-sm text-gray-500">Découvrez nos statistiques en temps réel.</p>
+                </div>
+    
+                {/* Chart Area */}
+                <div className="flex-grow bg-gray-50 p-4 rounded-md">
+                    <div className="h-48 flex items-end space-x-2">
+                        {chartData.map((data, index) => (
+                            <div key={index} className="relative flex-1 h-full flex flex-col justify-end items-center group">
+                                <div 
+                                    className="w-3/4 bg-brand-primary rounded-t-md hover:bg-brand-secondary transition-colors duration-300"
+                                    style={{ height: `${(data.value / maxValue) * 100}%` }}
+                                >
+                                    <span className="absolute -top-6 left-1/2 -translate-x-1/2 text-xs font-bold text-brand-dark opacity-0 group-hover:opacity-100 transition-opacity">
+                                        {data.value}
+                                    </span>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                     <div className="flex items-end space-x-2 mt-2 border-t border-gray-200 pt-2">
+                         {chartData.map((data, index) => (
+                            <div key={index} className="flex-1 text-center">
+                                <span className="text-xs text-gray-500">{data.month}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+    
+                {/* Footer */}
+                <div className="mt-6 pt-3 border-t border-gray-100">
+                    <p className="text-xs text-gray-400">Dernière mise à jour : maintenant</p>
+                </div>
+            </div>
+        );
+    };
 
     return (
         <div className="container mx-auto px-5 lg:px-20">
@@ -503,25 +530,28 @@ const StatisticsSection: React.FC = () => {
                     {t('statisticsSectionHeadline')}
                 </h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8 items-center max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 items-stretch max-w-7xl mx-auto">
                 {/* Left Column: Stats */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="flex flex-col gap-4">
                     {stats.map((stat, index) => (
                         <div 
                             key={index} 
-                            className="bg-white p-6 rounded-lg text-center shadow-sm flex flex-col h-full"
+                            className="group bg-white p-5 rounded-lg shadow-sm flex flex-1 items-center space-x-6 border border-gray-200 hover:border-brand-primary/20 hover:shadow-lg transition-all duration-300 cursor-pointer"
                         >
-                            <p className="text-xl lg:text-2xl font-bold text-brand-secondary font-sans">{stat.value}</p>
-                            <div className="mt-2 flex-grow flex items-center justify-center">
-                                <p className="text-brand-text text-sm leading-snug whitespace-nowrap">{t(stat.labelKey)}</p>
+                            <span className="text-3xl font-bold text-gray-200 group-hover:text-brand-primary transition-colors duration-300">
+                                {String(index + 1).padStart(2, '0')}
+                            </span>
+                            <div className="text-left">
+                                <p className="text-xl font-bold text-brand-secondary font-sans">{stat.value}</p>
+                                <p className="text-brand-text text-sm leading-snug">{t(stat.labelKey)}</p>
                             </div>
                         </div>
                     ))}
                 </div>
 
-                {/* Right Column: Diagram */}
-                <div className="hidden md:flex items-center justify-center h-full">
-                    <StatisticsDiagram />
+                {/* Right Column: Dashboard */}
+                <div className="hidden md:flex items-center justify-center h-full md:col-span-2">
+                    <StatisticsDashboard />
                 </div>
             </div>
         </div>
