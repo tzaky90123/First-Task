@@ -213,7 +213,7 @@ const AboutSection: React.FC = () => {
                         </div>
                         
                         <div 
-                            className="md:col-span-3 flex flex-col px-8 md:px-14 lg:px-20 py-6 rounded-lg relative"
+                            className="md:col-span-3 flex flex-col px-8 md:px-14 lg:px-20 py-6 rounded-lg relative bg-white shadow-lg"
                         >
                             <div className="relative z-10 flex flex-col flex-grow">
                                 <div className="space-y-2 text-brand-text text-xs md:text-sm leading-snug">

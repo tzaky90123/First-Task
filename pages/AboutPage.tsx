@@ -38,7 +38,7 @@ const HomeAboutSection: React.FC = () => {
                 </div>
                 
                 <div 
-                    className="md:col-span-3 flex flex-col px-8 rounded-lg relative bg-white"
+                    className="md:col-span-3 flex flex-col px-8 rounded-lg relative"
                 >
                     <div className="relative z-10 flex flex-col flex-grow">
                         <div className="space-y-2 text-brand-text text-xs md:text-sm leading-snug">
@@ -172,7 +172,7 @@ const AboutPage: React.FC = () => {
         imageUrl="https://socabeg.com/images/socabeg.jpg"
       />
       
-      <FullScreenSection className="bg-brand-light">
+      <FullScreenSection className="bg-[#f0f0f0]">
         <HomeAboutSection />
       </FullScreenSection>
 
