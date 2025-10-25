@@ -203,8 +203,8 @@ const AboutSection: React.FC = () => {
                         </h2>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-7 gap-y-8 gap-x-12 items-stretch">
-                        <div className="md:col-span-4 flex items-center justify-center">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-12 items-stretch">
+                        <div className="flex items-center justify-center">
                             <img 
                                 src="https://socabeg.com/images/socabeg.jpg" 
                                 alt="Ingénieurs SOCABEG planifiant un projet" 
@@ -213,7 +213,7 @@ const AboutSection: React.FC = () => {
                         </div>
                         
                         <div 
-                            className="md:col-span-3 flex flex-col p-6 md:p-8 rounded-lg relative bg-white shadow-lg"
+                            className="flex flex-col p-6 md:p-8 rounded-lg relative bg-white shadow-lg"
                         >
                             <div className="relative z-10 flex flex-col flex-grow">
                                 <div className="space-y-2 text-brand-text text-xs md:text-sm leading-snug">
