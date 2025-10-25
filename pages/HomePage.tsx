@@ -215,8 +215,8 @@ const AboutSection: React.FC = () => {
                         <div 
                             className="md:col-span-3 flex flex-col px-4 md:px-6 lg:px-2 py-2 rounded-lg relative bg-white shadow-lg"
                         >
-                            <div className="relative z-10 flex flex-col flex-grow p-4">
-                                <div className="space-y-2 text-brand-text text-xs md:text-sm leading-snug max-h-80 overflow-y-auto pr-3 about-text-box">
+                            <div className="relative z-10 flex flex-col flex-grow p-3">
+                                <div className="space-y-2 text-brand-text text-xs md:text-sm leading-snug">
                                     <p dangerouslySetInnerHTML={{ __html: t('homeAboutP1') }} />
                                     <p dangerouslySetInnerHTML={{ __html: t('homeAboutP2') }} />
                                     <p dangerouslySetInnerHTML={{ __html: t('homeAboutP3') }} />
@@ -225,7 +225,7 @@ const AboutSection: React.FC = () => {
                                     <p dangerouslySetInnerHTML={{ __html: t('homeAboutP6') }} />
                                 </div>
                                 
-                                <div className="mt-auto pt-8">
+                                <div className="mt-auto pt-6">
                                     <Link
                                         to="/a-propos"
                                         className="inline-flex items-center bg-black/5 border border-black/10 text-brand-dark text-sm font-bold py-3 px-8 rounded-full hover:bg-black/10 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-brand-dark focus:ring-offset-2 group"
