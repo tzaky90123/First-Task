@@ -190,9 +190,7 @@ const AboutSection: React.FC = () => {
 
     return (
         <div className="bg-gray-200 w-full">
-            <div 
-                className="relative w-full"
-            >
+            <div className="relative w-full">
                 <div className="relative container mx-auto px-5 lg:px-20 py-16 md:py-20">
                     <div className="text-center mb-12 md:mb-16">
                         <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
@@ -203,19 +201,15 @@ const AboutSection: React.FC = () => {
                             {t('homeAboutSectionHeadline')}
                         </h2>
                     </div>
-
                     <div className="grid grid-cols-1 md:grid-cols-5 gap-y-8 gap-x-12 items-center">
                         <div className="md:col-span-2 flex items-center justify-center">
                             <img 
                                 src="https://socabeg.com/images/socabeg.jpg" 
                                 alt="Ingénieurs SOCABEG planifiant un projet" 
-                                className="rounded-lg shadow-xl w-full h-auto object-contain max-h-[500px]"
+                                className="rounded-lg shadow-xl w-full h-auto object-contain max-h-[400px]"
                             />
                         </div>
-                        
-                        <div 
-                            className="md:col-span-3 flex flex-col p-6 md:p-8 rounded-lg relative bg-white shadow-lg"
-                        >
+                        <div className="md:col-span-3 flex flex-col p-6 md:p-8 rounded-lg relative bg-white shadow-lg">
                             <div className="relative z-10 flex flex-col flex-grow">
                                 <div className="space-y-2 text-brand-text text-xs md:text-sm leading-snug">
                                     <p dangerouslySetInnerHTML={{ __html: t('homeAboutP1') }} />
@@ -225,7 +219,6 @@ const AboutSection: React.FC = () => {
                                     <p dangerouslySetInnerHTML={{ __html: t('homeAboutP5') }} />
                                     <p dangerouslySetInnerHTML={{ __html: t('homeAboutP6') }} />
                                 </div>
-                                
                                 <div className="mt-auto pt-6">
                                     <Link
                                         to="/a-propos"
@@ -238,7 +231,6 @@ const AboutSection: React.FC = () => {
                                     </Link>
                                 </div>
                             </div>
-
                             <div className="absolute bottom-8 left-12 right-12 h-px bg-gradient-to-r from-transparent via-brand-secondary/40 to-transparent" aria-hidden="true"></div>
                         </div>
                     </div>
@@ -462,63 +454,77 @@ const StatisticsIcon = () => (
 
 const StatisticsSection: React.FC = () => {
     const { t } = useLocalization();
-    const stats = [
-        { value: "+ 2,000", labelKey: "stat1Label" },
-        { value: "02", labelKey: "stat2Label" },
-        { value: "+ 150", labelKey: "stat3Label" },
-        { value: "+ 200 km", labelKey: "stat4Label" },
-        { value: "+ 100 ha", labelKey: "stat5Label" }
-    ];
+    const [selectedIndex, setSelectedIndex] = useState<number>(0);
 
-    const StatisticsDashboard = () => {
-        const chartData = [
-            { month: 'Jan', value: 65 }, { month: 'Fév', value: 59 },
-            { month: 'Mar', value: 80 }, { month: 'Avr', value: 81 },
-            { month: 'Mai', value: 56 }, { month: 'Juin', value: 55 },
-            { month: 'Juil', value: 40 },
-        ];
-        const maxValue = 100;
+    const ParcelsChart = () => (
+        <div className="flex items-end h-48 space-x-4 justify-center p-4">
+            <div className="w-8 bg-blue-200 rounded-t-lg" style={{ height: '30%' }} title="2020"></div>
+            <div className="w-8 bg-blue-200 rounded-t-lg" style={{ height: '50%' }} title="2021"></div>
+            <div className="w-8 bg-brand-primary rounded-t-lg" style={{ height: '80%' }} title="2022"></div>
+            <div className="w-8 bg-blue-200 rounded-t-lg" style={{ height: '60%' }} title="2023"></div>
+            <div className="w-8 bg-brand-primary rounded-t-lg" style={{ height: '95%' }} title="2024"></div>
+        </div>
+    );
+
+    const EmployeesChart = () => (
+        <div className="relative h-48 w-full p-4">
+            <svg className="absolute bottom-0 left-0 w-full h-full p-4" viewBox="0 0 100 50" preserveAspectRatio="none">
+                <path d="M0,50 L20,40 L40,45 L60,30 L80,35 L100,20 L100,50 Z" fill="rgba(0, 82, 204, 0.1)" />
+                <path d="M0,50 L20,40 L40,45 L60,30 L80,35 L100,20" stroke="#0052CC" strokeWidth="1.5" fill="none" vectorEffect="non-scaling-stroke" />
+            </svg>
+            <div className="absolute bottom-2 left-4 text-xs text-gray-400">2020</div>
+            <div className="absolute bottom-2 right-4 text-xs text-gray-400">2024</div>
+        </div>
+    );
     
-        return (
-            <div className="bg-white p-6 rounded-lg shadow-lg w-full h-full flex flex-col border border-gray-200">
-                {/* Header */}
-                <div className="mb-6">
-                    <h4 className="font-bold text-lg text-brand-dark font-sans">Nos Statistiques</h4>
-                    <p className="text-sm text-gray-500">Découvrez nos statistiques en temps réel.</p>
-                </div>
-    
-                {/* Chart Area */}
-                <div className="flex-grow bg-gray-50 p-4 rounded-md">
-                    <div className="h-48 flex items-end space-x-2">
-                        {chartData.map((data, index) => (
-                            <div key={index} className="relative flex-1 h-full flex flex-col justify-end items-center group">
-                                <div 
-                                    className="w-3/4 bg-brand-primary rounded-t-md hover:bg-brand-secondary transition-colors duration-300"
-                                    style={{ height: `${(data.value / maxValue) * 100}%` }}
-                                >
-                                    <span className="absolute -top-6 left-1/2 -translate-x-1/2 text-xs font-bold text-brand-dark opacity-0 group-hover:opacity-100 transition-opacity">
-                                        {data.value}
-                                    </span>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                     <div className="flex items-end space-x-2 mt-2 border-t border-gray-200 pt-2">
-                         {chartData.map((data, index) => (
-                            <div key={index} className="flex-1 text-center">
-                                <span className="text-xs text-gray-500">{data.month}</span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-    
-                {/* Footer */}
-                <div className="mt-6 pt-3 border-t border-gray-100">
-                    <p className="text-xs text-gray-400">Dernière mise à jour : maintenant</p>
-                </div>
+    const InfrastructureChart = () => (
+        <div className="h-48 flex flex-col justify-center space-y-6 p-4">
+            <div className="w-full h-4 bg-blue-100 rounded-full"><div className="h-4 bg-brand-primary rounded-full" style={{ width: '85%' }}></div></div>
+            <div className="w-full h-4 bg-blue-100 rounded-full"><div className="h-4 bg-brand-primary rounded-full" style={{ width: '95%' }}></div></div>
+            <div className="w-full h-4 bg-blue-100 rounded-full"><div className="h-4 bg-brand-primary rounded-full" style={{ width: '75%' }}></div></div>
+        </div>
+    );
+
+    const LandChart = () => (
+         <div className="flex items-center justify-center p-4 space-x-8 h-48">
+            <div 
+              className="w-32 h-32 rounded-full flex overflow-hidden shadow-inner relative"
+              style={{ background: 'conic-gradient(#0052CC 0% 60%, #5d8fde 60% 85%, #b1c9ef 85% 100%)' }}
+            >
+              <div className="absolute inset-0 rounded-full bg-white m-8"></div>
             </div>
-        );
-    };
+            <div className="text-left text-base space-y-3">
+                <div className="flex items-center"><span className="w-4 h-4 rounded-sm bg-[#0052CC] mr-3"></span>Résidentiel</div>
+                <div className="flex items-center"><span className="w-4 h-4 rounded-sm bg-[#5d8fde] mr-3"></span>Commercial</div>
+                <div className="flex items-center"><span className="w-4 h-4 rounded-sm bg-[#b1c9ef] mr-3"></span>Industriel</div>
+            </div>
+        </div>
+    );
+
+    const SubsidiariesChart = () => (
+        <div className="flex items-center justify-center p-4 space-x-8 h-48">
+            <div 
+              className="w-32 h-32 rounded-full flex overflow-hidden shadow-inner relative"
+              style={{ background: 'conic-gradient(#0052CC 0% 50%, #C5A43C 50% 100%)' }}
+            >
+              <div className="absolute inset-0 rounded-full bg-white m-8"></div>
+            </div>
+            <div className="text-left text-base space-y-3">
+                <div className="flex items-center"><span className="w-4 h-4 rounded-sm bg-brand-primary mr-3"></span>Keur Invest</div>
+                <div className="flex items-center"><span className="w-4 h-4 rounded-sm bg-brand-secondary mr-3"></span>SOCABEG Mining</div>
+            </div>
+        </div>
+    );
+    
+    const statsData = [
+        { value: "+ 2,000", labelKey: "stat1Label", chart: <ParcelsChart /> },
+        { value: "+ 150", labelKey: "stat3Label", chart: <EmployeesChart /> },
+        { value: "+ 200 km", labelKey: "stat4Label", chart: <InfrastructureChart /> },
+        { value: "+ 100 ha", labelKey: "stat5Label", chart: <LandChart /> },
+        { value: "02", labelKey: "stat2Label", chart: <SubsidiariesChart /> }
+    ];
+    
+    const selectedChart = statsData[selectedIndex]?.chart;
 
     return (
         <div className="container mx-auto px-5 lg:px-20">
@@ -531,33 +537,38 @@ const StatisticsSection: React.FC = () => {
                     {t('statisticsSectionHeadline')}
                 </h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 items-stretch max-w-7xl mx-auto">
-                {/* Left Column: Stats */}
-                <div className="flex flex-col gap-4">
-                    {stats.map((stat, index) => (
-                        <div 
-                            key={index} 
-                            className="group bg-white p-5 rounded-lg shadow-sm flex flex-1 items-center space-x-6 border border-gray-200 hover:border-brand-primary/20 hover:shadow-lg transition-all duration-300 cursor-pointer"
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-start">
+                {/* Left Column: Stat Selectors */}
+                <div className="lg:col-span-1 space-y-4">
+                    {statsData.map((stat, index) => (
+                        <button
+                            key={index}
+                            onClick={() => setSelectedIndex(index)}
+                            className={`w-full p-6 text-left rounded-lg transition-all duration-300 border-l-4 ${
+                                selectedIndex === index
+                                    ? 'bg-white shadow-lg border-brand-primary'
+                                    : 'bg-gray-50 hover:bg-white hover:shadow-md border-transparent'
+                            }`}
                         >
-                            <span className="text-3xl font-bold text-gray-200 group-hover:text-brand-primary transition-colors duration-300">
-                                {String(index + 1).padStart(2, '0')}
-                            </span>
-                            <div className="text-left">
-                                <p className="text-xl font-bold text-brand-secondary font-sans">{stat.value}</p>
-                                <p className="text-brand-text text-sm leading-snug">{t(stat.labelKey)}</p>
-                            </div>
-                        </div>
+                            <span className="text-3xl font-bold text-brand-primary font-sans">{stat.value}</span>
+                            <p className="text-brand-text mt-1">{t(stat.labelKey)}</p>
+                        </button>
                     ))}
                 </div>
 
-                {/* Right Column: Dashboard */}
-                <div className="hidden md:flex items-center justify-center h-full md:col-span-2">
-                    <StatisticsDashboard />
+                {/* Right Column: Chart Display */}
+                <div className="lg:col-span-2 bg-white p-4 sm:p-6 rounded-lg shadow-lg min-h-[350px] flex items-center justify-center">
+                    {/* Add key to re-trigger animation */}
+                    <div key={selectedIndex} className="w-full animate-fade-in-up">
+                        {selectedChart}
+                    </div>
                 </div>
             </div>
         </div>
     );
 };
+
 
 const WhyChooseUsSection: React.FC = () => {
   const { t } = useLocalization();
