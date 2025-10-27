@@ -724,18 +724,9 @@ const ContactCTASection: React.FC = () => {
 
     return (
       <>
-        <div className="bg-white">
-          <div className="container mx-auto px-6 pt-16 md:pt-20 pb-12 text-brand-dark">
-              <div className="text-center">
-                  <h2 className="text-3xl font-bold font-sans mb-4">{t('homeContactTitle')}</h2>
-                  <p className="text-lg max-w-2xl mx-auto">{t('homeContactSubtitle')}</p>
-              </div>
-          </div>
-        </div>
-        
         <div className="grid md:grid-cols-2">
             {/* Left Column: Contact Info */}
-            <div className="bg-brand-light text-brand-dark flex justify-center md:justify-end">
+            <div className="bg-[#DCE4E8] text-brand-dark flex justify-center md:justify-end">
               <div className="w-full max-w-lg px-6 md:px-0 md:pr-6 lg:pr-12 py-12 md:py-20">
                 <div className="space-y-8">
                     <div>
