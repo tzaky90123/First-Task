@@ -1,4 +1,5 @@
 
+
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocalization } from '../context/LocalizationContext';
@@ -702,12 +703,12 @@ const IconLinkedin = () => (
 );
   
 const IconInstagram = () => (
-    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664 4.771 4.919 4.919 1.266.058 1.644.07 4.85.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.058-1.689-.072-4.948-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44-.645-1.44-1.441-1.44z"/></svg>
+    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664 4.771 4.919 4.919 1.266.058 1.644.07 4.85.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.058-1.689.072-4.948.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44-.645-1.44-1.441-1.44z"/></svg>
 );
 
 const ContactCTASection: React.FC = () => {
     const { t } = useLocalization();
-    const [formState, setFormState] = useState({ name: '', email: '', subject: '', message: '' });
+    const [formState, setFormState] = useState({ firstName: '', lastName: '', email: '', subject: '', message: '' });
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
       const { name, value } = e.target;
@@ -719,14 +720,14 @@ const ContactCTASection: React.FC = () => {
       // Handle form submission logic here
       console.log('Form submitted:', formState);
       alert(t('contactFormSuccess'));
-      setFormState({ name: '', email: '', subject: '', message: '' });
+      setFormState({ firstName: '', lastName: '', email: '', subject: '', message: '' });
     };
 
     return (
       <>
         <div className="grid md:grid-cols-2">
             {/* Left Column: Contact Info */}
-            <div className="bg-[#DCE4E8] text-brand-dark flex justify-center md:justify-end">
+            <div className="bg-[#DCE4E8] text-brand-dark flex justify-center items-center md:justify-end">
               <div className="w-full max-w-lg px-6 md:px-0 md:pr-6 lg:pr-12 py-12 md:py-20">
                 <div className="space-y-8">
                     <div>
@@ -755,10 +756,13 @@ const ContactCTASection: React.FC = () => {
             </div>
 
             {/* Right Column: Form */}
-            <div className="bg-white text-brand-dark flex justify-center md:justify-start">
-              <div className="w-full max-w-lg px-6 md:px-0 md:pl-6 lg:pl-12 py-12 md:py-20">
+            <div className="bg-white text-brand-dark flex justify-center items-center md:justify-start">
+              <div className="w-full px-6 md:px-0 md:pl-6 lg:pl-12 md:pr-6 lg:pr-12 py-12 md:py-20">
                 <form onSubmit={handleSubmit} className="space-y-8">
-                    <InputField id="name" name="name" label={t('homeContactFormName')} type="text" value={formState.name} onChange={handleInputChange} required />
+                    <div className="grid grid-cols-2 gap-6">
+                      <InputField id="firstName" name="firstName" label={t('homeContactFormFirstName')} type="text" value={formState.firstName} onChange={handleInputChange} required />
+                      <InputField id="lastName" name="lastName" label={t('homeContactFormLastName')} type="text" value={formState.lastName} onChange={handleInputChange} required />
+                    </div>
                     <InputField id="email" name="email" label={t('homeContactFormEmail')} type="email" value={formState.email} onChange={handleInputChange} required />
                     <InputField id="subject" name="subject" label={t('homeContactFormSubject')} type="text" value={formState.subject} onChange={handleInputChange} required />
                     <div>
@@ -773,7 +777,7 @@ const ContactCTASection: React.FC = () => {
                             className="block w-full px-0 py-2 text-sm text-brand-dark bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-brand-primary"
                         ></textarea>
                     </div>
-                    <div className="flex justify-end">
+                    <div className="flex justify-start">
                         <button type="submit" className="bg-brand-dark text-white py-3 px-12 hover:bg-opacity-90 transition duration-300 focus:outline-none focus:ring-2 focus:ring-brand-dark focus:ring-offset-2">
                             {t('formSend')}
                         </button>
