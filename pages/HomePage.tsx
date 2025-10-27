@@ -96,10 +96,10 @@ const HeroSection: React.FC = () => {
 
 
       <div className="relative z-20 h-full flex flex-col justify-center items-center text-center container mx-auto px-6">
-          <div className="max-w-md md:max-w-4xl">
+          <div>
               {slides.map((slide, index) => (
                   <div key={index} className={`${index === currentSlide ? 'block' : 'hidden'}`}>
-                      <h1 className="text-2xl md:text-4xl font-bold leading-tight mb-4 animate-fade-in-up">
+                      <h1 className="text-2xl md:text-4xl font-bold leading-tight mb-4 animate-fade-in-up whitespace-nowrap">
                         {t(slide.title)}
                       </h1>
                       <p className="text-base md:text-lg mb-8 animate-fade-in-up animation-delay-300 max-w-5xl mx-auto">
