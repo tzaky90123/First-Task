@@ -142,6 +142,7 @@ export const content: LocalizedContent = {
 
   learnMore: { [Language.FR]: 'En savoir plus', [Language.EN]: 'Learn more' },
   learnMoreLink: { [Language.FR]: 'En savoir plus →', [Language.EN]: 'Learn More →' },
+  viewProjectButton: { [Language.FR]: 'Voir le projet →', [Language.EN]: 'View Project →' },
 
   // About Page
   aboutHeroTitle: { [Language.FR]: 'À Propos de Nous', [Language.EN]: 'About Us' },

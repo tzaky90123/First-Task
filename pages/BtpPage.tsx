@@ -97,14 +97,25 @@ const ProjectsSection: React.FC = () => {
     ];
     return (
         <div className="container mx-auto px-6">
-            <h2 className="text-3xl md:text-4xl font-bold font-sans text-brand-primary mb-12 text-center">{t('btpProjectsTitle')}</h2>
+            <div className="text-center mb-16">
+                <h2 className="inline-block text-3xl md:text-4xl font-bold text-brand-navy relative">
+                    {t('btpProjectsTitle')}
+                    <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-2/3 h-1 bg-brand-yellow"></span>
+                </h2>
+            </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {projects.map(p => (
-                    <div key={p.titleKey} className="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                        <img src={p.image} alt={t(p.titleKey)} className="w-full h-56 object-cover" />
-                        <div className="p-6">
-                            <h3 className="text-xl font-bold text-brand-primary mb-2">{t(p.titleKey)}</h3>
-                            <p className="text-brand-text text-sm">{t(p.descKey)}</p>
+                {projects.map((p, index) => (
+                    <div key={p.titleKey} className="group bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2" style={{ animation: `fadeInUp 0.5s ${index * 0.1}s ease-out both` }}>
+                        <div className="relative overflow-hidden">
+                            <img src={p.image} alt={t(p.titleKey)} className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        </div>
+                        <div className="p-6 flex flex-col flex-grow">
+                            <h3 className="text-xl font-bold text-brand-navy mb-3 transition-colors duration-300 group-hover:text-brand-yellow">{t(p.titleKey)}</h3>
+                            <p className="text-brand-text-gray text-sm flex-grow mb-6">{t(p.descKey)}</p>
+                            <Link to="#" className="font-semibold text-brand-navy hover:text-brand-yellow transition-colors duration-300 self-start">
+                                {t('viewProjectButton')}
+                            </Link>
                         </div>
                     </div>
                 ))}
@@ -161,7 +172,7 @@ const BtpPage: React.FC = () => {
       <FullScreenSection className="bg-white py-16 md:py-20">
         <ApproachSection />
       </FullScreenSection>
-      <FullScreenSection className="bg-brand-light py-16 md:py-20">
+      <FullScreenSection className="grid-bg py-16 md:py-20">
         <ProjectsSection />
       </FullScreenSection>
        <FullScreenSection className="bg-white py-16 md:py-20">
