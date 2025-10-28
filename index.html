@@ -24,6 +24,11 @@
               'brand-text': '#333333', // Dark Gray for Text
               'brand-red': '#E63946', // Red Accent
               'brand-warm-light': '#FAF3E0', // Warm Beige
+              'brand-blue-dark': '#1E3A8A', // New Dark Blue for services
+              'brand-gold-accent': '#D4AF37', // New Gold for services
+            },
+            boxShadow: {
+              'soft': '0 4px 12px rgba(0,0,0,0.05)',
             }
           }
         }
@@ -135,6 +140,15 @@
     .transition-section.is-in-view {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    /* Blueprint Background */
+    .blueprint-bg {
+        background-color: #f8fafc; /* Tailwind's gray-50 */
+        background-image:
+            linear-gradient(rgba(30, 58, 138, 0.07) 1px, transparent 1px),
+            linear-gradient(to right, rgba(30, 58, 138, 0.07) 1px, transparent 1px);
+        background-size: 2.5rem 2.5rem;
     }
   </style>
   <script type="importmap">

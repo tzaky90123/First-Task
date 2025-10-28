@@ -141,6 +141,7 @@ export const content: LocalizedContent = {
   homeContactCtaButton: { [Language.FR]: 'Contactez-nous', [Language.EN]: 'Contact Us' },
 
   learnMore: { [Language.FR]: 'En savoir plus', [Language.EN]: 'Learn more' },
+  learnMoreLink: { [Language.FR]: 'En savoir plus →', [Language.EN]: 'Learn More →' },
 
   // About Page
   aboutHeroTitle: { [Language.FR]: 'À Propos de Nous', [Language.EN]: 'About Us' },
@@ -162,6 +163,8 @@ export const content: LocalizedContent = {
   btpIntroTitle: { [Language.FR]: 'Bâtir l\'Avenir du Sénégal, Ensemble', [Language.EN]: 'Building Senegal\'s Future, Together' },
   btpIntroText: { [Language.FR]: 'Chez SOCABEG, notre expertise en BTP est le fondement de notre contribution au développement national. Forts de plus de 35 ans d\'expérience, nous réalisons des infrastructures complexes et durables qui améliorent la vie des communautés et soutiennent la croissance économique. Notre mission est de construire avec intégrité, innovation et un engagement indéfectible envers l\'excellence.', [Language.EN]: 'At SOCABEG, our construction expertise is the foundation of our contribution to national development. With over 35 years of experience, we deliver complex and sustainable infrastructure that improves community life and supports economic growth. Our mission is to build with integrity, innovation, and an unwavering commitment to excellence.' },
 
+  btpServicesNewTitle: { [Language.FR]: 'Nos Services de Construction', [Language.EN]: 'Our Construction Services' },
+  btpServicesNewSubtitle: { [Language.FR]: 'L\'excellence de la construction dans chaque projet.', [Language.EN]: 'Building excellence across every project.' },
   btpServicesTitle: { [Language.FR]: 'Nos Services de Construction', [Language.EN]: 'Our Construction Services' },
   btpService1Title: { [Language.FR]: 'Génie Civil et Infrastructures', [Language.EN]: 'Civil Engineering & Infrastructure' },
   btpService1Desc: { [Language.FR]: 'Construction de routes, ponts, et réseaux d\'assainissement pour connecter les territoires et stimuler le commerce.', [Language.EN]: 'Construction of roads, bridges, and sanitation networks to connect territories and boost trade.' },
@@ -170,7 +173,7 @@ export const content: LocalizedContent = {
   btpService3Title: { [Language.FR]: 'Aménagement Urbain', [Language.EN]: 'Urban Development' },
   btpService3Desc: { [Language.FR]: 'Viabilisation de terrains et développement de nouveaux quartiers, créant des espaces de vie de qualité.', [Language.EN]: 'Servicing land and developing new districts, creating quality living spaces.' },
   btpService4Title: { [Language.FR]: 'Gestion de Projet de Construction', [Language.EN]: 'Construction Project Management' },
-  btpService4Desc: { [Language.FR]: 'Une gestion de projet rigoureuse garantissant le respect des délais, des budgets et des normes de qualité les plus élevées.', [Language.EN]: 'Rigorous project management ensuring adherence to deadlines, budgets, and the highest quality standards.' },
+  btpService4Desc: { [Language.FR]: 'Une gestion de projet rigoureuse garantissant le respect des délais, des budgets et des normes de qualité.', [Language.EN]: 'Rigorous project management ensuring adherence to deadlines, budgets, and quality standards.' },
 
   btpApproachTitle: { [Language.FR]: 'Notre Approche : Excellence et Innovation', [Language.EN]: 'Our Approach: Excellence and Innovation' },
   btpApproachSafetyTitle: { [Language.FR]: 'Sécurité Avant Tout', [Language.EN]: 'Safety First' },
