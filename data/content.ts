@@ -176,6 +176,7 @@ export const content: LocalizedContent = {
   btpService4Desc: { [Language.FR]: 'Une gestion de projet rigoureuse garantissant le respect des délais, des budgets et des normes de qualité.', [Language.EN]: 'Rigorous project management ensuring adherence to deadlines, budgets, and quality standards.' },
 
   btpApproachTitle: { [Language.FR]: 'Notre Approche : Excellence et Innovation', [Language.EN]: 'Our Approach: Excellence and Innovation' },
+  btpApproachSubtitle: { [Language.FR]: 'Notre engagement envers la sécurité, la durabilité et la technologie de pointe.', [Language.EN]: 'Our commitment to safety, sustainability, and cutting-edge technology.' },
   btpApproachSafetyTitle: { [Language.FR]: 'Sécurité Avant Tout', [Language.EN]: 'Safety First' },
   btpApproachSafetyDesc: { [Language.FR]: 'Nous appliquons des protocoles de sécurité stricts sur tous nos chantiers pour garantir le bien-être de nos équipes et partenaires.', [Language.EN]: 'We apply strict safety protocols on all our sites to ensure the well-being of our teams and partners.' },
   btpApproachSustainabilityTitle: { [Language.FR]: 'Pratiques de Construction Durable', [Language.EN]: 'Sustainable Building Practices' },
