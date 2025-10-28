@@ -1,6 +1,6 @@
 
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useLocalization } from '../context/LocalizationContext';
 import { Link } from 'react-router-dom';
 import HeroSection from '../components/HeroSection';
@@ -127,20 +127,63 @@ const ProjectsSection: React.FC = () => {
 const TestimonialsSection: React.FC = () => {
     const { t } = useLocalization();
     const testimonials = [
-        { quoteKey: "btpTestimonial1Quote", nameKey: "btpTestimonial1Name" },
-        { quoteKey: "btpTestimonial2Quote", nameKey: "btpTestimonial2Name" },
+        { quoteKey: "testimonial1Quote", nameKey: "testimonial1Name" },
+        { quoteKey: "testimonial2Quote", nameKey: "testimonial2Name" },
+        { quoteKey: "testimonial3Quote", nameKey: "testimonial3Name" },
+        { quoteKey: "testimonial4Quote", nameKey: "testimonial4Name" },
+        { quoteKey: "testimonial5Quote", nameKey: "testimonial5Name" },
+        { quoteKey: "testimonial6Quote", nameKey: "testimonial6Name" }
     ];
+
+    const chunk = <T,>(arr: T[], size: number): T[][] =>
+        Array.from({ length: Math.ceil(arr.length / size) }, (v, i) =>
+            arr.slice(i * size, i * size + size)
+    );
+    
+    const testimonialPairs = chunk(testimonials, 2);
+    const numSlides = testimonialPairs.length;
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    const nextSlide = () => {
+        setCurrentIndex((prevIndex) =>
+            prevIndex === numSlides - 1 ? 0 : prevIndex + 1
+        );
+    };
+
+    const prevSlide = () => {
+        setCurrentIndex((prevIndex) =>
+            prevIndex === 0 ? numSlides - 1 : prevIndex - 1
+        );
+    };
+
     return (
         <div className="container mx-auto px-6 max-w-5xl">
             <h2 className="text-3xl md:text-4xl font-bold font-sans text-brand-primary mb-12 text-center">{t('btpTestimonialsTitle')}</h2>
-            <div className="grid md:grid-cols-2 gap-8">
-                {testimonials.map(testimonial => (
-                    <div key={testimonial.nameKey} className="bg-brand-light p-8 rounded-lg shadow-sm">
-                        <svg className="w-10 h-10 text-brand-secondary mx-auto mb-4" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true"><path d="M9.333 8h-5.333v8h5.333c0-4.418 3.582-8 8-8v-5.333c-7.364 0-13.333 5.97-13.333 13.333v10.667h13.333v-10.667h-8v-6zM29.333 8h-5.333v8h5.333c0-4.418 3.582-8 8-8v-5.333c-7.364 0-13.333 5.97-13.333 13.333v10.667h13.333v-10.667h-8v-6z"></path></svg>
-                        <blockquote className="text-lg text-brand-text italic leading-relaxed mb-6">“{t(testimonial.quoteKey)}”</blockquote>
-                        <cite className="not-italic font-semibold text-brand-primary font-sans">— {t(testimonial.nameKey)}</cite>
+            
+            <div className="relative">
+                <div className="overflow-hidden">
+                    <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+                        {testimonialPairs.map((pair, slideIndex) => (
+                            <div key={slideIndex} className="w-full flex-shrink-0 px-2">
+                                <div className="grid md:grid-cols-2 gap-8">
+                                    {pair.map((testimonial) => (
+                                        <div key={testimonial.nameKey} className="bg-brand-light p-8 rounded-lg shadow-sm text-center flex flex-col justify-center">
+                                            <svg className="w-10 h-10 text-brand-secondary mx-auto mb-4" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true"><path d="M9.333 8h-5.333v8h5.333c0-4.418 3.582-8 8-8v-5.333c-7.364 0-13.333 5.97-13.333 13.333v10.667h13.333v-10.667h-8v-6zM29.333 8h-5.333v8h5.333c0-4.418 3.582-8 8-8v-5.333c-7.364 0-13.333 5.97-13.333 13.333v10.667h13.333v-10.667h-8v-6z"></path></svg>
+                                            <blockquote className="text-lg text-brand-text italic leading-relaxed mb-6">“{t(testimonial.quoteKey)}”</blockquote>
+                                            <cite className="not-italic font-semibold text-brand-primary font-sans">— {t(testimonial.nameKey)}</cite>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
                     </div>
-                ))}
+                </div>
+                <button onClick={prevSlide} className="absolute top-1/2 -translate-y-1/2 -left-4 text-brand-primary bg-white hover:bg-gray-100 rounded-full p-3 shadow-md focus:outline-none focus:ring-2 focus:ring-brand-secondary transition" aria-label={t('prevTestimonialAria')}>
+                    <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+                </button>
+                <button onClick={nextSlide} className="absolute top-1/2 -translate-y-1/2 -right-4 text-brand-primary bg-white hover:bg-gray-100 rounded-full p-3 shadow-md focus:outline-none focus:ring-2 focus:ring-brand-secondary transition" aria-label={t('nextTestimonialAria')}>
+                    <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                </button>
             </div>
         </div>
     );
