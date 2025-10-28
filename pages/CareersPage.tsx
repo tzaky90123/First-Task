@@ -1,7 +1,8 @@
 
+
 import React from 'react';
 import { useLocalization } from '../context/LocalizationContext';
-import PageHero from '../components/PageHero';
+import HeroSection from '../components/HeroSection';
 import SmoothScrollLayout from '../components/SmoothScrollLayout';
 import FullScreenSection from '../components/FullScreenSection';
 import Footer from '../components/Footer';
@@ -11,11 +12,7 @@ const CareersPage: React.FC = () => {
 
   return (
     <SmoothScrollLayout>
-      <PageHero
-        title={t('careersHeroTitle')}
-        subtitle={t('careersHeroSubtitle')}
-        imageUrl="https://picsum.photos/1920/1080?random=19"
-      />
+      <HeroSection />
       <FullScreenSection className="bg-white py-16 md:py-20">
         <div className="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
              <div className="order-2 md:order-1">
