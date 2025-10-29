@@ -9,6 +9,7 @@ export const content: LocalizedContent = {
   navMines: { [Language.FR]: 'Mines', [Language.EN]: 'Mining' },
   navCareers: { [Language.FR]: 'Carrières', [Language.EN]: 'Careers' },
   navContact: { [Language.FR]: 'Contact', [Language.EN]: 'Contact' },
+  navDashboard: { [Language.FR]: 'Tableau de Bord', [Language.EN]: 'Dashboard' },
 
   // Header
   headerMenuLabel: { [Language.FR]: 'Menu', [Language.EN]: 'Menu' },

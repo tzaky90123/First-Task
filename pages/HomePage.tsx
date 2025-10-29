@@ -264,126 +264,158 @@ const ProgramSection: React.FC = () => {
     );
 };
 
-const StatisticsIcon = () => (
-    <img src="https://socabeg.com/favicon.png" alt="" className="h-5 w-5 mr-2" aria-hidden="true" />
+
+// --- START: New Statistics Section (based on reference image) ---
+
+const IconPlots = ({ className = "w-10 h-10" }: { className?: string }) => (
+    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="1.5">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955a1.125 1.125 0 011.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h7.5" />
+    </svg>
+);
+const IconEmployees = ({ className = "w-10 h-10" }: { className?: string }) => (
+    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="1.5">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+    </svg>
+);
+const IconRoads = ({ className = "w-10 h-10" }: { className?: string }) => (
+     <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="1.5">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-3h6M3 12h18" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 6.75A2.25 2.25 0 015.25 4.5h13.5A2.25 2.25 0 0121 6.75v10.5A2.25 2.25 0 0118.75 19.5H5.25A2.25 2.25 0 013 17.25V6.75z" />
+    </svg>
+);
+const IconLand = ({ className = "w-10 h-10" }: { className?: string }) => (
+    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="1.5">
+       <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21L12 3l9.75 18H2.25z" />
+       <path strokeLinecap="round" strokeLinejoin="round" d="M12 21V3M3.75 15.75h16.5" />
+    </svg>
+);
+const IconSubsidiaries = ({ className = "w-10 h-10" }: { className?: string }) => (
+    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="1.5">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18M18.75 3v18M9 6.75h6.375M9 12.75h6.375M9 18.75h6.375" />
+    </svg>
+);
+
+
+const SocabegBarChart = () => {
+    const data = [
+        { value: 40, color: 'bg-blue-200' },
+        { value: 70, color: 'bg-brand-primary' },
+        { value: 50, color: 'bg-blue-200' },
+        { value: 85, color: 'bg-brand-primary' },
+    ];
+    const maxValue = 100;
+
+    return (
+        <div className="w-full h-full flex items-center justify-center p-8">
+            <div className="h-full w-full max-w-md flex items-end justify-around space-x-6">
+                {data.map((d, i) => (
+                    <div key={i} className="flex-grow flex items-end h-full">
+                        <div
+                            className={`w-full ${d.color} rounded-md transition-opacity duration-300 ease-out hover:opacity-75`}
+                            style={{ height: `${(d.value / maxValue) * 100}%` }}
+                        ></div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
+
+const GenericChartDisplay = ({ title }: { title: string }) => (
+    <div className="w-full h-full flex flex-col items-center justify-center p-8">
+         <h3 className="text-xl font-bold text-deep-purple mb-4">{title}</h3>
+         <div className="text-gray-300">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-24 w-24" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}><path strokeLinecap="round" strokeLinejoin="round" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" /><path strokeLinecap="round" strokeLinejoin="round" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" /></svg>
+         </div>
+        <p className="mt-4 text-gray-600">Data visualization for this service.</p>
+    </div>
 );
 
 const StatisticsSection: React.FC = () => {
     const { t } = useLocalization();
-    const [selectedIndex, setSelectedIndex] = useState<number>(0);
+    const [selectedStat, setSelectedStat] = useState<string>('plots');
 
-    const ParcelsChart = () => (
-        <div className="flex items-end h-48 space-x-4 justify-center p-4">
-            <div className="w-8 bg-blue-200 rounded-t-lg" style={{ height: '30%' }} title="2020"></div>
-            <div className="w-8 bg-blue-200 rounded-t-lg" style={{ height: '50%' }} title="2021"></div>
-            <div className="w-8 bg-brand-primary rounded-t-lg" style={{ height: '80%' }} title="2022"></div>
-            <div className="w-8 bg-blue-200 rounded-t-lg" style={{ height: '60%' }} title="2023"></div>
-            <div className="w-8 bg-brand-primary rounded-t-lg" style={{ height: '95%' }} title="2024"></div>
-        </div>
-    );
+    const statsData = {
+        plots: {
+            title: "+ 2,000",
+            descriptionKey: "stat1Label",
+            icon: IconPlots,
+            chartComponent: SocabegBarChart,
+        },
+        employees: {
+            title: "+ 150",
+            descriptionKey: "stat3Label",
+            icon: IconEmployees,
+            chartComponent: () => <GenericChartDisplay title={t("stat3Label")} />,
+        },
+        roads: {
+            title: "+ 200 km",
+            descriptionKey: "stat4Label",
+            icon: IconRoads,
+            chartComponent: () => <GenericChartDisplay title={t("stat4Label")} />,
+        },
+        land: {
+            title: "+ 100 ha",
+            descriptionKey: "stat5Label",
+            icon: IconLand,
+            chartComponent: () => <GenericChartDisplay title={t("stat5Label")} />,
+        },
+        subsidiaries: {
+            title: "02",
+            descriptionKey: "stat2Label",
+            icon: IconSubsidiaries,
+            chartComponent: () => <GenericChartDisplay title={t("stat2Label")} />,
+        }
+    };
 
-    const EmployeesChart = () => (
-        <div className="relative h-48 w-full p-4">
-            <svg className="absolute bottom-0 left-0 w-full h-full p-4" viewBox="0 0 100 50" preserveAspectRatio="none">
-                <path d="M0,50 L20,40 L40,45 L60,30 L80,35 L100,20 L100,50 Z" fill="rgba(0, 82, 204, 0.1)" />
-                <path d="M0,50 L20,40 L40,45 L60,30 L80,35 L100,20" stroke="#0052CC" strokeWidth="1.5" fill="none" vectorEffect="non-scaling-stroke" />
-            </svg>
-            <div className="absolute bottom-2 left-4 text-xs text-gray-400">2020</div>
-            <div className="absolute bottom-2 right-4 text-xs text-gray-400">2024</div>
-        </div>
-    );
-    
-    const InfrastructureChart = () => (
-        <div className="h-48 flex flex-col justify-center space-y-6 p-4">
-            <div className="w-full h-4 bg-blue-100 rounded-full"><div className="h-4 bg-brand-primary rounded-full" style={{ width: '85%' }}></div></div>
-            <div className="w-full h-4 bg-blue-100 rounded-full"><div className="h-4 bg-brand-primary rounded-full" style={{ width: '95%' }}></div></div>
-            <div className="w-full h-4 bg-blue-100 rounded-full"><div className="h-4 bg-brand-primary rounded-full" style={{ width: '75%' }}></div></div>
-        </div>
-    );
-
-    const LandChart = () => (
-         <div className="flex items-center justify-center p-4 space-x-8 h-48">
-            <div 
-              className="w-32 h-32 rounded-full flex overflow-hidden shadow-inner relative"
-              style={{ background: 'conic-gradient(#0052CC 0% 60%, #5d8fde 60% 85%, #b1c9ef 85% 100%)' }}
-            >
-              <div className="absolute inset-0 rounded-full bg-white m-8"></div>
-            </div>
-            <div className="text-left text-base space-y-3">
-                <div className="flex items-center"><span className="w-4 h-4 rounded-sm bg-[#0052CC] mr-3"></span>Résidentiel</div>
-                <div className="flex items-center"><span className="w-4 h-4 rounded-sm bg-[#5d8fde] mr-3"></span>Commercial</div>
-                <div className="flex items-center"><span className="w-4 h-4 rounded-sm bg-[#b1c9ef] mr-3"></span>Industriel</div>
-            </div>
-        </div>
-    );
-
-    const SubsidiariesChart = () => (
-        <div className="flex items-center justify-center p-4 space-x-8 h-48">
-            <div 
-              className="w-32 h-32 rounded-full flex overflow-hidden shadow-inner relative"
-              style={{ background: 'conic-gradient(#0052CC 0% 50%, #C5A43C 50% 100%)' }}
-            >
-              <div className="absolute inset-0 rounded-full bg-white m-8"></div>
-            </div>
-            <div className="text-left text-base space-y-3">
-                <div className="flex items-center"><span className="w-4 h-4 rounded-sm bg-brand-primary mr-3"></span>Keur Invest</div>
-                <div className="flex items-center"><span className="w-4 h-4 rounded-sm bg-brand-secondary mr-3"></span>SOCABEG Mining</div>
-            </div>
-        </div>
-    );
-    
-    const statsData = [
-        { value: "+ 2,000", labelKey: "stat1Label", chart: <ParcelsChart /> },
-        { value: "+ 150", labelKey: "stat3Label", chart: <EmployeesChart /> },
-        { value: "+ 200 km", labelKey: "stat4Label", chart: <InfrastructureChart /> },
-        { value: "+ 100 ha", labelKey: "stat5Label", chart: <LandChart /> },
-        { value: "02", labelKey: "stat2Label", chart: <SubsidiariesChart /> }
-    ];
-    
-    const selectedChart = statsData[selectedIndex]?.chart;
+    const SelectedChart = statsData[selectedStat]?.chartComponent;
 
     return (
         <div className="container mx-auto px-5 lg:px-20">
-            <div className="text-center mb-12 md:mb-16">
-                <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
-                    <StatisticsIcon />
-                    <span>{t('statisticsSectionTitle')}</span>
-                </h3>
-                <h2 className="text-2xl font-bold font-sans text-black">
+             <div className="text-center mb-12 md:mb-16">
+                 <h2 className="text-4xl font-bold text-gray-800">{t('statisticsSectionTitle')}</h2>
+                 <p className="mt-4 text-lg max-w-2xl mx-auto text-gray-600">
                     {t('statisticsSectionHeadline')}
-                </h2>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-start">
-                {/* Left Column: Stat Selectors */}
-                <div className="lg:col-span-1 space-y-4">
-                    {statsData.map((stat, index) => (
-                        <button
-                            key={index}
-                            onClick={() => setSelectedIndex(index)}
-                            className={`w-full p-6 text-left rounded-lg transition-all duration-300 border-l-4 ${
-                                selectedIndex === index
-                                    ? 'bg-white shadow-lg border-brand-primary'
-                                    : 'bg-gray-50 hover:bg-white hover:shadow-md border-transparent'
-                            }`}
-                        >
-                            <span className="text-3xl font-bold text-brand-primary font-sans">{stat.value}</span>
-                            <p className="text-brand-text mt-1">{t(stat.labelKey)}</p>
-                        </button>
-                    ))}
+                 </p>
+             </div>
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
+                <div className="lg:col-span-2 flex flex-col gap-4">
+                    {Object.entries(statsData).map(([key, data]) => {
+                        const isActive = selectedStat === key;
+                        const Icon = data.icon;
+                        return (
+                            <div
+                                key={key}
+                                onClick={() => setSelectedStat(key)}
+                                className={`flex items-start p-5 rounded-2xl cursor-pointer transition-all duration-300 ease-in-out transform hover:-translate-y-1 ${
+                                    isActive 
+                                    ? 'bg-brand-primary text-white shadow-xl' 
+                                    : 'bg-white shadow-lg hover:shadow-xl'
+                                }`}
+                            >
+                                <div className={`flex-shrink-0 p-3 rounded-lg ${isActive ? 'bg-white/10' : 'bg-gray-100'}`}>
+                                    <Icon className={`w-8 h-8 ${isActive ? 'text-white' : 'text-gray-600'}`} />
+                                </div>
+                                <div className="ml-4">
+                                    <h3 className={`font-bold ${isActive ? 'text-white' : 'text-gray-800'}`}>{data.title}</h3>
+                                    <p className={`text-sm mt-1 ${isActive ? 'text-gray-200' : 'text-gray-500'}`}>{t(data.descriptionKey)}</p>
+                                </div>
+                            </div>
+                        );
+                    })}
                 </div>
-
-                {/* Right Column: Chart Display */}
-                <div className="lg:col-span-2 bg-white p-4 sm:p-6 rounded-lg shadow-lg min-h-[350px] flex items-center justify-center">
-                    {/* Add key to re-trigger animation */}
-                    <div key={selectedIndex} className="w-full animate-fade-in-up">
-                        {selectedChart}
-                    </div>
+                <div className="lg:col-span-3 lg:sticky lg:top-24 h-[450px]">
+                    {SelectedChart && (
+                        <div key={selectedStat} className="bg-white rounded-2xl shadow-xl w-full h-full animate-fade-in-up">
+                            <SelectedChart />
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
     );
 };
+// --- END: New Statistics Section ---
 
 
 const WhyChooseUsSection: React.FC = () => {
@@ -634,7 +666,7 @@ const HomePage: React.FC = () => {
       <FullScreenSection className="bg-white py-12"><PartnersSection /></FullScreenSection>
       <FullScreenSection className="bg-brand-light py-16 md:py-20"><MasterpiecesSection /></FullScreenSection>
       <FullScreenSection className="bg-white py-16 md:py-20"><ProgramSection /></FullScreenSection>
-      <FullScreenSection className="bg-brand-light py-16"><StatisticsSection /></FullScreenSection>
+      <FullScreenSection className="bg-gray-50 py-16 md:py-20"><StatisticsSection /></FullScreenSection>
       <FullScreenSection className="bg-white py-16 md:py-20"><WhyChooseUsSection /></FullScreenSection>
       <FullScreenSection className="bg-brand-light py-16 md:py-20"><TestimonialsSection /></FullScreenSection>
       <section className="w-full">

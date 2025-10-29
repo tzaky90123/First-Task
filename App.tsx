@@ -11,6 +11,7 @@ import RealEstatePage from './pages/RealEstatePage';
 import MinesPage from './pages/MinesPage';
 import CareersPage from './pages/CareersPage';
 import ContactPage from './pages/ContactPage';
+import DashboardPage from './pages/DashboardPage';
 
 interface LoadingScreenProps {
   isLoading: boolean;
@@ -81,6 +82,7 @@ const App: React.FC = () => {
               <Route path="/mines" element={<MinesPage />} />
               <Route path="/carrieres" element={<CareersPage />} />
               <Route path="/contact" element={<ContactPage />} />
+              <Route path="/dashboard" element={<DashboardPage />} />
             </Routes>
           </main>
           {/* Footer is now handled within each page's SmoothScrollLayout to ensure correct positioning. */}

@@ -11,6 +11,7 @@ const allNavLinks: NavLinkType[] = [
     { label: 'navMines', path: '/mines' },
     { label: 'navCareers', path: '/carrieres' },
     { label: 'navContact', path: '/contact' },
+    { label: 'navDashboard', path: '/dashboard' },
 ];
 
 const Header: React.FC = () => {
