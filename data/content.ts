@@ -199,9 +199,10 @@ export const content: LocalizedContent = {
   btpTestimonial2Quote: { [Language.FR]: '"SOCABEG a livré le pont en avance sur le calendrier et dans le respect du budget. Leur professionnalisme et leurs pratiques de construction durable sont une référence dans le secteur."', [Language.EN]: '"SOCABEG delivered the bridge ahead of schedule and within budget. Their professionalism and sustainable building practices are a benchmark in the industry."' },
   btpTestimonial2Name: { [Language.FR]: 'AGUEROUTE Sénégal', [Language.EN]: 'AGUEROUTE Senegal' },
 
-  btpCtaTitle: { [Language.FR]: 'Donnons vie à votre projet d\'infrastructure', [Language.EN]: 'Let\'s Bring Your Infrastructure Project to Life' },
-  btpCtaText: { [Language.FR]: 'Vous avez un projet de construction d\'envergure ? Contactez notre équipe d\'experts pour discuter de vos besoins et obtenir une soumission personnalisée.', [Language.EN]: 'Do you have a large-scale construction project? Contact our team of experts to discuss your needs and get a personalized quote.' },
+  btpCtaTitle: { [Language.FR]: 'Donnons vie à votre projet d\'infrastructure.', [Language.EN]: 'Let\'s Bring Your Infrastructure Project to Life.' },
+  btpCtaText: { [Language.FR]: 'Vous avez un projet de construction d\'envergure ? Contactez notre équipe d\'experts pour discuter de vos besoins et obtenir un devis personnalisé.', [Language.EN]: 'Do you have a large-scale construction project? Contact our team of experts to discuss your needs and get a personalized quote.' },
   btpCtaButton: { [Language.FR]: 'Demander une soumission', [Language.EN]: 'Request a Quote' },
+  btpContactHeader: { [Language.FR]: 'CONTACT', [Language.EN]: 'CONTACT' },
 
   // Real Estate Page
   reHeroTitle: { [Language.FR]: 'Immobilier de Prestige', [Language.EN]: 'Premium Real Estate' },
@@ -211,6 +212,12 @@ export const content: LocalizedContent = {
   reIntroTypeResidential: { [Language.FR]: 'Résidentiel', [Language.EN]: 'Residential' },
   reIntroTypeCommercial: { [Language.FR]: 'Commercial', [Language.EN]: 'Commercial' },
   reIntroTypeMixedUse: { [Language.FR]: 'Usage Mixte', [Language.EN]: 'Mixed-Use' },
+  reIntroFeature1Title: { [Language.FR]: 'Design Innovant', [Language.EN]: 'Innovative Design' },
+  reIntroFeature1Desc: { [Language.FR]: 'Des concepts architecturaux avant-gardistes qui définissent les tendances de demain.', [Language.EN]: 'Forward-thinking architectural concepts that define tomorrow\'s trends.' },
+  reIntroFeature2Title: { [Language.FR]: 'Fonctionnalité Supérieure', [Language.EN]: 'Superior Functionality' },
+  reIntroFeature2Desc: { [Language.FR]: 'Des espaces optimisés pour le confort, la productivité et un style de vie moderne.', [Language.EN]: 'Spaces optimized for comfort, productivity, and a modern lifestyle.' },
+  reIntroFeature3Title: { [Language.FR]: 'Intégration Harmonieuse', [Language.EN]: 'Harmonious Integration' },
+  reIntroFeature3Desc: { [Language.FR]: 'Des projets qui respectent et valorisent leur environnement naturel et urbain.', [Language.EN]: 'Projects that respect and enhance their natural and urban surroundings.' },
   rePortfolioTitle: { [Language.FR]: 'Un Portefeuille de Projets Emblématiques', [Language.EN]: 'A Portfolio of Iconic Projects' },
   rePortfolioSubtitle: { [Language.FR]: 'Chaque projet est une nouvelle histoire, conçue pour répondre aux aspirations de nos clients et enrichir le paysage urbain.', [Language.EN]: 'Each project is a new story, designed to meet the aspirations of our clients and enrich the urban landscape.' },
   reProjectBalenaFeatures: { [Language.FR]: 'Villas de luxe, jardins privés, sécurité 24/7, piscine commune.', [Language.EN]: 'Luxury villas, private gardens, 24/7 security, communal pool.' },

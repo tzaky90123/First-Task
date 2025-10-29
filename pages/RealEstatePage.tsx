@@ -1,6 +1,6 @@
 
 
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocalization } from '../context/LocalizationContext';
 import HeroSection from '../components/HeroSection';
@@ -12,27 +12,55 @@ import Footer from '../components/Footer';
 const IconLeaf = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-brand-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c1.356 0 2.682-.25 3.934-.712M12 21c-1.356 0-2.682-.25-3.934-.712m0 0A12.005 12.005 0 0112 12c1.325 0 2.618.196 3.826.565m0 0a8.956 8.956 0 01-2.223 2.223M15.826 12.565a8.956 8.956 0 012.223 2.223m0 0A9 9 0 105.174 8.174M15.826 12.565A8.956 8.956 0 0118 14.5m-8.174-6.326A8.956 8.956 0 016 9.5m0 0a8.956 8.956 0 01-2.223-2.223M6 9.5A8.956 8.956 0 013.777 7.277m0 0A9 9 0 1018.826 15.826" /></svg>;
 const IconBolt = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-brand-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>;
 const IconDroplet = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-brand-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M12 21.75c4.836 0 8.75-3.914 8.75-8.75S16.836 4.25 12 4.25 3.25 8.164 3.25 13c0 4.836 3.914 8.75 8.75 8.75z" /></svg>;
-const IconSmartHome = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-brand-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h1.5m18 0h-18M2.25 9l4.5-1.636M18.75 3l-1.5.545m0 6.205l3 1M3 7.5l3 1m18 0l-3-1m-15 0l-3 1m15-6.5l-3 1.125" /></svg>;
-const IconPark = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-brand-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-3.5-3.5 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" /><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12c0-5.239-4.261-9.5-9.5-9.5S.5 6.761.5 12s4.261 9.5 9.5 9.5 9.5-4.239 9.5-9.5z" /><path strokeLinecap="round" strokeLinejoin="round" d="M15.5 12a6 6 0 01-6 6" /></svg>;
-const IconShield = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-brand-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.286zm0 13.036h.008v.008h-.008v-.008z" /></svg>;
+
+// --- New/Updated Icons for Redesigned Sections ---
+const IconDesign = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-brand-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zm-7.518-.267A8.25 8.25 0 1120.25 10.5M8.288 14.212A5.25 5.25 0 1117.25 10.5" /></svg>;
+const IconFunctionality = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-brand-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>;
+const IconIntegration = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-brand-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18A2.25 2.25 0 004.5 21h15a2.25 2.25 0 002.25-2.25V5.25A2.25 2.25 0 0019.5 3h-15A2.25 2.25 0 002.25 5.25v18zm11.25-18v18" /></svg>;
+const IconSmartHome = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-brand-primary transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h1.5m18 0h-18M2.25 9l4.5-1.636M18.75 3l-1.5.545m0 6.205l3 1M3 7.5l3 1m18 0l-3-1m-15 0l-3 1m15-6.5l-3 1.125" /></svg>;
+const IconPark = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-brand-primary transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M12 21.75c-2.43.95-5.035-.116-6.48-2.232-1.445-2.116-1.59-4.942-.35-7.232l5.53-9.955a.75.75 0 011.51 0l5.53 9.955c1.24 2.29 1.095 5.116-.35 7.232-1.445 2.116-4.05 3.182-6.48 2.232z" /></svg>;
+const IconShield = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-brand-primary transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.286zm0 13.036h.008v.008h-.008v-.008z" /></svg>;
+
 
 // --- Page Sections ---
 
 const IntroductionSection: React.FC = () => {
     const { t } = useLocalization();
+
+    const features = [
+        { icon: <IconDesign />, titleKey: 'reIntroFeature1Title', descKey: 'reIntroFeature1Desc' },
+        { icon: <IconFunctionality />, titleKey: 'reIntroFeature2Title', descKey: 'reIntroFeature2Desc' },
+        { icon: <IconIntegration />, titleKey: 'reIntroFeature3Title', descKey: 'reIntroFeature3Desc' },
+    ];
+
     return (
-        <div className="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-            <div>
-                <h2 className="text-3xl md:text-4xl font-bold font-sans text-brand-primary mb-4">{t('reIntroTitle')}</h2>
-                <p className="text-lg text-brand-text leading-relaxed mb-6">{t('reIntroText')}</p>
-                <div className="flex flex-wrap gap-3">
-                    <span className="bg-brand-primary/10 text-brand-primary font-semibold px-4 py-2 rounded-full text-sm">{t('reIntroTypeResidential')}</span>
-                    <span className="bg-brand-primary/10 text-brand-primary font-semibold px-4 py-2 rounded-full text-sm">{t('reIntroTypeCommercial')}</span>
-                    <span className="bg-brand-primary/10 text-brand-primary font-semibold px-4 py-2 rounded-full text-sm">{t('reIntroTypeMixedUse')}</span>
+        <div className="container mx-auto px-6 py-16 md:py-0">
+            <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+                <div className="animate-fade-in-up">
+                    <h2 className="text-4xl md:text-5xl font-bold font-sans text-brand-navy mb-6">{t('reIntroTitle')}</h2>
+                    <p className="text-lg text-brand-text-gray leading-relaxed mb-8">{t('reIntroText')}</p>
+                    
+                    <div className="space-y-6 mb-8">
+                        {features.map((feature, index) => (
+                            <div key={index} className="flex items-start">
+                                <div className="flex-shrink-0">{feature.icon}</div>
+                                <div className="ml-5">
+                                    <h3 className="text-lg font-bold text-brand-dark">{t(feature.titleKey)}</h3>
+                                    <p className="text-brand-text-gray mt-1 text-sm leading-relaxed">{t(feature.descKey)}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                    
+                    <div className="flex flex-wrap gap-3">
+                        <span className="bg-white border border-gray-200 text-brand-text-gray font-semibold px-4 py-2 rounded-full text-sm transition-all duration-300 hover:shadow-md hover:border-brand-primary/50">{t('reIntroTypeResidential')}</span>
+                        <span className="bg-white border border-gray-200 text-brand-text-gray font-semibold px-4 py-2 rounded-full text-sm transition-all duration-300 hover:shadow-md hover:border-brand-primary/50">{t('reIntroTypeCommercial')}</span>
+                        <span className="bg-white border border-gray-200 text-brand-text-gray font-semibold px-4 py-2 rounded-full text-sm transition-all duration-300 hover:shadow-md hover:border-brand-primary/50">{t('reIntroTypeMixedUse')}</span>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <img src="https://images.pexels.com/photos/164558/pexels-photo-164558.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Modern real estate" className="rounded-lg shadow-xl w-full h-auto object-cover"/>
+                <div className="animate-fade-in-up animation-delay-300">
+                    <img src="https://images.pexels.com/photos/259962/pexels-photo-259962.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Modern architectural home" className="rounded-xl shadow-2xl w-full h-auto object-cover"/>
+                </div>
             </div>
         </div>
     );
@@ -110,16 +138,22 @@ const AmenitiesSection: React.FC = () => {
     ];
     return (
         <div className="container mx-auto px-6">
-            <div className="text-center max-w-3xl mx-auto mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold font-sans text-brand-primary mb-4">{t('reAmenitiesTitle')}</h2>
-                <p className="text-lg text-brand-text leading-relaxed">{t('reAmenitiesText')}</p>
+            <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in-up">
+                <h2 className="text-3xl md:text-4xl font-bold font-sans text-brand-navy mb-4">{t('reAmenitiesTitle')}</h2>
+                <p className="text-lg text-brand-text-gray leading-relaxed">{t('reAmenitiesText')}</p>
             </div>
-            <div className="grid md:grid-cols-3 gap-8">
-                {amenities.map(a => (
-                     <div key={a.titleKey} className="bg-white p-8 rounded-lg shadow-sm text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                        <div className="mx-auto mb-4">{a.icon}</div>
-                        <h3 className="text-xl font-bold text-brand-primary mb-2">{t(a.titleKey)}</h3>
-                        <p className="text-brand-text text-sm">{t(a.descKey)}</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {amenities.map((amenity, index) => (
+                    <div
+                        key={amenity.titleKey}
+                        className="bg-white p-8 rounded-xl shadow-soft text-center transition-all duration-300 group hover:shadow-xl hover:-translate-y-2 animate-fade-in-up"
+                        style={{ animationDelay: `${150 * (index + 1)}ms` }}
+                    >
+                        <div className="mx-auto mb-6 w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center transition-all duration-300 group-hover:bg-brand-primary/10 group-hover:scale-110">
+                            {amenity.icon}
+                        </div>
+                        <h3 className="text-xl font-bold text-brand-navy mb-3">{t(amenity.titleKey)}</h3>
+                        <p className="text-sm text-brand-text-gray leading-relaxed">{t(amenity.descKey)}</p>
                     </div>
                 ))}
             </div>
@@ -127,37 +161,74 @@ const AmenitiesSection: React.FC = () => {
     );
 };
 
+
 const TestimonialsSection: React.FC = () => {
     const { t } = useLocalization();
     const testimonials = [
-        { quoteKey: "testimonial3Quote", nameKey: "testimonial3Name" }, { quoteKey: "testimonial4Quote", nameKey: "testimonial4Name" },
-        { quoteKey: "testimonial1Quote", nameKey: "testimonial1Name" }, { quoteKey: "testimonial5Quote", nameKey: "testimonial5Name" }
+        { quoteKey: "testimonial3Quote", nameKey: "testimonial3Name" },
+        { quoteKey: "testimonial4Quote", nameKey: "testimonial4Name" },
+        { quoteKey: "testimonial1Quote", nameKey: "testimonial1Name" },
+        { quoteKey: "testimonial5Quote", nameKey: "testimonial5Name" }
     ];
-    const chunk = <T,>(arr: T[], size: number): T[][] => Array.from({ length: Math.ceil(arr.length / size) }, (v, i) => arr.slice(i * size, i * size + size));
-    const testimonialPairs = chunk(testimonials, 2);
-    const [currentIndex, setCurrentIndex] = useState(0);
 
-    const goNext = useCallback(() => setCurrentIndex((prev) => (prev === testimonialPairs.length - 1 ? 0 : prev + 1)), [testimonialPairs.length]);
-    useEffect(() => { const interval = setInterval(goNext, 5000); return () => clearInterval(interval); }, [goNext]);
+    const chunk = <T,>(arr: T[], size: number): T[][] =>
+        Array.from({ length: Math.ceil(arr.length / size) }, (v, i) =>
+            arr.slice(i * size, i * size + size)
+    );
+    
+    const testimonialPairs = chunk(testimonials, 2);
+    const numSlides = testimonialPairs.length;
+
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const timeoutRef = useRef<number | null>(null);
+
+    const resetTimeout = useCallback(() => { if (timeoutRef.current) { clearTimeout(timeoutRef.current); } }, []);
+    
+    const goNext = useCallback(() => {
+        setCurrentIndex((prev) => (prev === numSlides - 1 ? 0 : prev + 1));
+    }, [numSlides]);
+
+    const goPrev = () => {
+        setCurrentIndex((prev) => (prev === 0 ? numSlides - 1 : prev - 1));
+    };
+
+    useEffect(() => {
+        resetTimeout();
+        timeoutRef.current = window.setTimeout(goNext, 5000);
+        return () => { resetTimeout(); };
+    }, [currentIndex, goNext, resetTimeout]);
 
     return (
-        <div className="container mx-auto px-6 max-w-6xl">
-            <h2 className="text-3xl md:text-4xl font-bold font-sans text-brand-primary mb-12 text-center">{t('reTestimonialsTitle')}</h2>
-            <div className="overflow-hidden relative">
-                <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
-                    {testimonialPairs.map((pair, slideIndex) => (
-                        <div key={slideIndex} className="w-full flex-shrink-0 px-2">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                {pair.map((testimonial, testimonialIndex) => (
-                                    <div key={testimonialIndex} className="bg-brand-light p-8 rounded-lg shadow-sm">
-                                        <blockquote className="text-lg text-brand-text italic leading-relaxed mb-6">“{t(testimonial.quoteKey)}”</blockquote>
-                                        <cite className="not-italic font-semibold text-brand-primary font-sans">— {t(testimonial.nameKey)}</cite>
-                                    </div>
-                                ))}
+        <div className="container mx-auto px-5 lg:px-20">
+            <div className="text-center mb-12 md:mb-16">
+                 <h2 className="text-3xl md:text-4xl font-bold font-sans text-brand-primary mb-12 text-center">{t('reTestimonialsTitle')}</h2>
+            </div>
+            <div className="relative">
+                <div className="overflow-hidden">
+                    <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+                        {testimonialPairs.map((pair, slideIndex) => (
+                            <div key={slideIndex} className="w-full flex-shrink-0 px-2 md:px-4">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                    {pair.map((testimonial, testimonialIndex) => (
+                                        <div key={testimonialIndex} className="bg-white px-8 py-4 md:px-10 md:py-6 rounded-lg shadow-sm text-center h-[400px] md:h-[340px] flex flex-col justify-center">
+                                            <div>
+                                              <svg className="w-10 h-10 text-brand-secondary mx-auto mb-4" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true"><path d="M9.333 8h-5.333v8h5.333c0-4.418 3.582-8 8-8v-5.333c-7.364 0-13.333 5.97-13.333 13.333v10.667h13.333v-10.667h-8v-6zM29.333 8h-5.333v8h5.333c0-4.418 3.582-8 8-8v-5.333c-7.364 0-13.333 5.97-13.333 13.333v10.667h13.333v-10.667h-8v-6z"></path></svg>
+                                              <blockquote className="text-lg text-brand-text italic leading-relaxed mb-6">“{t(testimonial.quoteKey)}”</blockquote>
+                                            </div>
+                                            <cite className="not-italic font-semibold text-brand-primary font-sans">— {t(testimonial.nameKey)}</cite>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
+                 <button onClick={goPrev} className="absolute top-1/2 -translate-y-1/2 left-0 md:-left-10 text-brand-primary bg-white hover:bg-gray-100 rounded-full p-3 shadow-md focus:outline-none focus:ring-2 focus:ring-brand-secondary transition" aria-label={t('prevTestimonialAria')}>
+                    <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+                </button>
+                <button onClick={goNext} className="absolute top-1/2 -translate-y-1/2 right-0 md:-right-10 text-brand-primary bg-white hover:bg-gray-100 rounded-full p-3 shadow-md focus:outline-none focus:ring-2 focus:ring-brand-secondary transition" aria-label={t('nextTestimonialAria')}>
+                    <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                </button>
             </div>
         </div>
     );
@@ -195,12 +266,12 @@ const RealEstatePage: React.FC = () => {
   return (
     <SmoothScrollLayout>
       <HeroSection />
-      <FullScreenSection className="bg-white py-16 md:py-20"><IntroductionSection /></FullScreenSection>
-      <FullScreenSection className="bg-brand-light py-16 md:py-20"><PortfolioSection /></FullScreenSection>
-      <FullScreenSection className="bg-white py-16 md:py-20"><SustainabilitySection /></FullScreenSection>
-      <FullScreenSection className="bg-brand-light py-16 md:py-20"><AmenitiesSection /></FullScreenSection>
-      <FullScreenSection className="bg-white py-16 md:py-20"><TestimonialsSection /></FullScreenSection>
-      <FullScreenSection className="bg-brand-light py-16 md:py-20"><MarketInsightSection /></FullScreenSection>
+      <FullScreenSection className="bg-brand-light py-16 md:py-20"><IntroductionSection /></FullScreenSection>
+      <FullScreenSection className="bg-white py-16 md:py-20"><PortfolioSection /></FullScreenSection>
+      <FullScreenSection className="bg-brand-light py-16 md:py-20"><SustainabilitySection /></FullScreenSection>
+      <FullScreenSection className="bg-white py-16 md:py-20"><AmenitiesSection /></FullScreenSection>
+      <FullScreenSection className="bg-brand-light py-16 md:py-20"><TestimonialsSection /></FullScreenSection>
+      <FullScreenSection className="bg-white py-16 md:py-20"><MarketInsightSection /></FullScreenSection>
       <FullScreenSection className="bg-brand-warm-light py-16 md:py-20"><CtaSection /></FullScreenSection>
       <Footer />
     </SmoothScrollLayout>
