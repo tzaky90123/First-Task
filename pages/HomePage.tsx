@@ -670,7 +670,7 @@ const HomePage: React.FC = () => {
     <>
       <HeroSection />
       <FullScreenSection className="bg-white py-16"><ExpertiseSection /></FullScreenSection>
-      <FullScreenSection><AboutSection /></FullScreenSection>
+      <FullScreenSection className="bg-gray-100 py-16 md:py-24"><AboutSection /></FullScreenSection>
       <FullScreenSection className="bg-white py-12"><PartnersSection /></FullScreenSection>
       <FullScreenSection className="bg-brand-light py-16 md:py-20"><MasterpiecesSection /></FullScreenSection>
       <FullScreenSection className="bg-white py-16 md:py-20"><ProgramSection /></FullScreenSection>
