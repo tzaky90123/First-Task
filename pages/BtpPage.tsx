@@ -242,12 +242,6 @@ const ContactSection: React.FC = () => {
     return (
       <div className="bg-brand-light py-16 md:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-base font-semibold text-brand-primary uppercase tracking-wider">{t('btpContactHeader')}</h2>
-            <p className="mt-2 text-3xl font-extrabold text-brand-dark tracking-tight sm:text-4xl">{t('btpCtaTitle')}</p>
-          </div>
-
           {/* Main Content: Card */}
           <div className="bg-white rounded-2xl shadow-2xl overflow-hidden lg:grid lg:grid-cols-5">
             {/* Left Side: Contact Info */}

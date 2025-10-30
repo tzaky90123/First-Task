@@ -299,22 +299,27 @@ const IconSubsidiaries = ({ className = "w-10 h-10" }: { className?: string }) =
 
 const SocabegBarChart = () => {
     const data = [
-        { value: 40, color: 'bg-blue-200' },
-        { value: 70, color: 'bg-brand-primary' },
-        { value: 50, color: 'bg-blue-200' },
-        { value: 85, color: 'bg-brand-primary' },
+        { value: 40, label: 'Q1', color: 'bg-brand-secondary/40' },
+        { value: 70, label: 'Q2', color: 'bg-brand-primary' },
+        { value: 50, label: 'Q3', color: 'bg-brand-secondary/60' },
+        { value: 85, label: 'Q4', color: 'bg-brand-primary/80' },
     ];
     const maxValue = 100;
 
     return (
-        <div className="w-full h-full flex items-center justify-center p-8">
-            <div className="h-full w-full max-w-md flex items-end justify-around space-x-6">
+        <div className="w-full h-full flex flex-col items-center justify-center p-8">
+            <h3 className="text-xl font-bold text-brand-navy mb-6">Parcelles Viabilisées (Trimestriel)</h3>
+            <div className="w-full h-full flex items-end justify-around space-x-4">
                 {data.map((d, i) => (
-                    <div key={i} className="flex-grow flex items-end h-full">
-                        <div
-                            className={`w-full ${d.color} rounded-md transition-opacity duration-300 ease-out hover:opacity-75`}
-                            style={{ height: `${(d.value / maxValue) * 100}%` }}
-                        ></div>
+                    <div key={i} className="flex-grow flex flex-col items-center h-full">
+                        <div className="flex-grow flex items-end w-full">
+                            <div
+                                className={`w-full ${d.color} rounded-t-lg transition-all duration-300 ease-out hover:opacity-75`}
+                                style={{ height: `${(d.value / maxValue) * 100}%` }}
+                                title={`Valeur: ${d.value}`}
+                            ></div>
+                        </div>
+                        <span className="text-xs text-gray-500 mt-2">{d.label}</span>
                     </div>
                 ))}
             </div>
@@ -323,12 +328,20 @@ const SocabegBarChart = () => {
 };
 
 const GenericChartDisplay = ({ title }: { title: string }) => (
-    <div className="w-full h-full flex flex-col items-center justify-center p-8">
-         <h3 className="text-xl font-bold text-deep-purple mb-4">{title}</h3>
-         <div className="text-gray-300">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-24 w-24" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}><path strokeLinecap="round" strokeLinejoin="round" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" /><path strokeLinecap="round" strokeLinejoin="round" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" /></svg>
-         </div>
-        <p className="mt-4 text-gray-600">Data visualization for this service.</p>
+    <div className="w-full h-full flex flex-col items-center justify-center p-8 text-center">
+        <h3 className="text-2xl font-bold text-brand-navy mb-4">{title}</h3>
+        <div className="w-full aspect-square p-4">
+            <svg width="100%" height="100%" viewBox="0 0 100 100" className="opacity-50">
+                {/* A decorative, abstract line chart */}
+                <path d="M 10 80 C 25 20, 40 90, 55 50 S 75 10, 90 60" fill="none" stroke="#C5A43C" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M 10 90 H 90" fill="none" stroke="#E5E7EB" strokeWidth="2"/>
+                <path d="M 10 10 V 90" fill="none" stroke="#E5E7EB" strokeWidth="2"/>
+                <circle cx="27" cy="45" r="3" fill="#0052CC" />
+                <circle cx="55" cy="50" r="3" fill="#0052CC" />
+                <circle cx="90" cy="60" r="3" fill="#0052CC" />
+            </svg>
+        </div>
+        <p className="mt-2 text-gray-500">Données détaillées disponibles dans nos rapports annuels.</p>
     </div>
 );
 
@@ -385,27 +398,27 @@ const StatisticsSection: React.FC = () => {
                         const isActive = selectedStat === key;
                         const Icon = data.icon;
                         return (
-                            <div
+                            <button
                                 key={key}
                                 onClick={() => setSelectedStat(key)}
-                                className={`flex items-start p-5 rounded-2xl cursor-pointer transition-all duration-300 ease-in-out transform hover:-translate-y-1 ${
-                                    isActive 
-                                    ? 'bg-brand-primary text-white shadow-xl' 
-                                    : 'bg-white shadow-lg hover:shadow-xl'
+                                className={`w-full text-left flex items-start p-5 rounded-xl cursor-pointer transition-all duration-300 ease-in-out group focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-primary ${
+                                    isActive
+                                    ? 'bg-brand-navy text-white shadow-lg scale-105'
+                                    : 'bg-white shadow-md hover:shadow-lg hover:-translate-y-1'
                                 }`}
                             >
-                                <div className={`flex-shrink-0 p-3 rounded-lg ${isActive ? 'bg-white/10' : 'bg-gray-100'}`}>
-                                    <Icon className={`w-8 h-8 ${isActive ? 'text-white' : 'text-gray-600'}`} />
+                                <div className={`flex-shrink-0 p-3 rounded-lg transition-colors duration-300 ${isActive ? 'bg-white/10' : 'bg-gray-100 group-hover:bg-brand-secondary/10'}`}>
+                                    <Icon className={`w-8 h-8 transition-colors duration-300 ${isActive ? 'text-white' : 'text-brand-navy group-hover:text-brand-primary'}`} />
                                 </div>
                                 <div className="ml-4">
-                                    <h3 className={`font-bold ${isActive ? 'text-white' : 'text-gray-800'}`}>{data.title}</h3>
-                                    <p className={`text-sm mt-1 ${isActive ? 'text-gray-200' : 'text-gray-500'}`}>{t(data.descriptionKey)}</p>
+                                    <h3 className={`font-bold transition-colors duration-300 ${isActive ? 'text-white' : 'text-brand-navy'}`}>{data.title}</h3>
+                                    <p className={`text-sm mt-1 transition-colors duration-300 ${isActive ? 'text-gray-200' : 'text-gray-500'}`}>{t(data.descriptionKey)}</p>
                                 </div>
-                            </div>
+                            </button>
                         );
                     })}
                 </div>
-                <div className="lg:col-span-3 lg:sticky lg:top-24 h-[450px]">
+                <div className="lg:col-span-3 lg:sticky lg:top-24 h-[550px]">
                     {SelectedChart && (
                         <div key={selectedStat} className="bg-white rounded-2xl shadow-xl w-full h-full animate-fade-in-up">
                             <SelectedChart />
@@ -547,7 +560,7 @@ const IconPhone = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w
 const IconEmail = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>;
 const IconLocationPin = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>;
 const IconLinkedinStyled = () => <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fillRule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clipRule="evenodd" /></svg>;
-const IconInstagramStyled = () => <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fillRule="evenodd" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664 4.771 4.919 4.919 1.266.058 1.644.07 4.85.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.058-1.689.072-4.948.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44s-.645-1.44-1.441-1.44z" clipRule="evenodd" /></svg>;
+const IconInstagramStyled = () => <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fillRule="evenodd" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664 4.771 4.919 4.919 1.266.058 1.644.07 4.85.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281-.073-1.689-.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.058-1.689.072-4.948.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44s-.645-1.44-1.441-1.44z" clipRule="evenodd" /></svg>;
 
 const InputField: React.FC<InputFieldProps> = ({ id, name, label, type, value, onChange, required }) => (
   <div>
@@ -585,12 +598,6 @@ const ContactCTASection: React.FC = () => {
     return (
       <div className="bg-brand-light py-16 md:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-base font-semibold text-brand-primary uppercase tracking-wider">{t('homeContactTitle')}</h2>
-            <p className="mt-2 text-3xl font-extrabold text-brand-dark tracking-tight sm:text-4xl">{t('homeContactSubtitle')}</p>
-          </div>
-
           {/* Main Content: Card */}
           <div className="bg-white rounded-2xl shadow-2xl overflow-hidden lg:grid lg:grid-cols-5">
             {/* Left Side: Contact Info */}
