@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import { useLocalization } from '../context/LocalizationContext';
 import { Link } from 'react-router-dom';
 import HeroSection from '../components/HeroSection';
-import SmoothScrollLayout from '../components/SmoothScrollLayout';
 import FullScreenSection from '../components/FullScreenSection';
 import Footer from '../components/Footer';
 
@@ -64,7 +63,7 @@ const ApproachSection: React.FC = () => {
         <div className="container mx-auto px-6">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
                 <div className="animate-fade-in-up">
-                    <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Collaboration and teamwork" className="rounded-lg shadow-xl w-full h-auto object-cover"/>
+                    <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Collaboration and teamwork" className="rounded-lg shadow-xl w-full h-auto object-cover" loading="lazy" width="576" height="384"/>
                 </div>
                 <div className="bg-gray-50/50 p-8 rounded-lg">
                     <h2 className="text-3xl md:text-4xl font-bold font-sans text-brand-blue-dark mb-3">{t('btpApproachTitle')}</h2>
@@ -107,7 +106,7 @@ const ProjectsSection: React.FC = () => {
                 {projects.map((p, index) => (
                     <div key={p.titleKey} className="group bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2" style={{ animation: `fadeInUp 0.5s ${index * 0.1}s ease-out both` }}>
                         <div className="relative overflow-hidden">
-                            <img src={p.image} alt={t(p.titleKey)} className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110" />
+                            <img src={p.image} alt={t(p.titleKey)} className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" width="400" height="224" />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                         </div>
                         <div className="p-6 flex flex-col flex-grow">
@@ -320,7 +319,7 @@ const ContactSection: React.FC = () => {
 
 const BtpPage: React.FC = () => {
   return (
-    <SmoothScrollLayout>
+    <>
       <HeroSection />
       <FullScreenSection className="blueprint-bg py-16 md:py-20">
         <ServicesSection />
@@ -338,7 +337,7 @@ const BtpPage: React.FC = () => {
         <ContactSection />
       </section>
       <Footer />
-    </SmoothScrollLayout>
+    </>
   );
 };
 

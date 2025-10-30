@@ -30,6 +30,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ showLearnMoreButton = true 
                                 src="https://socabeg.com/images/socabeg.jpg" 
                                 alt="Ingénieurs SOCABEG planifiant un projet" 
                                 className="rounded-lg shadow-xl w-full h-auto object-contain max-h-[400px]"
+                                loading="lazy" width="350" height="400"
                             />
                         </div>
                         <div className="md:col-span-3 flex flex-col p-6 md:p-8 rounded-lg relative bg-white shadow-lg">

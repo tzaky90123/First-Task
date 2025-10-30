@@ -65,7 +65,7 @@ const Header: React.FC = () => {
               className="p-1 focus:outline-none focus:ring-2 focus:ring-brand-secondary/70 rounded-md"
               onClick={() => setIsMenuOpen(false)}
             >
-              <img src="https://socabeg.com/logo.png" alt="SOCABEG Logo" className="h-8 md:h-10 w-auto logo-shadow" />
+              <img src="https://socabeg.com/logo.png" alt="SOCABEG Logo" className="h-8 md:h-10 w-auto logo-shadow" width="160" height="40" />
             </RouterNavLink>
           </div>
 

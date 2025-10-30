@@ -3,7 +3,6 @@
 import React from 'react';
 import { useLocalization } from '../context/LocalizationContext';
 import HeroSection from '../components/HeroSection';
-import SmoothScrollLayout from '../components/SmoothScrollLayout';
 import FullScreenSection from '../components/FullScreenSection';
 import Footer from '../components/Footer';
 
@@ -11,12 +10,12 @@ const CareersPage: React.FC = () => {
   const { t } = useLocalization();
 
   return (
-    <SmoothScrollLayout>
+    <>
       <HeroSection />
       <FullScreenSection className="bg-white py-16 md:py-20">
         <div className="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
              <div className="order-2 md:order-1">
-              <img src="https://picsum.photos/800/600?random=20" alt="Équipe collaborant" className="rounded-lg shadow-xl"/>
+              <img src="https://picsum.photos/800/600?random=20" alt="Équipe collaborant" className="rounded-lg shadow-xl" loading="lazy" width="800" height="600"/>
             </div>
            <div className="order-1 md:order-2">
               <h2 className="text-3xl font-bold font-sans text-brand-primary mb-4">{t('careersCultureTitle')}</h2>
@@ -33,7 +32,7 @@ const CareersPage: React.FC = () => {
           </div>
       </FullScreenSection>
       <Footer />
-    </SmoothScrollLayout>
+    </>
   );
 };
 

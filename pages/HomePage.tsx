@@ -4,7 +4,6 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocalization } from '../context/LocalizationContext';
 import Footer from '../components/Footer';
-import SmoothScrollLayout from '../components/SmoothScrollLayout';
 import FullScreenSection from '../components/FullScreenSection';
 import SectionLogoIcon from '../components/SectionLogoIcon';
 import AboutSection from '../components/AboutSection';
@@ -46,7 +45,7 @@ const ExpertiseSection: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <div key={index} className="bg-brand-light p-6 rounded-lg shadow-sm text-center transition-all duration-300 hover:shadow-lg flex flex-col justify-center">
-                <img src={service.icon} alt={t(service.titleKey)} className="h-12 w-12 mx-auto mb-6 opacity-75" />
+                <img src={service.icon} alt={t(service.titleKey)} className="h-12 w-12 mx-auto mb-6 opacity-75" width="48" height="48" loading="lazy" />
                 <h3 className="text-xl font-medium text-brand-primary mb-3 font-sans">{t(service.titleKey)}</h3>
                 <p className="text-brand-text text-sm leading-relaxed">{t(service.textKey)}</p>
               </div>
@@ -90,6 +89,7 @@ const PartnersSection: React.FC = () => {
                                 src={logo} 
                                 alt={`Partner logo ${index + 1}`} 
                                 className="max-h-20 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 partner-logo" 
+                                loading="lazy" height="80" width="160"
                             />
                         </div>
                     ))}
@@ -101,6 +101,7 @@ const PartnersSection: React.FC = () => {
                                 src={logo} 
                                 alt={`Partner logo ${index + 1 + row1Logos.length}`} 
                                 className="max-h-20 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 partner-logo" 
+                                loading="lazy" height="80" width="160"
                             />
                         </div>
                     ))}
@@ -159,7 +160,7 @@ const MasterpiecesSection: React.FC = () => {
             <div className="hidden md:grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {masterpieces.map((masterpiece, index) => (
                     <div key={index} className="group relative overflow-hidden rounded-lg shadow-lg h-[450px]">
-                        <img src={masterpiece.src} alt={t(masterpiece.titleKey)} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <img src={masterpiece.src} alt={t(masterpiece.titleKey)} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" width="400" height="450" />
                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
                          <div className="absolute bottom-0 left-0 p-6 text-white">
                             <h3 className="text-2xl font-medium">{t(masterpiece.titleKey)}</h3>
@@ -174,7 +175,7 @@ const MasterpiecesSection: React.FC = () => {
                     <div className="flex transition-transform ease-out duration-500" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
                         {masterpieces.map((masterpiece, index) => (
                             <div key={index} className="min-w-full h-[450px] sm:h-[500px] relative">
-                                <img src={masterpiece.src} alt={t(masterpiece.titleKey)} className="w-full h-full object-cover" />
+                                <img src={masterpiece.src} alt={t(masterpiece.titleKey)} className="w-full h-full object-cover" loading="lazy" width="500" height="500" />
                                 <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/70 to-transparent text-white">
                                     <h3 className="text-2xl font-medium">{t(masterpiece.titleKey)}</h3>
                                     <p className="text-sm">{t(masterpiece.descriptionKey)}</p>
@@ -241,7 +242,7 @@ const ProgramSection: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {programs.map((program, index) => (
                     <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                        <img src={program.image} alt={t(program.titleKey)} className="w-full h-56 object-cover" />
+                        <img src={program.image} alt={t(program.titleKey)} className="w-full h-56 object-cover" loading="lazy" width="400" height="224" />
                         <div className="p-6 flex flex-col flex-grow">
                             <h3 className="text-lg font-medium text-brand-primary font-sans">{t(program.titleKey)}</h3>
                             <p className="text-xs text-gray-500 mb-3">{t(program.typeKey)}</p>
@@ -442,7 +443,7 @@ const WhyChooseUsSection: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {values.map((value, index) => (
             <div key={index} className="bg-brand-light p-8 rounded-lg shadow-sm transition-all duration-300 hover:shadow-xl">
-              {value.icon && (<img src={value.icon} alt="" className="h-10 w-10 mb-4" />)}
+              {value.icon && (<img src={value.icon} alt="" className="h-10 w-10 mb-4" width="40" height="40" loading="lazy" />)}
               <div>
                 <h3 className="text-xl font-medium text-brand-primary mb-2 font-sans">{t(value.titleKey)}</h3>
                 <p className="text-brand-text text-sm leading-relaxed">{t(value.descriptionKey)}</p>
@@ -659,7 +660,7 @@ const ContactCTASection: React.FC = () => {
 
 const HomePage: React.FC = () => {
   return (
-    <SmoothScrollLayout>
+    <>
       <HeroSection />
       <FullScreenSection className="bg-white py-16"><ExpertiseSection /></FullScreenSection>
       <FullScreenSection><AboutSection /></FullScreenSection>
@@ -673,7 +674,7 @@ const HomePage: React.FC = () => {
         <ContactCTASection />
       </section>
       <Footer />
-    </SmoothScrollLayout>
+    </>
   );
 };
 

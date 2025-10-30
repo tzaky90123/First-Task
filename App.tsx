@@ -85,7 +85,6 @@ const App: React.FC = () => {
               <Route path="/dashboard" element={<DashboardPage />} />
             </Routes>
           </main>
-          {/* Footer is now handled within each page's SmoothScrollLayout to ensure correct positioning. */}
         </div>
       </HashRouter>
     </LocalizationProvider>

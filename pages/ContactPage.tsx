@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import { useLocalization } from '../context/LocalizationContext';
 import HeroSection from '../components/HeroSection';
-import SmoothScrollLayout from '../components/SmoothScrollLayout';
 import FullScreenSection from '../components/FullScreenSection';
 import Footer from '../components/Footer';
 
@@ -49,7 +48,7 @@ const ContactPage: React.FC = () => {
   };
 
   return (
-    <SmoothScrollLayout>
+    <>
       <HeroSection />
       <FullScreenSection className="bg-white py-16 md:py-20">
         <div className="container mx-auto px-6 grid md:grid-cols-2 gap-16">
@@ -100,7 +99,7 @@ const ContactPage: React.FC = () => {
         </div>
       </FullScreenSection>
       <Footer />
-    </SmoothScrollLayout>
+    </>
   );
 };
 

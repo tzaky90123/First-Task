@@ -4,7 +4,6 @@ import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocalization } from '../context/LocalizationContext';
 import HeroSection from '../components/HeroSection';
-import SmoothScrollLayout from '../components/SmoothScrollLayout';
 import FullScreenSection from '../components/FullScreenSection';
 import Footer from '../components/Footer';
 
@@ -59,7 +58,7 @@ const IntroductionSection: React.FC = () => {
                     </div>
                 </div>
                 <div className="animate-fade-in-up animation-delay-300">
-                    <img src="https://images.pexels.com/photos/259962/pexels-photo-259962.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Modern architectural home" className="rounded-xl shadow-2xl w-full h-auto object-cover"/>
+                    <img src="https://images.pexels.com/photos/259962/pexels-photo-259962.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Modern architectural home" className="rounded-xl shadow-2xl w-full h-auto object-cover" loading="lazy" width="576" height="384"/>
                 </div>
             </div>
         </div>
@@ -82,7 +81,7 @@ const PortfolioSection: React.FC = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {projects.map(p => (
                     <div key={p.titleKey} className="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 flex flex-col">
-                        <img src={p.image} alt={t(p.titleKey)} className="w-full h-56 object-cover" />
+                        <img src={p.image} alt={t(p.titleKey)} className="w-full h-56 object-cover" loading="lazy" width="400" height="224" />
                         <div className="p-6 flex-grow flex flex-col">
                             <h3 className="text-xl font-bold text-brand-primary mb-2">{t(p.titleKey)}</h3>
                             <p className="text-brand-text text-sm mb-4 flex-grow">{t(p.descKey)}</p>
@@ -108,7 +107,7 @@ const SustainabilitySection: React.FC = () => {
     return (
         <div className="container mx-auto px-6 grid md:grid-cols-5 gap-12 items-center">
             <div className="md:col-span-2">
-                 <img src="https://images.pexels.com/photos/439391/pexels-photo-439391.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Eco-friendly building" className="rounded-lg shadow-xl w-full"/>
+                 <img src="https://images.pexels.com/photos/439391/pexels-photo-439391.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Eco-friendly building" className="rounded-lg shadow-xl w-full" loading="lazy" width="576" height="384" />
             </div>
             <div className="md:col-span-3">
                 <h2 className="text-3xl md:text-4xl font-bold font-sans text-brand-primary mb-4">{t('reSustainabilityTitle')}</h2>
@@ -239,7 +238,7 @@ const MarketInsightSection: React.FC = () => {
     return (
         <div className="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1">
-                <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Modern interior design" className="rounded-lg shadow-xl w-full h-auto object-cover"/>
+                <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Modern interior design" className="rounded-lg shadow-xl w-full h-auto object-cover" loading="lazy" width="576" height="384"/>
             </div>
             <div className="order-1 md:order-2">
                 <h2 className="text-3xl md:text-4xl font-bold font-sans text-brand-primary mb-4">{t('reMarketTitle')}</h2>
@@ -264,7 +263,7 @@ const CtaSection: React.FC = () => {
 
 const RealEstatePage: React.FC = () => {
   return (
-    <SmoothScrollLayout>
+    <>
       <HeroSection />
       <FullScreenSection className="bg-brand-light py-16 md:py-20"><IntroductionSection /></FullScreenSection>
       <FullScreenSection className="bg-white py-16 md:py-20"><PortfolioSection /></FullScreenSection>
@@ -274,7 +273,7 @@ const RealEstatePage: React.FC = () => {
       <FullScreenSection className="bg-white py-16 md:py-20"><MarketInsightSection /></FullScreenSection>
       <FullScreenSection className="bg-brand-warm-light py-16 md:py-20"><CtaSection /></FullScreenSection>
       <Footer />
-    </SmoothScrollLayout>
+    </>
   );
 };
 

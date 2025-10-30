@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { useLocalization } from '../context/LocalizationContext';
-import SmoothScrollLayout from '../components/SmoothScrollLayout';
 import FullScreenSection from '../components/FullScreenSection';
 import Footer from '../components/Footer';
 import AboutSection from '../components/AboutSection';
@@ -43,6 +42,7 @@ const PartnersSection: React.FC = () => {
                                 src={logo} 
                                 alt={`Partner logo ${index + 1}`} 
                                 className="max-h-20 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 partner-logo" 
+                                loading="lazy" height="80" width="160"
                             />
                         </div>
                     ))}
@@ -54,6 +54,7 @@ const PartnersSection: React.FC = () => {
                                 src={logo} 
                                 alt={`Partner logo ${index + 1 + row1Logos.length}`} 
                                 className="max-h-20 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 partner-logo" 
+                                loading="lazy" height="80" width="160"
                             />
                         </div>
                     ))}
@@ -87,7 +88,7 @@ const ValuesSection: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {values.map((value, index) => (
             <div key={index} className="bg-white p-8 rounded-lg shadow-sm transition-all duration-300 hover:shadow-xl">
-              {value.icon && (<img src={value.icon} alt="" className="h-10 w-10 mb-4" />)}
+              {value.icon && (<img src={value.icon} alt="" className="h-10 w-10 mb-4" width="40" height="40" loading="lazy" />)}
               <div>
                 <h3 className="text-xl font-medium text-brand-primary mb-2 font-sans">{t(value.titleKey)}</h3>
                 <p className="text-brand-text text-sm leading-relaxed">{t(value.descriptionKey)}</p>
@@ -104,7 +105,7 @@ const AboutPage: React.FC = () => {
   const { t } = useLocalization();
 
   return (
-    <SmoothScrollLayout>
+    <>
       <HeroSection />
       
       <FullScreenSection>
@@ -120,7 +121,7 @@ const AboutPage: React.FC = () => {
       </FullScreenSection>
 
       <Footer />
-    </SmoothScrollLayout>
+    </>
   );
 };
 
