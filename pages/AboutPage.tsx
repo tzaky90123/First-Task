@@ -109,7 +109,7 @@ const AboutPage: React.FC = () => {
       <HeroSection />
       
       <FullScreenSection>
-        <AboutSection showLearnMoreButton={false} />
+        <AboutSection />
       </FullScreenSection>
 
       <FullScreenSection className="bg-white py-16 md:py-20">

@@ -1,14 +1,8 @@
-
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useLocalization } from '../context/LocalizationContext';
 import SectionLogoIcon from './SectionLogoIcon';
 
-interface AboutSectionProps {
-  showLearnMoreButton?: boolean;
-}
-
-const AboutSection: React.FC<AboutSectionProps> = ({ showLearnMoreButton = true }) => {
+const AboutSection: React.FC = () => {
     const { t } = useLocalization();
 
     return (
@@ -42,20 +36,6 @@ const AboutSection: React.FC<AboutSectionProps> = ({ showLearnMoreButton = true 
                             <p dangerouslySetInnerHTML={{ __html: t('homeAboutP5') }} />
                             <p dangerouslySetInnerHTML={{ __html: t('homeAboutP6') }} />
                         </div>
-                        
-                        {showLearnMoreButton && (
-                            <div className="mt-8">
-                                <Link
-                                    to="/a-propos"
-                                    className="inline-flex items-center bg-brand-dark text-white text-sm font-bold py-3 px-6 rounded-full hover:bg-black transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-brand-dark focus:ring-offset-2 group"
-                                >
-                                    <span>{t('learnMore')}</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                    </svg>
-                                </Link>
-                            </div>
-                        )}
                     </div>
                 </div>
             </div>
