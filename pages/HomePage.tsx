@@ -265,61 +265,41 @@ const ProgramSection: React.FC = () => {
     );
 };
 
+// --- New Statistics Section ---
 
-// --- START: New Statistics Section (based on reference image) ---
+// Icons for the new section
+const IconHardHat = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-full w-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>;
+const IconCollaborators = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-full w-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m-7.5-2.962c.51.056 1.02.086 1.5.086s.99-.03 1.5-.086m-7.5 2.962c.51.056 1.02.086 1.5.086s.99-.03 1.5-.086m0 0a.48.48 0 01.488.511c-.04.83-.513 1.58-1.155 2.162a.48.48 0 01-.62.033A1.848 1.848 0 004.5 16.5v-2.505a.48.48 0 01.374-.467c.5-.145 1.022-.255 1.55-.316m-2.25.625a.48.48 0 01.488.511c-.04.83-.513 1.58-1.155 2.162a.48.48 0 01-.62.033A1.848 1.848 0 001.5 16.5v-2.505a.48.48 0 01.374-.467c.5-.145 1.022-.255 1.55-.316m2.25-1.125a.48.48 0 01.488.511c-.04.83-.513 1.58-1.155 2.162a.48.48 0 01-.62.033A1.848 1.848 0 007.5 16.5v-2.505a.48.48 0 01.374-.467c.5-.145 1.022-.255 1.55-.316" /></svg>;
+const IconCrane = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-full w-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M21 21L12 12m0 0l-4.5 4.5M12 12l4.5 4.5M12 12l-4.5-4.5M12 12l4.5-4.5M12 3v9M3 12h9m9 9v-9m-9 9h-9" /></svg>;
+const IconBlueprint = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-full w-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.5 1.591L5.25 14.25M9.75 3.104a2.25 2.25 0 00-2.25 2.25v4.5a2.25 2.25 0 001.591 2.25L13.5 14.25M9.75 3.104a2.25 2.25 0 012.25 2.25v4.5a2.25 2.25 0 01-1.591 2.25L5.25 14.25m9-11.146v5.714a2.25 2.25 0 01-.5 1.591L13.5 14.25m3-11.146a2.25 2.25 0 00-2.25 2.25v4.5a2.25 2.25 0 001.591 2.25L18.75 14.25m-3-11.146a2.25 2.25 0 012.25 2.25v4.5a2.25 2.25 0 01-1.591 2.25L13.5 14.25" /></svg>;
+const IconExcavator = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-full w-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" /></svg>;
 
-const IconPlots = ({ className = "w-10 h-10" }: { className?: string }) => (
-    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="1.5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955a1.125 1.125 0 011.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h7.5" />
-    </svg>
-);
-const IconEmployees = ({ className = "w-10 h-10" }: { className?: string }) => (
-    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="1.5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-    </svg>
-);
-const IconRoads = ({ className = "w-10 h-10" }: { className?: string }) => (
-     <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="1.5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-3h6M3 12h18" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3 6.75A2.25 2.25 0 015.25 4.5h13.5A2.25 2.25 0 0121 6.75v10.5A2.25 2.25 0 0118.75 19.5H5.25A2.25 2.25 0 013 17.25V6.75z" />
-    </svg>
-);
-const IconLand = ({ className = "w-10 h-10" }: { className?: string }) => (
-    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="1.5">
-       <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21L12 3l9.75 18H2.25z" />
-       <path strokeLinecap="round" strokeLinejoin="round" d="M12 21V3M3.75 15.75h16.5" />
-    </svg>
-);
-const IconSubsidiaries = ({ className = "w-10 h-10" }: { className?: string }) => (
-    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="1.5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18M18.75 3v18M9 6.75h6.375M9 12.75h6.375M9 18.75h6.375" />
-    </svg>
-);
-
-
-const SocabegBarChart = () => {
-    const data = [
-        { value: 40, label: 'Q1', color: 'bg-brand-secondary/40' },
-        { value: 70, label: 'Q2', color: 'bg-brand-primary' },
-        { value: 50, label: 'Q3', color: 'bg-brand-secondary/60' },
-        { value: 85, label: 'Q4', color: 'bg-brand-primary/80' },
+// Bar Chart Diagram Component
+const BarChartDiagram = () => {
+    const { t } = useLocalization();
+    const chartData = [
+        { label: 'Q1', value: 45, color: 'from-brand-secondary/70 to-brand-secondary' },
+        { label: 'Q2', value: 62, color: 'from-brand-secondary/80 to-brand-secondary' },
+        { label: 'Q3', value: 75, color: 'from-brand-secondary/90 to-brand-secondary' },
+        { label: 'Q4', value: 90, color: 'from-brand-secondary to-brand-secondary' },
     ];
     const maxValue = 100;
 
     return (
-        <div className="w-full h-full flex flex-col items-center justify-center p-8">
-            <h3 className="text-xl font-bold text-brand-navy mb-6">Parcelles Viabilisées (Trimestriel)</h3>
-            <div className="w-full h-full flex items-end justify-around space-x-4">
-                {data.map((d, i) => (
-                    <div key={i} className="flex-grow flex flex-col items-center h-full">
-                        <div className="flex-grow flex items-end w-full">
-                            <div
-                                className={`w-full ${d.color} rounded-t-lg transition-all duration-300 ease-out hover:opacity-75`}
-                                style={{ height: `${(d.value / maxValue) * 100}%` }}
-                                title={`Valeur: ${d.value}`}
-                            ></div>
+        <div className="bg-white/50 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-slate-200 h-full flex flex-col">
+            <h3 className="text-xl font-bold text-brand-navy mb-1">Chiffre d'Affaires Trimestriel</h3>
+            <p className="text-sm text-brand-text-gray mb-6">(en millions de FCFA)</p>
+            <div className="flex-grow flex items-end justify-around space-x-4 pt-4">
+                {chartData.map(data => (
+                    <div key={data.label} className="group relative flex flex-col items-center flex-grow h-full justify-end">
+                        <div className="absolute top-0 -mt-8 w-max px-2 py-1 text-xs text-white bg-brand-dark rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                            {data.value} M FCFA
                         </div>
-                        <span className="text-xs text-gray-500 mt-2">{d.label}</span>
+                        <div
+                            className={`w-full bg-gradient-to-t ${data.color} rounded-t-lg transition-all duration-500 ease-out transform-gpu group-hover:shadow-lg group-hover:shadow-brand-secondary/40`}
+                            style={{ height: `${(data.value / maxValue) * 100}%` }}
+                        ></div>
+                        <div className="text-xs font-semibold text-brand-text-gray mt-2 w-full text-center border-t border-slate-300 pt-2">{data.label}</div>
                     </div>
                 ))}
             </div>
@@ -327,110 +307,93 @@ const SocabegBarChart = () => {
     );
 };
 
-const GenericChartDisplay = ({ title }: { title: string }) => (
-    <div className="w-full h-full flex flex-col items-center justify-center p-8 text-center">
-        <h3 className="text-2xl font-bold text-brand-navy mb-4">{title}</h3>
-        <div className="w-full aspect-square p-4">
-            <svg width="100%" height="100%" viewBox="0 0 100 100" className="opacity-50">
-                {/* A decorative, abstract line chart */}
-                <path d="M 10 80 C 25 20, 40 90, 55 50 S 75 10, 90 60" fill="none" stroke="#C5A43C" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M 10 90 H 90" fill="none" stroke="#E5E7EB" strokeWidth="2"/>
-                <path d="M 10 10 V 90" fill="none" stroke="#E5E7EB" strokeWidth="2"/>
-                <circle cx="27" cy="45" r="3" fill="#0052CC" />
-                <circle cx="55" cy="50" r="3" fill="#0052CC" />
-                <circle cx="90" cy="60" r="3" fill="#0052CC" />
-            </svg>
+// Placeholder Diagram Components
+const GenericChartDisplay = ({ type }: { type: 'line' | 'progress' | 'area' }) => (
+    <div className="bg-white/50 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-slate-200 h-full flex flex-col justify-center items-center">
+        <h3 className="text-xl font-bold text-brand-navy mb-4">Visualisation des Données</h3>
+        <p className="text-sm text-brand-text-gray mb-6 text-center">Données détaillées pour cette catégorie.</p>
+        <div className="w-full h-48 text-slate-300">
+            {type === 'line' && (
+                <svg width="100%" height="100%" viewBox="0 0 300 150" preserveAspectRatio="none">
+                    <path d="M 0 130 L 50 80 L 100 100 L 150 50 L 200 70 L 250 30 L 300 60" fill="none" stroke="currentColor" strokeWidth="2" />
+                </svg>
+            )}
+            {type === 'progress' && (
+                 <svg width="100%" height="100%" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="40" stroke="currentColor" strokeWidth="8" fill="transparent" opacity="0.3"/>
+                    <circle cx="50" cy="50" r="40" stroke="currentColor" strokeWidth="8" fill="transparent" strokeDasharray="251.2" strokeDashoffset="62.8" strokeLinecap="round" transform="rotate(-90 50 50)"/>
+                    <text x="50" y="55" textAnchor="middle" fontSize="18" fontWeight="bold" fill="currentColor" className="fill-brand-navy">75%</text>
+                </svg>
+            )}
+             {type === 'area' && (
+                <svg width="100%" height="100%" viewBox="0 0 300 150" preserveAspectRatio="none">
+                     <path d="M 0 130 L 50 80 L 100 100 L 150 50 L 200 70 L 250 30 L 300 60 L 300 150 L 0 150 Z" className="fill-brand-secondary/20" stroke="none"/>
+                    <path d="M 0 130 L 50 80 L 100 100 L 150 50 L 200 70 L 250 30 L 300 60" fill="none" className="stroke-brand-secondary" strokeWidth="2" />
+                </svg>
+            )}
         </div>
-        <p className="mt-2 text-gray-500">Données détaillées disponibles dans nos rapports annuels.</p>
     </div>
 );
 
+
 const StatisticsSection: React.FC = () => {
     const { t } = useLocalization();
-    const [selectedStat, setSelectedStat] = useState<string>('plots');
+    const [activeIndex, setActiveIndex] = useState(0);
 
-    const statsData = {
-        plots: {
-            title: "+ 2,000",
-            descriptionKey: "stat1Label",
-            icon: IconPlots,
-            chartComponent: SocabegBarChart,
-        },
-        employees: {
-            title: "+ 150",
-            descriptionKey: "stat3Label",
-            icon: IconEmployees,
-            chartComponent: () => <GenericChartDisplay title={t("stat3Label")} />,
-        },
-        roads: {
-            title: "+ 200 km",
-            descriptionKey: "stat4Label",
-            icon: IconRoads,
-            chartComponent: () => <GenericChartDisplay title={t("stat4Label")} />,
-        },
-        land: {
-            title: "+ 100 ha",
-            descriptionKey: "stat5Label",
-            icon: IconLand,
-            chartComponent: () => <GenericChartDisplay title={t("stat5Label")} />,
-        },
-        subsidiaries: {
-            title: "02",
-            descriptionKey: "stat2Label",
-            icon: IconSubsidiaries,
-            chartComponent: () => <GenericChartDisplay title={t("stat2Label")} />,
-        }
-    };
-
-    const SelectedChart = statsData[selectedStat]?.chartComponent;
+    const statsData = [
+        { labelKey: 'stat1Label', value: '+ 2,000', icon: <IconBlueprint />, diagram: <BarChartDiagram /> },
+        { labelKey: 'stat2Label', value: '02', icon: <IconCrane />, diagram: <GenericChartDisplay type="line" /> },
+        { labelKey: 'stat3Label', value: '+ 150', icon: <IconCollaborators />, diagram: <GenericChartDisplay type="progress" /> },
+        { labelKey: 'stat4Label', value: '+ 200 Km', icon: <IconHardHat />, diagram: <GenericChartDisplay type="area" /> },
+        { labelKey: 'stat5Label', value: '+ 500 Ha', icon: <IconExcavator />, diagram: <GenericChartDisplay type="line" /> },
+    ];
 
     return (
         <div className="container mx-auto px-5 lg:px-20">
-             <div className="text-center mb-12 md:mb-16">
-                 <h2 className="text-4xl font-bold text-gray-800">{t('statisticsSectionTitle')}</h2>
-                 <p className="mt-4 text-lg max-w-2xl mx-auto text-gray-600">
-                    {t('statisticsSectionHeadline')}
-                 </p>
-             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
-                <div className="lg:col-span-2 flex flex-col gap-4">
-                    {Object.entries(statsData).map(([key, data]) => {
-                        const isActive = selectedStat === key;
-                        const Icon = data.icon;
-                        return (
-                            <button
-                                key={key}
-                                onClick={() => setSelectedStat(key)}
-                                className={`w-full text-left flex items-start p-5 rounded-xl cursor-pointer transition-all duration-300 ease-in-out group focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-primary ${
-                                    isActive
+            <div className="text-center mb-12 md:mb-16">
+                 <h3 className="text-sm font-medium text-brand-navy uppercase tracking-widest flex items-center justify-center mb-2">
+                    <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
+                    <span>{t('statisticsSectionHeadline')}</span>
+                </h3>
+                <h2 className="text-2xl font-bold font-sans text-brand-dark">{t('statisticsSectionTitle')}</h2>
+            </div>
+            
+            <div className="grid lg:grid-cols-3 gap-8 md:gap-12 min-h-[550px]">
+                {/* Left Column: Stat Selection */}
+                <div className="lg:col-span-1 space-y-4">
+                    {statsData.map((stat, index) => (
+                        <button
+                            key={index}
+                            onClick={() => setActiveIndex(index)}
+                            className={`w-full p-4 rounded-lg flex items-center text-left transition-all duration-300 transform focus:outline-none focus:ring-2 focus:ring-brand-secondary focus:ring-offset-2 focus:ring-offset-gray-50 ${
+                                activeIndex === index
                                     ? 'bg-brand-navy text-white shadow-lg scale-105'
-                                    : 'bg-white shadow-md hover:shadow-lg hover:-translate-y-1'
-                                }`}
-                            >
-                                <div className={`flex-shrink-0 p-3 rounded-lg transition-colors duration-300 ${isActive ? 'bg-white/10' : 'bg-gray-100 group-hover:bg-brand-secondary/10'}`}>
-                                    <Icon className={`w-8 h-8 transition-colors duration-300 ${isActive ? 'text-white' : 'text-brand-navy group-hover:text-brand-primary'}`} />
-                                </div>
-                                <div className="ml-4">
-                                    <h3 className={`font-bold transition-colors duration-300 ${isActive ? 'text-white' : 'text-brand-navy'}`}>{data.title}</h3>
-                                    <p className={`text-sm mt-1 transition-colors duration-300 ${isActive ? 'text-gray-200' : 'text-gray-500'}`}>{t(data.descriptionKey)}</p>
-                                </div>
-                            </button>
-                        );
-                    })}
+                                    : 'bg-white hover:bg-gray-50 hover:shadow-md'
+                            }`}
+                        >
+                            <div className={`flex-shrink-0 h-10 w-10 p-2 rounded-md mr-4 transition-colors duration-300 ${activeIndex === index ? 'bg-white/20 text-brand-yellow' : 'bg-blue-100 text-brand-primary'}`}>
+                                {stat.icon}
+                            </div>
+                            <div>
+                                <p className={`font-bold transition-colors duration-300 ${activeIndex === index ? 'text-white' : 'text-brand-navy'}`}>{t(stat.labelKey)}</p>
+                                <p className={`text-2xl font-black transition-colors duration-300 ${activeIndex === index ? 'text-brand-yellow' : 'text-brand-primary'}`}>{stat.value}</p>
+                            </div>
+                        </button>
+                    ))}
                 </div>
-                <div className="lg:col-span-3 lg:sticky lg:top-24 h-[550px]">
-                    {SelectedChart && (
-                        <div key={selectedStat} className="bg-white rounded-2xl shadow-xl w-full h-full animate-fade-in-up">
-                            <SelectedChart />
+
+                {/* Right Column: Diagram Display */}
+                <div className="lg:col-span-2 relative">
+                    {statsData.map((stat, index) => (
+                         <div key={index} className={`absolute inset-0 transition-opacity duration-500 ${activeIndex === index ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+                            {stat.diagram}
                         </div>
-                    )}
+                    ))}
                 </div>
             </div>
         </div>
     );
 };
-// --- END: New Statistics Section ---
-
 
 const WhyChooseUsSection: React.FC = () => {
   const { t } = useLocalization();
@@ -560,7 +523,7 @@ const IconPhone = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w
 const IconEmail = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>;
 const IconLocationPin = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>;
 const IconLinkedinStyled = () => <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fillRule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clipRule="evenodd" /></svg>;
-const IconInstagramStyled = () => <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fillRule="evenodd" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664 4.771 4.919 4.919 1.266.058 1.644.07 4.85.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281-.073-1.689-.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.058-1.689.072-4.948.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44s-.645-1.44-1.441-1.44z" clipRule="evenodd" /></svg>;
+const IconInstagramStyled = () => <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fillRule="evenodd" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664 4.771 4.919 4.919 1.266.058 1.644.07 4.85.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689-.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.058-1.689.072-4.948.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44s-.645-1.44-1.441-1.44z" clipRule="evenodd" /></svg>;
 
 const InputField: React.FC<InputFieldProps> = ({ id, name, label, type, value, onChange, required }) => (
   <div>
@@ -674,7 +637,7 @@ const HomePage: React.FC = () => {
       <FullScreenSection className="bg-white py-12"><PartnersSection /></FullScreenSection>
       <FullScreenSection className="bg-brand-light py-16 md:py-20"><MasterpiecesSection /></FullScreenSection>
       <FullScreenSection className="bg-white py-16 md:py-20"><ProgramSection /></FullScreenSection>
-      <FullScreenSection className="bg-gray-50 py-16 md:py-20"><StatisticsSection /></FullScreenSection>
+      <FullScreenSection className="blueprint-bg py-16 md:py-20"><StatisticsSection /></FullScreenSection>
       <FullScreenSection className="bg-white py-16 md:py-20"><WhyChooseUsSection /></FullScreenSection>
       <FullScreenSection className="bg-brand-light py-16 md:py-20"><TestimonialsSection /></FullScreenSection>
       <section className="w-full">
