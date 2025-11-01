@@ -26,7 +26,7 @@ const IntroductionSection: React.FC = () => {
                     <p className="text-lg text-brand-text-gray leading-relaxed">Nous nous engageons à une exploitation qui respecte à la fois <strong>l'environnement et les communautés locales</strong>, en créant une valeur durable pour le Sénégal.</p>
                 </div>
                 <div className="animate-fade-in-up animation-delay-300">
-                    <img src="https://images.pexels.com/photos/859895/pexels-photo-859895.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Mining operation" className="rounded-xl shadow-2xl w-full h-auto object-cover" loading="lazy" width="576" height="384"/>
+                    <img src="https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Modern construction site" className="rounded-xl shadow-2xl w-full h-auto object-cover" loading="lazy" width="576" height="384"/>
                 </div>
             </div>
         </div>
