@@ -75,9 +75,9 @@ const TextareaField: React.FC<TextareaFieldProps> = ({ id, name, label, value, o
 
 const contactSlides = [
     {
-      img: 'https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      title: 'heroSlide1Title',
-      subtitle: 'heroSlide1Subtitle',
+      img: 'https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      title: 'contactHeroTitle',
+      subtitle: 'contactHeroSubtitle',
     }
 ];
 
@@ -114,7 +114,7 @@ const ContactPage: React.FC = () => {
 
   return (
     <>
-      <HeroSection slides={contactSlides} />
+      <HeroSection slides={contactSlides} cta={false} />
       <main className="bg-gray-50 relative z-10 pb-20 md:pb-28" style={{ marginTop: '-160px' }}>
         <div className="container mx-auto px-6">
             <div className="max-w-6xl mx-auto grid md:grid-cols-5 gap-10 bg-white p-8 md:p-12 rounded-2xl shadow-2xl">
