@@ -246,8 +246,9 @@ const StatisticsSection: React.FC = () => {
     return (
         <div className="container mx-auto px-5 lg:px-20">
             <div className="text-center mb-12 md:mb-16">
-                <h3 className="text-sm font-bold text-brand-red uppercase tracking-widest flex items-center justify-center mb-2">
-                    <span className="mr-2 text-lg">▲</span>
+                {/* CHANGE: Updated title color from red to primary blue and replaced icon for consistency */}
+                <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
+                    <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
                     <span>{t('statisticsSectionHeadline')}</span>
                 </h3>
                 <h2 className="text-3xl md:text-4xl font-bold font-sans text-brand-dark">
