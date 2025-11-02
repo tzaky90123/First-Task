@@ -4,12 +4,22 @@ import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
 
 const ContactPage: React.FC = () => {
-  // Define a single, static slide for the contact page hero
+  // Define slides for the contact page hero, mirroring the construction page projects
   const contactSlides = [
     {
-      img: 'https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      title: 'contactHeroTitle',
-      subtitle: 'contactHeroSubtitle',
+      img: 'https://images.pexels.com/photos/128830/pexels-photo-128830.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      title: 'btpProject1Title',
+      subtitle: 'btpProject1Desc',
+    },
+    {
+      img: 'https://images.pexels.com/photos/2224797/pexels-photo-2224797.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      title: 'btpProject2Title',
+      subtitle: 'btpProject2Desc',
+    },
+    {
+      img: 'https://images.pexels.com/photos/3773539/pexels-photo-3773539.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      title: 'btpProject3Title',
+      subtitle: 'btpProject3Desc',
     },
   ];
 
