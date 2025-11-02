@@ -1,6 +1,7 @@
 
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+// FIX: Corrected import errors by simplifying the React import and using React.useState directly.
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLocalization } from '../context/LocalizationContext';
 import Footer from '../components/Footer';
@@ -8,6 +9,7 @@ import FullScreenSection from '../components/FullScreenSection';
 import SectionLogoIcon from '../components/SectionLogoIcon';
 import AboutSection from '../components/AboutSection';
 import HeroSection from '../components/HeroSection';
+import ContactSection from '../components/ContactSection';
 
 // --- Helper Components ---
 
@@ -113,7 +115,7 @@ const PartnersSection: React.FC = () => {
 
 const MasterpiecesSection: React.FC = () => {
     const { t } = useLocalization();
-    const [currentIndex, setCurrentIndex] = useState(0);
+    const [currentIndex, setCurrentIndex] = React.useState(0);
 
     const masterpieces = [
         {
@@ -196,6 +198,119 @@ const MasterpiecesSection: React.FC = () => {
     );
 };
 
+// --- Statistics Section (Redesigned) ---
+const IconStatDomain = ({ className }: { className?: string }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" className={className} viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z" />
+    </svg>
+);
+const IconStatBranch = ({ className }: { className?: string }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" className={className} viewBox="0 0 24 24" fill="currentColor">
+        <path d="m22.5 10.5h-5.02l2.27-2.27L18.34 7l-3.75 3.75-1.06 1.06-1.06-1.06L8.66 7 7.25 8.23l2.27 2.27H4.5v2h5.02l-2.27 2.27L8.66 17l3.75-3.75 1.06-1.06 1.06 1.06 3.75 3.75 1.41-1.41-2.27-2.27h5.02v-2Z"/>
+    </svg>
+);
+const IconStatGroup = ({ className }: { className?: string }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" className={className} viewBox="0 0 24 24" fill="currentColor">
+        <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+    </svg>
+);
+const IconStatPerson = ({ className }: { className?: string }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" className={className} viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+    </svg>
+);
+const IconStatChartUp = ({ className }: { className?: string }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" className={className} viewBox="0 0 24 24" fill="currentColor">
+        <path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.09-4-4L2 17.08z"/>
+    </svg>
+);
+
+const StatisticsSection: React.FC = () => {
+    const { t } = useLocalization();
+    const stats = [
+        { value: "+ 2,000", labelKey: 'stat1Label', icon: <IconStatDomain className="h-6 w-6 text-brand-secondary" />, highlighted: true },
+        { value: "02", labelKey: 'stat2Label', icon: <IconStatBranch className="h-5 w-5 text-brand-primary" /> },
+        { value: "+ 150", labelKey: 'stat3Label', icon: <IconStatGroup className="h-5 w-5 text-brand-primary" /> },
+        { value: "+ 200 Km", labelKey: 'stat4Label', icon: <IconStatPerson className="h-5 w-5 text-brand-primary" /> },
+        { value: "+ 500 Ha", labelKey: 'stat5Label', icon: <IconStatChartUp className="h-5 w-5 text-brand-primary" /> },
+    ];
+    
+    const chartData = [
+        { label: 'Q1', value: 45 },
+        { label: 'Q2', value: 65 },
+        { label: 'Q3', value: 80 },
+        { label: 'Q4', value: 95 },
+    ];
+    const maxValue = 100;
+
+    return (
+        <div className="container mx-auto px-5 lg:px-20">
+            <div className="text-center mb-12 md:mb-16">
+                <h3 className="text-sm font-bold text-brand-red uppercase tracking-widest flex items-center justify-center mb-2">
+                    <span className="mr-2 text-lg">▲</span>
+                    <span>{t('statisticsSectionHeadline')}</span>
+                </h3>
+                <h2 className="text-3xl md:text-4xl font-bold font-sans text-brand-dark">
+                    {t('statisticsSectionTitle')}
+                </h2>
+            </div>
+
+            <div className="grid lg:grid-cols-5 gap-8 items-stretch">
+                {/* Left Column - Stats */}
+                <div className="lg:col-span-2 flex flex-col gap-y-4">
+                    {stats.map((stat, index) => (
+                        stat.highlighted ? (
+                            <div key={index} className="bg-brand-navy p-4 rounded-lg border border-brand-secondary shadow-lg flex items-center gap-x-4 transition-transform transform hover:-translate-y-1">
+                                <div className="bg-brand-secondary/20 p-3 rounded-md flex-shrink-0">
+                                    {stat.icon}
+                                </div>
+                                <div>
+                                    <p className="text-sm text-gray-300 font-medium">{t(stat.labelKey)}</p>
+                                    <p className="text-2xl font-bold text-brand-secondary">{stat.value}</p>
+                                </div>
+                            </div>
+                        ) : (
+                            <div key={index} className="bg-white p-4 rounded-lg border border-gray-200/80 shadow-soft flex items-center gap-x-4 transition-transform transform hover:-translate-y-1">
+                                <div className="bg-blue-50 p-3 rounded-md flex-shrink-0">
+                                    {stat.icon}
+                                </div>
+                                <div>
+                                    <p className="text-sm text-brand-text-gray">{t(stat.labelKey)}</p>
+                                    <p className="text-2xl font-bold text-brand-navy">{stat.value}</p>
+                                </div>
+                            </div>
+                        )
+                    ))}
+                </div>
+
+                {/* Right Column - Chart */}
+                <div className="lg:col-span-3 bg-white p-6 rounded-xl shadow-lg h-full flex flex-col">
+                    <h3 className="text-xl font-semibold text-brand-dark mb-1">Chiffre d'Affaires Trimestriel</h3>
+                    <p className="text-sm text-brand-text-gray mb-6">(en millions de FCFA)</p>
+                    <div className="flex-grow h-64 flex items-end justify-around space-x-4 pt-4 border-b border-gray-200">
+                        {chartData.map(data => (
+                            <div key={data.label} className="w-full flex flex-col items-center h-full justify-end">
+                                <div
+                                    className="w-3/4 bg-[#C5A43C] rounded-t-lg transition-all duration-500 ease-out hover:opacity-80"
+                                    style={{ height: `${(data.value / maxValue) * 100}%` }}
+                                ></div>
+                            </div>
+                        ))}
+                    </div>
+                     <div className="flex justify-around space-x-4 pt-2">
+                         {chartData.map(data => (
+                             <div key={data.label} className="w-full text-center">
+                                 <div className="text-xs font-semibold text-brand-text-gray">{data.label}</div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+
 const IconBed = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1.5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" /></svg>;
 const IconBath = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1.5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" /></svg>;
 const IconArea = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1.5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5-5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 0h-4m4 0l-5-5" /></svg>;
@@ -265,8 +380,84 @@ const ProgramSection: React.FC = () => {
     );
 };
 
-// FIX: Added HomePage component and default export to resolve the module error.
-// The incomplete Statistics section and its icons have been removed.
+const TestimonialsSection: React.FC = () => {
+    const { t } = useLocalization();
+    const testimonials = [
+        { quoteKey: "testimonial1Quote", nameKey: "testimonial1Name" },
+        { quoteKey: "testimonial2Quote", nameKey: "testimonial2Name" },
+        { quoteKey: "testimonial3Quote", nameKey: "testimonial3Name" },
+        { quoteKey: "testimonial4Quote", nameKey: "testimonial4Name" },
+        { quoteKey: "testimonial5Quote", nameKey: "testimonial5Name" },
+        { quoteKey: "testimonial6Quote", nameKey: "testimonial6Name" }
+    ];
+
+    const chunk = <T,>(arr: T[], size: number): T[][] =>
+        Array.from({ length: Math.ceil(arr.length / size) }, (v, i) =>
+            arr.slice(i * size, i * size + size)
+    );
+    
+    const testimonialPairs = chunk(testimonials, 2);
+    const numSlides = testimonialPairs.length;
+
+    const [currentIndex, setCurrentIndex] = React.useState(0);
+    const timeoutRef = React.useRef<number | null>(null);
+
+    const resetTimeout = React.useCallback(() => { if (timeoutRef.current) { clearTimeout(timeoutRef.current); } }, []);
+    
+    const goNext = React.useCallback(() => {
+        setCurrentIndex((prev) => (prev === numSlides - 1 ? 0 : prev + 1));
+    }, [numSlides]);
+
+    const goPrev = () => {
+        setCurrentIndex((prev) => (prev === 0 ? numSlides - 1 : prev - 1));
+    };
+
+    React.useEffect(() => {
+        resetTimeout();
+        timeoutRef.current = window.setTimeout(goNext, 5000);
+        return () => { resetTimeout(); };
+    }, [currentIndex, goNext, resetTimeout]);
+
+    return (
+        <div className="container mx-auto px-5 lg:px-20">
+            <div className="text-center mb-12 md:mb-16">
+                <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
+                    <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
+                    <span>{t('testimonialsSectionTitle')}</span>
+                </h3>
+                <h2 className="text-2xl font-bold font-sans text-black">{t('testimonialsSectionHeadline')}</h2>
+            </div>
+            <div className="relative">
+                <div className="overflow-hidden">
+                    <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+                        {testimonialPairs.map((pair, slideIndex) => (
+                            <div key={slideIndex} className="w-full flex-shrink-0 px-2 md:px-4">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                    {pair.map((testimonial, testimonialIndex) => (
+                                        <div key={testimonialIndex} className="bg-white px-8 py-4 md:px-10 md:py-6 rounded-lg shadow-sm text-center h-[400px] md:h-[340px] flex flex-col justify-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                                            <div>
+                                              <svg className="w-10 h-10 text-brand-secondary mx-auto mb-4" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true"><path d="M9.333 8h-5.333v8h5.333c0-4.418 3.582-8 8-8v-5.333c-7.364 0-13.333 5.97-13.333 13.333v10.667h13.333v-10.667h-8v-6zM29.333 8h-5.333v8h5.333c0-4.418 3.582-8 8-8v-5.333c-7.364 0-13.333 5.97-13.333 13.333v10.667h13.333v-10.667h-8v-6z"></path></svg>
+                                              <blockquote className="text-lg text-brand-text italic leading-relaxed mb-6">“{t(testimonial.quoteKey)}”</blockquote>
+                                            </div>
+                                            <cite className="not-italic font-semibold text-brand-primary font-sans">— {t(testimonial.nameKey)}</cite>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                 <button onClick={goPrev} className="absolute top-1/2 -translate-y-1/2 left-0 md:-left-10 text-brand-primary bg-white hover:bg-gray-100 rounded-full p-3 shadow-md focus:outline-none focus:ring-2 focus:ring-brand-secondary transition" aria-label={t('prevTestimonialAria')}>
+                    <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+                </button>
+                <button onClick={goNext} className="absolute top-1/2 -translate-y-1/2 right-0 md:-right-10 text-brand-primary bg-white hover:bg-gray-100 rounded-full p-3 shadow-md focus:outline-none focus:ring-2 focus:ring-brand-secondary transition" aria-label={t('nextTestimonialAria')}>
+                    <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                </button>
+            </div>
+        </div>
+    );
+};
+
 const HomePage: React.FC = () => {
     return (
         <>
@@ -277,15 +468,22 @@ const HomePage: React.FC = () => {
             <FullScreenSection className="bg-gray-100 py-16 md:py-24">
                 <AboutSection />
             </FullScreenSection>
+            <FullScreenSection className="bg-white py-16 md:py-20">
+                <PartnersSection />
+            </FullScreenSection>
             <FullScreenSection className="bg-brand-light py-16 md:py-20">
                 <ProgramSection />
             </FullScreenSection>
             <FullScreenSection className="bg-white py-16 md:py-20">
                 <MasterpiecesSection />
             </FullScreenSection>
-            <FullScreenSection className="bg-brand-light py-16 md:py-20">
-                <PartnersSection />
+            <FullScreenSection className="blueprint-bg py-16 md:py-24">
+                <StatisticsSection />
             </FullScreenSection>
+            <FullScreenSection className="bg-brand-light py-16 md:py-20">
+                <TestimonialsSection />
+            </FullScreenSection>
+            <ContactSection />
             <Footer />
         </>
     );
