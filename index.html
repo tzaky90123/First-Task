@@ -12,12 +12,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
         theme: {
           extend: {
             fontFamily: {
               'sans': ['Satoshi', 'sans-serif'],
+              'poppins': ['Poppins', 'sans-serif'],
+              'inter': ['Inter', 'sans-serif'],
             },
             colors: {
               'brand-primary': '#0052CC', // Blue
@@ -28,14 +31,15 @@
               'brand-red': '#E63946', // Red Accent
               'brand-warm-light': '#FAF3E0', // Warm Beige
               'brand-blue-dark': '#1E3A8A', // New Dark Blue for services
-              'brand-gold-accent': '#D4AF37', // New Gold for services
-              'brand-navy': '#0D2C54', // Corporate Navy Blue
+              'brand-gold-accent': '#D4AF37', // New Gold for contact page
+              'brand-navy': '#0B1C3F', // Corporate Navy Blue for contact page
               'brand-yellow': '#FFC72C', // Corporate Warm Yellow
               'brand-text-gray': '#555555', // Body text gray
               'deep-purple': '#4C1D95',
             },
             boxShadow: {
               'soft': '0 4px 12px rgba(0,0,0,0.05)',
+              'contact': '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)',
             }
           }
         }

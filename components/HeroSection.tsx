@@ -120,12 +120,21 @@ const HeroSection: React.FC<HeroSectionProps> = ({ slides = defaultSlides, cta =
                   </div>
               ))}
               {cta && (
-                <Link
+                cta.link.startsWith('#') ? (
+                  <a
+                    href={cta.link}
+                    className="bg-transparent border-2 border-white text-white text-lg font-bold py-3 px-8 sm:px-10 rounded-full hover:bg-white hover:text-brand-dark transition-colors duration-300 inline-block animate-fade-in-up animation-delay-600"
+                  >
+                    {t(cta.textKey)}
+                  </a>
+                ) : (
+                  <Link
                     to={cta.link}
                     className="bg-transparent border-2 border-white text-white text-lg font-bold py-3 px-8 sm:px-10 rounded-full hover:bg-white hover:text-brand-dark transition-colors duration-300 inline-block animate-fade-in-up animation-delay-600"
-                >
+                  >
                     {t(cta.textKey)}
-                </Link>
+                  </Link>
+                )
               )}
           </div>
           
