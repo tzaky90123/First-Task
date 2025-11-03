@@ -31,6 +31,62 @@ interface HeroSectionProps {
     cta?: { link: string; textKey: string; } | false;
 }
 
+// Internal component for handling progressive image loading for each slide
+const Slide: React.FC<{ slide: { img: string }; isActive: boolean }> = ({ slide, isActive }) => {
+    const [placeholderSrc, setPlaceholderSrc] = useState('');
+    const [isLoaded, setIsLoaded] = useState(false);
+
+    useEffect(() => {
+        if (!slide.img) return;
+
+        // Generate a low-quality placeholder URL from the original src
+        try {
+            const url = new URL(slide.img);
+            url.searchParams.set('w', '100'); // Set a small width for the placeholder
+            url.searchParams.delete('h');
+            url.searchParams.delete('dpr');
+            setPlaceholderSrc(url.toString());
+        } catch {
+            setPlaceholderSrc(slide.img); // Fallback to original image if URL parsing fails
+        }
+
+        // Preload the full-resolution image
+        setIsLoaded(false); // Reset loaded state on image change
+        const img = new Image();
+        img.src = slide.img;
+        img.onload = () => {
+            setIsLoaded(true);
+        };
+    }, [slide.img]);
+
+    return (
+        <div
+            className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ${
+                isActive ? 'opacity-100 z-10' : 'opacity-0'
+            }`}
+        >
+            {/* Low-resolution placeholder with blur */}
+            <div
+                className="absolute inset-0 w-full h-full bg-cover bg-center"
+                style={{
+                    backgroundImage: `url(${placeholderSrc})`,
+                    filter: 'blur(10px)',
+                    transform: 'scale(1.05)', // Scale up to cover edges blurred away
+                }}
+            />
+            {/* High-resolution image that fades in when loaded */}
+            <div
+                className={`absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-700 ease-in-out ${
+                    isLoaded ? 'opacity-100' : 'opacity-0'
+                }`}
+                style={{ backgroundImage: `url(${slide.img})` }}
+            />
+            {/* Dark overlay */}
+            <div className="absolute inset-0 bg-black/60"></div>
+        </div>
+    );
+};
+
 const HeroSection: React.FC<HeroSectionProps> = ({ slides = defaultSlides, cta = defaultCta }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const { t } = useLocalization();
@@ -74,15 +130,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ slides = defaultSlides, cta =
   return (
     <section className="relative h-screen text-white overflow-hidden">
       {slides.map((slide, index) => (
-        <div
-          key={index}
-          className={`absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-1000 ${
-            index === currentSlide ? 'opacity-100 z-10' : 'opacity-0'
-          }`}
-          style={{ backgroundImage: `url(${slide.img})` }}
-        >
-          <div className="absolute inset-0 bg-black/60"></div>
-        </div>
+        <Slide key={index} slide={slide} isActive={index === currentSlide} />
       ))}
 
       {/* Slide Navigation Buttons */}
