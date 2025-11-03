@@ -1,7 +1,6 @@
 
 
-// FIX: Corrected import errors by simplifying the React import and using React.useState directly.
-import React from 'react';
+import React, { useState, useEffect, useRef, useCallback, cloneElement } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocalization } from '../context/LocalizationContext';
 import Footer from '../components/Footer';
@@ -115,7 +114,7 @@ const PartnersSection: React.FC = () => {
 
 const MasterpiecesSection: React.FC = () => {
     const { t } = useLocalization();
-    const [currentIndex, setCurrentIndex] = React.useState(0);
+    const [currentIndex, setCurrentIndex] = useState(0);
 
     const masterpieces = [
         {
@@ -227,7 +226,7 @@ const IconStatChartUp = ({ className }: { className?: string }) => (
 
 const StatisticsSection: React.FC = () => {
     const { t } = useLocalization();
-    const [activeIndex, setActiveIndex] = React.useState(0);
+    const [activeIndex, setActiveIndex] = useState(0);
 
     const stats = [
         { value: "+ 2,000", labelKey: 'stat1Label', icon: <IconStatDomain /> },
@@ -261,11 +260,11 @@ const StatisticsSection: React.FC = () => {
     return (
         <div className="container mx-auto px-5 lg:px-20">
             <div className="text-center mb-12 md:mb-16">
-                <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
+                <h3 className="text-sm font-medium text-brand-secondary uppercase tracking-widest flex items-center justify-center mb-2">
                     <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
                     <span>{t('statisticsSectionHeadline')}</span>
                 </h3>
-                <h2 className="text-3xl md:text-4xl font-bold font-sans text-brand-dark">
+                <h2 className="text-3xl md:text-4xl font-bold font-sans text-brand-navy">
                     {t('statisticsSectionTitle')}
                 </h2>
             </div>
@@ -284,8 +283,8 @@ const StatisticsSection: React.FC = () => {
                             }`}
                         >
                             <div className={`p-3 rounded-md flex-shrink-0 ${index === activeIndex ? 'bg-brand-secondary/20' : 'bg-blue-50'}`}>
-                                {React.cloneElement(stat.icon, { 
-                                    className: `h-6 w-6 ${index === activeIndex ? 'text-brand-secondary' : 'text-brand-primary'}` 
+                                {cloneElement(stat.icon, { 
+                                    className: `h-6 w-6 ${index === activeIndex ? 'text-brand-secondary' : 'text-brand-navy'}` 
                                 })}
                             </div>
                             <div>
@@ -298,13 +297,13 @@ const StatisticsSection: React.FC = () => {
 
                 {/* Right Column - Chart */}
                 <div className="lg:col-span-3 bg-white p-6 rounded-xl shadow-lg h-full flex flex-col">
-                    <h3 className="text-xl font-semibold text-brand-dark mb-1">Chiffre d'Affaires Trimestriel</h3>
+                    <h3 className="text-xl font-semibold text-brand-navy mb-1">Chiffre d'Affaires Trimestriel</h3>
                     <p className="text-sm text-brand-text-gray mb-6">(en millions de FCFA)</p>
                     <div className="flex-grow h-64 flex items-end justify-around space-x-4 pt-4 border-b border-gray-200">
                         {chartData.map(data => (
                             <div key={data.label} className="w-full flex flex-col items-center h-full justify-end">
                                 <div
-                                    className="w-3/4 bg-[#C5A43C] rounded-t-lg transition-all duration-500 ease-out hover:opacity-80"
+                                    className="w-3/4 bg-brand-secondary rounded-t-lg transition-all duration-500 ease-out hover:opacity-80"
                                     style={{ height: `${(data.value / maxValue) * 100}%` }}
                                 ></div>
                             </div>
@@ -412,12 +411,12 @@ const TestimonialsSection: React.FC = () => {
     const testimonialPairs = chunk(testimonials, 2);
     const numSlides = testimonialPairs.length;
 
-    const [currentIndex, setCurrentIndex] = React.useState(0);
-    const timeoutRef = React.useRef<number | null>(null);
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const timeoutRef = useRef<number | null>(null);
 
-    const resetTimeout = React.useCallback(() => { if (timeoutRef.current) { clearTimeout(timeoutRef.current); } }, []);
+    const resetTimeout = useCallback(() => { if (timeoutRef.current) { clearTimeout(timeoutRef.current); } }, []);
     
-    const goNext = React.useCallback(() => {
+    const goNext = useCallback(() => {
         setCurrentIndex((prev) => (prev === numSlides - 1 ? 0 : prev + 1));
     }, [numSlides]);
 
@@ -425,7 +424,7 @@ const TestimonialsSection: React.FC = () => {
         setCurrentIndex((prev) => (prev === 0 ? numSlides - 1 : prev - 1));
     };
 
-    React.useEffect(() => {
+    useEffect(() => {
         resetTimeout();
         timeoutRef.current = window.setTimeout(goNext, 5000);
         return () => { resetTimeout(); };
@@ -490,7 +489,7 @@ const HomePage: React.FC = () => {
             <FullScreenSection className="bg-white py-16 md:py-20">
                 <MasterpiecesSection />
             </FullScreenSection>
-            <FullScreenSection className="bg-gray-100 py-16 md:py-24">
+            <FullScreenSection className="blueprint-bg py-16 md:py-24">
                 <StatisticsSection />
             </FullScreenSection>
             <FullScreenSection className="bg-brand-light py-16 md:py-20">

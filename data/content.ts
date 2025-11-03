@@ -356,12 +356,10 @@ export const content: LocalizedContent = {
 
   // Footer
   footerDescription: { [Language.FR]: "Acteur majeur du BTP et de la promotion immobilière au Sénégal, nous façonnons les paysages de demain.", [Language.EN]: 'As a major player in construction and real estate in Senegal, we are shaping the landscapes of tomorrow.' },
-  // FIX: Corrected a typo in the Language enum from `Language.Fr` to `Language.FR`.
   footerRights: { [Language.FR]: 'Tous droits réservés.', [Language.EN]: 'All rights reserved.' },
   footerFollow: { [Language.FR]: 'Suivez-nous', [Language.EN]: 'Follow Us' },
   footerQuickLinks: { [Language.FR]: 'Liens Rapides', [Language.EN]: 'Quick Links' },
   ariaLinkedin: { [Language.FR]: 'LinkedIn', [Language.EN]: 'LinkedIn' },
-  // FIX: Completed the truncated 'ariaTwitter' entry and added the missing 'ariaFacebook' entry.
   ariaTwitter: { [Language.FR]: 'Twitter', [Language.EN]: 'Twitter' },
   ariaFacebook: { [Language.FR]: 'Facebook', [Language.EN]: 'Facebook' },
 };
