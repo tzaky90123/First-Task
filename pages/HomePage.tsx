@@ -227,26 +227,40 @@ const IconStatChartUp = ({ className }: { className?: string }) => (
 
 const StatisticsSection: React.FC = () => {
     const { t } = useLocalization();
+    const [activeIndex, setActiveIndex] = React.useState(0);
+
     const stats = [
-        { value: "+ 2,000", labelKey: 'stat1Label', icon: <IconStatDomain className="h-6 w-6 text-brand-secondary" />, highlighted: true },
-        { value: "02", labelKey: 'stat2Label', icon: <IconStatBranch className="h-5 w-5 text-brand-primary" /> },
-        { value: "+ 150", labelKey: 'stat3Label', icon: <IconStatGroup className="h-5 w-5 text-brand-primary" /> },
-        { value: "+ 200 Km", labelKey: 'stat4Label', icon: <IconStatPerson className="h-5 w-5 text-brand-primary" /> },
-        { value: "+ 500 Ha", labelKey: 'stat5Label', icon: <IconStatChartUp className="h-5 w-5 text-brand-primary" /> },
+        { value: "+ 2,000", labelKey: 'stat1Label', icon: <IconStatDomain /> },
+        { value: "02", labelKey: 'stat2Label', icon: <IconStatBranch /> },
+        { value: "+ 150", labelKey: 'stat3Label', icon: <IconStatGroup /> },
+        { value: "+ 200 Km", labelKey: 'stat4Label', icon: <IconStatPerson /> },
+        { value: "+ 500 Ha", labelKey: 'stat5Label', icon: <IconStatChartUp /> },
     ];
     
-    const chartData = [
-        { label: 'Q1', value: 45 },
-        { label: 'Q2', value: 65 },
-        { label: 'Q3', value: 80 },
-        { label: 'Q4', value: 95 },
+    const allChartData = [
+        [ // Data for stat 1
+            { label: 'Q1', value: 45 }, { label: 'Q2', value: 65 }, { label: 'Q3', value: 80 }, { label: 'Q4', value: 95 },
+        ],
+        [ // Data for stat 2
+            { label: 'Q1', value: 10 }, { label: 'Q2', value: 15 }, { label: 'Q3', value: 12 }, { label: 'Q4', value: 20 },
+        ],
+        [ // Data for stat 3
+            { label: 'Q1', value: 30 }, { label: 'Q2', value: 40 }, { label: 'Q3', value: 55 }, { label: 'Q4', value: 60 },
+        ],
+        [ // Data for stat 4
+            { label: 'Q1', value: 50 }, { label: 'Q2', value: 70 }, { label: 'Q3', value: 60 }, { label: 'Q4', value: 85 },
+        ],
+        [ // Data for stat 5
+            { label: 'Q1', value: 25 }, { label: 'Q2', value: 35 }, { label: 'Q3', value: 50 }, { label: 'Q4', value: 70 },
+        ],
     ];
+
+    const chartData = allChartData[activeIndex];
     const maxValue = 100;
 
     return (
         <div className="container mx-auto px-5 lg:px-20">
             <div className="text-center mb-12 md:mb-16">
-                {/* CHANGE: Updated title color from red to primary blue and replaced icon for consistency */}
                 <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
                     <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
                     <span>{t('statisticsSectionHeadline')}</span>
@@ -259,28 +273,26 @@ const StatisticsSection: React.FC = () => {
             <div className="grid lg:grid-cols-5 gap-8 items-stretch">
                 {/* Left Column - Stats */}
                 <div className="lg:col-span-2 flex flex-col gap-y-4">
-                    {stats.map((stat, index) => (
-                        stat.highlighted ? (
-                            <div key={index} className="bg-brand-navy p-4 rounded-lg border border-brand-secondary shadow-lg flex items-center gap-x-4 transition-transform transform hover:-translate-y-1">
-                                <div className="bg-brand-secondary/20 p-3 rounded-md flex-shrink-0">
-                                    {stat.icon}
-                                </div>
-                                <div>
-                                    <p className="text-sm text-gray-300 font-medium">{t(stat.labelKey)}</p>
-                                    <p className="text-2xl font-bold text-brand-secondary">{stat.value}</p>
-                                </div>
+                     {stats.map((stat, index) => (
+                         <div 
+                            key={index} 
+                            onClick={() => setActiveIndex(index)}
+                            className={`p-4 rounded-lg border flex items-center gap-x-4 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer ${
+                                index === activeIndex 
+                                    ? 'bg-brand-navy border-brand-secondary shadow-lg' 
+                                    : 'bg-white border-gray-200/80 shadow-soft'
+                            }`}
+                        >
+                            <div className={`p-3 rounded-md flex-shrink-0 ${index === activeIndex ? 'bg-brand-secondary/20' : 'bg-blue-50'}`}>
+                                {React.cloneElement(stat.icon, { 
+                                    className: `h-6 w-6 ${index === activeIndex ? 'text-brand-secondary' : 'text-brand-primary'}` 
+                                })}
                             </div>
-                        ) : (
-                            <div key={index} className="bg-white p-4 rounded-lg border border-gray-200/80 shadow-soft flex items-center gap-x-4 transition-transform transform hover:-translate-y-1">
-                                <div className="bg-blue-50 p-3 rounded-md flex-shrink-0">
-                                    {stat.icon}
-                                </div>
-                                <div>
-                                    <p className="text-sm text-brand-text-gray">{t(stat.labelKey)}</p>
-                                    <p className="text-2xl font-bold text-brand-navy">{stat.value}</p>
-                                </div>
+                            <div>
+                                <p className={`text-sm font-medium ${index === activeIndex ? 'text-gray-300' : 'text-brand-text-gray'}`}>{t(stat.labelKey)}</p>
+                                <p className={`text-2xl font-bold ${index === activeIndex ? 'text-brand-secondary' : 'text-brand-navy'}`}>{stat.value}</p>
                             </div>
-                        )
+                        </div>
                     ))}
                 </div>
 
@@ -478,7 +490,7 @@ const HomePage: React.FC = () => {
             <FullScreenSection className="bg-white py-16 md:py-20">
                 <MasterpiecesSection />
             </FullScreenSection>
-            <FullScreenSection className="blueprint-bg py-16 md:py-24">
+            <FullScreenSection className="bg-gray-100 py-16 md:py-24">
                 <StatisticsSection />
             </FullScreenSection>
             <FullScreenSection className="bg-brand-light py-16 md:py-20">
