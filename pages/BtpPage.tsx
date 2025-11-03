@@ -192,17 +192,17 @@ const BtpPage: React.FC = () => {
     const { t } = useLocalization();
     const btpSlides = [
         {
-          img: 'https://images.pexels.com/photos/1010496/pexels-photo-1010496.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+          img: 'https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
           title: 'btpHeroTitle',
           subtitle: 'btpHeroSubtitle',
         },
         {
-          img: 'https://images.pexels.com/photos/4481326/pexels-photo-4481326.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+          img: 'https://images.pexels.com/photos/439416/pexels-photo-439416.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
           title: 'btpExpertiseTitle',
           subtitle: 'btpHeroExpertiseSubtitle',
         },
         {
-          img: 'https://images.pexels.com/photos/2224797/pexels-photo-2224797.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+          img: 'https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
           title: 'btpProjectsTitle',
           subtitle: 'btpHeroProjectsSubtitle',
         },
