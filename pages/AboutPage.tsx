@@ -106,17 +106,17 @@ const AboutPage: React.FC = () => {
 
   const aboutSlides = [
     {
-      img: 'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      img: 'https://images.pexels.com/photos/209251/pexels-photo-209251.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       title: 'aboutHeroTitle',
       subtitle: 'aboutHeroSlide1Subtitle',
     },
     {
-      img: 'https://images.pexels.com/photos/1578750/pexels-photo-1578750.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      img: 'https://images.pexels.com/photos/159306/construction-site-build-construction-work-159306.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       title: 'aboutMissionTitle',
       subtitle: 'aboutMissionText',
     },
     {
-      img: 'https://images.pexels.com/photos/8867432/pexels-photo-8867432.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      img: 'https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       title: 'aboutValuesTitle',
       subtitle: 'aboutHeroSlide3Subtitle',
     },
