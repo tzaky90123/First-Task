@@ -259,17 +259,17 @@ const RealEstatePage: React.FC = () => {
   const { t } = useLocalization();
   const realEstateSlides = [
     {
-      img: 'https://images.pexels.com/photos/2089698/pexels-photo-2089698.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      img: 'https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       title: 'reHeroTitle',
       subtitle: 'reHeroSubtitle',
     },
     {
-      img: 'https://images.pexels.com/photos/6585626/pexels-photo-6585626.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      img: 'https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       title: 'reAmenitiesTitle',
       subtitle: 'reHeroAmenitiesSubtitle',
     },
     {
-      img: 'https://images.pexels.com/photos/210546/pexels-photo-210546.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      img: 'https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       title: 'rePortfolioTitle',
       subtitle: 'reHeroPortfolioSubtitle',
     },
