@@ -19,10 +19,10 @@ const IconMentorship = () => <svg xmlns="http://www.w3.org/2000/svg" className="
 const WhyJoinUsSection: React.FC = () => {
     const { t } = useLocalization();
     const values = [
-        { icon: <img src="https://www.flaticon.com/free-icon/shield_3329048?term=shield&page=1&position=50&origin=search&related_id=3329048" alt="" className="h-full w-full" loading="lazy" width="32" height="32" />, titleKey: 'careersValueSafetyTitle', descKey: 'careersValueSafetyDesc' },
-        { icon: <img src="https://www.flaticon.com/free-icon/premium-badge_70535?term=award&page=1&position=5&origin=search&related_id=70535" alt="" className="h-full w-full" loading="lazy" width="32" height="32" />, titleKey: 'careersValueExcellenceTitle', descKey: 'careersValueExcellenceDesc' },
-        { icon: <img src="https://www.flaticon.com/free-icon/multiple-users-silhouette_33308?term=user&page=1&position=13&origin=search&related_id=33308" alt="" className="h-full w-full" loading="lazy" width="32" height="32" />, titleKey: 'careersValueTeamTitle', descKey: 'careersValueTeamDesc' },
-        { icon: <img src="https://www.flaticon.com/free-icon/diagram_2285559?term=growth&page=1&position=4&origin=search&related_id=2285559" alt="" className="h-full w-full" loading="lazy" width="32" height="32" />, titleKey: 'careersValueGrowthTitle', descKey: 'careersValueGrowthDesc' },
+        { icon: <img src="https://cdn-icons-png.flaticon.com/512/3329/3329048.png" alt="" className="h-full w-full" loading="lazy" width="32" height="32" />, titleKey: 'careersValueSafetyTitle', descKey: 'careersValueSafetyDesc' },
+        { icon: <img src="https://cdn-icons-png.flaticon.com/512/70/70535.png" alt="" className="h-full w-full" loading="lazy" width="32" height="32" />, titleKey: 'careersValueExcellenceTitle', descKey: 'careersValueExcellenceDesc' },
+        { icon: <img src="https://cdn-icons-png.flaticon.com/512/33/33308.png" alt="" className="h-full w-full" loading="lazy" width="32" height="32" />, titleKey: 'careersValueTeamTitle', descKey: 'careersValueTeamDesc' },
+        { icon: <img src="https://cdn-icons-png.flaticon.com/512/2285/2285559.png" alt="" className="h-full w-full" loading="lazy" width="32" height="32" />, titleKey: 'careersValueGrowthTitle', descKey: 'careersValueGrowthDesc' },
     ];
 
     return (
