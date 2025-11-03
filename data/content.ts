@@ -149,6 +149,8 @@ export const content: LocalizedContent = {
   // About Page
   aboutHeroTitle: { [Language.FR]: 'À Propos de Nous', [Language.EN]: 'About Us' },
   aboutHeroSubtitle: { [Language.FR]: '', [Language.EN]: '' },
+  aboutHeroSlide1Subtitle: { [Language.FR]: "Bâtir l'avenir du Sénégal depuis 1986, avec intégrité et excellence.", [Language.EN]: "Building Senegal's future since 1986, with integrity and excellence." },
+  aboutHeroSlide3Subtitle: { [Language.FR]: "Excellence, Intégrité, Durabilité, et Communauté : les piliers de notre engagement.", [Language.EN]: "Excellence, Integrity, Sustainability, and Community: the pillars of our commitment." },
   aboutMissionTitle: { [Language.FR]: 'Notre Mission', [Language.EN]: 'Our Mission' },
   aboutMissionText: { [Language.FR]: 'Contribuer activement au développement du Sénégal en réalisant des projets d\'envergure qui améliorent la qualité de vie, créent des emplois et respectent l\'environnement.', [Language.EN]: 'To actively contribute to Senegal\'s development by carrying out major projects that improve quality of life, create jobs, and respect the environment.' },
   aboutValuesTitle: { [Language.FR]: 'Nos Valeurs', [Language.EN]: 'Our Values' },
@@ -160,6 +162,8 @@ export const content: LocalizedContent = {
   // BTP Page
   btpHeroTitle: { [Language.FR]: 'Excellence en Construction', [Language.EN]: 'Excellence in Construction' },
   btpHeroSubtitle: { [Language.FR]: 'Nous réalisons des infrastructures complexes qui façonnent le paysage sénégalais.', [Language.EN]: 'We deliver complex infrastructure that shapes the Senegalese landscape.' },
+  btpHeroExpertiseSubtitle: { [Language.FR]: "Une expertise inégalée dans le génie civil, la construction de bâtiments et les travaux publics.", [Language.EN]: "Unmatched expertise in civil engineering, building construction, and public works." },
+  btpHeroProjectsSubtitle: { [Language.FR]: "Des ponts aux hôpitaux, nous construisons les fondations d'un Sénégal moderne.", [Language.EN]: "From bridges to hospitals, we build the foundations of a modern Senegal." },
   btpExpertiseTitle: { [Language.FR]: 'Notre Savoir-Faire', [Language.EN]: 'Our Expertise' },
   btpExpertiseText: { [Language.FR]: 'Avec des décennies d\'expérience, notre équipe gère des projets de génie civil, de construction de bâtiments et de travaux publics avec une rigueur et une qualité inégalées.', [Language.EN]: 'With decades of experience, our team manages civil engineering, building construction, and public works projects with unmatched rigor and quality.' },
 
@@ -209,6 +213,8 @@ export const content: LocalizedContent = {
   // Real Estate Page
   reHeroTitle: { [Language.FR]: 'Immobilier de Prestige', [Language.EN]: 'Premium Real Estate' },
   reHeroSubtitle: { [Language.FR]: 'Nous concevons des projets résidentiels et commerciaux qui définissent de nouveaux standards de qualité.', [Language.EN]: 'We design residential and commercial projects that set new standards of quality.' },
+  reHeroAmenitiesSubtitle: { [Language.FR]: "Des espaces optimisés pour le confort, la productivité et un style de vie moderne.", [Language.EN]: "Spaces optimized for comfort, productivity, and a modern lifestyle." },
+  reHeroPortfolioSubtitle: { [Language.FR]: "Créer des espaces de vie qui inspirent et enrichissent la communauté.", [Language.EN]: "Creating living spaces that inspire and enrich the community." },
   reIntroTitle: { [Language.FR]: 'Façonner des Espaces de Vie et de Travail d\'Exception', [Language.EN]: 'Shaping Exceptional Living and Working Spaces' },
   reIntroText: { [Language.FR]: 'Notre pôle Promotion Immobilière se consacre à la création de projets qui allient design innovant, fonctionnalité et intégration harmonieuse dans leur environnement. Des résidences de luxe aux espaces commerciaux dynamiques, nous bâtissons des lieux de vie et d\'opportunités pour les générations futures.', [Language.EN]: 'Our Real Estate Development division is dedicated to creating projects that combine innovative design, functionality, and harmonious integration into their environment. From luxury residences to dynamic commercial spaces, we build places of life and opportunity for future generations.' },
   reIntroTypeResidential: { [Language.FR]: 'Résidentiel', [Language.EN]: 'Residential' },
@@ -251,6 +257,8 @@ export const content: LocalizedContent = {
   // Mines Page
   minesHeroTitle: { [Language.FR]: 'Ressources et Responsabilité', [Language.EN]: 'Resources and Responsibility' },
   minesHeroSubtitle: { [Language.FR]: 'Exploiter le potentiel minier du Sénégal de manière durable et éthique.', [Language.EN]: 'Harnessing Senegal\'s mining potential in a sustainable and ethical manner.' },
+  minesHeroServicesSubtitle: { [Language.FR]: "De l'exploration à la logistique, nous maîtrisons toute la chaîne de valeur minière.", [Language.EN]: "From exploration to logistics, we master the entire mining value chain." },
+  minesHeroProjectsSubtitle: { [Language.FR]: "Valoriser les richesses du sous-sol pour soutenir l'économie nationale.", [Language.EN]: "Enhancing underground wealth to support the national economy." },
   minesIntroTitle: { [Language.FR]: 'Façonner l\'Avenir de l\'Industrie Minière au Sénégal', [Language.EN]: 'Shaping the Future of Mining in Senegal' },
   minesIntroText: { [Language.FR]: 'La division minière de SOCABEG est un pilier de l\'exploitation responsable des richesses minérales du Sénégal. Nous nous spécialisons dans des projets d\'extraction et de traitement à grande échelle, offrant des services complets, de l\'exploration initiale à la livraison finale, stimulant ainsi la croissance économique tout en respectant les normes éthiques les plus strictes.', [Language.EN]: 'SOCABEG\'s Mining Division is a cornerstone of the responsible exploitation of Senegal\'s mineral wealth. We specialize in large-scale extraction and processing projects, offering comprehensive services from initial exploration to final delivery, thereby driving economic growth while upholding the highest ethical standards.' },
   minesServicesTitle: { [Language.FR]: 'Nos Services Miniers Complets', [Language.EN]: 'Our Comprehensive Mining Services' },
@@ -290,6 +298,9 @@ export const content: LocalizedContent = {
   careersWhyUsTitle: { [Language.FR]: 'Pourquoi Construire Votre Carrière chez SOCABEG ?', [Language.EN]: 'Why Build Your Career at SOCABEG?' },
   careersWhyUsHeadline: { [Language.FR]: 'Plus qu\'un Emploi, une Mission', [Language.EN]: 'More Than a Job, It\'s a Mission' },
   careersWhyUsIntro: { [Language.FR]: 'Notre environnement de travail est fondé sur les mêmes principes que nos projets : intégrité, solidité et vision d\'avenir.', [Language.EN]: 'Our work environment is built on the same principles as our projects: integrity, strength, and a vision for the future.' },
+  careersHeroSlide1Subtitle: { [Language.FR]: "Rejoignez une équipe qui bâtit l'avenir et investit dans votre potentiel.", [Language.EN]: "Join a team that builds the future and invests in your potential." },
+  careersHeroSlide2Subtitle: { [Language.FR]: "Un environnement collaboratif où chaque contribution est valorisée pour atteindre des objectifs communs.", [Language.EN]: "A collaborative environment where every contribution is valued to achieve common goals." },
+  careersHeroSlide3Subtitle: { [Language.FR]: "Nous nous engageons dans votre développement professionnel avec des formations et des opportunités d'avancement.", [Language.EN]: "We are committed to your professional development with training and advancement opportunities." },
   careersValueSafetyTitle: { [Language.FR]: 'La Sécurité est Notre Fondation', [Language.EN]: 'Safety is Our Bedrock' },
   careersValueSafetyDesc: { [Language.FR]: 'Un engagement inébranlable et non négociable envers la santé et la sécurité de chaque membre de l\'équipe.', [Language.EN]: 'An unwavering, non-negotiable commitment to the health and safety of every team member.' },
   careersValueExcellenceTitle: { [Language.FR]: 'Construire avec Excellence', [Language.EN]: 'Build with Excellence' },

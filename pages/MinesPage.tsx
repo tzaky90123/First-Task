@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 import { useLocalization } from '../context/LocalizationContext';
 import { Link } from 'react-router-dom';
@@ -174,9 +175,28 @@ const CtaSection: React.FC = () => {
 };
 
 const MinesPage: React.FC = () => {
+  const { t } = useLocalization();
+  const minesSlides = [
+    {
+      img: 'https://images.pexels.com/photos/8549556/pexels-photo-8549556.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      title: 'minesHeroTitle',
+      subtitle: 'minesHeroSubtitle',
+    },
+    {
+      img: 'https://images.pexels.com/photos/6868621/pexels-photo-6868621.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      title: 'minesServicesTitle',
+      subtitle: 'minesHeroServicesSubtitle',
+    },
+    {
+      img: 'https://images.pexels.com/photos/1435423/pexels-photo-1435423.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      title: 'minesProjectsTitle',
+      subtitle: 'minesHeroProjectsSubtitle',
+    },
+  ];
+
   return (
     <>
-      <HeroSection />
+      <HeroSection slides={minesSlides} />
       <section className="bg-white py-20 md:py-28"><IntroductionSection /></section>
       <section className="blueprint-bg py-20 md:py-28"><ServicesSection /></section>
       <section className="bg-white py-20 md:py-28"><ProjectsSection /></section>

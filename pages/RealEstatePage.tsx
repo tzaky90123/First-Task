@@ -256,9 +256,28 @@ const CtaSection: React.FC = () => {
 };
 
 const RealEstatePage: React.FC = () => {
+  const { t } = useLocalization();
+  const realEstateSlides = [
+    {
+      img: 'https://images.pexels.com/photos/2089698/pexels-photo-2089698.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      title: 'reHeroTitle',
+      subtitle: 'reHeroSubtitle',
+    },
+    {
+      img: 'https://images.pexels.com/photos/6585626/pexels-photo-6585626.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      title: 'reAmenitiesTitle',
+      subtitle: 'reHeroAmenitiesSubtitle',
+    },
+    {
+      img: 'https://images.pexels.com/photos/210546/pexels-photo-210546.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      title: 'rePortfolioTitle',
+      subtitle: 'reHeroPortfolioSubtitle',
+    },
+  ];
+
   return (
     <>
-      <HeroSection />
+      <HeroSection slides={realEstateSlides} />
       <FullScreenSection className="bg-brand-light py-16 md:py-20"><IntroductionSection /></FullScreenSection>
       <FullScreenSection className="bg-white py-16 md:py-20"><PortfolioSection /></FullScreenSection>
       <FullScreenSection className="bg-brand-light py-16 md:py-20"><SustainabilitySection /></FullScreenSection>

@@ -153,9 +153,28 @@ const CareerOpportunitiesSection: React.FC = () => {
 
 
 const CareersPage: React.FC = () => {
+  const { t } = useLocalization();
+  const careersSlides = [
+    {
+      img: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      title: 'careersWhyUsTitle',
+      subtitle: 'careersHeroSlide1Subtitle',
+    },
+    {
+      img: 'https://images.pexels.com/photos/3184325/pexels-photo-3184325.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      title: 'careersValueTeamTitle',
+      subtitle: 'careersHeroSlide2Subtitle',
+    },
+    {
+      img: 'https://images.pexels.com/photos/8867432/pexels-photo-8867432.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      title: 'careersValueGrowthTitle',
+      subtitle: 'careersHeroSlide3Subtitle',
+    },
+  ];
+
   return (
     <>
-      <HeroSection />
+      <HeroSection slides={careersSlides} />
       <FullScreenSection className="bg-white py-20 md:py-28">
         <WhyJoinUsSection />
       </FullScreenSection>

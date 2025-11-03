@@ -104,9 +104,27 @@ const ValuesSection: React.FC = () => {
 const AboutPage: React.FC = () => {
   const { t } = useLocalization();
 
+  const aboutSlides = [
+    {
+      img: 'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      title: 'aboutHeroTitle',
+      subtitle: 'aboutHeroSlide1Subtitle',
+    },
+    {
+      img: 'https://images.pexels.com/photos/1578750/pexels-photo-1578750.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      title: 'aboutMissionTitle',
+      subtitle: 'aboutMissionText',
+    },
+    {
+      img: 'https://images.pexels.com/photos/8867432/pexels-photo-8867432.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      title: 'aboutValuesTitle',
+      subtitle: 'aboutHeroSlide3Subtitle',
+    },
+  ];
+
   return (
     <>
-      <HeroSection />
+      <HeroSection slides={aboutSlides} />
       
       <FullScreenSection className="bg-gray-100 py-16 md:py-24">
         <AboutSection />
