@@ -7,18 +7,10 @@ import HeroSection from '../components/HeroSection';
 import FullScreenSection from '../components/FullScreenSection';
 import Footer from '../components/Footer';
 
-// --- Icons ---
-const IconLeaf = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-brand-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c1.356 0 2.682-.25 3.934-.712M12 21c-1.356 0-2.682-.25-3.934-.712m0 0A12.005 12.005 0 0112 12c1.325 0 2.618.196 3.826.565m0 0a8.956 8.956 0 01-2.223 2.223M15.826 12.565a8.956 8.956 0 012.223 2.223m0 0A9 9 0 105.174 8.174M15.826 12.565A8.956 8.956 0 0118 14.5m-8.174-6.326A8.956 8.956 0 016 9.5m0 0a8.956 8.956 0 01-2.223-2.223M6 9.5A8.956 8.956 0 013.777 7.277m0 0A9 9 0 1018.826 15.826" /></svg>;
-const IconBolt = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-brand-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>;
-const IconDroplet = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-brand-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M12 21.75c4.836 0 8.75-3.914 8.75-8.75S16.836 4.25 12 4.25 3.25 8.164 3.25 13c0 4.836 3.914 8.75 8.75 8.75z" /></svg>;
-
 // --- New/Updated Icons for Redesigned Sections ---
 const IconDesign = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-brand-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zm-7.518-.267A8.25 8.25 0 1120.25 10.5M8.288 14.212A5.25 5.25 0 1117.25 10.5" /></svg>;
 const IconFunctionality = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-brand-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>;
 const IconIntegration = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-brand-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18A2.25 2.25 0 004.5 21h15a2.25 2.25 0 002.25-2.25V5.25A2.25 2.25 0 0019.5 3h-15A2.25 2.25 0 002.25 5.25v18zm11.25-18v18" /></svg>;
-const IconSmartHome = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-brand-primary transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h1.5m18 0h-18M2.25 9l4.5-1.636M18.75 3l-1.5.545m0 6.205l3 1M3 7.5l3 1m18 0l-3-1m-15 0l-3 1m15-6.5l-3 1.125" /></svg>;
-const IconPark = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-brand-primary transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M12 21.75c-2.43.95-5.035-.116-6.48-2.232-1.445-2.116-1.59-4.942-.35-7.232l5.53-9.955a.75.75 0 011.51 0l5.53 9.955c1.24 2.29 1.095 5.116-.35 7.232-1.445 2.116-4.05 3.182-6.48 2.232z" /></svg>;
-const IconShield = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-brand-primary transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.286zm0 13.036h.008v.008h-.008v-.008z" /></svg>;
 
 
 // --- Page Sections ---
@@ -100,9 +92,9 @@ const PortfolioSection: React.FC = () => {
 const SustainabilitySection: React.FC = () => {
     const { t } = useLocalization();
     const points = [
-        { icon: <IconLeaf />, titleKey: 'reSustainabilityPoint1Title', descKey: 'reSustainabilityPoint1Desc' },
-        { icon: <IconBolt />, titleKey: 'reSustainabilityPoint2Title', descKey: 'reSustainabilityPoint2Desc' },
-        { icon: <IconDroplet />, titleKey: 'reSustainabilityPoint3Title', descKey: 'reSustainabilityPoint3Desc' },
+        { iconUrl: 'https://cdn-icons-png.flaticon.com/512/5631/5631194.png', titleKey: 'reSustainabilityPoint1Title', descKey: 'reSustainabilityPoint1Desc' },
+        { iconUrl: 'https://cdn-icons-png.flaticon.com/512/17731/17731183.png', titleKey: 'reSustainabilityPoint2Title', descKey: 'reSustainabilityPoint2Desc' },
+        { iconUrl: 'https://cdn-icons-png.flaticon.com/512/3043/3043652.png', titleKey: 'reSustainabilityPoint3Title', descKey: 'reSustainabilityPoint3Desc' },
     ];
     return (
         <div className="container mx-auto px-6 grid md:grid-cols-5 gap-12 items-center">
@@ -115,7 +107,9 @@ const SustainabilitySection: React.FC = () => {
                 <div className="space-y-6">
                     {points.map(p => (
                         <div key={p.titleKey} className="flex items-start">
-                            <div className="flex-shrink-0">{p.icon}</div>
+                            <div className="flex-shrink-0">
+                                <img src={p.iconUrl} alt="" className="h-10 w-10" loading="lazy" width="40" height="40" />
+                            </div>
                             <div className="ml-4">
                                 <h3 className="text-xl font-bold text-brand-primary">{t(p.titleKey)}</h3>
                                 <p className="text-brand-text mt-1">{t(p.descKey)}</p>
@@ -131,9 +125,9 @@ const SustainabilitySection: React.FC = () => {
 const AmenitiesSection: React.FC = () => {
     const { t } = useLocalization();
     const amenities = [
-        { icon: <IconSmartHome />, titleKey: 'reAmenity1Title', descKey: 'reAmenity1Desc' },
-        { icon: <IconPark />, titleKey: 'reAmenity2Title', descKey: 'reAmenity2Desc' },
-        { icon: <IconShield />, titleKey: 'reAmenity3Title', descKey: 'reAmenity3Desc' },
+        { iconUrl: 'https://cdn-icons-png.flaticon.com/512/7516/7516248.png', titleKey: 'reAmenity1Title', descKey: 'reAmenity1Desc' },
+        { iconUrl: 'https://cdn-icons-png.flaticon.com/512/45/45777.png', titleKey: 'reAmenity2Title', descKey: 'reAmenity2Desc' },
+        { iconUrl: 'https://cdn-icons-png.flaticon.com/512/1161/1161490.png', titleKey: 'reAmenity3Title', descKey: 'reAmenity3Desc' },
     ];
     return (
         <div className="container mx-auto px-6">
@@ -149,7 +143,7 @@ const AmenitiesSection: React.FC = () => {
                         style={{ animationDelay: `${150 * (index + 1)}ms` }}
                     >
                         <div className="mx-auto mb-6 w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center transition-all duration-300 group-hover:bg-brand-primary/10 group-hover:scale-110">
-                            {amenity.icon}
+                            <img src={amenity.iconUrl} alt={t(amenity.titleKey)} className="h-8 w-8" />
                         </div>
                         <h3 className="text-xl font-bold text-brand-navy mb-3">{t(amenity.titleKey)}</h3>
                         <p className="text-sm text-brand-text-gray leading-relaxed">{t(amenity.descKey)}</p>
