@@ -7,11 +7,11 @@ import HeroSection from '../components/HeroSection';
 import FullScreenSection from '../components/FullScreenSection';
 import Footer from '../components/Footer';
 
-// --- Icons ---
-const IconCompensation = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-full w-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /></svg>;
-const IconHealth = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-full w-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" /></svg>;
-const IconDevelopment = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-full w-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path d="M12 14l9-5-9-5-9 5 9 5z" /><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-5.998 12.078 12.078 0 01.665-6.479L12 14z" /><path strokeLinecap="round" strokeLinejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-5.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" /></svg>;
-const IconMentorship = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-full w-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.25a.75.75 0 01-.75-.75V10.5a.75.75 0 01.75-.75h1.5a.75.75 0 01.75.75v1.5a.75.75 0 01-.75.75H3.75m15-3v-1.5a.75.75 0 00-.75-.75h-1.5a.75.75 0 00-.75.75V15m-4.5 0h.01M12 3a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V3.75A.75.75 0 0112 3zM3.75 10.5a.75.75 0 01.75-.75h1.5a.75.75 0 01.75.75v1.5a.75.75 0 01-.75.75h-1.5a.75.75 0 01-.75-.75V10.5z" /></svg>;
+// --- SVG Icons for Benefits Section ---
+const IconRemuneration = () => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-full w-full"><path d="M23,8H1a1,1,0,0,0-1,1V21a1,1,0,0,0,1,1H23a1,1,0,0,0,1-1V9A1,1,0,0,0,23,8ZM2,10H22V20H2ZM12,15a3,3,0,1,0-3-3A3,3,0,0,0,12,15Zm0-4a1,1,0,1,1-1,1A1,1,0,0,1,12,11ZM19,2H5A3,3,0,0,0,2,5V6H22V5A3,3,0,0,0,19,2Z"/></svg>;
+const IconHealth = () => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-full w-full"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78zM15 12h-2v2h-2v-2H9v-2h2V8h2v2h2v2z" /></svg>;
+const IconDevelopment = () => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-full w-full"><path d="M21.73,9.4l-9-4.5a1,1,0,0,0-.5,0l-9,4.5a1,1,0,0,0,0,1.8l3.1,1.5c0,0-.1,1.1,0,1.2l-3.2,1.6A1,1,0,0,0,2,15.2V17a1,1,0,0,0,1.1,1L12,13.4l8.9,4.6a1,1,0,0,0,1.1-1V15.2a1,1,0,0,0-.7-1l-3.2-1.5c.1,0,.1-1.2,0-1.2l3.1-1.5a1,1,0,1,0,.4-1.8Z"/></svg>;
+const IconMentorship = () => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-full w-full"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>;
 
 
 // --- Page Sections ---
@@ -55,7 +55,7 @@ const WhyJoinUsSection: React.FC = () => {
 const BenefitsSection: React.FC = () => {
     const { t } = useLocalization();
     const benefits = [
-        { icon: <IconCompensation />, titleKey: 'careersBenefit1Title', descKey: 'careersBenefit1Desc' },
+        { icon: <IconRemuneration />, titleKey: 'careersBenefit1Title', descKey: 'careersBenefit1Desc' },
         { icon: <IconHealth />, titleKey: 'careersBenefit2Title', descKey: 'careersBenefit2Desc' },
         { icon: <IconDevelopment />, titleKey: 'careersBenefit3Title', descKey: 'careersBenefit3Desc' },
         { icon: <IconMentorship />, titleKey: 'careersBenefit4Title', descKey: 'careersBenefit4Desc' },
@@ -71,7 +71,7 @@ const BenefitsSection: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 {benefits.map((benefit, index) => (
                     <div key={benefit.titleKey} className="bg-white p-8 rounded-xl shadow-soft text-center transition-all duration-300 group hover:shadow-2xl hover:-translate-y-2 flex flex-col" style={{ animation: `fadeInUp 0.5s ${index * 0.1}s ease-out both` }}>
-                        <div className="text-brand-yellow mx-auto mb-6 w-16 h-16 p-3 flex items-center justify-center rounded-full bg-brand-navy transition-colors duration-300 group-hover:bg-brand-yellow group-hover:text-brand-navy">{benefit.icon}</div>
+                        <div className="text-brand-navy mx-auto mb-6 w-16 h-16 p-3 flex items-center justify-center rounded-full bg-brand-navy/5 transition-all duration-300 group-hover:bg-brand-navy group-hover:text-white group-hover:scale-110">{benefit.icon}</div>
                         <h3 className="text-xl font-bold text-brand-navy mb-3">{t(benefit.titleKey)}</h3>
                         <p className="text-brand-text-gray text-sm flex-grow">{t(benefit.descKey)}</p>
                     </div>
