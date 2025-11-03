@@ -195,7 +195,7 @@ const BtpPage: React.FC = () => {
   return (
     <>
       <HeroSection />
-      <FullScreenSection className="blueprint-bg py-16 md:py-20">
+      <FullScreenSection className="bg-gray-100 py-16 md:py-20">
         <ServicesSection />
       </FullScreenSection>
       <FullScreenSection className="bg-white py-16 md:py-20">
