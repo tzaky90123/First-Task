@@ -431,8 +431,8 @@ const TestimonialsSection: React.FC = () => {
 const WhyChooseUsSection: React.FC = () => {
     const { t } = useLocalization();
     const values = [
-        { icon: 'https://cdn-icons-png.flaticon.com/512/2921/2921125.png', titleKey: 'value1Title', descKey: 'value1Desc' },
-        { icon: 'https://cdn-icons-png.flaticon.com/512/815/815918.png', titleKey: 'value2Title', descKey: 'value2Desc' },
+        { icon: 'https://cdn-icons-png.flaticon.com/512/70/70535.png', titleKey: 'value1Title', descKey: 'value1Desc' },
+        { icon: 'https://cdn-icons-png.flaticon.com/512/807/807303.png', titleKey: 'value2Title', descKey: 'value2Desc' },
         { icon: 'https://cdn-icons-png.flaticon.com/512/5631/5631194.png', titleKey: 'value3Title', descKey: 'value3Desc' },
         { icon: 'https://cdn-icons-png.flaticon.com/512/60/60473.png', titleKey: 'value4Title', descKey: 'value4Desc' },
         { icon: 'https://cdn-icons-png.flaticon.com/512/25/25694.png', titleKey: 'value5Title', descKey: 'value5Desc' },
