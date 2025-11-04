@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 import { useLocalization } from '../context/LocalizationContext';
 import Footer from '../components/Footer';
 import FullScreenSection from '../components/FullScreenSection';
-import SectionLogoIcon from '../components/SectionLogoIcon';
 import AboutSection from '../components/AboutSection';
 import HeroSection from '../components/HeroSection';
 import ContactSection from '../components/ContactSection';
+import SectionTitle from '../components/SectionTitle';
 
 // --- Helper Components ---
 
@@ -34,15 +34,7 @@ const ExpertiseSection: React.FC = () => {
   
     return (
         <div className="container mx-auto px-5 lg:px-20">
-          <div className="text-center mb-12 md:mb-16">
-            <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
-                <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
-                <span>{t('homeServicesTitle')}</span>
-            </h3>
-            <h2 className="text-2xl font-bold font-sans text-black max-w-3xl mx-auto">
-                {t('homeExpertiseSubtitle')}
-            </h2>
-          </div>
+          <SectionTitle subtitleKey="homeServicesTitle" titleKey="homeExpertiseSubtitle" icon />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <div key={index} className="bg-brand-light p-6 rounded-lg shadow-sm text-center transition-all duration-300 hover:shadow-lg flex flex-col justify-center">
@@ -75,13 +67,7 @@ const PartnersSection: React.FC = () => {
 
     return (
         <div className="container mx-auto px-5 lg:px-20">
-            <div className="text-center mb-12 md:mb-16">
-                <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
-                    <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
-                    <span>{t('partnersSectionTitle')}</span>
-                </h3>
-                <h2 className="text-2xl font-bold font-sans text-black">{t('partnersSectionHeadline')}</h2>
-            </div>
+            <SectionTitle subtitleKey="partnersSectionTitle" titleKey="partnersSectionHeadline" icon />
              <div className="flex flex-col items-center gap-y-8 md:gap-y-12">
                 <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 lg:gap-x-24">
                     {row1Logos.map((logo, index) => (
@@ -148,15 +134,7 @@ const MasterpiecesSection: React.FC = () => {
 
     return (
         <div className="container mx-auto px-5 lg:px-20">
-            <div className="text-center mb-12 md:mb-16">
-                <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
-                   <SectionLogoIcon className="inline-block h-5 w-auto mr-2"/>
-                   <span>{t('homeMasterpiecesTitle')}</span>
-                </h3>
-                <h2 className="text-2xl font-bold font-sans text-black">
-                    {t('homeMasterpiecesSubtitle')}
-                </h2>
-            </div>
+            <SectionTitle subtitleKey="homeMasterpiecesTitle" titleKey="homeMasterpiecesSubtitle" icon />
 
             <div className="hidden md:grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {masterpieces.map((masterpiece, index) => (
@@ -259,15 +237,7 @@ const StatisticsSection: React.FC = () => {
 
     return (
         <div className="container mx-auto px-5 lg:px-20">
-            <div className="text-center mb-12 md:mb-16">
-                <h3 className="text-sm font-medium text-brand-secondary uppercase tracking-widest flex items-center justify-center mb-2">
-                    <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
-                    <span>{t('statisticsSectionHeadline')}</span>
-                </h3>
-                <h2 className="text-3xl md:text-4xl font-bold font-sans text-brand-navy">
-                    {t('statisticsSectionTitle')}
-                </h2>
-            </div>
+            <SectionTitle subtitleKey="statisticsSectionHeadline" titleKey="statisticsSectionTitle" icon />
 
             <div className="grid lg:grid-cols-5 gap-8 items-stretch">
                 {/* Left Column - Stats */}
@@ -359,13 +329,7 @@ const ProgramSection: React.FC = () => {
 
     return (
         <div className="container mx-auto px-5 lg:px-20">
-            <div className="text-center mb-12 md:mb-16">
-                <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
-                    <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
-                    <span>{t('programsSectionTitle')}</span>
-                </h3>
-                <h2 className="text-2xl font-bold font-sans text-black">{t('programsSectionHeadline')}</h2>
-            </div>
+            <SectionTitle subtitleKey="programsSectionTitle" titleKey="programsSectionHeadline" icon />
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {programs.map((program, index) => (
                     <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
@@ -432,13 +396,7 @@ const TestimonialsSection: React.FC = () => {
 
     return (
         <div className="container mx-auto px-5 lg:px-20">
-            <div className="text-center mb-12 md:mb-16">
-                <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
-                    <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
-                    <span>{t('testimonialsSectionTitle')}</span>
-                </h3>
-                <h2 className="text-2xl font-bold font-sans text-black">{t('testimonialsSectionHeadline')}</h2>
-            </div>
+            <SectionTitle subtitleKey="testimonialsSectionTitle" titleKey="testimonialsSectionHeadline" icon />
             <div className="relative">
                 <div className="overflow-hidden">
                     <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>

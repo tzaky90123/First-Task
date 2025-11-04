@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import HeroSection from '../components/HeroSection';
 import FullScreenSection from '../components/FullScreenSection';
 import Footer from '../components/Footer';
+import SectionTitle from '../components/SectionTitle';
 
 // --- SVG Icons for Benefits Section ---
 const IconRemuneration = () => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-full w-full"><path d="M23,8H1a1,1,0,0,0-1,1V21a1,1,0,0,0,1,1H23a1,1,0,0,0,1-1V9A1,1,0,0,0,23,8ZM2,10H22V20H2ZM12,15a3,3,0,1,0-3-3A3,3,0,0,0,12,15Zm0-4a1,1,0,1,1-1,1A1,1,0,0,1,12,11ZM19,2H5A3,3,0,0,0,2,5V6H22V5A3,3,0,0,0,19,2Z"/></svg>;
@@ -27,11 +28,7 @@ const WhyJoinUsSection: React.FC = () => {
 
     return (
         <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-                <h2 className="text-sm font-bold text-brand-primary uppercase tracking-widest">{t('careersWhyUsTitle')}</h2>
-                <p className="mt-2 text-3xl md:text-4xl font-bold font-sans text-brand-navy">{t('careersWhyUsHeadline')}</p>
-                <p className="mt-4 max-w-2xl mx-auto text-lg text-brand-text-gray">{t('careersWhyUsIntro')}</p>
-            </div>
+            <SectionTitle subtitleKey="careersWhyUsTitle" titleKey="careersWhyUsHeadline" descriptionKey="careersWhyUsIntro" />
             <div className="grid md:grid-cols-2 gap-12 lg:gap-24 items-center">
                 <div className="animate-fade-in-up">
                     <img src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="A diverse team collaborating on a project at SOCABEG" className="rounded-xl shadow-2xl w-full h-auto object-cover" loading="lazy" width="576" height="384"/>
@@ -63,11 +60,7 @@ const BenefitsSection: React.FC = () => {
     
     return (
         <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-                <h2 className="text-sm font-bold text-brand-primary uppercase tracking-widest">{t('careersBenefitsTitle')}</h2>
-                <p className="mt-2 text-3xl md:text-4xl font-bold font-sans text-brand-navy">{t('careersBenefitsHeadline')}</p>
-                <p className="mt-4 max-w-2xl mx-auto text-lg text-brand-text-gray">{t('careersBenefitsIntro')}</p>
-            </div>
+            <SectionTitle subtitleKey="careersBenefitsTitle" titleKey="careersBenefitsHeadline" descriptionKey="careersBenefitsIntro" />
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 {benefits.map((benefit, index) => (
                     <div key={benefit.titleKey} className="bg-white p-8 rounded-xl shadow-soft text-center transition-all duration-300 group hover:shadow-2xl hover:-translate-y-2 flex flex-col" style={{ animation: `fadeInUp 0.5s ${index * 0.1}s ease-out both` }}>
@@ -90,10 +83,7 @@ const TestimonialsSection: React.FC = () => {
 
     return (
         <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-                <h2 className="text-sm font-bold text-brand-primary uppercase tracking-widest">{t('careersTestimonialsTitle')}</h2>
-                <p className="mt-2 text-3xl md:text-4xl font-bold font-sans text-brand-navy">{t('careersTestimonialsHeadline')}</p>
-            </div>
+            <SectionTitle subtitleKey="careersTestimonialsTitle" titleKey="careersTestimonialsHeadline" />
             <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                 {testimonials.map((item, index) => (
                      <div key={item.nameKey} className="bg-white rounded-xl shadow-lg overflow-hidden" style={{ animation: `fadeInUp 0.5s ${index * 0.15}s ease-out both` }}>
@@ -127,8 +117,7 @@ const CareerOpportunitiesSection: React.FC = () => {
     
     return (
         <div className="container mx-auto px-6 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold font-sans text-brand-navy mb-4">{t('careersOpeningsTitle')}</h2>
-            <p className="text-lg text-brand-text-gray max-w-3xl mx-auto mb-12">{t('careersOpeningsText')}</p>
+            <SectionTitle titleKey="careersOpeningsTitle" descriptionKey="careersOpeningsText" />
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-left mb-12">
                 {roles.map((role, index) => (

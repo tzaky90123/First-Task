@@ -6,6 +6,7 @@ import { useLocalization } from '../context/LocalizationContext';
 import HeroSection from '../components/HeroSection';
 import FullScreenSection from '../components/FullScreenSection';
 import Footer from '../components/Footer';
+import SectionTitle from '../components/SectionTitle';
 
 // --- New/Updated Icons for Redesigned Sections ---
 const IconDesign = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-brand-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zm-7.518-.267A8.25 8.25 0 1120.25 10.5M8.288 14.212A5.25 5.25 0 1117.25 10.5" /></svg>;
@@ -28,7 +29,7 @@ const IntroductionSection: React.FC = () => {
         <div className="container mx-auto px-6 py-16 md:py-0">
             <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
                 <div className="animate-fade-in-up">
-                    <h2 className="text-4xl md:text-5xl font-bold font-sans text-brand-navy mb-6">{t('reIntroTitle')}</h2>
+                    <h2 className="text-3xl font-bold font-sans text-brand-navy mb-6">{t('reIntroTitle')}</h2>
                     <p className="text-lg text-brand-text-gray leading-relaxed mb-8">{t('reIntroText')}</p>
                     
                     <div className="space-y-6 mb-8">
@@ -66,10 +67,7 @@ const PortfolioSection: React.FC = () => {
     ];
     return (
         <div className="container mx-auto px-6">
-            <div className="text-center max-w-3xl mx-auto mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold font-sans text-brand-primary mb-4">{t('rePortfolioTitle')}</h2>
-                <p className="text-lg text-brand-text leading-relaxed">{t('rePortfolioSubtitle')}</p>
-            </div>
+            <SectionTitle titleKey="rePortfolioTitle" descriptionKey="rePortfolioSubtitle" />
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {projects.map(p => (
                     <div key={p.titleKey} className="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 flex flex-col">
@@ -97,25 +95,26 @@ const SustainabilitySection: React.FC = () => {
         { iconUrl: 'https://cdn-icons-png.flaticon.com/512/3043/3043652.png', titleKey: 'reSustainabilityPoint3Title', descKey: 'reSustainabilityPoint3Desc' },
     ];
     return (
-        <div className="container mx-auto px-6 grid md:grid-cols-5 gap-12 items-center">
-            <div className="md:col-span-2">
-                 <img src="https://images.pexels.com/photos/439391/pexels-photo-439391.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Eco-friendly building" className="rounded-lg shadow-xl w-full" loading="lazy" width="576" height="384" />
-            </div>
-            <div className="md:col-span-3">
-                <h2 className="text-3xl md:text-4xl font-bold font-sans text-brand-primary mb-4">{t('reSustainabilityTitle')}</h2>
-                <p className="text-lg text-brand-text leading-relaxed mb-8">{t('reSustainabilityText')}</p>
-                <div className="space-y-6">
-                    {points.map(p => (
-                        <div key={p.titleKey} className="flex items-start">
-                            <div className="flex-shrink-0">
-                                <img src={p.iconUrl} alt="" className="h-10 w-10" loading="lazy" width="40" height="40" />
+        <div className="container mx-auto px-6">
+            <SectionTitle titleKey="reSustainabilityTitle" descriptionKey="reSustainabilityText" />
+            <div className="grid md:grid-cols-5 gap-12 items-center">
+                <div className="md:col-span-2">
+                     <img src="https://images.pexels.com/photos/439391/pexels-photo-439391.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Eco-friendly building" className="rounded-lg shadow-xl w-full" loading="lazy" width="576" height="384" />
+                </div>
+                <div className="md:col-span-3">
+                    <div className="space-y-6">
+                        {points.map(p => (
+                            <div key={p.titleKey} className="flex items-start">
+                                <div className="flex-shrink-0">
+                                    <img src={p.iconUrl} alt="" className="h-10 w-10" loading="lazy" width="40" height="40" />
+                                </div>
+                                <div className="ml-4">
+                                    <h3 className="text-xl font-bold text-brand-primary">{t(p.titleKey)}</h3>
+                                    <p className="text-brand-text mt-1">{t(p.descKey)}</p>
+                                </div>
                             </div>
-                            <div className="ml-4">
-                                <h3 className="text-xl font-bold text-brand-primary">{t(p.titleKey)}</h3>
-                                <p className="text-brand-text mt-1">{t(p.descKey)}</p>
-                            </div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>
@@ -131,10 +130,7 @@ const AmenitiesSection: React.FC = () => {
     ];
     return (
         <div className="container mx-auto px-6">
-            <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in-up">
-                <h2 className="text-3xl md:text-4xl font-bold font-sans text-brand-navy mb-4">{t('reAmenitiesTitle')}</h2>
-                <p className="text-lg text-brand-text-gray leading-relaxed">{t('reAmenitiesText')}</p>
-            </div>
+            <SectionTitle titleKey="reAmenitiesTitle" descriptionKey="reAmenitiesText" />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {amenities.map((amenity, index) => (
                     <div
@@ -193,9 +189,7 @@ const TestimonialsSection: React.FC = () => {
 
     return (
         <div className="container mx-auto px-5 lg:px-20">
-            <div className="text-center mb-12 md:mb-16">
-                 <h2 className="text-3xl md:text-4xl font-bold font-sans text-brand-primary mb-12 text-center">{t('reTestimonialsTitle')}</h2>
-            </div>
+            <SectionTitle titleKey="reTestimonialsTitle" />
             <div className="relative">
                 <div className="overflow-hidden">
                     <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
@@ -230,13 +224,10 @@ const TestimonialsSection: React.FC = () => {
 const MarketInsightSection: React.FC = () => {
     const { t } = useLocalization();
     return (
-        <div className="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-            <div className="order-2 md:order-1">
-                <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Modern interior design" className="rounded-lg shadow-xl w-full h-auto object-cover" loading="lazy" width="576" height="384"/>
-            </div>
-            <div className="order-1 md:order-2">
-                <h2 className="text-3xl md:text-4xl font-bold font-sans text-brand-primary mb-4">{t('reMarketTitle')}</h2>
-                <p className="text-lg text-brand-text leading-relaxed">{t('reMarketText')}</p>
+        <div className="container mx-auto px-6">
+            <SectionTitle titleKey="reMarketTitle" descriptionKey="reMarketText" />
+            <div className="mt-8">
+                <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Modern interior design" className="rounded-lg shadow-xl w-full h-auto object-cover max-w-4xl mx-auto" loading="lazy" width="576" height="384"/>
             </div>
         </div>
     );
@@ -246,8 +237,7 @@ const CtaSection: React.FC = () => {
     const { t } = useLocalization();
     return (
         <div className="container mx-auto px-6 text-center">
-            <h2 className="text-3xl font-bold font-sans text-brand-dark mb-4">{t('reCtaTitle')}</h2>
-            <p className="text-lg text-brand-text max-w-2xl mx-auto mb-8">{t('reCtaText')}</p>
+            <SectionTitle titleKey="reCtaTitle" descriptionKey="reCtaText" />
             <Link to="/contact" className="bg-brand-secondary text-brand-dark text-lg font-bold py-4 px-10 rounded-full hover:bg-opacity-90 transition-colors duration-300 inline-block transform hover:scale-105">
                 {t('reCtaButton')}
             </Link>

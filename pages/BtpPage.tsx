@@ -7,6 +7,7 @@ import HeroSection from '../components/HeroSection';
 import FullScreenSection from '../components/FullScreenSection';
 import Footer from '../components/Footer';
 import ContactSection from '../components/ContactSection';
+import SectionTitle from '../components/SectionTitle';
 
 // --- Icons ---
 const IconCivilEng = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-brand-gold-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 002.25-2.25V6a2.25 2.25 0 00-2.25-2.25H6a2.25 2.25 0 00-2.25 2.25v2.25a2.25 2.25 0 002.25 2.25zm13.5 7.5h-2.25a2.25 2.25 0 00-2.25 2.25v2.25a2.25 2.25 0 002.25 2.25H18a2.25 2.25 0 002.25-2.25v-2.25a2.25 2.25 0 00-2.25-2.25z" /></svg>;
@@ -27,10 +28,7 @@ const ServicesSection: React.FC = () => {
     ];
     return (
         <div className="container mx-auto px-6">
-            <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold text-brand-blue-dark">{t('btpServicesNewTitle')}</h2>
-                <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">{t('btpServicesNewSubtitle')}</p>
-            </div>
+            <SectionTitle titleKey="btpServicesNewTitle" descriptionKey="btpServicesNewSubtitle" />
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {services.map((service, index) => (
                     <div key={service.titleKey} className="bg-white p-8 rounded-lg shadow-soft transition-all duration-300 hover:shadow-xl hover:-translate-y-2 flex flex-col group animate-fade-in-up" style={{ animationDelay: `${index * 150}ms`}}>
@@ -64,7 +62,7 @@ const ApproachSection: React.FC = () => {
                     <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Collaboration and teamwork" className="rounded-lg shadow-xl w-full h-auto object-cover" loading="lazy" width="576" height="384"/>
                 </div>
                 <div className="bg-gray-50/50 p-8 rounded-lg">
-                    <h2 className="text-3xl md:text-4xl font-bold font-sans text-brand-blue-dark mb-3">{t('btpApproachTitle')}</h2>
+                    <h2 className="text-3xl font-bold font-sans text-brand-blue-dark mb-3">{t('btpApproachTitle')}</h2>
                     <p className="text-lg text-gray-600 mb-8">{t('btpApproachSubtitle')}</p>
                     <div className="space-y-8">
                         {approaches.map((item, index) => (
@@ -94,12 +92,7 @@ const ProjectsSection: React.FC = () => {
     ];
     return (
         <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-                <h2 className="inline-block text-3xl md:text-4xl font-bold text-brand-navy relative">
-                    {t('btpProjectsTitle')}
-                    <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-2/3 h-1 bg-brand-yellow"></span>
-                </h2>
-            </div>
+            <SectionTitle titleKey="btpProjectsTitle" />
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {projects.map((p, index) => (
                     <div key={p.titleKey} className="group bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2" style={{ animation: `fadeInUp 0.5s ${index * 0.1}s ease-out both` }}>
@@ -155,7 +148,7 @@ const TestimonialsSection: React.FC = () => {
 
     return (
         <div className="container mx-auto px-6 max-w-5xl">
-            <h2 className="text-3xl md:text-4xl font-bold font-sans text-brand-primary mb-12 text-center">{t('btpTestimonialsTitle')}</h2>
+            <SectionTitle titleKey="btpTestimonialsTitle" />
             
             <div className="relative">
                 <div className="overflow-hidden">

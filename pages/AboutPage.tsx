@@ -5,8 +5,8 @@ import { useLocalization } from '../context/LocalizationContext';
 import FullScreenSection from '../components/FullScreenSection';
 import Footer from '../components/Footer';
 import AboutSection from '../components/AboutSection';
-import SectionLogoIcon from '../components/SectionLogoIcon';
 import HeroSection from '../components/HeroSection';
+import SectionTitle from '../components/SectionTitle';
 
 const PartnersSection: React.FC = () => {
     const { t } = useLocalization();
@@ -27,13 +27,7 @@ const PartnersSection: React.FC = () => {
 
     return (
         <div className="container mx-auto px-5 lg:px-20">
-            <div className="text-center mb-12 md:mb-16">
-                <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
-                    <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
-                    <span>{t('partnersSectionTitle')}</span>
-                </h3>
-                <h2 className="text-2xl font-bold font-sans text-black">{t('partnersSectionHeadline')}</h2>
-            </div>
+            <SectionTitle subtitleKey="partnersSectionTitle" titleKey="partnersSectionHeadline" icon />
              <div className="space-y-8 md:space-y-12">
                 <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 lg:gap-x-24">
                     {row1Logos.map((logo, index) => (
@@ -64,59 +58,21 @@ const PartnersSection: React.FC = () => {
     );
 };
 
-const ValuesSection: React.FC = () => {
-  const { t } = useLocalization();
-
-  const values = [
-    { titleKey: "value1Title", descriptionKey: "value1Desc", icon: "https://cdn-icons-png.flaticon.com/512/506/506420.png" },
-    { titleKey: "value2Title", descriptionKey: "value2Desc", icon: "https://cdn-icons-png.flaticon.com/512/100/100852.png" },
-    { titleKey: "value3Title", descriptionKey: "value3Desc", icon: "https://cdn-icons-png.flaticon.com/512/5631/5631194.png" },
-    { titleKey: "value4Title", descriptionKey: "value4Desc", icon: "https://cdn-icons-png.flaticon.com/512/10556/10556522.png" },
-    { titleKey: "value5Title", descriptionKey: "value5Desc", icon: "https://cdn-icons-png.flaticon.com/512/798/798008.png" },
-    { titleKey: "value6Title", descriptionKey: "value6Desc", icon: "https://cdn-icons-png.flaticon.com/512/33/33308.png" },
-  ];
-
-  return (
-      <div className="container mx-auto px-5 lg:px-20">
-        <div className="text-center mb-12 md:mb-16">
-          <h3 className="text-sm font-medium text-brand-primary uppercase tracking-widest flex items-center justify-center mb-2">
-            <SectionLogoIcon className="inline-block h-5 w-auto mr-2" />
-            <span>{t("whyChooseUsSectionTitle")}</span>
-          </h3>
-          <h2 className="text-2xl font-bold font-sans text-black">{t("whyChooseUsSectionHeadline")}</h2>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {values.map((value, index) => (
-            <div key={index} className="bg-white p-8 rounded-lg shadow-sm transition-all duration-300 hover:shadow-xl">
-              {value.icon && (<img src={value.icon} alt="" className="h-10 w-10 mb-4" width="40" height="40" loading="lazy" />)}
-              <div>
-                <h3 className="text-xl font-medium text-brand-primary mb-2 font-sans">{t(value.titleKey)}</h3>
-                <p className="text-brand-text text-sm leading-relaxed">{t(value.descriptionKey)}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-  );
-};
-
-
 const AboutPage: React.FC = () => {
   const { t } = useLocalization();
-
   const aboutSlides = [
     {
-      img: 'https://images.pexels.com/photos/209251/pexels-photo-209251.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      img: 'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       title: 'aboutHeroTitle',
       subtitle: 'aboutHeroSlide1Subtitle',
     },
     {
-      img: 'https://images.pexels.com/photos/159306/construction-site-build-construction-work-159306.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      img: 'https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       title: 'aboutMissionTitle',
       subtitle: 'aboutMissionText',
     },
     {
-      img: 'https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      img: 'https://images.pexels.com/photos/5439427/pexels-photo-5439427.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       title: 'aboutValuesTitle',
       subtitle: 'aboutHeroSlide3Subtitle',
     },
@@ -124,20 +80,13 @@ const AboutPage: React.FC = () => {
 
   return (
     <>
-      <HeroSection slides={aboutSlides} />
-      
+      <HeroSection slides={aboutSlides} cta={false} />
       <FullScreenSection className="bg-gray-100 py-16 md:py-24">
         <AboutSection />
       </FullScreenSection>
-
       <FullScreenSection className="bg-white py-16 md:py-20">
         <PartnersSection />
       </FullScreenSection>
-
-      <FullScreenSection className="bg-brand-light py-16 md:py-20">
-        <ValuesSection />
-      </FullScreenSection>
-
       <Footer />
     </>
   );

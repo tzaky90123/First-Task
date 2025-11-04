@@ -7,18 +7,18 @@ const ContactPage: React.FC = () => {
   // Define slides for the contact page hero, with new construction-themed images
   const contactSlides = [
     {
-      img: 'https://images.pexels.com/photos/1078884/pexels-photo-1078884.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      title: 'contactHeroTitle1',
+      img: 'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      title: 'contactHeroTitleConstruction1',
       subtitle: 'contactHeroSubtitle',
     },
     {
-      img: 'https://images.pexels.com/photos/585419/pexels-photo-585419.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      title: 'contactHeroTitle2',
+      img: 'https://images.pexels.com/photos/1216544/pexels-photo-1216544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      title: 'contactHeroTitleConstruction2',
       subtitle: 'homeContactCtaText',
     },
     {
-      img: 'https://images.pexels.com/photos/7218568/pexels-photo-7218568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      title: 'contactHeroTitle3',
+      img: 'https://images.pexels.com/photos/544966/pexels-photo-544966.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      title: 'contactHeroTitleConstruction3',
       subtitle: 'contactHeroSubtitle',
     },
   ];

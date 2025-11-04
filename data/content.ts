@@ -349,6 +349,10 @@ export const content: LocalizedContent = {
   contactHeroTitle1: { [Language.FR]: 'Bâtissons l\'Avenir Ensemble', [Language.EN]: 'Let\'s Build the Future Together' },
   contactHeroTitle2: { [Language.FR]: 'Votre Vision, Notre Expertise', [Language.EN]: 'Your Vision, Our Expertise' },
   contactHeroTitle3: { [Language.FR]: 'Lancez Votre Projet Aujourd\'hui', [Language.EN]: 'Launch Your Project Today' },
+  contactHeroTitleConstruction1: { [Language.FR]: 'De la Conception à la Réalisation', [Language.EN]: 'From Concept to Completion' },
+  contactHeroTitleConstruction2: { [Language.FR]: 'Construire les Monuments de Demain', [Language.EN]: 'Building Tomorrow\'s Landmarks' },
+  contactHeroTitleConstruction3: { [Language.FR]: 'Notre Équipe, Votre Fondation', [Language.EN]: 'Our Team, Your Foundation' },
+
   
   // Home Page Contact Section
   homeContactTitle: { [Language.FR]: 'Contact', [Language.EN]: 'Contact' },
