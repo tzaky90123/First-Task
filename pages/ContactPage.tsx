@@ -4,22 +4,22 @@ import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
 
 const ContactPage: React.FC = () => {
-  // Define slides for the contact page hero, mirroring the construction page projects
+  // Define slides for the contact page hero, with new construction-themed images
   const contactSlides = [
     {
-      img: 'https://images.pexels.com/photos/128830/pexels-photo-128830.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      title: 'btpProject1Title',
-      subtitle: 'btpProject1Desc',
+      img: 'https://images.pexels.com/photos/1078884/pexels-photo-1078884.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      title: 'contactHeroTitle1',
+      subtitle: 'contactHeroSubtitle',
     },
     {
-      img: 'https://images.pexels.com/photos/2224797/pexels-photo-2224797.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      title: 'btpProject2Title',
-      subtitle: 'btpProject2Desc',
+      img: 'https://images.pexels.com/photos/585419/pexels-photo-585419.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      title: 'contactHeroTitle2',
+      subtitle: 'homeContactCtaText',
     },
     {
-      img: 'https://images.pexels.com/photos/3773539/pexels-photo-3773539.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      title: 'btpProject3Title',
-      subtitle: 'btpProject3Desc',
+      img: 'https://images.pexels.com/photos/7218568/pexels-photo-7218568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      title: 'contactHeroTitle3',
+      subtitle: 'contactHeroSubtitle',
     },
   ];
 

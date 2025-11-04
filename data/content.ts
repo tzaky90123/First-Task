@@ -346,6 +346,9 @@ export const content: LocalizedContent = {
   phone: { [Language.FR]: 'Téléphone', [Language.EN]: 'Phone' },
   email: { [Language.FR]: 'E-mail', [Language.EN]: 'Email' },
   contactFormSuccess: { [Language.FR]: 'Message envoyé !', [Language.EN]: 'Message sent!' },
+  contactHeroTitle1: { [Language.FR]: 'Bâtissons l\'Avenir Ensemble', [Language.EN]: 'Let\'s Build the Future Together' },
+  contactHeroTitle2: { [Language.FR]: 'Votre Vision, Notre Expertise', [Language.EN]: 'Your Vision, Our Expertise' },
+  contactHeroTitle3: { [Language.FR]: 'Lancez Votre Projet Aujourd\'hui', [Language.EN]: 'Launch Your Project Today' },
   
   // Home Page Contact Section
   homeContactTitle: { [Language.FR]: 'Contact', [Language.EN]: 'Contact' },
