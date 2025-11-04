@@ -7,6 +7,7 @@ import Footer from '../components/Footer';
 import AboutSection from '../components/AboutSection';
 import HeroSection from '../components/HeroSection';
 import SectionTitle from '../components/SectionTitle';
+import ValuesSection from '../components/ValuesSection';
 
 const PartnersSection: React.FC = () => {
     const { t } = useLocalization();
@@ -86,6 +87,9 @@ const AboutPage: React.FC = () => {
       </FullScreenSection>
       <FullScreenSection className="bg-white py-16 md:py-20">
         <PartnersSection />
+      </FullScreenSection>
+      <FullScreenSection className="bg-brand-light py-16 md:py-20">
+        <ValuesSection />
       </FullScreenSection>
       <Footer />
     </>
