@@ -1,5 +1,4 @@
 
-
 import React from 'react';
 import { useLocalization } from '../context/LocalizationContext';
 import { Link } from 'react-router-dom';
@@ -157,17 +156,17 @@ const MinesPage: React.FC = () => {
   const { t } = useLocalization();
   const minesSlides = [
     {
-      img: 'https://images.pexels.com/photos/2623667/pexels-photo-2623667.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      img: 'https://images.pexels.com/photos/220326/pexels-photo-220326.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       title: 'minesHeroTitle',
       subtitle: 'minesHeroSubtitle',
     },
     {
-      img: 'https://images.pexels.com/photos/273669/pexels-photo-273669.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      img: 'https://images.pexels.com/photos/1109541/pexels-photo-1109541.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       title: 'minesServicesTitle',
       subtitle: 'minesHeroServicesSubtitle',
     },
     {
-      img: 'https://images.pexels.com/photos/450597/pexels-photo-450597.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      img: 'https://images.pexels.com/photos/585419/pexels-photo-585419.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       title: 'minesProjectsTitle',
       subtitle: 'minesHeroProjectsSubtitle',
     },

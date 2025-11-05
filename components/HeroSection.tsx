@@ -29,12 +29,14 @@ const defaultCta = {
 interface HeroSectionProps {
     slides?: { img: string; title: string; subtitle: string; }[];
     cta?: { link: string; textKey: string; } | false;
+    imageBrightness?: number;
 }
 
 // Internal component for handling progressive image loading for each slide
-const Slide: React.FC<{ slide: { img: string }; isActive: boolean }> = ({ slide, isActive }) => {
+const Slide: React.FC<{ slide: { img: string }; isActive: boolean; brightness: number }> = ({ slide, isActive, brightness }) => {
     const [placeholderSrc, setPlaceholderSrc] = useState('');
     const [isLoaded, setIsLoaded] = useState(false);
+    const filterStyle = brightness !== 1 ? `brightness(${brightness})` : '';
 
     useEffect(() => {
         if (!slide.img) return;
@@ -70,7 +72,7 @@ const Slide: React.FC<{ slide: { img: string }; isActive: boolean }> = ({ slide,
                 className="absolute inset-0 w-full h-full bg-cover bg-center"
                 style={{
                     backgroundImage: `url(${placeholderSrc})`,
-                    filter: 'blur(10px)',
+                    filter: `blur(10px) ${filterStyle}`,
                     transform: 'scale(1.05)', // Scale up to cover edges blurred away
                 }}
             />
@@ -79,7 +81,7 @@ const Slide: React.FC<{ slide: { img: string }; isActive: boolean }> = ({ slide,
                 className={`absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-700 ease-in-out ${
                     isLoaded ? 'opacity-100' : 'opacity-0'
                 }`}
-                style={{ backgroundImage: `url(${slide.img})` }}
+                style={{ backgroundImage: `url(${slide.img})`, filter: filterStyle }}
             />
             {/* Dark overlay */}
             <div className="absolute inset-0 bg-black/60"></div>
@@ -87,7 +89,7 @@ const Slide: React.FC<{ slide: { img: string }; isActive: boolean }> = ({ slide,
     );
 };
 
-const HeroSection: React.FC<HeroSectionProps> = ({ slides = defaultSlides, cta = defaultCta }) => {
+const HeroSection: React.FC<HeroSectionProps> = ({ slides = defaultSlides, cta = defaultCta, imageBrightness = 1 }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const { t } = useLocalization();
   const slideInterval = useRef<number | null>(null);
@@ -130,7 +132,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ slides = defaultSlides, cta =
   return (
     <section className="relative h-screen text-white overflow-hidden">
       {slides.map((slide, index) => (
-        <Slide key={index} slide={slide} isActive={index === currentSlide} />
+        <Slide key={index} slide={slide} isActive={index === currentSlide} brightness={imageBrightness} />
       ))}
 
       {/* Slide Navigation Buttons */}
