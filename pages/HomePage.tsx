@@ -177,6 +177,234 @@ const MasterpiecesSection: React.FC = () => {
 };
 
 // --- Statistics Section (Redesigned) ---
+
+// --- Chart Components ---
+
+const BarChart: React.FC<{ data: { label: string; value: number }[] }> = ({ data }) => {
+    const maxValue = Math.max(...data.map(d => d.value)) * 1.1;
+    return (
+        <div className="w-full h-full flex flex-col">
+            <div className="flex-grow flex items-end justify-around space-x-4 pt-4 border-b border-gray-200">
+                {data.map(d => (
+                    <div key={d.label} className="w-full flex flex-col items-center h-full justify-end group">
+                        <div
+                            className="w-3/4 bg-brand-secondary rounded-t-lg transition-all duration-500 ease-out hover:opacity-80"
+                            style={{ height: `${(d.value / maxValue) * 100}%` }}
+                        ></div>
+                    </div>
+                ))}
+            </div>
+            <div className="flex justify-around space-x-4 pt-2">
+                {data.map(d => (
+                    <div key={d.label} className="w-full text-center">
+                        <div className="text-xs font-semibold text-brand-text-gray">{d.label}</div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
+
+const DonutChart: React.FC = () => {
+    const data = [{name: 'Keur Invest', value: 60}, {name: 'SOCABEG Mining', value: 40}];
+    const colors = ['#D4AF37', '#0B1C3F'];
+
+    const polarToCartesian = (centerX: number, centerY: number, radius: number, angleInDegrees: number) => {
+        const angleInRadians = ((angleInDegrees - 90) * Math.PI) / 180.0;
+        return {
+            x: centerX + radius * Math.cos(angleInRadians),
+            y: centerY + radius * Math.sin(angleInRadians),
+        };
+    };
+
+    const describeArc = (x: number, y: number, radius: number, startAngle: number, endAngle: number) => {
+        const start = polarToCartesian(x, y, radius, endAngle);
+        const end = polarToCartesian(x, y, radius, startAngle);
+        const largeArcFlag = endAngle - startAngle <= 180 ? '0' : '1';
+        return `M ${start.x} ${start.y} A ${radius} ${radius} 0 ${largeArcFlag} 0 ${end.x} ${end.y}`;
+    };
+
+    const total = data.reduce((sum, item) => sum + item.value, 0);
+    let startAngle = 0;
+
+    return (
+        <div className="w-full h-full flex flex-col items-center justify-center relative">
+            <svg viewBox="0 0 100 100" className="w-48 h-48 transform -rotate-90">
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#e6e6e6" strokeWidth="15" />
+                {data.map((item, index) => {
+                    const angle = (item.value / total) * 360;
+                    const endAngle = startAngle + angle;
+                    const pathData = describeArc(50, 50, 40, startAngle, endAngle - 2);
+                    startAngle = endAngle;
+                    return (
+                        <path
+                            key={index}
+                            d={pathData}
+                            stroke={colors[index]}
+                            strokeWidth="15"
+                            fill="none"
+                            className="animate-donut-segment"
+                            style={{ animationDelay: `${index * 200}ms` }}
+                        />
+                    );
+                })}
+            </svg>
+            <div className="absolute flex flex-col items-center justify-center pointer-events-none">
+                <span className="text-4xl font-bold text-brand-navy">02</span>
+                <span className="text-sm text-brand-text-gray">Filiales</span>
+            </div>
+            <div className="flex justify-center space-x-4 mt-6">
+                {data.map((item, index) => (
+                    <div key={index} className="flex items-center text-xs text-brand-text-gray">
+                        <span className="w-3 h-3 rounded-full mr-2" style={{ backgroundColor: colors[index] }}></span>
+                        <span>{item.name} ({item.value}%)</span>
+                    </div>
+                ))}
+            </div>
+            <style>{`
+                @keyframes donut-segment {
+                    from { stroke-dasharray: 0, 1000; }
+                    to { stroke-dasharray: 1000, 0; }
+                }
+                .animate-donut-segment {
+                    animation: donut-segment 1s ease-out forwards;
+                }
+            `}</style>
+        </div>
+    );
+};
+
+const LineChart: React.FC<{ data: { label: string; value: number }[] }> = ({ data }) => {
+    const width = 320, height = 240, padding = 25;
+    const maxValue = Math.max(...data.map(p => p.value)) * 1.1;
+    const points = data.map((point, i) => {
+        const x = (i / (data.length - 1)) * (width - 2 * padding) + padding;
+        const y = height - padding - (point.value / maxValue) * (height - 2 * padding);
+        return `${x},${y}`;
+    }).join(' ');
+    
+    const pathRef = useRef<SVGPolylineElement>(null);
+    useEffect(() => {
+        if (pathRef.current) {
+            const length = pathRef.current.getTotalLength();
+            pathRef.current.style.strokeDasharray = `${length}`;
+            pathRef.current.style.strokeDashoffset = `${length}`;
+            setTimeout(() => {
+                if(pathRef.current) pathRef.current.style.strokeDashoffset = '0';
+            }, 100);
+        }
+    }, [data]);
+
+    return (
+         <div className="w-full h-full flex flex-col">
+            <div className="flex-grow flex items-center justify-center">
+                <svg viewBox={`0 0 ${width} ${height}`}>
+                    <polyline
+                        ref={pathRef}
+                        fill="none"
+                        stroke="#0052CC"
+                        strokeWidth="3"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        points={points}
+                        style={{transition: 'stroke-dashoffset 1s ease-out'}}
+                    />
+                    {data.map((point, i) => {
+                        const x = (i / (data.length - 1)) * (width - 2 * padding) + padding;
+                        const y = height - padding - (point.value / maxValue) * (height - 2 * padding);
+                        return <circle key={i} cx={x} cy={y} r="4" fill="#fff" stroke="#0052CC" strokeWidth="2" />;
+                    })}
+                </svg>
+            </div>
+             <div className="flex justify-around space-x-4 pt-2 border-t border-gray-200">
+                {data.map(d => (
+                    <div key={d.label} className="w-full text-center">
+                        <div className="text-xs font-semibold text-brand-text-gray">{d.label}</div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
+
+const ProgressBarChart: React.FC = () => {
+    const value = 200, max = 250;
+    const [percentage, setPercentage] = useState(0);
+
+    useEffect(() => {
+        setTimeout(() => setPercentage((value / max) * 100), 100);
+    }, [value, max]);
+
+    return (
+        <div className="w-full h-full flex flex-col items-center justify-center px-8">
+            <div className="w-full">
+                <div className="flex justify-between items-center mb-2">
+                    <span className="text-lg font-semibold text-brand-navy">Progression Annuelle</span>
+                    <span className="text-lg font-bold text-brand-primary">{value} / {max} Km</span>
+                </div>
+                <div className="w-full bg-gray-200 rounded-full h-5 overflow-hidden">
+                    <div 
+                        className="bg-brand-secondary h-5 rounded-full transition-all duration-1000 ease-out"
+                        style={{ width: `${percentage}%` }}
+                    ></div>
+                </div>
+                <p className="text-right text-sm text-brand-text-gray mt-2">{Math.round(percentage)}% de l'objectif atteint</p>
+            </div>
+        </div>
+    );
+};
+
+const AreaChart: React.FC<{ data: { label: string; value: number }[] }> = ({ data }) => {
+    const width = 320, height = 240, padding = 25;
+    const maxValue = Math.max(...data.map(p => p.value)) * 1.1;
+    
+    const points = data.map((point, i) => {
+        const x = (i / (data.length - 1)) * (width - 2 * padding) + padding;
+        const y = height - padding - (point.value / maxValue) * (height - 2 * padding);
+        return `${x},${y}`;
+    }).join(' ');
+
+    const areaPath = `M${padding},${height - padding} L${points} L${width - padding},${height - padding} Z`;
+    
+    return (
+        <div className="w-full h-full flex flex-col">
+            <div className="flex-grow flex items-center justify-center">
+                <svg viewBox={`0 0 ${width} ${height}`}>
+                    <defs>
+                        <linearGradient id="areaGradient" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stopColor="#C5A43C" stopOpacity={0.4}/>
+                            <stop offset="100%" stopColor="#C5A43C" stopOpacity={0}/>
+                        </linearGradient>
+                    </defs>
+                    <path d={areaPath} fill="url(#areaGradient)" className="animate-area-fill" />
+                    <polyline
+                        fill="none"
+                        stroke="#C5A43C"
+                        strokeWidth="3"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        points={points}
+                        className="animate-path-draw"
+                    />
+                </svg>
+            </div>
+            <div className="flex justify-around space-x-4 pt-2 border-t border-gray-200">
+                {data.map(d => (
+                    <div key={d.label} className="w-full text-center">
+                        <div className="text-xs font-semibold text-brand-text-gray">{d.label}</div>
+                    </div>
+                ))}
+            </div>
+             <style>{`
+                @keyframes area-fill { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+                .animate-area-fill { animation: area-fill 1s ease-out forwards; }
+                @keyframes path-draw { from { stroke-dashoffset: 1000; } to { stroke-dashoffset: 0; } }
+                .animate-path-draw { stroke-dasharray: 1000; animation: path-draw 1.5s ease-out forwards; }
+            `}</style>
+        </div>
+    );
+};
+
 const IconStatDomain = ({ className }: { className?: string }) => (
     <svg xmlns="http://www.w3.org/2000/svg" className={className} viewBox="0 0 24 24" fill="currentColor">
         <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z" />
@@ -192,14 +420,15 @@ const IconStatGroup = ({ className }: { className?: string }) => (
         <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
     </svg>
 );
-const IconStatPerson = ({ className }: { className?: string }) => (
+const IconStatRoads = ({ className }: { className?: string }) => (
     <svg xmlns="http://www.w3.org/2000/svg" className={className} viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+      <path d="M18.2,12.4,12,18.6,5.8,12.4A6,6,0,0,1,12,4a6,6,0,0,1,6.2,8.4Z M12,12a2,2,0,1,0-2-2A2,2,0,0,0,12,12Z" />
+      <rect width="24" height="24" fill="none" />
     </svg>
 );
-const IconStatChartUp = ({ className }: { className?: string }) => (
+const IconStatLand = ({ className }: { className?: string }) => (
     <svg xmlns="http://www.w3.org/2000/svg" className={className} viewBox="0 0 24 24" fill="currentColor">
-        <path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.09-4-4L2 17.08z"/>
+        <path d="M12,2A10,10,0,0,0,2,12a9.89,9.89,0,0,0,2.2,6.32L12,22l7.8-3.68A9.89,9.89,0,0,0,22,12,10,10,0,0,0,12,2Zm0,12a2,2,0,1,1,2-2A2,2,0,0,1,12,14Z"/>
     </svg>
 );
 
@@ -211,37 +440,46 @@ const StatisticsSection: React.FC = () => {
         { value: "+ 2,000", labelKey: 'stat1Label', icon: <IconStatDomain /> },
         { value: "02", labelKey: 'stat2Label', icon: <IconStatBranch /> },
         { value: "+ 150", labelKey: 'stat3Label', icon: <IconStatGroup /> },
-        { value: "+ 200 Km", labelKey: 'stat4Label', icon: <IconStatPerson /> },
-        { value: "+ 500 Ha", labelKey: 'stat5Label', icon: <IconStatChartUp /> },
+        { value: "+ 200 Km", labelKey: 'stat4Label', icon: <IconStatRoads /> },
+        { value: "+ 500 Ha", labelKey: 'stat5Label', icon: <IconStatLand /> },
     ];
     
-    const allChartData = [
-        [ // Data for stat 1
-            { label: 'Q1', value: 45 }, { label: 'Q2', value: 65 }, { label: 'Q3', value: 80 }, { label: 'Q4', value: 95 },
-        ],
-        [ // Data for stat 2
-            { label: 'Q1', value: 10 }, { label: 'Q2', value: 15 }, { label: 'Q3', value: 12 }, { label: 'Q4', value: 20 },
-        ],
-        [ // Data for stat 3
-            { label: 'Q1', value: 30 }, { label: 'Q2', value: 40 }, { label: 'Q3', value: 55 }, { label: 'Q4', value: 60 },
-        ],
-        [ // Data for stat 4
-            { label: 'Q1', value: 50 }, { label: 'Q2', value: 70 }, { label: 'Q3', value: 60 }, { label: 'Q4', value: 85 },
-        ],
-        [ // Data for stat 5
-            { label: 'Q1', value: 25 }, { label: 'Q2', value: 35 }, { label: 'Q3', value: 50 }, { label: 'Q4', value: 70 },
-        ],
+    const chartData = [
+        [ { label: 'Q1', value: 450 }, { label: 'Q2', value: 650 }, { label: 'Q3', value: 800 }, { label: 'Q4', value: 950 } ],
+        [],
+        [ { label: 'Q1', value: 20 }, { label: 'Q2', value: 45 }, { label: 'Q3', value: 50 }, { label: 'Q4', value: 35 } ],
+        [],
+        [ { label: 'Q1', value: 80 }, { label: 'Q2', value: 150 }, { label: 'Q3', value: 120 }, { label: 'Q4', value: 150 } ],
     ];
 
-    const chartData = allChartData[activeIndex];
-    const maxValue = 100;
+    const chartTitles = [
+        "Ventes Trimestrielles de Parcelles",
+        "Répartition des Filiales Stratégiques",
+        "Croissance des Collaborateurs",
+        "Progression des Voiries Réalisées",
+        "Acquisition d'Assiettes Foncières"
+    ];
+    const chartSubtitles = [
+        "(nombre d'unités vendues)",
+        "(contribution par entité)",
+        "(nouveaux employés par trimestre)",
+        "(objectif annuel)",
+        "(hectares acquis par trimestre)"
+    ];
+
+    const chartComponents = [
+        <BarChart data={chartData[0]} />,
+        <DonutChart />,
+        <LineChart data={chartData[2]} />,
+        <ProgressBarChart />,
+        <AreaChart data={chartData[4]} />,
+    ];
 
     return (
         <div className="container mx-auto px-5 lg:px-20">
             <SectionTitle subtitleKey="statisticsSectionHeadline" titleKey="statisticsSectionTitle" icon />
 
             <div className="grid lg:grid-cols-5 gap-8 items-stretch">
-                {/* Left Column - Stats */}
                 <div className="lg:col-span-2 flex flex-col gap-y-4">
                      {stats.map((stat, index) => (
                          <div 
@@ -266,26 +504,11 @@ const StatisticsSection: React.FC = () => {
                     ))}
                 </div>
 
-                {/* Right Column - Chart */}
-                <div className="lg:col-span-3 bg-white p-6 rounded-xl shadow-lg h-full flex flex-col">
-                    <h3 className="text-xl font-semibold text-brand-navy mb-1">Chiffre d'Affaires Trimestriel</h3>
-                    <p className="text-sm text-brand-text-gray mb-6">(en millions de FCFA)</p>
-                    <div className="flex-grow h-64 flex items-end justify-around space-x-4 pt-4 border-b border-gray-200">
-                        {chartData.map(data => (
-                            <div key={data.label} className="w-full flex flex-col items-center h-full justify-end">
-                                <div
-                                    className="w-3/4 bg-brand-secondary rounded-t-lg transition-all duration-500 ease-out hover:opacity-80"
-                                    style={{ height: `${(data.value / maxValue) * 100}%` }}
-                                ></div>
-                            </div>
-                        ))}
-                    </div>
-                     <div className="flex justify-around space-x-4 pt-2">
-                         {chartData.map(data => (
-                             <div key={data.label} className="w-full text-center">
-                                 <div className="text-xs font-semibold text-brand-text-gray">{data.label}</div>
-                            </div>
-                        ))}
+                <div className="lg:col-span-3 bg-white p-6 rounded-xl shadow-lg h-full flex flex-col min-h-[450px]">
+                    <h3 className="text-xl font-semibold text-brand-navy mb-1">{chartTitles[activeIndex]}</h3>
+                    <p className="text-sm text-brand-text-gray mb-6">{chartSubtitles[activeIndex]}</p>
+                    <div className="flex-grow">
+                      {chartComponents[activeIndex]}
                     </div>
                 </div>
             </div>
