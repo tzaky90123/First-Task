@@ -1,6 +1,6 @@
 
 
-import React, { useState } from 'react';
+import React from 'react';
 import { useLocalization } from '../context/LocalizationContext';
 import { Link } from 'react-router-dom';
 import HeroSection from '../components/HeroSection';
@@ -8,6 +8,7 @@ import FullScreenSection from '../components/FullScreenSection';
 import Footer from '../components/Footer';
 import ContactSection from '../components/ContactSection';
 import SectionTitle from '../components/SectionTitle';
+import TestimonialsSection from '../components/TestimonialsSection';
 
 // --- Icons ---
 const IconCivilEng = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-brand-gold-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 002.25-2.25V6a2.25 2.25 0 00-2.25-2.25H6a2.25 2.25 0 00-2.25 2.25v2.25a2.25 2.25 0 002.25 2.25zm13.5 7.5h-2.25a2.25 2.25 0 00-2.25 2.25v2.25a2.25 2.25 0 002.25 2.25H18a2.25 2.25 0 002.25-2.25v-2.25a2.25 2.25 0 00-2.25-2.25z" /></svg>;
@@ -28,7 +29,7 @@ const ServicesSection: React.FC = () => {
     ];
     return (
         <div className="container mx-auto px-6">
-            <SectionTitle titleKey="btpServicesNewTitle" descriptionKey="btpServicesNewSubtitle" />
+            <SectionTitle subtitleKey="btpServicesNewTitle" titleKey="btpServicesNewSubtitle" />
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {services.map((service, index) => (
                     <div key={service.titleKey} className="bg-white p-8 rounded-lg shadow-soft transition-all duration-300 hover:shadow-xl hover:-translate-y-2 flex flex-col group animate-fade-in-up" style={{ animationDelay: `${index * 150}ms`}}>
@@ -114,71 +115,6 @@ const ProjectsSection: React.FC = () => {
     );
 };
 
-const TestimonialsSection: React.FC = () => {
-    const { t } = useLocalization();
-    const testimonials = [
-        { quoteKey: "testimonial1Quote", nameKey: "testimonial1Name" },
-        { quoteKey: "testimonial2Quote", nameKey: "testimonial2Name" },
-        { quoteKey: "testimonial3Quote", nameKey: "testimonial3Name" },
-        { quoteKey: "testimonial4Quote", nameKey: "testimonial4Name" },
-        { quoteKey: "testimonial5Quote", nameKey: "testimonial5Name" },
-        { quoteKey: "testimonial6Quote", nameKey: "testimonial6Name" }
-    ];
-
-    const chunk = <T,>(arr: T[], size: number): T[][] =>
-        Array.from({ length: Math.ceil(arr.length / size) }, (v, i) =>
-            arr.slice(i * size, i * size + size)
-    );
-    
-    const testimonialPairs = chunk(testimonials, 2);
-    const numSlides = testimonialPairs.length;
-    const [currentIndex, setCurrentIndex] = useState(0);
-
-    const nextSlide = () => {
-        setCurrentIndex((prevIndex) =>
-            prevIndex === numSlides - 1 ? 0 : prevIndex + 1
-        );
-    };
-
-    const prevSlide = () => {
-        setCurrentIndex((prevIndex) =>
-            prevIndex === 0 ? numSlides - 1 : prevIndex - 1
-        );
-    };
-
-    return (
-        <div className="container mx-auto px-6 max-w-5xl">
-            <SectionTitle titleKey="btpTestimonialsTitle" />
-            
-            <div className="relative">
-                <div className="overflow-hidden">
-                    <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
-                        {testimonialPairs.map((pair, slideIndex) => (
-                            <div key={slideIndex} className="w-full flex-shrink-0 px-2">
-                                <div className="grid md:grid-cols-2 gap-8">
-                                    {pair.map((testimonial) => (
-                                        <div key={testimonial.nameKey} className="bg-brand-light p-8 rounded-lg shadow-sm text-center flex flex-col justify-center">
-                                            <svg className="w-10 h-10 text-brand-secondary mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 17h3l2-4V7H4v6h3l-2 4zm8 0h3l2-4V7h-6v6h3l-2 4z"></path></svg>
-                                            <blockquote className="text-lg text-brand-text italic leading-relaxed mb-6">“{t(testimonial.quoteKey)}”</blockquote>
-                                            <cite className="not-italic font-semibold text-brand-primary font-sans">— {t(testimonial.nameKey)}</cite>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-                <button onClick={prevSlide} className="absolute top-1/2 -translate-y-1/2 -left-4 text-brand-primary bg-white hover:bg-gray-100 rounded-full p-3 shadow-md focus:outline-none focus:ring-2 focus:ring-brand-secondary transition" aria-label={t('prevTestimonialAria')}>
-                    <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
-                </button>
-                <button onClick={nextSlide} className="absolute top-1/2 -translate-y-1/2 -right-4 text-brand-primary bg-white hover:bg-gray-100 rounded-full p-3 shadow-md focus:outline-none focus:ring-2 focus:ring-brand-secondary transition" aria-label={t('nextTestimonialAria')}>
-                    <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-                </button>
-            </div>
-        </div>
-    );
-};
-
 // --- Main Page Component ---
 
 const BtpPage: React.FC = () => {
@@ -216,7 +152,9 @@ const BtpPage: React.FC = () => {
        <FullScreenSection className="bg-white py-16 md:py-20">
         <TestimonialsSection />
       </FullScreenSection>
-      <ContactSection />
+      <FullScreenSection className="bg-brand-light py-16 md:py-20">
+        <ContactSection />
+      </FullScreenSection>
       <Footer />
     </>
   );

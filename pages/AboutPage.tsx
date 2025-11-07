@@ -28,7 +28,7 @@ const PartnersSection: React.FC = () => {
 
     return (
         <div className="container mx-auto px-5 lg:px-20">
-            <SectionTitle subtitleKey="partnersSectionTitle" titleKey="partnersSectionHeadline" icon />
+            <SectionTitle subtitleKey="partnersSectionTitle" titleKey="partnersSectionHeadline" />
              <div className="space-y-8 md:space-y-12">
                 <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 lg:gap-x-24">
                     {row1Logos.map((logo, index) => (

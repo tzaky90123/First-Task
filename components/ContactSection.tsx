@@ -51,84 +51,82 @@ const ContactSection: React.FC = () => {
     };
 
     return (
-      <section className="bg-brand-light py-16 md:py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          {/* Main Content: Card */}
-          <div className="bg-white rounded-2xl shadow-contact overflow-hidden lg:grid lg:grid-cols-5">
-            {/* Left Side: Form */}
-            <div className="p-8 sm:p-12 lg:col-span-3">
-              <h3 className="text-2xl font-bold text-brand-navy mb-8">{t('contactFormTitle')}</h3>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <InputField id="name" name="name" label={t('formName')} type="text" value={formState.name} onChange={handleInputChange as any} required />
-                <InputField id="email" name="email" label={t('formEmail')} type="email" value={formState.email} onChange={handleInputChange as any} required />
-                <InputField id="subject" name="subject" label={t('formSubject')} type="text" value={formState.subject} onChange={handleInputChange as any} required />
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-brand-text-gray">{t('formMessage')}</label>
-                  <div className="mt-1">
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={5}
-                      value={formState.message}
-                      onChange={handleInputChange}
-                      required
-                      className="block w-full px-4 py-3 text-sm text-brand-dark bg-gray-50 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition-all duration-300"
-                    ></textarea>
-                  </div>
+      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
+        {/* Main Content: Card */}
+        <div className="bg-white rounded-2xl shadow-contact overflow-hidden lg:grid lg:grid-cols-5">
+          {/* Left Side: Form */}
+          <div className="p-8 sm:p-12 lg:col-span-3">
+            <h3 className="text-2xl font-bold text-brand-navy mb-8">{t('contactFormTitle')}</h3>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <InputField id="name" name="name" label={t('formName')} type="text" value={formState.name} onChange={handleInputChange as any} required />
+              <InputField id="email" name="email" label={t('formEmail')} type="email" value={formState.email} onChange={handleInputChange as any} required />
+              <InputField id="subject" name="subject" label={t('formSubject')} type="text" value={formState.subject} onChange={handleInputChange as any} required />
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-brand-text-gray">{t('formMessage')}</label>
+                <div className="mt-1">
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={5}
+                    value={formState.message}
+                    onChange={handleInputChange}
+                    required
+                    className="block w-full px-4 py-3 text-sm text-brand-dark bg-gray-50 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition-all duration-300"
+                  ></textarea>
                 </div>
-                <div>
-                  <button type="submit" className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-brand-primary hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-primary transition-all duration-300">
-                    {t('formSend')}
-                  </button>
-                </div>
-              </form>
-            </div>
-            
-            {/* Right Side: Contact Info & Map */}
-            <div className="p-8 sm:p-12 lg:col-span-2">
-              <h3 className="text-2xl font-bold text-brand-navy mb-4">{t('contactInfoTitle')}</h3>
-              <div className="w-20 h-0.5 bg-brand-secondary mb-8"></div>
-              <ul className="space-y-8">
-                <li className="flex items-start">
-                  <div className="flex-shrink-0 text-brand-primary pt-1"><IconLocationPin /></div>
-                  <div className="ml-4">
-                    <h4 className="text-base font-semibold text-brand-navy">{t('address')}</h4>
-                    <p className="text-brand-text-gray text-sm">123 Rue de Dakar, Sénégal</p>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <div className="flex-shrink-0 text-brand-primary pt-1"><IconPhone /></div>
-                  <div className="ml-4">
-                    <h4 className="text-base font-semibold text-brand-navy">{t('phone')}</h4>
-                    <p className="text-brand-text-gray text-sm">+221 33 800 00 00</p>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <div className="flex-shrink-0 text-brand-primary pt-1"><IconEmail /></div>
-                  <div className="ml-4">
-                    <h4 className="text-base font-semibold text-brand-navy">{t('email')}</h4>
-                    <p className="text-brand-text-gray text-sm">contact@socabeg.sn</p>
-                  </div>
-                </li>
-              </ul>
-              
-              {/* Google Map */}
-              <div className="mt-12 rounded-lg overflow-hidden">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d123489.1720336203!2d-17.54848092289452!3d14.723812822151622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xec172f5b3c5bb71%3A0x2ef92f2566723b93!2sDakar%2C%20Senegal!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
-                  width="100%"
-                  height="250"
-                  style={{ border: 0 }}
-                  allowFullScreen=""
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="SOCABEG Location Dakar"
-                ></iframe>
               </div>
+              <div>
+                <button type="submit" className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-brand-primary hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-primary transition-all duration-300">
+                  {t('formSend')}
+                </button>
+              </div>
+            </form>
+          </div>
+          
+          {/* Right Side: Contact Info & Map */}
+          <div className="p-8 sm:p-12 lg:col-span-2">
+            <h3 className="text-2xl font-bold text-brand-navy mb-4">{t('contactInfoTitle')}</h3>
+            <div className="w-20 h-0.5 bg-brand-secondary mb-8"></div>
+            <ul className="space-y-8">
+              <li className="flex items-start">
+                <div className="flex-shrink-0 text-brand-primary pt-1"><IconLocationPin /></div>
+                <div className="ml-4">
+                  <h4 className="text-base font-semibold text-brand-navy">{t('address')}</h4>
+                  <p className="text-brand-text-gray text-sm">123 Rue de Dakar, Sénégal</p>
+                </div>
+              </li>
+              <li className="flex items-start">
+                <div className="flex-shrink-0 text-brand-primary pt-1"><IconPhone /></div>
+                <div className="ml-4">
+                  <h4 className="text-base font-semibold text-brand-navy">{t('phone')}</h4>
+                  <p className="text-brand-text-gray text-sm">+221 33 800 00 00</p>
+                </div>
+              </li>
+              <li className="flex items-start">
+                <div className="flex-shrink-0 text-brand-primary pt-1"><IconEmail /></div>
+                <div className="ml-4">
+                  <h4 className="text-base font-semibold text-brand-navy">{t('email')}</h4>
+                  <p className="text-brand-text-gray text-sm">contact@socabeg.sn</p>
+                </div>
+              </li>
+            </ul>
+            
+            {/* Google Map */}
+            <div className="mt-12 rounded-lg overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d123489.1720336203!2d-17.54848092289452!3d14.723812822151622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xec172f5b3c5bb71%3A0x2ef92f2566723b93!2sDakar%2C%20Senegal!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                width="100%"
+                height="250"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="SOCABEG Location Dakar"
+              ></iframe>
             </div>
           </div>
         </div>
-      </section>
+      </div>
     );
 };
 

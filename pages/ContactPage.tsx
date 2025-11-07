@@ -32,9 +32,9 @@ const ContactPage: React.FC = () => {
   return (
     <>
       <HeroSection slides={contactSlides} cta={contactCta} />
-      <div id="contact-form-section">
+      <section id="contact-form-section" className="bg-brand-light py-16 md:py-20">
         <ContactSection />
-      </div>
+      </section>
       <Footer />
     </>
   );

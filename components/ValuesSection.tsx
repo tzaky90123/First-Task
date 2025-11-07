@@ -15,7 +15,7 @@ const ValuesSection: React.FC = () => {
 
     return (
         <div className="container mx-auto px-5 lg:px-20">
-            <SectionTitle subtitleKey="whyChooseUsSectionTitle" titleKey="whyChooseUsSectionHeadline" icon />
+            <SectionTitle subtitleKey="whyChooseUsSectionTitle" titleKey="whyChooseUsSectionHeadline" />
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {values.map((value, index) => (
                     <div key={index} className="bg-white p-8 rounded-lg shadow-soft text-left transition-all duration-300 hover:shadow-xl hover:-translate-y-1">

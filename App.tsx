@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import { LocalizationProvider } from './context/LocalizationContext';
@@ -70,7 +69,7 @@ const App: React.FC = () => {
   return (
     <LocalizationProvider>
       <HashRouter>
-        <div className="bg-white text-brand-text font-sans antialiased">
+        <div className="bg-white text-brand-text font-sans antialiased min-h-full">
           <LoadingScreen isLoading={isLoading} />
           <Header />
           <main>

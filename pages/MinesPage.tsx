@@ -1,10 +1,12 @@
 
+
 import React from 'react';
 import { useLocalization } from '../context/LocalizationContext';
 import { Link } from 'react-router-dom';
 import HeroSection from '../components/HeroSection';
 import Footer from '../components/Footer';
 import SectionTitle from '../components/SectionTitle';
+import FullScreenSection from '../components/FullScreenSection';
 
 // --- Page Sections ---
 const IntroductionSection: React.FC = () => {
@@ -176,8 +178,8 @@ const MinesPage: React.FC = () => {
     <>
       <HeroSection slides={minesSlides} />
       <section className="bg-white py-20 md:py-28"><IntroductionSection /></section>
-      <section className="blueprint-bg py-20 md:py-28"><ServicesSection /></section>
-      <section className="bg-white py-20 md:py-28"><ProjectsSection /></section>
+      <FullScreenSection className="blueprint-bg py-20 md:py-28"><ServicesSection /></FullScreenSection>
+      <FullScreenSection className="bg-white py-20 md:py-28"><ProjectsSection /></FullScreenSection>
       <section className="bg-gray-50 py-20 md:py-28"><SafetyEnvironmentSection /></section>
       <section className="bg-white py-20 md:py-28"><TechnologySection /></section>
       <section className="blueprint-bg py-20 md:py-28"><TestimonialsSection /></section>
