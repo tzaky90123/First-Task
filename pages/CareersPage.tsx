@@ -11,7 +11,6 @@ import SectionTitle from '../components/SectionTitle';
 // --- SVG Icons for Benefits Section ---
 const IconRemuneration = () => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-full w-full"><path d="M23,8H1a1,1,0,0,0-1,1V21a1,1,0,0,0,1,1H23a1,1,0,0,0,1-1V9A1,1,0,0,0,23,8ZM2,10H22V20H2ZM12,15a3,3,0,1,0-3-3A3,3,0,0,0,12,15Zm0-4a1,1,0,1,1-1,1A1,1,0,0,1,12,11ZM19,2H5A3,3,0,0,0,2,5V6H22V5A3,3,0,0,0,19,2Z"/></svg>;
 const IconHealth = () => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-full w-full"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78zM15 12h-2v2h-2v-2H9v-2h2V8h2v2h2v2z" /></svg>;
-const IconDevelopment = () => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-full w-full"><path d="M21.73,9.4l-9-4.5a1,1,0,0,0-.5,0l-9,4.5a1,1,0,0,0,0,1.8l3.1,1.5c0,0-.1,1.1,0,1.2l-3.2,1.6A1,1,0,0,0,2,15.2V17a1,1,0,0,0,1.1,1L12,13.4l8.9,4.6a1,1,0,0,0,1.1-1V15.2a1,1,0,0,0-.7-1l-3.2-1.5c.1,0,.1-1.2,0-1.2l3.1-1.5a1,1,0,1,0,.4-1.8Z"/></svg>;
 const IconMentorship = () => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-full w-full"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>;
 
 
@@ -54,13 +53,13 @@ const BenefitsSection: React.FC = () => {
     const benefits = [
         { icon: <IconRemuneration />, titleKey: 'careersBenefit1Title', descKey: 'careersBenefit1Desc' },
         { icon: <IconHealth />, titleKey: 'careersBenefit2Title', descKey: 'careersBenefit2Desc' },
-        { icon: <IconDevelopment />, titleKey: 'careersBenefit3Title', descKey: 'careersBenefit3Desc' },
+        { icon: <img src="https://cdn-icons-png.flaticon.com/512/2285/2285559.png" alt={t('careersBenefit3Title')} className="h-full w-full" loading="lazy" />, titleKey: 'careersBenefit3Title', descKey: 'careersBenefit3Desc' },
         { icon: <IconMentorship />, titleKey: 'careersBenefit4Title', descKey: 'careersBenefit4Desc' },
     ];
     
     return (
         <div className="container mx-auto px-6">
-            <SectionTitle subtitleKey="careersBenefitsTitle" titleKey="careersBenefitsHeadline" descriptionKey="careersBenefitsIntro" />
+            <SectionTitle subtitleKey="careersBenefitsTitle" titleKey="careersBenefitsHeadline" descriptionKey="careersBenefitsNewIntro" />
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 {benefits.map((benefit, index) => (
                     <div key={benefit.titleKey} className="bg-white p-8 rounded-xl shadow-soft text-center transition-all duration-300 group hover:shadow-2xl hover:-translate-y-2 flex flex-col" style={{ animation: `fadeInUp 0.5s ${index * 0.1}s ease-out both` }}>
@@ -117,7 +116,7 @@ const CareerOpportunitiesSection: React.FC = () => {
     
     return (
         <div className="container mx-auto px-6 text-center">
-            <SectionTitle titleKey="careersOpeningsTitle" descriptionKey="careersOpeningsText" />
+            <SectionTitle subtitleKey="careersOpeningsSubheadline" titleKey="careersOpeningsTitle" descriptionKey="careersOpeningsText" />
 
             {roles.length > 0 ? (
                 <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-left mb-12">
