@@ -13,7 +13,7 @@ const AboutSection: React.FC = () => {
                 <div className="h-64 md:h-auto">
                     <img 
                         src="https://socabeg.com/images/socabeg.jpg" 
-                        alt="Ingénieurs SOCABEG planifiant un projet" 
+                        alt={t('aboutImageAlt')} 
                         className="w-full h-full object-cover"
                         loading="lazy" width="600" height="750"
                     />

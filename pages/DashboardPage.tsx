@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLocalization } from '../context/LocalizationContext';
 
 // --- Icons ---
 const IconParcels = () => (
@@ -47,30 +48,31 @@ const StatCard: React.FC<StatCardProps> = ({ icon, title, value }) => (
 
 // --- Bar Chart Component ---
 const RevenueChart: React.FC = () => {
+    const { t } = useLocalization();
     const chartData = [
-        { label: 'Q1', value: 45, color: 'from-blue-400 to-blue-600' },
-        { label: 'Q2', value: 62, color: 'from-blue-500 to-blue-700' },
-        { label: 'Q3', value: 75, color: 'from-brand-primary to-blue-800' },
-        { label: 'Q4', value: 90, color: 'from-brand-navy to-blue-900' },
+        { label: 'statBarChartLabelQ1', value: 45, color: 'from-blue-400 to-blue-600' },
+        { label: 'statBarChartLabelQ2', value: 62, color: 'from-blue-500 to-blue-700' },
+        { label: 'statBarChartLabelQ3', value: 75, color: 'from-brand-primary to-blue-800' },
+        { label: 'statBarChartLabelQ4', value: 90, color: 'from-brand-navy to-blue-900' },
     ];
     const maxValue = 100;
 
     return (
         <div className="bg-white p-6 rounded-xl shadow-soft h-full">
-            <h3 className="text-xl font-semibold text-brand-dark mb-1">Chiffre d'Affaires Trimestriel</h3>
-            <p className="text-sm text-brand-text-gray mb-6">(en millions de FCFA)</p>
+            <h3 className="text-xl font-semibold text-brand-dark mb-1">{t('dashboardChartRevenueTitle')}</h3>
+            <p className="text-sm text-brand-text-gray mb-6">{t('dashboardChartRevenueSubtitle')}</p>
             <div className="h-80 flex items-end justify-around space-x-4 pt-4">
                 {chartData.map(data => (
                     <div key={data.label} className="group relative flex flex-col items-center flex-grow h-full justify-end">
                         <div className="absolute top-0 -mt-6 w-max px-2 py-1 text-xs text-white bg-brand-dark rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                            {data.value} M FCFA
+                            {t('dashboardChartTooltipUnit').replace('{value}', String(data.value))}
                         </div>
                         <p className="text-sm font-bold text-brand-navy mb-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">{data.value}</p>
                         <div
                             className={`w-full bg-gradient-to-t ${data.color} rounded-t-lg transition-all duration-500 ease-out transform-gpu group-hover:opacity-100 opacity-80`}
                             style={{ height: `${(data.value / maxValue) * 100}%` }}
                         ></div>
-                        <div className="text-xs font-semibold text-brand-text-gray mt-2 w-full text-center border-t pt-2">{data.label}</div>
+                        <div className="text-xs font-semibold text-brand-text-gray mt-2 w-full text-center border-t pt-2">{t(data.label)}</div>
                     </div>
                 ))}
             </div>
@@ -81,18 +83,19 @@ const RevenueChart: React.FC = () => {
 
 // --- Main Dashboard Page Component ---
 const DashboardPage: React.FC = () => {
+    const { t } = useLocalization();
     const stats = [
-        { icon: <IconParcels />, title: "Parcelles Viabilisées", value: "+ 2,000" },
-        { icon: <IconEmployees />, title: "Collaborateurs", value: "+ 150" },
-        { icon: <IconRoads />, title: "Voiries Réalisées", value: "+ 200 km" },
-        { icon: <IconSubsidiaries />, title: "Filiales Stratégiques", value: "02" },
+        { icon: <IconParcels />, title: t('statCardParcels'), value: "+ 2,000" },
+        { icon: <IconEmployees />, title: t('statCardEmployees'), value: "+ 150" },
+        { icon: <IconRoads />, title: t('statCardRoads'), value: "+ 200 km" },
+        { icon: <IconSubsidiaries />, title: t('statCardSubsidiaries'), value: "02" },
     ];
 
     return (
         <div className="bg-gray-50 min-h-screen pt-24 pb-12 font-sans">
             <main className="container mx-auto px-6">
-                <h1 className="text-3xl font-bold text-brand-navy mb-2">Tableau de Bord</h1>
-                <p className="text-brand-text-gray mb-8">Aperçu des performances clés de l'entreprise.</p>
+                <h1 className="text-3xl font-bold text-brand-navy mb-2">{t('dashboardTitle')}</h1>
+                <p className="text-brand-text-gray mb-8">{t('dashboardSubtitle')}</p>
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
                     {/* Left Column */}

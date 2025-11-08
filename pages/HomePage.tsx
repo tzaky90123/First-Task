@@ -76,7 +76,7 @@ const PartnersSection: React.FC = () => {
                         <div key={index} className="flex items-center justify-center">
                             <img 
                                 src={logo} 
-                                alt={`Partner logo ${index + 1}`} 
+                                alt={t('partnerLogoAlt').replace('{number}', String(index + 1))} 
                                 className="max-h-20 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 partner-logo" 
                                 loading="lazy" height="80" width="160"
                             />
@@ -88,7 +88,7 @@ const PartnersSection: React.FC = () => {
                         <div key={index} className="flex items-center justify-center">
                             <img 
                                 src={logo} 
-                                alt={`Partner logo ${index + 1 + row1Logos.length}`} 
+                                alt={t('partnerLogoAlt').replace('{number}', String(index + 1 + row1Logos.length))} 
                                 className="max-h-20 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 partner-logo" 
                                 loading="lazy" height="80" width="160"
                             />
@@ -166,10 +166,10 @@ const MasterpiecesSection: React.FC = () => {
                     </div>
                 </div>
 
-                <button onClick={prevSlide} className="absolute top-1/2 -translate-y-1/2 left-2 text-white bg-black/30 hover:bg-black/50 rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-white transition" aria-label="Previous image">
+                <button onClick={prevSlide} className="absolute top-1/2 -translate-y-1/2 left-2 text-white bg-black/30 hover:bg-black/50 rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-white transition" aria-label={t('masterpiecesPrev')}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
                 </button>
-                <button onClick={nextSlide} className="absolute top-1/2 -translate-y-1/2 right-2 text-white bg-black/30 hover:bg-black/50 rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-white transition" aria-label="Next image">
+                <button onClick={nextSlide} className="absolute top-1/2 -translate-y-1/2 right-2 text-white bg-black/30 hover:bg-black/50 rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-white transition" aria-label={t('masterpiecesNext')}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                 </button>
             </div>
@@ -181,7 +181,7 @@ const MasterpiecesSection: React.FC = () => {
 
 // --- Chart Components ---
 
-const BarChart: React.FC<{ data: { label: string; value: number }[] }> = ({ data }) => {
+const BarChart: React.FC<{ data: { label: string; value: number }[], t: (key: string) => string }> = ({ data, t }) => {
     const maxValue = Math.max(...data.map(d => d.value)) * 1.1;
     return (
         <div className="w-full h-full flex flex-col">
@@ -198,7 +198,7 @@ const BarChart: React.FC<{ data: { label: string; value: number }[] }> = ({ data
             <div className="flex justify-around space-x-4 pt-2">
                 {data.map(d => (
                     <div key={d.label} className="w-full text-center">
-                        <div className="text-xs font-semibold text-brand-text-gray">{d.label}</div>
+                        <div className="text-xs font-semibold text-brand-text-gray">{t(d.label)}</div>
                     </div>
                 ))}
             </div>
@@ -206,8 +206,8 @@ const BarChart: React.FC<{ data: { label: string; value: number }[] }> = ({ data
     );
 };
 
-const DonutChart: React.FC = () => {
-    const data = [{name: 'Keur Invest', value: 60}, {name: 'SOCABEG Mining', value: 40}];
+const DonutChart: React.FC<{ t: (key: string) => string }> = ({ t }) => {
+    const data = [{name: 'statDonutChartKeurInvest', value: 60}, {name: 'statDonutChartSocabegMining', value: 40}];
     const colors = ['#D4AF37', '#0B1C3F'];
 
     const polarToCartesian = (centerX: number, centerY: number, radius: number, angleInDegrees: number) => {
@@ -252,13 +252,13 @@ const DonutChart: React.FC = () => {
             </svg>
             <div className="absolute flex flex-col items-center justify-center pointer-events-none">
                 <span className="text-4xl font-bold text-brand-navy">02</span>
-                <span className="text-sm text-brand-text-gray">Filiales</span>
+                <span className="text-sm text-brand-text-gray">{t('statDonutChartLabelSubsidiaries')}</span>
             </div>
             <div className="flex justify-center space-x-4 mt-6">
                 {data.map((item, index) => (
                     <div key={index} className="flex items-center text-xs text-brand-text-gray">
                         <span className="w-3 h-3 rounded-full mr-2" style={{ backgroundColor: colors[index] }}></span>
-                        <span>{item.name} ({item.value}%)</span>
+                        <span>{t(item.name)} ({item.value}%)</span>
                     </div>
                 ))}
             </div>
@@ -275,7 +275,7 @@ const DonutChart: React.FC = () => {
     );
 };
 
-const LineChart: React.FC<{ data: { label: string; value: number }[] }> = ({ data }) => {
+const LineChart: React.FC<{ data: { label: string; value: number }[], t: (key: string) => string }> = ({ data, t }) => {
     const width = 320, height = 240, padding = 25;
     const maxValue = Math.max(...data.map(p => p.value)) * 1.1;
     const points = data.map((point, i) => {
@@ -320,7 +320,7 @@ const LineChart: React.FC<{ data: { label: string; value: number }[] }> = ({ dat
              <div className="flex justify-around space-x-4 pt-2 border-t border-gray-200">
                 {data.map(d => (
                     <div key={d.label} className="w-full text-center">
-                        <div className="text-xs font-semibold text-brand-text-gray">{d.label}</div>
+                        <div className="text-xs font-semibold text-brand-text-gray">{t(d.label)}</div>
                     </div>
                 ))}
             </div>
@@ -328,7 +328,7 @@ const LineChart: React.FC<{ data: { label: string; value: number }[] }> = ({ dat
     );
 };
 
-const ProgressBarChart: React.FC = () => {
+const ProgressBarChart: React.FC<{ t: (key: string) => string }> = ({ t }) => {
     const value = 200, max = 250;
     const [percentage, setPercentage] = useState(0);
 
@@ -340,8 +340,8 @@ const ProgressBarChart: React.FC = () => {
         <div className="w-full h-full flex flex-col items-center justify-center px-8">
             <div className="w-full">
                 <div className="flex justify-between items-center mb-2">
-                    <span className="text-lg font-semibold text-brand-navy">Progression Annuelle</span>
-                    <span className="text-lg font-bold text-brand-primary">{value} / {max} Km</span>
+                    <span className="text-lg font-semibold text-brand-navy">{t('statProgressChartTitle')}</span>
+                    <span className="text-lg font-bold text-brand-primary">{value} / {max} {t('statProgressChartUnit')}</span>
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-5 overflow-hidden">
                     <div 
@@ -349,13 +349,13 @@ const ProgressBarChart: React.FC = () => {
                         style={{ width: `${percentage}%` }}
                     ></div>
                 </div>
-                <p className="text-right text-sm text-brand-text-gray mt-2">{Math.round(percentage)}% de l'objectif atteint</p>
+                <p className="text-right text-sm text-brand-text-gray mt-2">{Math.round(percentage)}{t('statProgressChartTarget')}</p>
             </div>
         </div>
     );
 };
 
-const AreaChart: React.FC<{ data: { label: string; value: number }[] }> = ({ data }) => {
+const AreaChart: React.FC<{ data: { label: string; value: number }[], t: (key: string) => string }> = ({ data, t }) => {
     const width = 320, height = 240, padding = 25;
     const maxValue = Math.max(...data.map(p => p.value)) * 1.1;
     
@@ -392,7 +392,7 @@ const AreaChart: React.FC<{ data: { label: string; value: number }[] }> = ({ dat
             <div className="flex justify-around space-x-4 pt-2 border-t border-gray-200">
                 {data.map(d => (
                     <div key={d.label} className="w-full text-center">
-                        <div className="text-xs font-semibold text-brand-text-gray">{d.label}</div>
+                        <div className="text-xs font-semibold text-brand-text-gray">{t(d.label)}</div>
                     </div>
                 ))}
             </div>
@@ -446,34 +446,19 @@ const StatisticsSection: React.FC = () => {
     ];
     
     const chartData = [
-        [ { label: 'Q1', value: 450 }, { label: 'Q2', value: 650 }, { label: 'Q3', value: 800 }, { label: 'Q4', value: 950 } ],
+        [ { label: 'statBarChartLabelQ1', value: 450 }, { label: 'statBarChartLabelQ2', value: 650 }, { label: 'statBarChartLabelQ3', value: 800 }, { label: 'statBarChartLabelQ4', value: 950 } ],
         [],
-        [ { label: 'Q1', value: 20 }, { label: 'Q2', value: 45 }, { label: 'Q3', value: 50 }, { label: 'Q4', value: 35 } ],
+        [ { label: 'statBarChartLabelQ1', value: 20 }, { label: 'statBarChartLabelQ2', value: 45 }, { label: 'statBarChartLabelQ3', value: 50 }, { label: 'statBarChartLabelQ4', value: 35 } ],
         [],
-        [ { label: 'Q1', value: 80 }, { label: 'Q2', value: 150 }, { label: 'Q3', value: 120 }, { label: 'Q4', value: 150 } ],
-    ];
-
-    const chartTitles = [
-        "Ventes Trimestrielles de Parcelles",
-        "Répartition des Filiales Stratégiques",
-        "Croissance des Collaborateurs",
-        "Progression des Voiries Réalisées",
-        "Acquisition d'Assiettes Foncières"
-    ];
-    const chartSubtitles = [
-        "(nombre d'unités vendues)",
-        "(contribution par entité)",
-        "(nouveaux employés par trimestre)",
-        "(objectif annuel)",
-        "(hectares acquis par trimestre)"
+        [ { label: 'statBarChartLabelQ1', value: 80 }, { label: 'statBarChartLabelQ2', value: 150 }, { label: 'statBarChartLabelQ3', value: 120 }, { label: 'statBarChartLabelQ4', value: 150 } ],
     ];
 
     const chartComponents = [
-        <BarChart data={chartData[0]} />,
-        <DonutChart />,
-        <LineChart data={chartData[2]} />,
-        <ProgressBarChart />,
-        <AreaChart data={chartData[4]} />,
+        <BarChart data={chartData[0]} t={t} />,
+        <DonutChart t={t} />,
+        <LineChart data={chartData[2]} t={t} />,
+        <ProgressBarChart t={t} />,
+        <AreaChart data={chartData[4]} t={t} />,
     ];
 
     return (
@@ -506,8 +491,8 @@ const StatisticsSection: React.FC = () => {
                 </div>
 
                 <div className="lg:col-span-3 bg-white p-6 rounded-xl shadow-lg h-full flex flex-col min-h-[450px]">
-                    <h3 className="text-xl font-semibold text-brand-navy mb-1">{chartTitles[activeIndex]}</h3>
-                    <p className="text-sm text-brand-text-gray mb-6">{chartSubtitles[activeIndex]}</p>
+                    <h3 className="text-xl font-semibold text-brand-navy mb-1">{t(`statChartTitle${activeIndex + 1}`)}</h3>
+                    <p className="text-sm text-brand-text-gray mb-6">{t(`statChartSubtitle${activeIndex + 1}`)}</p>
                     <div className="flex-grow">
                       {chartComponents[activeIndex]}
                     </div>

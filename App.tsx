@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
-import { LocalizationProvider } from './context/LocalizationContext';
+import { LocalizationProvider, useLocalization } from './context/LocalizationContext';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
@@ -18,6 +18,7 @@ interface LoadingScreenProps {
 
 const LoadingScreen: React.FC<LoadingScreenProps> = ({ isLoading }) => {
   const [shouldRender, setShouldRender] = useState(true);
+  const { t } = useLocalization();
 
   useEffect(() => {
     if (!isLoading) {
@@ -37,7 +38,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ isLoading }) => {
     <div className={`loading-screen ${!isLoading ? 'exit' : ''}`}>
       <img
         src="https://socabeg.com/favicon.png"
-        alt="SOCABEG Logo"
+        alt={t('socabegLogoAlt')}
         className="loading-icon"
       />
     </div>

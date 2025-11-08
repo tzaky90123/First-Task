@@ -7,9 +7,10 @@ interface SectionTitleProps {
   subtitleKey?: string;
   descriptionKey?: string;
   variant?: 'light' | 'dark';
+  titleClassName?: string;
 }
 
-const SectionTitle: React.FC<SectionTitleProps> = ({ subtitleKey, titleKey, descriptionKey, variant = 'dark' }) => {
+const SectionTitle: React.FC<SectionTitleProps> = ({ subtitleKey, titleKey, descriptionKey, variant = 'dark', titleClassName }) => {
     const { t } = useLocalization();
     
     // Define colors based on variant
@@ -34,7 +35,7 @@ const SectionTitle: React.FC<SectionTitleProps> = ({ subtitleKey, titleKey, desc
             )}
             
             {titleKey && (
-                <h2 className={`text-2xl lg:text-3xl font-black font-sans ${titleColor}`}>
+                <h2 className={`text-2xl lg:text-3xl font-sans ${titleColor} ${titleClassName || 'font-black'}`}>
                     {t(titleKey)}
                 </h2>
             )}

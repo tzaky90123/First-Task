@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <img src="https://socabeg.com/logo.png" alt="SOCABEG Logo" className="h-12 w-auto mb-4" width="192" height="48" loading="lazy" />
+            <img src="https://socabeg.com/logo.png" alt={t('socabegLogoAlt')} className="h-12 w-auto mb-4" width="192" height="48" loading="lazy" />
             <p className="text-gray-400">{t('footerDescription')}</p>
           </div>
           <div>

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useLocalization } from '../context/LocalizationContext';
 
@@ -51,7 +50,7 @@ const ContactSection: React.FC = () => {
     };
 
     return (
-      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
+      <div className="w-full px-4 sm:px-6 lg:px-8">
         {/* Main Content: Card */}
         <div className="bg-white rounded-2xl shadow-contact overflow-hidden lg:grid lg:grid-cols-5">
           {/* Left Side: Form */}
@@ -121,7 +120,7 @@ const ContactSection: React.FC = () => {
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="SOCABEG Location Dakar"
+                title={t('contactMapTitle')}
               ></iframe>
             </div>
           </div>

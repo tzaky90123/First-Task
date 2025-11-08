@@ -17,10 +17,10 @@ const IntroductionSection: React.FC = () => {
                 <div className="animate-fade-in-up">
                     <h2 className="text-3xl font-bold font-sans text-brand-navy mb-6">{t('minesIntroTitle')}</h2>
                     <p className="text-lg text-brand-text-gray leading-relaxed mb-4" dangerouslySetInnerHTML={{ __html: t('minesIntroText').replace('stimulant ainsi la croissance économique', '<strong>stimulant ainsi la croissance économique</strong>') }} />
-                    <p className="text-lg text-brand-text-gray leading-relaxed">Nous nous engageons à une exploitation qui respecte à la fois <strong>l'environnement et les communautés locales</strong>, en créant une valeur durable pour le Sénégal.</p>
+                    <p className="text-lg text-brand-text-gray leading-relaxed" dangerouslySetInnerHTML={{ __html: t('minesIntroParagraph2') }} />
                 </div>
                 <div className="animate-fade-in-up animation-delay-300">
-                    <img src="https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Modern construction site" className="rounded-xl shadow-2xl w-full h-auto object-cover" loading="lazy" width="576" height="384"/>
+                    <img src="https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt={t('minesIntroImageAlt')} className="rounded-xl shadow-2xl w-full h-auto object-cover" loading="lazy" width="576" height="384"/>
                 </div>
             </div>
         </div>
@@ -30,10 +30,10 @@ const IntroductionSection: React.FC = () => {
 const ServicesSection: React.FC = () => {
     const { t } = useLocalization();
     const services = [
-        { titleKey: 'minesService1Title', descKey: 'minesService1Desc', icon: <img src="https://cdn-icons-png.flaticon.com/512/16/16294.png" alt="Exploration Icon" className="h-full w-full object-contain" loading="lazy" /> },
-        { titleKey: 'minesService2Title', descKey: 'minesService2Desc', icon: <img src="https://cdn-icons-png.flaticon.com/512/3380/3380304.png" alt="Extraction Icon" className="h-full w-full object-contain" loading="lazy" /> },
-        { titleKey: 'minesService3Title', descKey: 'minesService3Desc', icon: <img src="https://cdn-icons-png.flaticon.com/512/60/60473.png" alt="Processing Icon" className="h-full w-full object-contain" loading="lazy" /> },
-        { titleKey: 'minesService4Title', descKey: 'minesService4Desc', icon: <img src="https://cdn-icons-png.flaticon.com/512/936/936784.png" alt="Logistics Icon" className="h-full w-full object-contain" loading="lazy" /> },
+        { titleKey: 'minesService1Title', descKey: 'minesService1Desc', icon: <img src="https://cdn-icons-png.flaticon.com/512/16/16294.png" alt={t('minesServiceIcon1Alt')} className="h-full w-full object-contain" loading="lazy" /> },
+        { titleKey: 'minesService2Title', descKey: 'minesService2Desc', icon: <img src="https://cdn-icons-png.flaticon.com/512/3380/3380304.png" alt={t('minesServiceIcon2Alt')} className="h-full w-full object-contain" loading="lazy" /> },
+        { titleKey: 'minesService3Title', descKey: 'minesService3Desc', icon: <img src="https://cdn-icons-png.flaticon.com/512/60/60473.png" alt={t('minesServiceIcon3Alt')} className="h-full w-full object-contain" loading="lazy" /> },
+        { titleKey: 'minesService4Title', descKey: 'minesService4Desc', icon: <img src="https://cdn-icons-png.flaticon.com/512/936/936784.png" alt={t('minesServiceIcon4Alt')} className="h-full w-full object-contain" loading="lazy" /> },
     ];
     return (
         <div className="container mx-auto px-6">
@@ -54,9 +54,9 @@ const ServicesSection: React.FC = () => {
 const ProjectsSection: React.FC = () => {
     const { t } = useLocalization();
     const projects = [
-        { image: "https://images.pexels.com/photos/2555627/pexels-photo-2555627.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", titleKey: 'minesProject1Title', descKey: 'minesProject1Desc', tag: 'Or' },
-        { image: "https://images.pexels.com/photos/2533084/pexels-photo-2533084.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", titleKey: 'minesProject2Title', descKey: 'minesProject2Desc', tag: 'Phosphates' },
-        { image: "https://images.pexels.com/photos/12971169/pexels-photo-12971169.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", titleKey: 'minesProject3Title', descKey: 'minesProject3Desc', tag: 'Zircon' },
+        { image: "https://images.pexels.com/photos/2555627/pexels-photo-2555627.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", titleKey: 'minesProject1Title', descKey: 'minesProject1Desc', tag: t('minesProjectTagGold') },
+        { image: "https://images.pexels.com/photos/2533084/pexels-photo-2533084.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", titleKey: 'minesProject2Title', descKey: 'minesProject2Desc', tag: t('minesProjectTagPhosphates') },
+        { image: "https://images.pexels.com/photos/12971169/pexels-photo-12971169.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", titleKey: 'minesProject3Title', descKey: 'minesProject3Desc', tag: t('minesProjectTagZircon') },
     ];
     return (
         <div className="container mx-auto px-6">
@@ -91,7 +91,7 @@ const SafetyEnvironmentSection: React.FC = () => {
             <SectionTitle titleKey="minesSafetyTitle" descriptionKey="minesSafetyText" />
             <div className="grid md:grid-cols-2 gap-12 lg:gap-24 items-center">
                 <div className="animate-fade-in-up">
-                    <img src="https://images.pexels.com/photos/4031818/pexels-photo-4031818.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Environmental reclamation" className="rounded-xl shadow-2xl w-full" loading="lazy" width="576" height="384"/>
+                    <img src="https://images.pexels.com/photos/4031818/pexels-photo-4031818.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt={t('minesSafetyImageAlt')} className="rounded-xl shadow-2xl w-full" loading="lazy" width="576" height="384"/>
                 </div>
                 <div className="animate-fade-in-up animation-delay-300">
                     <div className="space-y-8">

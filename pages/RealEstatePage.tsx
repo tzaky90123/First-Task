@@ -9,9 +9,9 @@ import Footer from '../components/Footer';
 import SectionTitle from '../components/SectionTitle';
 
 // --- New/Updated Icons for Redesigned Sections ---
-const IconDesign = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-brand-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zm-7.518-.267A8.25 8.25 0 1120.25 10.5M8.288 14.212A5.25 5.25 0 1117.25 10.5" /></svg>;
-const IconFunctionality = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-brand-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>;
-const IconIntegration = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-brand-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18A2.25 2.25 0 004.5 21h15a2.25 2.25 0 002.25-2.25V5.25A2.25 2.25 0 0019.5 3h-15A2.25 2.25 0 002.25 5.25v18zm11.25-18v18" /></svg>;
+const IconDesign = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zm-7.518-.267A8.25 8.25 0 1120.25 10.5M8.288 14.212A5.25 5.25 0 1117.25 10.5" /></svg>;
+const IconFunctionality = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>;
+const IconIntegration = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18A2.25 2.25 0 004.5 21h15a2.25 2.25 0 002.25-2.25V5.25A2.25 2.25 0 0019.5 3h-15A2.25 2.25 0 002.25 5.25v18zm11.25-18v18" /></svg>;
 
 
 // --- Page Sections ---
@@ -34,8 +34,10 @@ const IntroductionSection: React.FC = () => {
                     
                     <div className="space-y-6 mb-8">
                         {features.map((feature, index) => (
-                            <div key={index} className="flex items-start">
-                                <div className="flex-shrink-0">{feature.icon}</div>
+                            <div key={index} className="flex items-start group">
+                                <div className="flex-shrink-0 h-14 w-14 p-3 rounded-full bg-brand-navy/5 flex items-center justify-center transition-all duration-300 group-hover:bg-brand-yellow group-hover:scale-110">
+                                    {feature.icon}
+                                </div>
                                 <div className="ml-5">
                                     <h3 className="text-lg font-bold text-brand-dark">{t(feature.titleKey)}</h3>
                                     <p className="text-brand-text-gray mt-1 text-sm leading-relaxed">{t(feature.descKey)}</p>
@@ -51,7 +53,7 @@ const IntroductionSection: React.FC = () => {
                     </div>
                 </div>
                 <div className="animate-fade-in-up animation-delay-300">
-                    <img src="https://images.pexels.com/photos/259962/pexels-photo-259962.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Modern architectural home" className="rounded-xl shadow-2xl w-full h-auto object-cover" loading="lazy" width="576" height="384"/>
+                    <img src="https://images.pexels.com/photos/259962/pexels-photo-259962.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt={t('reIntroImageAlt')} className="rounded-xl shadow-2xl w-full h-auto object-cover" loading="lazy" width="576" height="384"/>
                 </div>
             </div>
         </div>
@@ -76,7 +78,7 @@ const PortfolioSection: React.FC = () => {
                             <h3 className="text-xl font-bold text-brand-primary mb-2">{t(p.titleKey)}</h3>
                             <p className="text-brand-text text-sm mb-4 flex-grow">{t(p.descKey)}</p>
                             <div className="mt-auto border-t pt-4">
-                                <h4 className="font-semibold text-sm text-brand-dark mb-2">Caractéristiques Clés :</h4>
+                                <h4 className="font-semibold text-sm text-brand-dark mb-2">{t('rePortfolioKeyFeatures')}</h4>
                                 <p className="text-xs text-gray-600">{t(p.featuresKey)}</p>
                             </div>
                         </div>
@@ -99,14 +101,14 @@ const SustainabilitySection: React.FC = () => {
             <SectionTitle titleKey="reSustainabilityTitle" descriptionKey="reSustainabilityText" />
             <div className="grid md:grid-cols-5 gap-12 items-center">
                 <div className="md:col-span-2">
-                     <img src="https://images.pexels.com/photos/439391/pexels-photo-439391.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Eco-friendly building" className="rounded-lg shadow-xl w-full" loading="lazy" width="576" height="384" />
+                     <img src="https://images.pexels.com/photos/439391/pexels-photo-439391.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt={t('reSustainabilityImageAlt')} className="rounded-lg shadow-xl w-full" loading="lazy" width="576" height="384" />
                 </div>
                 <div className="md:col-span-3">
                     <div className="space-y-6">
                         {points.map(p => (
                             <div key={p.titleKey} className="flex items-start">
                                 <div className="flex-shrink-0">
-                                    <img src={p.iconUrl} alt="" className="h-10 w-10" loading="lazy" width="40" height="40" />
+                                    <img src={p.iconUrl} alt={t(p.titleKey)} className="h-10 w-10" loading="lazy" width="40" height="40" />
                                 </div>
                                 <div className="ml-4">
                                     <h3 className="text-xl font-bold text-brand-primary">{t(p.titleKey)}</h3>
@@ -227,7 +229,7 @@ const MarketInsightSection: React.FC = () => {
         <div className="container mx-auto px-6">
             <SectionTitle titleKey="reMarketTitle" descriptionKey="reMarketText" />
             <div className="mt-8">
-                <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Modern interior design" className="rounded-lg shadow-xl w-full h-auto object-cover max-w-4xl mx-auto" loading="lazy" width="576" height="384"/>
+                <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt={t('reMarketImageAlt')} className="rounded-lg shadow-xl w-full h-auto object-cover max-w-4xl mx-auto" loading="lazy" width="576" height="384"/>
             </div>
         </div>
     );

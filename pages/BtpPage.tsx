@@ -52,15 +52,15 @@ const ServicesSection: React.FC = () => {
 const ApproachSection: React.FC = () => {
     const { t } = useLocalization();
     const approaches = [
-        { titleKey: 'btpApproachSafetyTitle', descKey: 'btpApproachSafetyDesc', icon: <img src="https://cdn-icons-png.flaticon.com/512/1161/1161439.png" alt="" className="h-8 w-8" loading="lazy" width="32" height="32" /> },
-        { titleKey: 'btpApproachSustainabilityTitle', descKey: 'btpApproachSustainabilityDesc', icon: <img src="https://cdn-icons-png.flaticon.com/512/5631/5631194.png" alt="" className="h-8 w-8" loading="lazy" width="32" height="32" /> },
-        { titleKey: 'btpApproachTechTitle', descKey: 'btpApproachTechDesc', icon: <img src="https://cdn-icons-png.flaticon.com/512/2752/2752819.png" alt="" className="h-8 w-8" loading="lazy" width="32" height="32" /> },
+        { titleKey: 'btpApproachSafetyTitle', descKey: 'btpApproachSafetyDesc', icon: <img src="https://cdn-icons-png.flaticon.com/512/1161/1161439.png" alt={t('btpApproachSafetyIconAlt')} className="h-8 w-8" loading="lazy" width="32" height="32" /> },
+        { titleKey: 'btpApproachSustainabilityTitle', descKey: 'btpApproachSustainabilityDesc', icon: <img src="https://cdn-icons-png.flaticon.com/512/5631/5631194.png" alt={t('btpApproachSustainabilityIconAlt')} className="h-8 w-8" loading="lazy" width="32" height="32" /> },
+        { titleKey: 'btpApproachTechTitle', descKey: 'btpApproachTechDesc', icon: <img src="https://cdn-icons-png.flaticon.com/512/2752/2752819.png" alt={t('btpApproachTechIconAlt')} className="h-8 w-8" loading="lazy" width="32" height="32" /> },
     ];
     return (
         <div className="container mx-auto px-6">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
                 <div className="animate-fade-in-up">
-                    <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Collaboration and teamwork" className="rounded-lg shadow-xl w-full h-auto object-cover" loading="lazy" width="576" height="384"/>
+                    <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt={t('btpApproachImageAlt')} className="rounded-lg shadow-xl w-full h-auto object-cover" loading="lazy" width="576" height="384"/>
                 </div>
                 <div className="bg-gray-50/50 p-8 rounded-lg">
                     <h2 className="text-3xl font-bold font-sans text-brand-blue-dark mb-3">{t('btpApproachTitle')}</h2>

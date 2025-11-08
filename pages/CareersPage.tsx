@@ -20,10 +20,10 @@ const IconMentorship = () => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 
 const WhyJoinUsSection: React.FC = () => {
     const { t } = useLocalization();
     const values = [
-        { icon: <img src="https://cdn-icons-png.flaticon.com/512/3329/3329048.png" alt="" className="h-full w-full" loading="lazy" width="32" height="32" />, titleKey: 'careersValueSafetyTitle', descKey: 'careersValueSafetyDesc' },
-        { icon: <img src="https://cdn-icons-png.flaticon.com/512/70/70535.png" alt="" className="h-full w-full" loading="lazy" width="32" height="32" />, titleKey: 'careersValueExcellenceTitle', descKey: 'careersValueExcellenceDesc' },
-        { icon: <img src="https://cdn-icons-png.flaticon.com/512/33/33308.png" alt="" className="h-full w-full" loading="lazy" width="32" height="32" />, titleKey: 'careersValueTeamTitle', descKey: 'careersValueTeamDesc' },
-        { icon: <img src="https://cdn-icons-png.flaticon.com/512/2285/2285559.png" alt="" className="h-full w-full" loading="lazy" width="32" height="32" />, titleKey: 'careersValueGrowthTitle', descKey: 'careersValueGrowthDesc' },
+        { icon: <img src="https://cdn-icons-png.flaticon.com/512/3329/3329048.png" alt={t('careersSafetyIconAlt')} className="h-full w-full" loading="lazy" width="32" height="32" />, titleKey: 'careersValueSafetyTitle', descKey: 'careersValueSafetyDesc' },
+        { icon: <img src="https://cdn-icons-png.flaticon.com/512/70/70535.png" alt={t('careersExcellenceIconAlt')} className="h-full w-full" loading="lazy" width="32" height="32" />, titleKey: 'careersValueExcellenceTitle', descKey: 'careersValueExcellenceDesc' },
+        { icon: <img src="https://cdn-icons-png.flaticon.com/512/33/33308.png" alt={t('careersTeamIconAlt')} className="h-full w-full" loading="lazy" width="32" height="32" />, titleKey: 'careersValueTeamTitle', descKey: 'careersValueTeamDesc' },
+        { icon: <img src="https://cdn-icons-png.flaticon.com/512/2285/2285559.png" alt={t('careersGrowthIconAlt')} className="h-full w-full" loading="lazy" width="32" height="32" />, titleKey: 'careersValueGrowthTitle', descKey: 'careersValueGrowthDesc' },
     ];
 
     return (
@@ -31,12 +31,12 @@ const WhyJoinUsSection: React.FC = () => {
             <SectionTitle subtitleKey="careersWhyUsTitle" titleKey="careersWhyUsHeadline" descriptionKey="careersWhyUsIntro" />
             <div className="grid md:grid-cols-2 gap-12 lg:gap-24 items-center">
                 <div className="animate-fade-in-up">
-                    <img src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="A diverse team collaborating on a project at SOCABEG" className="rounded-xl shadow-2xl w-full h-auto object-cover" loading="lazy" width="576" height="384"/>
+                    <img src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt={t('careersWhyJoinImageAlt')} className="rounded-xl shadow-2xl w-full h-auto object-cover" loading="lazy" width="576" height="384"/>
                 </div>
                 <div className="space-y-8">
                     {values.map((item, index) => (
                         <div key={item.titleKey} className="flex items-start group animate-fade-in-up" style={{ animationDelay: `${200 * (index + 1)}ms`}}>
-                            <div className="flex-shrink-0 h-14 w-14 p-3 rounded-full bg-brand-navy/5 text-brand-navy flex items-center justify-center transition-all duration-300 group-hover:bg-brand-navy group-hover:text-white group-hover:scale-110">{item.icon}</div>
+                            <div className="flex-shrink-0 h-14 w-14 p-3 rounded-full bg-brand-navy/5 text-brand-navy flex items-center justify-center transition-all duration-300 group-hover:bg-brand-yellow group-hover:scale-110">{item.icon}</div>
                             <div className="ml-5">
                                 <h3 className="text-xl font-bold text-brand-navy">{t(item.titleKey)}</h3>
                                 <p className="text-brand-text-gray mt-1 leading-relaxed">{t(item.descKey)}</p>
@@ -64,7 +64,7 @@ const BenefitsSection: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 {benefits.map((benefit, index) => (
                     <div key={benefit.titleKey} className="bg-white p-8 rounded-xl shadow-soft text-center transition-all duration-300 group hover:shadow-2xl hover:-translate-y-2 flex flex-col" style={{ animation: `fadeInUp 0.5s ${index * 0.1}s ease-out both` }}>
-                        <div className="text-brand-navy mx-auto mb-6 w-16 h-16 p-3 flex items-center justify-center rounded-full bg-brand-navy/5 transition-all duration-300 group-hover:bg-brand-navy group-hover:text-white group-hover:scale-110">{benefit.icon}</div>
+                        <div className="text-brand-navy mx-auto mb-6 w-16 h-16 p-3 flex items-center justify-center rounded-full bg-brand-navy/5 transition-all duration-300 group-hover:bg-brand-yellow group-hover:scale-110">{benefit.icon}</div>
                         <h3 className="text-xl font-bold text-brand-navy mb-3">{t(benefit.titleKey)}</h3>
                         <p className="text-brand-text-gray text-sm flex-grow">{t(benefit.descKey)}</p>
                     </div>
@@ -109,24 +109,30 @@ const TestimonialsSection: React.FC = () => {
 const CareerOpportunitiesSection: React.FC = () => {
     const { t } = useLocalization();
     const roles = [
-        { title: 'Site Engineer', description: 'Supervise daily construction activities, ensuring projects are completed on schedule and to specification.' },
-        { title: 'Project Manager', description: 'Lead projects from conception to completion, managing budgets, schedules, and stakeholder communication.' },
-        { title: 'Architect', description: 'Design innovative and functional structures that meet client needs and adhere to building codes.' },
-        { title: 'Safety Officer', description: 'Implement and monitor safety protocols on-site to ensure a secure working environment for all personnel.' },
+        { titleKey: 'careersRole1Title', descKey: 'careersRole1Desc' },
+        { titleKey: 'careersRole2Title', descKey: 'careersRole2Desc' },
+        { titleKey: 'careersRole3Title', descKey: 'careersRole3Desc' },
+        { titleKey: 'careersRole4Title', descKey: 'careersRole4Desc' },
     ];
     
     return (
         <div className="container mx-auto px-6 text-center">
             <SectionTitle titleKey="careersOpeningsTitle" descriptionKey="careersOpeningsText" />
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-left mb-12">
-                {roles.map((role, index) => (
-                    <div key={index} className="bg-white p-6 rounded-lg shadow-soft border-l-4 border-brand-primary">
-                        <h3 className="font-bold text-lg text-brand-navy mb-2">{role.title}</h3>
-                        <p className="text-sm text-brand-text-gray">{role.description}</p>
-                    </div>
-                ))}
-            </div>
+            {roles.length > 0 ? (
+                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-left mb-12">
+                    {roles.map((role, index) => (
+                        <div key={index} className="bg-white p-6 rounded-lg shadow-soft border-l-4 border-brand-primary">
+                            <h3 className="font-bold text-lg text-brand-navy mb-2">{t(role.titleKey)}</h3>
+                            <p className="text-sm text-brand-text-gray">{t(role.descKey)}</p>
+                        </div>
+                    ))}
+                </div>
+            ) : (
+                <div className="mb-12">
+                    <p className="text-brand-text-gray italic">{t('careersNoOpenings')}</p>
+                </div>
+            )}
             
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
                 <Link to="#" className="bg-brand-primary text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg w-full sm:w-auto">

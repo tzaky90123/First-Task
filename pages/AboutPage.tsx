@@ -35,7 +35,7 @@ const PartnersSection: React.FC = () => {
                         <div key={index} className="flex items-center justify-center">
                             <img 
                                 src={logo} 
-                                alt={`Partner logo ${index + 1}`} 
+                                alt={t('partnerLogoAlt').replace('{number}', String(index + 1))} 
                                 className="max-h-20 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 partner-logo" 
                                 loading="lazy" height="80" width="160"
                             />
@@ -47,7 +47,7 @@ const PartnersSection: React.FC = () => {
                         <div key={index} className="flex items-center justify-center">
                             <img 
                                 src={logo} 
-                                alt={`Partner logo ${index + 1 + row1Logos.length}`} 
+                                alt={t('partnerLogoAlt').replace('{number}', String(index + 1 + row1Logos.length))} 
                                 className="max-h-20 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 partner-logo" 
                                 loading="lazy" height="80" width="160"
                             />
