@@ -52,9 +52,9 @@ const ContactSection: React.FC = () => {
     return (
       <div className="w-full px-4 sm:px-6 lg:px-8">
         {/* Main Content: Card */}
-        <div className="bg-white rounded-2xl shadow-contact overflow-hidden lg:grid lg:grid-cols-5">
+        <div className="max-w-8xl mx-auto bg-white rounded-2xl shadow-contact overflow-hidden lg:grid lg:grid-cols-5">
           {/* Left Side: Form */}
-          <div className="p-8 sm:p-12 lg:col-span-3">
+          <div className="p-10 sm:p-12 lg:col-span-3">
             <h3 className="text-2xl font-bold text-brand-navy mb-8">{t('contactFormTitle')}</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <InputField id="name" name="name" label={t('formName')} type="text" value={formState.name} onChange={handleInputChange as any} required />
@@ -83,7 +83,7 @@ const ContactSection: React.FC = () => {
           </div>
           
           {/* Right Side: Contact Info & Map */}
-          <div className="p-8 sm:p-12 lg:col-span-2">
+          <div className="p-10 sm:p-12 lg:col-span-2">
             <h3 className="text-2xl font-bold text-brand-navy mb-4">{t('contactInfoTitle')}</h3>
             <div className="w-20 h-0.5 bg-brand-secondary mb-8"></div>
             <ul className="space-y-8">
