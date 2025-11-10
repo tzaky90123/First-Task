@@ -85,6 +85,23 @@ export const content: LocalizedContent = {
   statProgressChartUnit: { [Language.FR]: "Km", [Language.EN]: "Km" },
   statProgressChartTarget: { [Language.FR]: "% de l'objectif atteint", [Language.EN]: "% of target achieved" },
 
+  statInsight2: { 
+    [Language.FR]: 'Nos filiales, Keur Invest (60 %) et SOCABEG Mining (40 %), jouent des rôles de partenariat stratégique, stimulant une croissance diversifiée dans des secteurs clés.', 
+    [Language.EN]: 'Our subsidiaries, Keur Invest (60%) and SOCABEG Mining (40%), play strategic partnership roles, driving diversified growth across key sectors.' 
+  },
+  statInsight3: { 
+    [Language.FR]: 'Ce graphique illustre les tendances de notre main-d\'œuvre, avec une croissance maximale mise en évidence au T3, reflétant une montée en puissance significative des projets.', 
+    [Language.EN]: 'This chart illustrates our workforce trends, with peak growth highlighted in Q3, reflecting a significant project ramp-up.' 
+  },
+  statInsight4: { 
+    [Language.FR]: 'Ce graphique suit notre croissance constante dans le développement des infrastructures. Il reste 50 km pour atteindre notre objectif annuel de 250 km, ce qui témoigne de progrès réguliers.', 
+    [Language.EN]: 'This tracks our consistent infrastructure growth. 50 km remain to complete our 250 km annual target, showcasing steady progress.' 
+  },
+  statInsight5: { 
+    [Language.FR]: 'Ceci fournit un contexte sur les tendances trimestrielles d\'acquisition de terrains, avec une forte reprise au T4 indiquant une confiance renouvelée du marché et une expansion du portefeuille de projets.', 
+    [Language.EN]: 'This provides context on quarterly land acquisition trends, with a strong rebound in Q4 indicating renewed market confidence and project pipeline expansion.' 
+  },
+
   whyChooseUsSectionTitle: { [Language.FR]: 'WHY CHOOSE US', [Language.EN]: 'WHY CHOOSE US' },
   whyChooseUsSectionHeadline: { [Language.FR]: 'OUR ADDED VALUE', [Language.EN]: 'OUR ADDED VALUE' },
   value1Title: { [Language.FR]: 'Expérience reconnue', [Language.EN]: 'Recognized Experience' },

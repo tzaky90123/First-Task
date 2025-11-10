@@ -181,20 +181,48 @@ const MasterpiecesSection: React.FC = () => {
 
 // --- Chart Components ---
 
-const BarChart: React.FC<{ data: { label: string; value: number }[], t: (key: string) => string }> = ({ data, t }) => {
-    const maxValue = Math.max(...data.map(d => d.value)) * 1.1;
+const BarChart: React.FC<{
+    data: { label: string; value: number }[],
+    t: (key: string) => string,
+    target?: number,
+    unit?: string
+}> = ({ data, t, target, unit = '' }) => {
+    const maxValue = Math.max(...data.map(d => d.value), target || 0) * 1.1;
+
     return (
         <div className="w-full h-full flex flex-col">
-            <div className="flex-grow flex items-end justify-around space-x-4 pt-4 border-b border-gray-200">
+            {/* Chart Area */}
+            <div className="flex-grow flex items-end justify-around space-x-4 pt-8 border-b border-gray-200 relative">
+                {/* Target Line */}
+                {target && (
+                    <div className="absolute top-0 left-0 right-0" style={{ bottom: `${(target / maxValue) * 100}%` }}>
+                        <div className="relative border-t-2 border-dashed border-red-400 w-full">
+                            <span className="absolute right-0 -top-3 text-xs text-red-500 font-semibold bg-white px-1">Target: {target}{unit}</span>
+                        </div>
+                    </div>
+                )}
+
+                {/* Bars */}
                 {data.map(d => (
-                    <div key={d.label} className="w-full flex flex-col items-center h-full justify-end group">
+                    <div key={d.label} className="w-full flex flex-col items-center h-full justify-end group relative">
+                        {/* Tooltip */}
+                        <div className="absolute bottom-full mb-2 w-max px-2 py-1 text-xs text-white bg-brand-dark rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none transform -translate-x-1/2 left-1/2 z-10">
+                            {d.value} {unit}
+                        </div>
+                        
+                        {/* Bar with Label */}
                         <div
-                            className="w-3/4 bg-brand-secondary rounded-t-lg transition-all duration-500 ease-out hover:opacity-80"
+                            className="w-3/4 bg-brand-secondary rounded-t-lg transition-all duration-500 ease-out group-hover:opacity-80 relative"
                             style={{ height: `${(d.value / maxValue) * 100}%` }}
-                        ></div>
+                        >
+                             <span className="absolute -top-5 left-1/2 -translate-x-1/2 text-xs font-bold text-brand-navy opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                {d.value}
+                            </span>
+                        </div>
                     </div>
                 ))}
             </div>
+            {/* X-Axis Labels */}
             <div className="flex justify-around space-x-4 pt-2">
                 {data.map(d => (
                     <div key={d.label} className="w-full text-center">
@@ -206,121 +234,36 @@ const BarChart: React.FC<{ data: { label: string; value: number }[], t: (key: st
     );
 };
 
-const DonutChart: React.FC<{ t: (key: string) => string }> = ({ t }) => {
-    const data = [{name: 'statDonutChartKeurInvest', value: 60}, {name: 'statDonutChartSocabegMining', value: 40}];
-    const colors = ['#D4AF37', '#0B1C3F'];
 
-    const polarToCartesian = (centerX: number, centerY: number, radius: number, angleInDegrees: number) => {
-        const angleInRadians = ((angleInDegrees - 90) * Math.PI) / 180.0;
-        return {
-            x: centerX + radius * Math.cos(angleInRadians),
-            y: centerY + radius * Math.sin(angleInRadians),
-        };
-    };
+const HorizontalBarChart: React.FC<{ t: (key: string) => string }> = ({ t }) => {
+    const data = [
+        { nameKey: 'statDonutChartKeurInvest', value: 60, color: 'bg-brand-gold-accent' }, 
+        { nameKey: 'statDonutChartSocabegMining', value: 40, color: 'bg-brand-navy' }
+    ];
+    const [widths, setWidths] = useState([0, 0]);
 
-    const describeArc = (x: number, y: number, radius: number, startAngle: number, endAngle: number) => {
-        const start = polarToCartesian(x, y, radius, endAngle);
-        const end = polarToCartesian(x, y, radius, startAngle);
-        const largeArcFlag = endAngle - startAngle <= 180 ? '0' : '1';
-        return `M ${start.x} ${start.y} A ${radius} ${radius} 0 ${largeArcFlag} 0 ${end.x} ${end.y}`;
-    };
-
-    const total = data.reduce((sum, item) => sum + item.value, 0);
-    let startAngle = 0;
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setWidths([60, 40]);
+        }, 100);
+        return () => clearTimeout(timer);
+    }, []);
 
     return (
-        <div className="w-full h-full flex flex-col items-center justify-center relative">
-            <svg viewBox="0 0 100 100" className="w-48 h-48 transform -rotate-90">
-                <circle cx="50" cy="50" r="40" fill="none" stroke="#e6e6e6" strokeWidth="15" />
-                {data.map((item, index) => {
-                    const angle = (item.value / total) * 360;
-                    const endAngle = startAngle + angle;
-                    const pathData = describeArc(50, 50, 40, startAngle, endAngle - 2);
-                    startAngle = endAngle;
-                    return (
-                        <path
-                            key={index}
-                            d={pathData}
-                            stroke={colors[index]}
-                            strokeWidth="15"
-                            fill="none"
-                            className="animate-donut-segment"
-                            style={{ animationDelay: `${index * 200}ms` }}
-                        />
-                    );
-                })}
-            </svg>
-            <div className="absolute flex flex-col items-center justify-center pointer-events-none">
-                <span className="text-4xl font-bold text-brand-navy">02</span>
-                <span className="text-sm text-brand-text-gray">{t('statDonutChartLabelSubsidiaries')}</span>
-            </div>
-            <div className="flex justify-center space-x-4 mt-6">
+        <div className="w-full h-full flex flex-col justify-center px-4 sm:px-8">
+            <div className="space-y-6">
                 {data.map((item, index) => (
-                    <div key={index} className="flex items-center text-xs text-brand-text-gray">
-                        <span className="w-3 h-3 rounded-full mr-2" style={{ backgroundColor: colors[index] }}></span>
-                        <span>{t(item.name)} ({item.value}%)</span>
-                    </div>
-                ))}
-            </div>
-            <style>{`
-                @keyframes donut-segment {
-                    from { stroke-dasharray: 0, 1000; }
-                    to { stroke-dasharray: 1000, 0; }
-                }
-                .animate-donut-segment {
-                    animation: donut-segment 1s ease-out forwards;
-                }
-            `}</style>
-        </div>
-    );
-};
-
-const LineChart: React.FC<{ data: { label: string; value: number }[], t: (key: string) => string }> = ({ data, t }) => {
-    const width = 320, height = 240, padding = 25;
-    const maxValue = Math.max(...data.map(p => p.value)) * 1.1;
-    const points = data.map((point, i) => {
-        const x = (i / (data.length - 1)) * (width - 2 * padding) + padding;
-        const y = height - padding - (point.value / maxValue) * (height - 2 * padding);
-        return `${x},${y}`;
-    }).join(' ');
-    
-    const pathRef = useRef<SVGPolylineElement>(null);
-    useEffect(() => {
-        if (pathRef.current) {
-            const length = pathRef.current.getTotalLength();
-            pathRef.current.style.strokeDasharray = `${length}`;
-            pathRef.current.style.strokeDashoffset = `${length}`;
-            setTimeout(() => {
-                if(pathRef.current) pathRef.current.style.strokeDashoffset = '0';
-            }, 100);
-        }
-    }, [data]);
-
-    return (
-         <div className="w-full h-full flex flex-col">
-            <div className="flex-grow flex items-center justify-center">
-                <svg viewBox={`0 0 ${width} ${height}`}>
-                    <polyline
-                        ref={pathRef}
-                        fill="none"
-                        stroke="#0052CC"
-                        strokeWidth="3"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        points={points}
-                        style={{transition: 'stroke-dashoffset 1s ease-out'}}
-                    />
-                    {data.map((point, i) => {
-                        const x = (i / (data.length - 1)) * (width - 2 * padding) + padding;
-                        const y = height - padding - (point.value / maxValue) * (height - 2 * padding);
-                        return <circle key={i} cx={x} cy={y} r="4" fill="#fff" stroke="#0052CC" strokeWidth="2" />;
-                    })}
-                </svg>
-            </div>
-             <div className="flex justify-around space-x-4 pt-2 border-t border-gray-200">
-                {data.map(d => (
-                    <div key={d.label} className="w-full text-center">
-                        <div className="text-xs font-semibold text-brand-text-gray">{t(d.label)}</div>
+                    <div key={index} className="animate-fade-in-up" style={{animationDelay: `${index * 150}ms`}}>
+                        <div className="flex justify-between items-center mb-1">
+                            <span className="text-sm font-semibold text-brand-text-gray">{t(item.nameKey)}</span>
+                            <span className="text-sm font-bold text-brand-navy">{item.value}%</span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
+                            <div
+                                className={`${item.color} h-4 rounded-full transition-all duration-1000 ease-out`}
+                                style={{ width: `${widths[index]}%` }}
+                            ></div>
+                        </div>
                     </div>
                 ))}
             </div>
@@ -328,65 +271,77 @@ const LineChart: React.FC<{ data: { label: string; value: number }[], t: (key: s
     );
 };
 
-const ProgressBarChart: React.FC<{ t: (key: string) => string }> = ({ t }) => {
-    const value = 200, max = 250;
-    const [percentage, setPercentage] = useState(0);
-
-    useEffect(() => {
-        setTimeout(() => setPercentage((value / max) * 100), 100);
-    }, [value, max]);
-
-    return (
-        <div className="w-full h-full flex flex-col items-center justify-center px-8">
-            <div className="w-full">
-                <div className="flex justify-between items-center mb-2">
-                    <span className="text-lg font-semibold text-brand-navy">{t('statProgressChartTitle')}</span>
-                    <span className="text-lg font-bold text-brand-primary">{value} / {max} {t('statProgressChartUnit')}</span>
-                </div>
-                <div className="w-full bg-gray-200 rounded-full h-5 overflow-hidden">
-                    <div 
-                        className="bg-brand-secondary h-5 rounded-full transition-all duration-1000 ease-out"
-                        style={{ width: `${percentage}%` }}
-                    ></div>
-                </div>
-                <p className="text-right text-sm text-brand-text-gray mt-2">{Math.round(percentage)}{t('statProgressChartTarget')}</p>
-            </div>
-        </div>
-    );
-};
-
-const AreaChart: React.FC<{ data: { label: string; value: number }[], t: (key: string) => string }> = ({ data, t }) => {
-    const width = 320, height = 240, padding = 25;
-    const maxValue = Math.max(...data.map(p => p.value)) * 1.1;
+const AreaChart: React.FC<{ data: { label: string; value: number }[], t: (key: string) => string, color?: string }> = ({ data, t, color = '#C5A43C' }) => {
+    const width = 320, height = 280,
+          padding = { top: 30, right: 20, bottom: 25, left: 30 };
     
+    const chartWidth = width - padding.left - padding.right;
+    const chartHeight = height - padding.top - padding.bottom;
+    
+    const maxValue = Math.max(...data.map(p => p.value)) * 1.15;
+    
+    const getCoords = (pointValue: number, i: number) => {
+        const x = padding.left + (i / (data.length - 1)) * chartWidth;
+        const y = height - padding.bottom - (pointValue / maxValue) * chartHeight;
+        return { x, y };
+    }
+
     const points = data.map((point, i) => {
-        const x = (i / (data.length - 1)) * (width - 2 * padding) + padding;
-        const y = height - padding - (point.value / maxValue) * (height - 2 * padding);
+        const { x, y } = getCoords(point.value, i);
         return `${x},${y}`;
     }).join(' ');
 
-    const areaPath = `M${padding},${height - padding} L${points} L${width - padding},${height - padding} Z`;
+    const areaPath = `M${padding.left},${height - padding.bottom} L${points} L${width - padding.right},${height - padding.bottom} Z`;
     
+    const gradientId = `areaGradient-${color.replace(/[^a-zA-Z0-9]/g, '')}`;
+
+    const numGridLines = 4;
+    const gridLines = Array.from({ length: numGridLines }).map((_, i) => {
+        const y = height - padding.bottom - ((i + 1) / numGridLines) * chartHeight;
+        return <line key={i} x1={padding.left} y1={y} x2={width - padding.right} y2={y} stroke="#e5e7eb" strokeWidth="1" strokeDasharray="3 3" />;
+    });
+
     return (
         <div className="w-full h-full flex flex-col">
-            <div className="flex-grow flex items-center justify-center">
-                <svg viewBox={`0 0 ${width} ${height}`}>
+            <div className="flex-grow relative">
+                <svg viewBox={`0 0 ${width} ${height}`} className="absolute top-0 left-0 w-full h-full">
                     <defs>
-                        <linearGradient id="areaGradient" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stopColor="#C5A43C" stopOpacity={0.4}/>
-                            <stop offset="100%" stopColor="#C5A43C" stopOpacity={0}/>
+                        <linearGradient id={gradientId} x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="5%" stopColor={color} stopOpacity={0.4}/>
+                            <stop offset="95%" stopColor={color} stopOpacity={0.05}/>
                         </linearGradient>
                     </defs>
-                    <path d={areaPath} fill="url(#areaGradient)" className="animate-area-fill" />
+
+                    <g>{gridLines}</g>
+                    
+                    <path d={areaPath} fill={`url(#${gradientId})`} />
+                    
                     <polyline
                         fill="none"
-                        stroke="#C5A43C"
+                        stroke={color}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         points={points}
-                        className="animate-path-draw"
                     />
+
+                    {data.map((point, i) => {
+                        const { x, y } = getCoords(point.value, i);
+                        const unit = color === '#C5A43C' ? 'Ha' : '';
+                        return (
+                            <g key={i} className="group cursor-pointer">
+                                <circle cx={x} cy={y} r="10" fill="transparent" />
+                                <circle cx={x} cy={y} r="4" fill="white" stroke={color} strokeWidth="2" className="transition-transform duration-300 group-hover:scale-125" />
+                                <g className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{ transform: `translate(${x}px, ${y - 10}px)` }}>
+                                    <rect x="-25" y="-22" width="50" height="18" rx="4" fill="#1C1C1C" />
+                                    <text x="0" y="-10" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold">
+                                        {point.value} {unit}
+                                    </text>
+                                    <path d="M -4 0 L 4 0 L 0 4 z" fill="#1C1C1C" transform="translate(0, -4)" />
+                                </g>
+                            </g>
+                        );
+                    })}
                 </svg>
             </div>
             <div className="flex justify-around space-x-4 pt-2 border-t border-gray-200">
@@ -396,12 +351,56 @@ const AreaChart: React.FC<{ data: { label: string; value: number }[], t: (key: s
                     </div>
                 ))}
             </div>
-             <style>{`
-                @keyframes area-fill { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-                .animate-area-fill { animation: area-fill 1s ease-out forwards; }
-                @keyframes path-draw { from { stroke-dashoffset: 1000; } to { stroke-dashoffset: 0; } }
-                .animate-path-draw { stroke-dasharray: 1000; animation: path-draw 1.5s ease-out forwards; }
-            `}</style>
+        </div>
+    );
+};
+
+const DetailedProgressBar: React.FC<{
+    data: { label: string; value: number }[],
+    target: number,
+    unit: string,
+    t: (key: string) => string
+}> = ({ data, target, unit, t }) => {
+    const currentValue = data.length > 0 ? data[data.length - 1].value : 0;
+    const percentage = target > 0 ? (currentValue / target) * 100 : 0;
+    const remaining = target - currentValue;
+    const [progressWidth, setProgressWidth] = useState(0);
+
+    useEffect(() => {
+        const timer = setTimeout(() => setProgressWidth(percentage), 100);
+        return () => clearTimeout(timer);
+    }, [percentage]);
+
+    return (
+        <div className="w-full h-full flex flex-col justify-center px-4 sm:px-8 animate-fade-in-up">
+            <div className="flex justify-between items-end mb-2">
+                <span className="text-2xl font-bold text-brand-navy">{currentValue} / {target} {unit}</span>
+                <span className="text-xl font-bold text-brand-secondary">{Math.round(percentage)}%</span>
+            </div>
+            <div className="relative w-full bg-gray-200 rounded-full h-6">
+                <div
+                    className="bg-gradient-to-r from-yellow-400 to-brand-secondary h-6 rounded-full transition-all duration-1000 ease-out"
+                    style={{ width: `${progressWidth}%` }}
+                ></div>
+                {data.map((milestone, index) => {
+                    const milestonePercentage = (milestone.value / target) * 100;
+                    return (
+                        <div
+                            key={index}
+                            className="group absolute top-1/2 -translate-y-1/2 -translate-x-1/2"
+                            style={{ left: `${milestonePercentage}%` }}
+                        >
+                            <div className="h-4 w-4 bg-white border-2 border-brand-navy rounded-full z-10 transition-transform duration-300 group-hover:scale-125"></div>
+                            <div className="absolute bottom-full mb-2 w-max px-2 py-1 text-xs text-white bg-brand-dark rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none transform -translate-x-1/2 left-1/2 z-20">
+                                {t(milestone.label)}: {milestone.value} {unit}
+                            </div>
+                        </div>
+                    );
+                })}
+            </div>
+            <div className="text-right mt-3 text-sm text-brand-text-gray">
+                <span>Remaining: {remaining} {unit} to target</span>
+            </div>
         </div>
     );
 };
@@ -445,6 +444,14 @@ const StatisticsSection: React.FC = () => {
         { value: "+ 500 Ha", labelKey: 'stat5Label', icon: <IconStatLand /> },
     ];
     
+    const chartInsights = [
+        '', // No insight for "Serviced Plots"
+        'statInsight2', // Subsidiaries
+        'statInsight3', // Employees
+        'statInsight4', // Roads and Networks
+        'statInsight5', // Land Base
+    ];
+    
     const chartData = [
         [ { label: 'statBarChartLabelQ1', value: 450 }, { label: 'statBarChartLabelQ2', value: 650 }, { label: 'statBarChartLabelQ3', value: 800 }, { label: 'statBarChartLabelQ4', value: 950 } ],
         [],
@@ -453,11 +460,18 @@ const StatisticsSection: React.FC = () => {
         [ { label: 'statBarChartLabelQ1', value: 80 }, { label: 'statBarChartLabelQ2', value: 150 }, { label: 'statBarChartLabelQ3', value: 120 }, { label: 'statBarChartLabelQ4', value: 150 } ],
     ];
 
+    const roadsChartData = [
+        { label: 'statBarChartLabelQ1', value: 50 },
+        { label: 'statBarChartLabelQ2', value: 90 },
+        { label: 'statBarChartLabelQ3', value: 150 },
+        { label: 'statBarChartLabelQ4', value: 200 },
+    ];
+
     const chartComponents = [
         <BarChart data={chartData[0]} t={t} />,
-        <DonutChart t={t} />,
-        <LineChart data={chartData[2]} t={t} />,
-        <ProgressBarChart t={t} />,
+        <HorizontalBarChart t={t} />,
+        <AreaChart data={chartData[2]} t={t} color="#0052CC" />,
+        <DetailedProgressBar data={roadsChartData} target={250} unit="Km" t={t} />,
         <AreaChart data={chartData[4]} t={t} />,
     ];
 
@@ -471,7 +485,7 @@ const StatisticsSection: React.FC = () => {
                          <div 
                             key={index} 
                             onClick={() => setActiveIndex(index)}
-                            className={`p-4 rounded-lg border flex items-center gap-x-4 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer ${
+                            className={`h-28 p-4 rounded-lg border flex items-center gap-x-4 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer ${
                                 index === activeIndex 
                                     ? 'bg-brand-navy border-brand-secondary shadow-lg' 
                                     : 'bg-white border-gray-200/80 shadow-soft'
@@ -493,9 +507,16 @@ const StatisticsSection: React.FC = () => {
                 <div className="lg:col-span-3 bg-white p-6 rounded-xl shadow-lg h-full flex flex-col min-h-[450px]">
                     <h3 className="text-xl font-semibold text-brand-navy mb-1">{t(`statChartTitle${activeIndex + 1}`)}</h3>
                     <p className="text-sm text-brand-text-gray mb-6">{t(`statChartSubtitle${activeIndex + 1}`)}</p>
-                    <div className="flex-grow">
+                    <div className="flex-grow h-80">
                       {chartComponents[activeIndex]}
                     </div>
+                    {chartInsights[activeIndex] && (
+                        <div className="mt-6 pt-4 border-t border-gray-200">
+                            <p className="text-xs text-center text-brand-text-gray italic leading-relaxed">
+                                {t(chartInsights[activeIndex])}
+                            </p>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
