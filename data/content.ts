@@ -86,8 +86,8 @@ export const content: LocalizedContent = {
   statProgressChartTarget: { [Language.FR]: "% de l'objectif atteint", [Language.EN]: "% of target achieved" },
 
   statInsight2: { 
-    [Language.FR]: 'Nos filiales, Keur Invest (60 %) et SOCABEG Mining (40 %), jouent des rôles de partenariat stratégique, stimulant une croissance diversifiée dans des secteurs clés.', 
-    [Language.EN]: 'Our subsidiaries, Keur Invest (60%) and SOCABEG Mining (40%), play strategic partnership roles, driving diversified growth across key sectors.' 
+    [Language.FR]: "Keur Invest dirige les investissements stratégiques du groupe, tandis que SOCABEG Mining renforce les opérations industrielles.", 
+    [Language.EN]: "Keur Invest leads the group’s strategic investments, while SOCABEG Mining strengthens industrial operations."
   },
   statInsight3: { 
     [Language.FR]: 'Ce graphique illustre les tendances de notre main-d\'œuvre, avec une croissance maximale mise en évidence au T3, reflétant une montée en puissance significative des projets.', 

@@ -234,39 +234,40 @@ const BarChart: React.FC<{
     );
 };
 
-
 const HorizontalBarChart: React.FC<{ t: (key: string) => string }> = ({ t }) => {
     const data = [
-        { nameKey: 'statDonutChartKeurInvest', value: 60, color: 'bg-brand-gold-accent' }, 
-        { nameKey: 'statDonutChartSocabegMining', value: 40, color: 'bg-brand-navy' }
+        { nameKey: 'statDonutChartKeurInvest', value: 60, color: '#D4AF37' }, // Gold
+        { nameKey: 'statDonutChartSocabegMining', value: 40, color: '#0B1C3F' } // Navy
     ];
     const [widths, setWidths] = useState([0, 0]);
 
     useEffect(() => {
-        const timer = setTimeout(() => {
-            setWidths([60, 40]);
-        }, 100);
+        // Animate bars on component mount
+        const timer = setTimeout(() => setWidths(data.map(d => d.value)), 100);
         return () => clearTimeout(timer);
     }, []);
 
     return (
-        <div className="w-full h-full flex flex-col justify-center px-4 sm:px-8">
-            <div className="space-y-6">
-                {data.map((item, index) => (
-                    <div key={index} className="animate-fade-in-up" style={{animationDelay: `${index * 150}ms`}}>
-                        <div className="flex justify-between items-center mb-1">
-                            <span className="text-sm font-semibold text-brand-text-gray">{t(item.nameKey)}</span>
-                            <span className="text-sm font-bold text-brand-navy">{item.value}%</span>
-                        </div>
-                        <div className="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
-                            <div
-                                className={`${item.color} h-4 rounded-full transition-all duration-1000 ease-out`}
-                                style={{ width: `${widths[index]}%` }}
-                            ></div>
-                        </div>
+        <div className="w-full h-full flex flex-col justify-center px-4 sm:px-8 space-y-8 animate-fade-in-up">
+            {data.map((item, index) => (
+                <div key={index} className="w-full">
+                    <div className="flex justify-between items-center mb-2 text-sm">
+                        <span className="font-semibold text-brand-text-gray">{t(item.nameKey)}</span>
+                        <span className="font-bold" style={{ color: item.color }}>{item.value}%</span>
                     </div>
-                ))}
-            </div>
+                    <div className="w-full bg-gray-200 rounded-full h-3.5">
+                        <div 
+                            className="h-3.5 rounded-full" 
+                            style={{ 
+                                width: `${widths[index]}%`, 
+                                backgroundColor: item.color,
+                                transition: 'width 1.2s cubic-bezier(0.25, 1, 0.5, 1)',
+                                transitionDelay: `${index * 150}ms`,
+                            }}
+                        ></div>
+                    </div>
+                </div>
+            ))}
         </div>
     );
 };
