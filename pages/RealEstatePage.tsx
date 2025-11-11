@@ -106,11 +106,11 @@ const SustainabilitySection: React.FC = () => {
                 <div className="md:col-span-3">
                     <div className="space-y-6">
                         {points.map(p => (
-                            <div key={p.titleKey} className="flex items-start">
-                                <div className="flex-shrink-0">
-                                    <img src={p.iconUrl} alt={t(p.titleKey)} className="h-10 w-10" loading="lazy" width="40" height="40" />
+                            <div key={p.titleKey} className="flex items-start group">
+                                <div className="flex-shrink-0 h-16 w-16 rounded-full bg-blue-50 flex items-center justify-center transition-all duration-300 group-hover:bg-brand-secondary group-hover:scale-110">
+                                    <img src={p.iconUrl} alt={t(p.titleKey)} className="h-8 w-8" loading="lazy" width="32" height="32" />
                                 </div>
-                                <div className="ml-4">
+                                <div className="ml-5">
                                     <h3 className="text-xl font-bold text-brand-primary">{t(p.titleKey)}</h3>
                                     <p className="text-brand-text mt-1">{t(p.descKey)}</p>
                                 </div>
@@ -140,7 +140,7 @@ const AmenitiesSection: React.FC = () => {
                         className="bg-white p-8 rounded-xl shadow-soft text-center transition-all duration-300 group hover:shadow-xl hover:-translate-y-2 animate-fade-in-up"
                         style={{ animationDelay: `${150 * (index + 1)}ms` }}
                     >
-                        <div className="mx-auto mb-6 w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center transition-all duration-300 group-hover:bg-brand-primary/10 group-hover:scale-110">
+                        <div className="mx-auto mb-6 w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center transition-all duration-300 group-hover:bg-brand-secondary group-hover:scale-110">
                             <img src={amenity.iconUrl} alt={t(amenity.titleKey)} className="h-8 w-8" />
                         </div>
                         <h3 className="text-xl font-bold text-brand-navy mb-3">{t(amenity.titleKey)}</h3>

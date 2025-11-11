@@ -97,7 +97,7 @@ const SafetyEnvironmentSection: React.FC = () => {
                     <div className="space-y-8">
                         {commitments.map(item => (
                             <div key={item.titleKey} className="flex items-start group">
-                                <div className="flex-shrink-0 h-16 w-16 rounded-full bg-brand-navy/5 text-brand-navy flex items-center justify-center transition-all duration-300 group-hover:bg-brand-navy group-hover:text-white group-hover:scale-110">{item.icon}</div>
+                                <div className="flex-shrink-0 h-16 w-16 rounded-full bg-brand-navy/5 text-brand-navy flex items-center justify-center transition-all duration-300 group-hover:bg-brand-secondary group-hover:text-white group-hover:scale-110">{item.icon}</div>
                                 <div className="ml-5">
                                     <h3 className="text-xl font-bold text-brand-navy">{t(item.titleKey)}</h3>
                                     <p className="text-brand-text-gray mt-1 leading-relaxed">{t(item.descKey)}</p>
