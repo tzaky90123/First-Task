@@ -43,7 +43,7 @@ export const content: LocalizedContent = {
   homeServicesMinesTitle: { [Language.FR]: 'Opérations Minières', [Language.EN]: 'Mining Operations' },
   homeServicesMinesText: { [Language.FR]: 'Exploitation responsable des ressources naturelles pour soutenir la croissance économique du Sénégal.', [Language.EN]: 'Responsible exploitation of natural resources to support the economic growth of the Senegalese economy.' },
   
-  homeExpertiseSubtitle: { [Language.FR]: "Au cœur de la transformation du Sénégal, SOCABEG déploie son savoir-faire dans trois domaines stratégiques.", [Language.EN]: "At the heart of Senegal's transformation, SOCABEG deploys its expertise across three strategic areas." },
+  homeExpertiseSubtitle: { [Language.FR]: "AU CŒUR DE LA TRANSFORMATION DU SÉNÉGAL, SOCABEG DÉPLOIE SON SAVOIR-FAIRE DANS TROIS DOMAINES STRATÉGIQUES.", [Language.EN]: "AT THE HEART OF SENEGAL'S TRANSFORMATION, SOCABEG DEPLOYS ITS EXPERTISE ACROSS THREE STRATEGIC AREAS." },
 
   homeAboutSectionTitle: { [Language.FR]: 'WHAT WE DO', [Language.EN]: 'WHAT WE DO' },
   homeAboutSectionHeadline: { [Language.FR]: 'PLEASE KNOW ABOUT 35 AND VOTER', [Language.EN]: 'PLEASE KNOW ABOUT 35 AND VOTER' },

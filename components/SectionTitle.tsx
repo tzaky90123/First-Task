@@ -35,7 +35,7 @@ const SectionTitle: React.FC<SectionTitleProps> = ({ subtitleKey, titleKey, desc
             )}
             
             {titleKey && (
-                <h2 className={`text-2xl lg:text-3xl font-sans ${titleColor} ${titleClassName || 'font-black'}`}>
+                <h2 className={`text-2xl lg:text-3xl font-sans uppercase ${titleColor} ${titleClassName || 'font-black'}`}>
                     {t(titleKey)}
                 </h2>
             )}
