@@ -17,6 +17,7 @@ const allNavLinks: NavLinkType[] = [
 const Header: React.FC = () => {
   const { t } = useLocalization();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     // Prevent scrolling when the menu is open
@@ -26,10 +27,20 @@ const Header: React.FC = () => {
     };
   }, [isMenuOpen]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white text-brand-dark shadow-lg ${isMenuOpen ? '-translate-y-full' : ''}`}
+        className={`fixed top-0 left-0 right-0 z-[58] transition-all duration-300 bg-white text-brand-dark ${isScrolled || isMenuOpen ? 'shadow-lg' : ''}`}
       >
         <div className="container mx-auto px-6 h-16 flex justify-between items-center w-full">
           {/* Left Side - Menu Toggle */}
@@ -78,14 +89,14 @@ const Header: React.FC = () => {
 
       {/* Sidebar Menu Panel */}
       <div
-        className={`fixed top-0 left-0 w-4/5 max-w-[350px] sm:w-96 h-screen bg-brand-dark text-white transform transition-transform duration-300 ease-in-out z-[60] ${
+        className={`fixed top-0 left-0 w-4/5 max-w-[350px] sm:w-96 h-screen bg-white text-brand-dark shadow-2xl transform transition-transform duration-300 ease-in-out z-[60] ${
           isMenuOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
         <div className="h-full flex flex-col p-6 pt-20">
             <button
                 onClick={() => setIsMenuOpen(false)}
-                className="absolute top-7 right-6 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-gray-500 rounded-full p-1"
+                className="absolute top-7 right-6 text-gray-500 hover:text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand-primary rounded-full p-1"
                 aria-label={t('headerCloseMenuAria')}
             >
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -101,7 +112,7 @@ const Header: React.FC = () => {
                             onClick={() => setIsMenuOpen(false)}
                             className={({ isActive }) =>
                                 `block w-full px-4 py-3 rounded-md text-lg font-light transition-colors duration-200 text-left ${
-                                isActive ? 'bg-brand-primary text-white' : 'text-gray-300 hover:bg-white/10 hover:text-white'
+                                isActive ? 'bg-brand-primary text-white' : 'text-brand-dark hover:bg-gray-100'
                                 }`
                             }
                         >
@@ -111,8 +122,8 @@ const Header: React.FC = () => {
                     ))}
                 </ul>
             </nav>
-            <div className="pt-6 border-t border-gray-700">
-                <LanguageSwitcher />
+            <div className="pt-6 border-t border-gray-200">
+                <LanguageSwitcher variant="light" />
             </div>
         </div>
       </div>
