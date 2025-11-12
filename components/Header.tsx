@@ -16,16 +16,7 @@ const allNavLinks: NavLinkType[] = [
 
 const Header: React.FC = () => {
   const { t } = useLocalization();
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   useEffect(() => {
     // Prevent scrolling when the menu is open
@@ -38,16 +29,14 @@ const Header: React.FC = () => {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-brand-dark/95 text-white shadow-lg backdrop-blur-sm' : 'bg-gradient-to-b from-black/40 to-transparent text-white'
-        } ${isMenuOpen ? '-translate-y-full' : ''}`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white text-brand-dark shadow-lg ${isMenuOpen ? '-translate-y-full' : ''}`}
       >
         <div className="container mx-auto px-6 h-16 flex justify-between items-center w-full">
           {/* Left Side - Menu Toggle */}
           <div className="w-1/3 flex justify-start">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="flex items-center space-x-3 text-white focus:outline-none focus:ring-2 focus:ring-brand-secondary/70 rounded-md p-1"
+              className="flex items-center space-x-3 text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand-secondary/70 rounded-md p-1"
               aria-label={t('headerToggleMenuAria')}
               aria-expanded={isMenuOpen}
             >
@@ -72,7 +61,7 @@ const Header: React.FC = () => {
           {/* Right Side - Language */}
           <div className="w-1/3 flex justify-end">
             <div className="hidden md:block">
-              <LanguageSwitcher />
+              <LanguageSwitcher variant="light" />
             </div>
           </div>
         </div>
@@ -131,22 +120,37 @@ const Header: React.FC = () => {
   );
 };
 
-const LanguageSwitcher: React.FC = () => {
+const LanguageSwitcher: React.FC<{ variant?: 'light' | 'dark' }> = ({ variant = 'dark' }) => {
     const { language, setLanguage, t } = useLocalization();
+
+    const colors = {
+        light: {
+            active: 'text-brand-primary font-semibold',
+            inactive: 'text-gray-500 hover:text-brand-primary',
+            separator: 'text-gray-400'
+        },
+        dark: {
+            active: 'text-white font-semibold',
+            inactive: 'text-gray-400 hover:text-white',
+            separator: 'text-gray-400'
+        }
+    };
+
+    const colorScheme = colors[variant];
 
     return (
         <div className="flex items-center justify-center text-sm space-x-2">
             <button
                 onClick={() => setLanguage(Language.FR)}
-                className={`px-1 py-1 transition-colors duration-300 uppercase ${language === Language.FR ? 'text-white font-semibold' : 'text-gray-400 hover:text-white'}`}
+                className={`px-1 py-1 transition-colors duration-300 uppercase ${language === Language.FR ? colorScheme.active : colorScheme.inactive}`}
                 aria-label={t('langSwitchFR')}
             >
                 Français
             </button>
-            <span className="text-gray-400">|</span>
+            <span className={colorScheme.separator}>|</span>
              <button
                 onClick={() => setLanguage(Language.EN)}
-                className={`px-1 py-1 transition-colors duration-300 uppercase ${language === Language.EN ? 'text-white font-semibold' : 'text-gray-400 hover:text-white'}`}
+                className={`px-1 py-1 transition-colors duration-300 uppercase ${language === Language.EN ? colorScheme.active : colorScheme.inactive}`}
                 aria-label={t('langSwitchEN')}
             >
                 English

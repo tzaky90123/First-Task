@@ -1,16 +1,19 @@
-import React, { useState, useEffect } from 'react';
+
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import { LocalizationProvider, useLocalization } from './context/LocalizationContext';
 import Header from './components/Header';
-import Footer from './components/Footer';
-import HomePage from './pages/HomePage';
-import AboutPage from './pages/AboutPage';
-import BtpPage from './pages/BtpPage';
-import RealEstatePage from './pages/RealEstatePage';
-import MinesPage from './pages/MinesPage';
-import CareersPage from './pages/CareersPage';
-import ContactPage from './pages/ContactPage';
-import DashboardPage from './pages/DashboardPage';
+
+// Lazy load pages
+const HomePage = lazy(() => import('./pages/HomePage'));
+const AboutPage = lazy(() => import('./pages/AboutPage'));
+const BtpPage = lazy(() => import('./pages/BtpPage'));
+const RealEstatePage = lazy(() => import('./pages/RealEstatePage'));
+const MinesPage = lazy(() => import('./pages/MinesPage'));
+const CareersPage = lazy(() => import('./pages/CareersPage'));
+const ContactPage = lazy(() => import('./pages/ContactPage'));
+const DashboardPage = lazy(() => import('./pages/DashboardPage'));
+
 
 interface LoadingScreenProps {
   isLoading: boolean;
@@ -45,6 +48,12 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ isLoading }) => {
   );
 };
 
+const PageLoader: React.FC = () => (
+    <div className="w-full h-screen flex justify-center items-center bg-white">
+        <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-brand-primary"></div>
+    </div>
+);
+
 const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -74,16 +83,18 @@ const App: React.FC = () => {
           <LoadingScreen isLoading={isLoading} />
           <Header />
           <main>
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/a-propos" element={<AboutPage />} />
-              <Route path="/btp" element={<BtpPage />} />
-              <Route path="/promotion-immobiliere" element={<RealEstatePage />} />
-              <Route path="/mines" element={<MinesPage />} />
-              <Route path="/carrieres" element={<CareersPage />} />
-              <Route path="/contact" element={<ContactPage />} />
-              <Route path="/dashboard" element={<DashboardPage />} />
-            </Routes>
+            <Suspense fallback={<PageLoader />}>
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/a-propos" element={<AboutPage />} />
+                <Route path="/btp" element={<BtpPage />} />
+                <Route path="/promotion-immobiliere" element={<RealEstatePage />} />
+                <Route path="/mines" element={<MinesPage />} />
+                <Route path="/carrieres" element={<CareersPage />} />
+                <Route path="/contact" element={<ContactPage />} />
+                <Route path="/dashboard" element={<DashboardPage />} />
+              </Routes>
+            </Suspense>
           </main>
         </div>
       </HashRouter>

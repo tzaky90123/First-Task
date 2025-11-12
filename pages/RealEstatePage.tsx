@@ -141,7 +141,7 @@ const AmenitiesSection: React.FC = () => {
                         style={{ animationDelay: `${150 * (index + 1)}ms` }}
                     >
                         <div className="mx-auto mb-6 w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center transition-all duration-300 group-hover:bg-brand-secondary group-hover:scale-110">
-                            <img src={amenity.iconUrl} alt={t(amenity.titleKey)} className="h-8 w-8" />
+                            <img src={amenity.iconUrl} alt={t(amenity.titleKey)} className="h-8 w-8" loading="lazy" />
                         </div>
                         <h3 className="text-xl font-bold text-brand-navy mb-3">{t(amenity.titleKey)}</h3>
                         <p className="text-sm text-brand-text-gray leading-relaxed">{t(amenity.descKey)}</p>

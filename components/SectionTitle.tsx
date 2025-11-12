@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useLocalization } from '../context/LocalizationContext';
 import SectionLogoIcon from './SectionLogoIcon';
@@ -49,4 +50,4 @@ const SectionTitle: React.FC<SectionTitleProps> = ({ subtitleKey, titleKey, desc
     );
 };
 
-export default SectionTitle;
+export default React.memo(SectionTitle);
