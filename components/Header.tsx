@@ -11,7 +11,6 @@ const allNavLinks: NavLinkType[] = [
     { label: 'navMines', path: '/mines' },
     { label: 'navCareers', path: '/carrieres' },
     { label: 'navContact', path: '/contact' },
-    { label: 'navDashboard', path: '/dashboard' },
 ];
 
 const Header: React.FC = () => {
@@ -62,7 +61,7 @@ const Header: React.FC = () => {
           <div className="w-1/3 flex justify-center">
             <RouterNavLink
               to="/"
-              className="p-1 focus:outline-none focus:ring-2 focus:ring-brand-secondary/70 rounded-md"
+              className="p-1 focus:outline-none rounded-md"
               onClick={() => setIsMenuOpen(false)}
             >
               <img src="https://socabeg.com/logo.png" alt={t('socabegLogoAlt')} className="h-8 md:h-10 w-auto logo-shadow" width="160" height="40" />

@@ -12,7 +12,6 @@ const RealEstatePage = lazy(() => import('./pages/RealEstatePage'));
 const MinesPage = lazy(() => import('./pages/MinesPage'));
 const CareersPage = lazy(() => import('./pages/CareersPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
-const DashboardPage = lazy(() => import('./pages/DashboardPage'));
 
 
 interface LoadingScreenProps {
@@ -92,7 +91,6 @@ const App: React.FC = () => {
                 <Route path="/mines" element={<MinesPage />} />
                 <Route path="/carrieres" element={<CareersPage />} />
                 <Route path="/contact" element={<ContactPage />} />
-                <Route path="/dashboard" element={<DashboardPage />} />
               </Routes>
             </Suspense>
           </main>

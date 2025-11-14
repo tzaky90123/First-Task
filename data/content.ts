@@ -9,7 +9,6 @@ export const content: LocalizedContent = {
   navMines: { [Language.FR]: 'Mines', [Language.EN]: 'Mining' },
   navCareers: { [Language.FR]: 'Carrières', [Language.EN]: 'Careers' },
   navContact: { [Language.FR]: 'Contact', [Language.EN]: 'Contact' },
-  navDashboard: { [Language.FR]: 'Tableau de Bord', [Language.EN]: 'Dashboard' },
 
   // Header & Logos
   headerMenuLabel: { [Language.FR]: 'Menu', [Language.EN]: 'Menu' },
@@ -453,15 +452,4 @@ export const content: LocalizedContent = {
   ariaTwitter: { [Language.FR]: 'Lien vers notre page Twitter', [Language.EN]: 'Link to our Twitter page' },
   ariaFacebook: { [Language.FR]: 'Lien vers notre page Facebook', [Language.EN]: 'Link to our Facebook page' },
   footerRights: { [Language.FR]: 'Tous droits réservés.', [Language.EN]: 'All rights reserved.' },
-
-  // Dashboard
-  dashboardTitle: { [Language.FR]: 'Tableau de Bord', [Language.EN]: 'Dashboard' },
-  dashboardSubtitle: { [Language.FR]: 'Aperçu des performances clés de l\'entreprise.', [Language.EN]: 'Overview of the company\'s key performances.' },
-  statCardParcels: { [Language.FR]: 'Parcelles Viabilisées', [Language.EN]: 'Serviced Plots' },
-  statCardEmployees: { [Language.FR]: 'Collaborateurs', [Language.EN]: 'Employees' },
-  statCardRoads: { [Language.FR]: 'Voiries Réalisées', [Language.EN]: 'Completed Roads' },
-  statCardSubsidiaries: { [Language.FR]: 'Filiales Stratégiques', [Language.EN]: 'Strategic Subsidiaries' },
-  dashboardChartRevenueTitle: { [Language.FR]: 'Chiffre d\'Affaires Trimestriel', [Language.EN]: 'Quarterly Revenue' },
-  dashboardChartRevenueSubtitle: { [Language.FR]: '(en millions de FCFA)', [Language.EN]: '(in millions of FCFA)' },
-  dashboardChartTooltipUnit: { [Language.FR]: '{value} M FCFA', [Language.EN]: '{value}M FCFA' },
 };
