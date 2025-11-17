@@ -101,8 +101,8 @@ export const content: LocalizedContent = {
     [Language.EN]: 'This provides context on quarterly land acquisition trends, with a strong rebound in Q4 indicating renewed market confidence and project pipeline expansion.' 
   },
 
-  whyChooseUsSectionTitle: { [Language.FR]: 'WHY CHOOSE US', [Language.EN]: 'WHY CHOOSE US' },
-  whyChooseUsSectionHeadline: { [Language.FR]: 'OUR ADDED VALUE', [Language.EN]: 'OUR ADDED VALUE' },
+  whyChooseUsSectionTitle: { [Language.FR]: 'POURQUOI NOUS CHOISIR', [Language.EN]: 'WHY CHOOSE US' },
+  whyChooseUsSectionHeadline: { [Language.FR]: 'NOTRE VALEUR AJOUTÉE', [Language.EN]: 'OUR ADDED VALUE' },
   value1Title: { [Language.FR]: 'Expérience reconnue', [Language.EN]: 'Recognized Experience' },
   value1Desc: { [Language.FR]: 'Plus de 35 ans d’activité dans le BTP et l’immobilier au Sénégal, avec des milliers de logements livrés.', [Language.EN]: 'Over 35 years of activity in construction and real estate in Senegal, with thousands of homes delivered.' },
   value2Title: { [Language.FR]: 'Maîtrise des projets', [Language.EN]: 'Project Mastery' },
@@ -161,8 +161,8 @@ export const content: LocalizedContent = {
   prevTestimonialAria: { [Language.FR]: 'Témoignage précédent', [Language.EN]: 'Previous testimonial' },
   nextTestimonialAria: { [Language.FR]: 'Témoignage suivant', [Language.EN]: 'Next testimonial' },
   
-  partnersSectionTitle: { [Language.FR]: 'OUR PARTNERS', [Language.EN]: 'OUR PARTNERS' },
-  partnersSectionHeadline: { [Language.FR]: 'TOGETHER, WE CREATE OPPORTUNITIES', [Language.EN]: 'TOGETHER, WE CREATE OPPORTUNITIES' },
+  partnersSectionTitle: { [Language.FR]: 'NOS PARTENAIRES', [Language.EN]: 'OUR PARTNERS' },
+  partnersSectionHeadline: { [Language.FR]: 'ENSEMBLE, NOUS CRÉONS DES OPPORTUNITÉS', [Language.EN]: 'TOGETHER, WE CREATE OPPORTUNITIES' },
   partnerLogoAlt: { [Language.FR]: 'Logo du partenaire {number}', [Language.EN]: 'Partner logo {number}' },
 
   homeProjectsTitle: { [Language.FR]: 'Nos Projets', [Language.EN]: 'Our Projects' },
