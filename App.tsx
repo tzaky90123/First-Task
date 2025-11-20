@@ -1,10 +1,7 @@
-
 import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import { LocalizationProvider, useLocalization } from './context/LocalizationContext';
 import Header from './components/Header';
-import SmoothScrollLayout from './components/SmoothScrollLayout';
-import ScrollReveal from './components/ScrollReveal';
 
 // Lazy load pages
 const HomePage = lazy(() => import('./pages/HomePage'));
@@ -80,8 +77,6 @@ const App: React.FC = () => {
   return (
     <LocalizationProvider>
       <HashRouter>
-        <SmoothScrollLayout />
-        <ScrollReveal />
         <div className="bg-white text-brand-text font-sans antialiased min-h-screen">
           <LoadingScreen isLoading={isLoading} />
           <Header />

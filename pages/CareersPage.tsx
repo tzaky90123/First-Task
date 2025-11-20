@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useLocalization } from '../context/LocalizationContext';
 import { Link } from 'react-router-dom';
@@ -28,10 +27,10 @@ const WhyJoinUsSection: React.FC = () => {
         <div className="container mx-auto px-6">
             <SectionTitle subtitleKey="careersWhyUsTitle" titleKey="careersWhyUsHeadline" descriptionKey="careersWhyUsIntro" />
             <div className="grid md:grid-cols-2 gap-12 lg:gap-24 items-center">
-                <div className="scroll-fade">
+                <div>
                     <img src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt={t('careersWhyJoinImageAlt')} className="rounded-xl shadow-2xl w-full h-auto object-cover" loading="lazy" width="576" height="384"/>
                 </div>
-                <div className="space-y-8 scroll-fade">
+                <div className="space-y-8">
                     {values.map((item, index) => (
                         <div key={item.titleKey} className="flex items-start group">
                             <div className="flex-shrink-0 h-14 w-14 p-3 rounded-full bg-brand-navy/5 text-brand-navy flex items-center justify-center transition-all duration-300 group-hover:bg-brand-yellow group-hover:scale-110">{item.icon}</div>
@@ -59,7 +58,7 @@ const BenefitsSection: React.FC = () => {
     return (
         <div className="container mx-auto px-6">
             <SectionTitle subtitleKey="careersBenefitsTitle" titleKey="careersBenefitsHeadline" descriptionKey="careersBenefitsNewIntro" />
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 scroll-fade">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 {benefits.map((benefit, index) => (
                     <div key={benefit.titleKey} className="bg-white p-8 rounded-xl shadow-soft text-center transition-all duration-300 group hover:shadow-2xl hover:-translate-y-2 flex flex-col">
                         <div className="text-brand-navy mx-auto mb-6 w-16 h-16 p-3 flex items-center justify-center rounded-full bg-brand-navy/5 transition-all duration-300 group-hover:bg-brand-yellow group-hover:scale-110">{benefit.icon}</div>
@@ -82,7 +81,7 @@ const TestimonialsSection: React.FC = () => {
     return (
         <div className="container mx-auto px-6">
             <SectionTitle subtitleKey="careersTestimonialsTitle" titleKey="careersTestimonialsHeadline" />
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto scroll-fade">
+            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                 {testimonials.map((item, index) => (
                      <div key={item.nameKey} className="bg-white rounded-xl shadow-lg overflow-hidden">
                         <div className="p-8">
@@ -118,7 +117,7 @@ const CareerOpportunitiesSection: React.FC = () => {
             <SectionTitle subtitleKey="careersOpeningsSubheadline" titleKey="careersOpeningsTitle" descriptionKey="careersOpeningsText" />
 
             {roles.length > 0 ? (
-                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-left mb-12 scroll-fade">
+                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-left mb-12">
                     {roles.map((role, index) => (
                         <div key={index} className="bg-white p-6 rounded-lg shadow-soft border-l-4 border-brand-primary">
                             <h3 className="font-bold text-lg text-brand-navy mb-2">{t(role.titleKey)}</h3>
@@ -132,7 +131,7 @@ const CareerOpportunitiesSection: React.FC = () => {
                 </div>
             )}
             
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 scroll-fade">
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
                 <Link to="#" className="bg-brand-primary text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg w-full sm:w-auto">
                     {t('careersOpeningsBtnView')}
                 </Link>

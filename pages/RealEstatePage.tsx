@@ -1,4 +1,3 @@
-
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocalization } from '../context/LocalizationContext';
@@ -27,7 +26,7 @@ const IntroductionSection: React.FC = () => {
     return (
         <div className="container mx-auto px-6 py-16 md:py-0">
             <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-                <div className="scroll-fade">
+                <div>
                     <h2 className="text-3xl font-bold font-sans text-brand-navy mb-6">{t('reIntroTitle')}</h2>
                     <p className="text-lg text-brand-text-gray leading-relaxed mb-8">{t('reIntroText')}</p>
                     
@@ -51,7 +50,7 @@ const IntroductionSection: React.FC = () => {
                         <span className="bg-white border border-gray-200 text-brand-text-gray font-semibold px-4 py-2 rounded-full text-sm transition-all duration-300 hover:shadow-md hover:border-brand-primary/50">{t('reIntroTypeMixedUse')}</span>
                     </div>
                 </div>
-                <div className="scroll-fade">
+                <div>
                     <img src="https://images.pexels.com/photos/259962/pexels-photo-259962.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt={t('reIntroImageAlt')} className="rounded-xl shadow-2xl w-full h-auto object-cover" loading="lazy" width="576" height="384"/>
                 </div>
             </div>
@@ -69,7 +68,7 @@ const PortfolioSection: React.FC = () => {
     return (
         <div className="container mx-auto px-6">
             <SectionTitle titleKey="rePortfolioTitle" descriptionKey="rePortfolioSubtitle" />
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 scroll-fade">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {projects.map((p, index) => (
                     <div key={p.titleKey} className="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 flex flex-col">
                         <img src={p.image} alt={t(p.titleKey)} className="w-full h-56 object-cover" loading="lazy" width="400" height="224" />
@@ -99,10 +98,10 @@ const SustainabilitySection: React.FC = () => {
         <div className="container mx-auto px-6">
             <SectionTitle titleKey="reSustainabilityTitle" descriptionKey="reSustainabilityText" />
             <div className="grid md:grid-cols-5 gap-12 items-center">
-                <div className="md:col-span-2 scroll-fade">
+                <div className="md:col-span-2">
                      <img src="https://images.pexels.com/photos/439391/pexels-photo-439391.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt={t('reSustainabilityImageAlt')} className="rounded-lg shadow-xl w-full" loading="lazy" width="576" height="384" />
                 </div>
-                <div className="md:col-span-3 scroll-fade">
+                <div className="md:col-span-3">
                     <div className="space-y-6">
                         {points.map(p => (
                             <div key={p.titleKey} className="flex items-start group">
@@ -132,7 +131,7 @@ const AmenitiesSection: React.FC = () => {
     return (
         <div className="container mx-auto px-6">
             <SectionTitle titleKey="reAmenitiesTitle" descriptionKey="reAmenitiesText" />
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 scroll-fade">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {amenities.map((amenity, index) => (
                     <div
                         key={amenity.titleKey}
@@ -190,7 +189,7 @@ const TestimonialsSection: React.FC = () => {
     return (
         <div className="container mx-auto px-5 lg:px-20">
             <SectionTitle titleKey="reTestimonialsTitle" />
-            <div className="relative scroll-fade">
+            <div className="relative">
                 <div className="overflow-hidden">
                     <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
                         {testimonialPairs.map((pair, slideIndex) => (
@@ -226,7 +225,7 @@ const MarketInsightSection: React.FC = () => {
     return (
         <div className="container mx-auto px-6">
             <SectionTitle titleKey="reMarketTitle" descriptionKey="reMarketText" />
-            <div className="mt-8 scroll-fade">
+            <div className="mt-8">
                 <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt={t('reMarketImageAlt')} className="rounded-lg shadow-xl w-full h-auto object-cover max-w-4xl mx-auto" loading="lazy" width="576" height="384"/>
             </div>
         </div>
@@ -236,7 +235,7 @@ const MarketInsightSection: React.FC = () => {
 const CtaSection: React.FC = () => {
     const { t } = useLocalization();
     return (
-        <div className="container mx-auto px-6 text-center scroll-fade">
+        <div className="container mx-auto px-6 text-center">
             <SectionTitle titleKey="reCtaTitle" descriptionKey="reCtaText" />
             <Link to="/contact" className="bg-brand-secondary text-brand-dark text-lg font-bold py-4 px-10 rounded-full hover:bg-opacity-90 transition-colors duration-300 inline-block transform hover:scale-105">
                 {t('reCtaButton')}

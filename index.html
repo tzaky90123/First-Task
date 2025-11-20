@@ -13,7 +13,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
     <script>
       tailwind.config = {
         theme: {
@@ -50,34 +49,8 @@
       }
     </script>
   <style>
-    html.lenis, html.lenis body {
-      height: auto;
-    }
-    .lenis.lenis-smooth {
-      scroll-behavior: auto !important;
-    }
-    .lenis.lenis-smooth [data-lenis-prevent] {
-      overscroll-behavior: contain;
-    }
-    .lenis.lenis-stopped {
-      overflow: hidden;
-    }
-    .lenis.lenis-scrolling iframe {
-      pointer-events: none;
-    }
     body {
       font-family: 'Satoshi', sans-serif;
-    }
-    
-    /* Simple Scroll Fade Animation */
-    .scroll-fade {
-        opacity: 0;
-        transform: translateY(15px);
-        transition: opacity 0.4s ease-out, transform 0.4s ease-out;
-    }
-    .scroll-fade.visible {
-        opacity: 1;
-        transform: translateY(0);
     }
 
     @keyframes fadeInUp {

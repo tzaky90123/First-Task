@@ -35,7 +35,7 @@ const ExpertiseSection: React.FC = () => {
     return (
         <div className="container mx-auto px-5 lg:px-20">
           <SectionTitle subtitleKey="homeServicesTitle" titleKey="homeExpertiseSubtitle" />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 scroll-fade">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <div key={index} className="bg-brand-light p-6 rounded-lg shadow-sm text-center transition-all duration-300 hover:shadow-lg flex flex-col justify-center">
                 <img src={service.icon} alt={t(service.titleKey)} className="h-12 w-12 mx-auto mb-6 opacity-75" width="48" height="48" loading="lazy" />
@@ -68,7 +68,7 @@ const PartnersSection: React.FC = () => {
     return (
         <div className="container mx-auto px-5 lg:px-20">
             <SectionTitle subtitleKey="partnersSectionTitle" titleKey="partnersSectionHeadline" />
-             <div className="flex flex-col items-center gap-y-8 md:gap-y-12 scroll-fade">
+             <div className="flex flex-col items-center gap-y-8 md:gap-y-12">
                 <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 lg:gap-x-24">
                     {row1Logos.map((logo, index) => (
                         <div key={index} className="flex items-center justify-center">
@@ -136,7 +136,7 @@ const MasterpiecesSection: React.FC = () => {
         <div className="container mx-auto px-5 lg:px-20">
             <SectionTitle subtitleKey="homeMasterpiecesTitle" titleKey="homeMasterpiecesSubtitle" />
 
-            <div className="hidden md:grid grid-cols-1 lg:grid-cols-3 gap-8 scroll-fade">
+            <div className="hidden md:grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {masterpieces.map((masterpiece, index) => (
                     <div key={index} className="group relative overflow-hidden rounded-lg shadow-lg h-[450px]">
                         <img src={masterpiece.src} alt={t(masterpiece.titleKey)} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" width="400" height="450" />
@@ -149,7 +149,7 @@ const MasterpiecesSection: React.FC = () => {
                 ))}
             </div>
 
-            <div className="md:hidden relative w-full max-w-5xl mx-auto scroll-fade">
+            <div className="md:hidden relative w-full max-w-5xl mx-auto">
                 <div className="overflow-hidden relative rounded-lg shadow-xl">
                     <div className="flex transition-transform ease-out duration-500" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
                         {masterpieces.map((masterpiece, index) => (
@@ -503,7 +503,7 @@ const StatisticsSection: React.FC = () => {
                     ))}
                 </div>
 
-                <div className="lg:col-span-3 bg-white p-6 rounded-xl shadow-lg h-full flex flex-col min-h-[450px] scroll-fade">
+                <div className="lg:col-span-3 bg-white p-6 rounded-xl shadow-lg h-full flex flex-col min-h-[450px]">
                     <h3 className="text-xl font-semibold text-brand-navy mb-1">{t(`statChartTitle${activeIndex + 1}`)}</h3>
                     <p className="text-sm text-brand-text-gray mb-6">{t(`statChartSubtitle${activeIndex + 1}`)}</p>
                     <div className="flex-grow h-80">
@@ -560,7 +560,7 @@ const ProgramSection: React.FC = () => {
     return (
         <div className="container mx-auto px-5 lg:px-20">
             <SectionTitle subtitleKey="programsSectionTitle" titleKey="programsSectionHeadline" />
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 scroll-fade">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {programs.map((program, index) => (
                     <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                         <img src={program.image} alt={t(program.titleKey)} className="w-full h-56 object-cover" loading="lazy" width="400" height="224" />

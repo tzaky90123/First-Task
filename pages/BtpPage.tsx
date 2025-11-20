@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useLocalization } from '../context/LocalizationContext';
 import { Link } from 'react-router-dom';
@@ -22,7 +21,7 @@ const ServicesSection: React.FC = () => {
     return (
         <div className="container mx-auto px-6">
             <SectionTitle subtitleKey="btpServicesNewTitle" titleKey="btpServicesNewSubtitle" />
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 scroll-fade">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {services.map((service, index) => (
                     <div key={service.titleKey} className="bg-white p-8 rounded-lg shadow-soft transition-all duration-300 hover:shadow-xl hover:-translate-y-2 flex flex-col group">
                         <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mb-6 transition-colors duration-300 group-hover:bg-brand-secondary">
@@ -51,10 +50,10 @@ const ApproachSection: React.FC = () => {
     return (
         <div className="container mx-auto px-6">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-                <div className="scroll-fade">
+                <div>
                     <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt={t('btpApproachImageAlt')} className="rounded-lg shadow-xl w-full h-auto object-cover" loading="lazy" width="576" height="384"/>
                 </div>
-                <div className="bg-gray-50/50 p-8 rounded-lg scroll-fade">
+                <div className="bg-gray-50/50 p-8 rounded-lg">
                     <h2 className="text-3xl font-bold font-sans text-brand-blue-dark mb-3">{t('btpApproachTitle')}</h2>
                     <p className="text-lg text-gray-600 mb-8">{t('btpApproachSubtitle')}</p>
                     <div className="space-y-8">
@@ -86,7 +85,7 @@ const ProjectsSection: React.FC = () => {
     return (
         <div className="container mx-auto px-6">
             <SectionTitle titleKey="btpProjectsTitle" />
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 scroll-fade">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {projects.map((p, index) => (
                     <div key={p.titleKey} className="group bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
                         <div className="relative overflow-hidden">
