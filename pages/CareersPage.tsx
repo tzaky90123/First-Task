@@ -1,5 +1,4 @@
 
-
 import React from 'react';
 import { useLocalization } from '../context/LocalizationContext';
 import { Link } from 'react-router-dom';
@@ -29,12 +28,12 @@ const WhyJoinUsSection: React.FC = () => {
         <div className="container mx-auto px-6">
             <SectionTitle subtitleKey="careersWhyUsTitle" titleKey="careersWhyUsHeadline" descriptionKey="careersWhyUsIntro" />
             <div className="grid md:grid-cols-2 gap-12 lg:gap-24 items-center">
-                <div className="animate-fade-in-up">
+                <div className="scroll-reveal">
                     <img src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt={t('careersWhyJoinImageAlt')} className="rounded-xl shadow-2xl w-full h-auto object-cover" loading="lazy" width="576" height="384"/>
                 </div>
                 <div className="space-y-8">
                     {values.map((item, index) => (
-                        <div key={item.titleKey} className="flex items-start group animate-fade-in-up" style={{ animationDelay: `${200 * (index + 1)}ms`}}>
+                        <div key={item.titleKey} className={`flex items-start group scroll-reveal delay-${(index + 1) * 100 + 200}`}>
                             <div className="flex-shrink-0 h-14 w-14 p-3 rounded-full bg-brand-navy/5 text-brand-navy flex items-center justify-center transition-all duration-300 group-hover:bg-brand-yellow group-hover:scale-110">{item.icon}</div>
                             <div className="ml-5">
                                 <h3 className="text-xl font-bold text-brand-navy">{t(item.titleKey)}</h3>
@@ -62,7 +61,7 @@ const BenefitsSection: React.FC = () => {
             <SectionTitle subtitleKey="careersBenefitsTitle" titleKey="careersBenefitsHeadline" descriptionKey="careersBenefitsNewIntro" />
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 {benefits.map((benefit, index) => (
-                    <div key={benefit.titleKey} className="bg-white p-8 rounded-xl shadow-soft text-center transition-all duration-300 group hover:shadow-2xl hover:-translate-y-2 flex flex-col" style={{ animation: `fadeInUp 0.5s ${index * 0.1}s ease-out both` }}>
+                    <div key={benefit.titleKey} className={`bg-white p-8 rounded-xl shadow-soft text-center transition-all duration-300 group hover:shadow-2xl hover:-translate-y-2 flex flex-col scroll-reveal delay-${index * 100}`}>
                         <div className="text-brand-navy mx-auto mb-6 w-16 h-16 p-3 flex items-center justify-center rounded-full bg-brand-navy/5 transition-all duration-300 group-hover:bg-brand-yellow group-hover:scale-110">{benefit.icon}</div>
                         <h3 className="text-xl font-bold text-brand-navy mb-3">{t(benefit.titleKey)}</h3>
                         <p className="text-brand-text-gray text-sm flex-grow">{t(benefit.descKey)}</p>
@@ -85,7 +84,7 @@ const TestimonialsSection: React.FC = () => {
             <SectionTitle subtitleKey="careersTestimonialsTitle" titleKey="careersTestimonialsHeadline" />
             <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                 {testimonials.map((item, index) => (
-                     <div key={item.nameKey} className="bg-white rounded-xl shadow-lg overflow-hidden" style={{ animation: `fadeInUp 0.5s ${index * 0.15}s ease-out both` }}>
+                     <div key={item.nameKey} className={`bg-white rounded-xl shadow-lg overflow-hidden scroll-reveal delay-${index * 150}`}>
                         <div className="p-8">
                              <blockquote className="text-lg text-brand-text-gray italic leading-relaxed mb-6 relative">
                                 <span className="absolute -top-3 -left-4 text-6xl text-brand-primary/10 font-serif">“</span>
@@ -121,7 +120,7 @@ const CareerOpportunitiesSection: React.FC = () => {
             {roles.length > 0 ? (
                 <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-left mb-12">
                     {roles.map((role, index) => (
-                        <div key={index} className="bg-white p-6 rounded-lg shadow-soft border-l-4 border-brand-primary">
+                        <div key={index} className={`bg-white p-6 rounded-lg shadow-soft border-l-4 border-brand-primary scroll-reveal delay-${index * 100}`}>
                             <h3 className="font-bold text-lg text-brand-navy mb-2">{t(role.titleKey)}</h3>
                             <p className="text-sm text-brand-text-gray">{t(role.descKey)}</p>
                         </div>
@@ -133,7 +132,7 @@ const CareerOpportunitiesSection: React.FC = () => {
                 </div>
             )}
             
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 scroll-reveal delay-300">
                 <Link to="#" className="bg-brand-primary text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg w-full sm:w-auto">
                     {t('careersOpeningsBtnView')}
                 </Link>

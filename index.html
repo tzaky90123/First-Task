@@ -123,6 +123,26 @@
       /* No shadow effect */
     }
 
+    /* Scroll Reveal Animation */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.215, 0.61, 0.355, 1), transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+      will-change: opacity, transform;
+    }
+    
+    .scroll-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Stagger delays */
+    .delay-100 { transition-delay: 100ms; }
+    .delay-200 { transition-delay: 200ms; }
+    .delay-300 { transition-delay: 300ms; }
+    .delay-400 { transition-delay: 400ms; }
+    .delay-500 { transition-delay: 500ms; }
+
     /* Loading Screen Styles */
     .loading-screen {
       position: fixed;
@@ -157,19 +177,6 @@
         opacity: 1;
         transform: scale(1);
       }
-    }
-
-    /* Section Transition Styles */
-    .transition-section {
-      opacity: 0;
-      transform: translateY(80px);
-      transition: opacity 1.5s cubic-bezier(0.19, 1, 0.22, 1), transform 1.2s cubic-bezier(0.19, 1, 0.22, 1);
-      will-change: transform, opacity;
-    }
-
-    .transition-section.is-in-view {
-      opacity: 1;
-      transform: translateY(0);
     }
 
     /* Blueprint Background */

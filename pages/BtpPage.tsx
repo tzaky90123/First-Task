@@ -1,5 +1,4 @@
 
-
 import React from 'react';
 import { useLocalization } from '../context/LocalizationContext';
 import { Link } from 'react-router-dom';
@@ -25,7 +24,7 @@ const ServicesSection: React.FC = () => {
             <SectionTitle subtitleKey="btpServicesNewTitle" titleKey="btpServicesNewSubtitle" />
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {services.map((service, index) => (
-                    <div key={service.titleKey} className="bg-white p-8 rounded-lg shadow-soft transition-all duration-300 hover:shadow-xl hover:-translate-y-2 flex flex-col group animate-fade-in-up" style={{ animationDelay: `${index * 150}ms`}}>
+                    <div key={service.titleKey} className={`bg-white p-8 rounded-lg shadow-soft transition-all duration-300 hover:shadow-xl hover:-translate-y-2 flex flex-col group scroll-reveal delay-${index * 100}`}>
                         <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mb-6 transition-colors duration-300 group-hover:bg-brand-secondary">
                             {service.icon}
                         </div>
@@ -52,15 +51,15 @@ const ApproachSection: React.FC = () => {
     return (
         <div className="container mx-auto px-6">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-                <div className="animate-fade-in-up">
+                <div className="scroll-reveal">
                     <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt={t('btpApproachImageAlt')} className="rounded-lg shadow-xl w-full h-auto object-cover" loading="lazy" width="576" height="384"/>
                 </div>
-                <div className="bg-gray-50/50 p-8 rounded-lg">
+                <div className="bg-gray-50/50 p-8 rounded-lg scroll-reveal delay-200">
                     <h2 className="text-3xl font-bold font-sans text-brand-blue-dark mb-3">{t('btpApproachTitle')}</h2>
                     <p className="text-lg text-gray-600 mb-8">{t('btpApproachSubtitle')}</p>
                     <div className="space-y-8">
                         {approaches.map((item, index) => (
-                            <div key={item.titleKey} className="flex items-start group animate-fade-in-up" style={{ animationDelay: `${200 * (index + 1)}ms`}}>
+                            <div key={item.titleKey} className={`flex items-start group scroll-reveal delay-${(index + 1) * 100 + 200}`}>
                                 <div className="flex-shrink-0 h-16 w-16 rounded-full bg-blue-100 text-brand-blue-dark flex items-center justify-center transition-all duration-300 group-hover:bg-brand-secondary group-hover:text-white group-hover:scale-110">
                                     {item.icon}
                                 </div>
@@ -89,7 +88,7 @@ const ProjectsSection: React.FC = () => {
             <SectionTitle titleKey="btpProjectsTitle" />
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {projects.map((p, index) => (
-                    <div key={p.titleKey} className="group bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2" style={{ animation: `fadeInUp 0.5s ${index * 0.1}s ease-out both` }}>
+                    <div key={p.titleKey} className={`group bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 scroll-reveal delay-${index * 100}`}>
                         <div className="relative overflow-hidden">
                             <img src={p.image} alt={t(p.titleKey)} className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" width="400" height="224" />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>

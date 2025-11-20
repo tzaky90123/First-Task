@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useLocalization } from '../context/LocalizationContext';
 import SectionTitle from './SectionTitle';
@@ -18,7 +19,7 @@ const ValuesSection: React.FC = () => {
             <SectionTitle subtitleKey="whyChooseUsSectionTitle" titleKey="whyChooseUsSectionHeadline" />
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {values.map((value, index) => (
-                    <div key={index} className="bg-white p-8 rounded-lg shadow-soft text-left transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                    <div key={index} className={`bg-white p-8 rounded-lg shadow-soft text-left transition-all duration-300 hover:shadow-xl hover:-translate-y-1 scroll-reveal delay-${(index % 3) * 100 + 100}`}>
                         <img src={value.icon} alt={t(value.titleKey)} className="h-12 w-12 mb-6" loading="lazy" width="48" height="48" />
                         <h3 className="text-xl font-medium text-brand-primary mb-3 font-sans">{t(value.titleKey)}</h3>
                         <p className="text-brand-text-gray text-sm leading-relaxed">{t(value.descKey)}</p>
