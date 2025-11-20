@@ -10,7 +10,7 @@ import FullScreenSection from '../components/FullScreenSection';
 const IntroductionSection: React.FC = () => {
     const { t } = useLocalization();
     return (
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-6 scroll-element">
             <div className="grid md:grid-cols-2 gap-12 lg:gap-24 items-center">
                 <div>
                     <h2 className="text-3xl font-bold font-sans text-brand-navy mb-6">{t('minesIntroTitle')}</h2>
@@ -34,7 +34,7 @@ const ServicesSection: React.FC = () => {
         { titleKey: 'minesService4Title', descKey: 'minesService4Desc', icon: <img src="https://cdn-icons-png.flaticon.com/512/936/936784.png" alt={t('minesServiceIcon4Alt')} className="h-full w-full object-contain" loading="lazy" /> },
     ];
     return (
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-6 scroll-element">
             <SectionTitle titleKey="minesServicesTitle" />
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {services.map((service, index) => (
@@ -57,7 +57,7 @@ const ProjectsSection: React.FC = () => {
         { image: "https://images.pexels.com/photos/12971169/pexels-photo-12971169.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", titleKey: 'minesProject3Title', descKey: 'minesProject3Desc', tag: t('minesProjectTagZircon') },
     ];
     return (
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-6 scroll-element">
             <SectionTitle titleKey="minesProjectsTitle" />
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {projects.map((p, index) => (
@@ -85,7 +85,7 @@ const SafetyEnvironmentSection: React.FC = () => {
         { titleKey: 'minesSafetyPoint3Title', descKey: 'minesSafetyPoint3Desc', icon: <img src="https://cdn-icons-png.flaticon.com/512/52/52066.png" alt={t('minesSafetyPoint3Title')} className="h-8 w-8" loading="lazy" width="32" height="32" /> },
     ];
     return (
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-6 scroll-element">
             <SectionTitle titleKey="minesSafetyTitle" descriptionKey="minesSafetyText" />
             <div className="grid md:grid-cols-2 gap-12 lg:gap-24 items-center">
                 <div>
@@ -110,7 +110,7 @@ const SafetyEnvironmentSection: React.FC = () => {
 const TechnologySection: React.FC = () => {
     const { t } = useLocalization();
     return (
-        <div className="relative container mx-auto px-6 py-20 rounded-2xl overflow-hidden">
+        <div className="relative container mx-auto px-6 py-20 rounded-2xl overflow-hidden scroll-element">
             <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('https://images.pexels.com/photos/5696144/pexels-photo-5696144.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')" }}></div>
             <div className="absolute inset-0 bg-brand-navy opacity-80 backdrop-blur-sm"></div>
             <div className="relative z-10 max-w-4xl mx-auto">
@@ -123,7 +123,7 @@ const TechnologySection: React.FC = () => {
 const TestimonialsSection: React.FC = () => {
     const { t } = useLocalization();
     return (
-        <div className="container mx-auto px-6 max-w-3xl text-center">
+        <div className="container mx-auto px-6 max-w-3xl text-center scroll-element">
              <SectionTitle titleKey="minesTestimonialsTitle" />
              <div className="bg-white p-10 rounded-xl shadow-lg relative">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-brand-yellow rounded-full flex items-center justify-center text-brand-navy">
@@ -139,7 +139,7 @@ const TestimonialsSection: React.FC = () => {
 const CtaSection: React.FC = () => {
     const { t } = useLocalization();
     return (
-        <div className="container mx-auto px-6 text-center">
+        <div className="container mx-auto px-6 text-center scroll-element">
             <div className="bg-white p-12 rounded-2xl shadow-2xl max-w-4xl mx-auto">
                 <SectionTitle titleKey="minesCtaTitle" descriptionKey="minesCtaText" />
                 <Link to="/contact" className="bg-brand-yellow text-brand-navy text-lg font-bold py-4 px-10 rounded-full hover:bg-opacity-90 transition-all duration-300 inline-block transform hover:scale-105 shadow-lg hover:shadow-xl">

@@ -24,7 +24,7 @@ const IntroductionSection: React.FC = () => {
     ];
 
     return (
-        <div className="container mx-auto px-6 py-16 md:py-0">
+        <div className="container mx-auto px-6 py-16 md:py-0 scroll-element">
             <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
                 <div>
                     <h2 className="text-3xl font-bold font-sans text-brand-navy mb-6">{t('reIntroTitle')}</h2>
@@ -66,7 +66,7 @@ const PortfolioSection: React.FC = () => {
         { image: 'https://socabeg.com/images/lac.jpg', titleKey: 'program3Title', descKey: 'program3Desc', featuresKey: 'reProjectNiagueFeatures' },
     ];
     return (
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-6 scroll-element">
             <SectionTitle titleKey="rePortfolioTitle" descriptionKey="rePortfolioSubtitle" />
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {projects.map((p, index) => (
@@ -95,7 +95,7 @@ const SustainabilitySection: React.FC = () => {
         { iconUrl: 'https://cdn-icons-png.flaticon.com/512/3043/3043652.png', titleKey: 'reSustainabilityPoint3Title', descKey: 'reSustainabilityPoint3Desc' },
     ];
     return (
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-6 scroll-element">
             <SectionTitle titleKey="reSustainabilityTitle" descriptionKey="reSustainabilityText" />
             <div className="grid md:grid-cols-5 gap-12 items-center">
                 <div className="md:col-span-2">
@@ -129,7 +129,7 @@ const AmenitiesSection: React.FC = () => {
         { iconUrl: 'https://cdn-icons-png.flaticon.com/512/1161/1161490.png', titleKey: 'reAmenity3Title', descKey: 'reAmenity3Desc' },
     ];
     return (
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-6 scroll-element">
             <SectionTitle titleKey="reAmenitiesTitle" descriptionKey="reAmenitiesText" />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {amenities.map((amenity, index) => (
@@ -187,7 +187,7 @@ const TestimonialsSection: React.FC = () => {
     }, [currentIndex, goNext, resetTimeout]);
 
     return (
-        <div className="container mx-auto px-5 lg:px-20">
+        <div className="container mx-auto px-5 lg:px-20 scroll-element">
             <SectionTitle titleKey="reTestimonialsTitle" />
             <div className="relative">
                 <div className="overflow-hidden">
@@ -223,7 +223,7 @@ const TestimonialsSection: React.FC = () => {
 const MarketInsightSection: React.FC = () => {
     const { t } = useLocalization();
     return (
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-6 scroll-element">
             <SectionTitle titleKey="reMarketTitle" descriptionKey="reMarketText" />
             <div className="mt-8">
                 <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt={t('reMarketImageAlt')} className="rounded-lg shadow-xl w-full h-auto object-cover max-w-4xl mx-auto" loading="lazy" width="576" height="384"/>
@@ -235,7 +235,7 @@ const MarketInsightSection: React.FC = () => {
 const CtaSection: React.FC = () => {
     const { t } = useLocalization();
     return (
-        <div className="container mx-auto px-6 text-center">
+        <div className="container mx-auto px-6 text-center scroll-element">
             <SectionTitle titleKey="reCtaTitle" descriptionKey="reCtaText" />
             <Link to="/contact" className="bg-brand-secondary text-brand-dark text-lg font-bold py-4 px-10 rounded-full hover:bg-opacity-90 transition-colors duration-300 inline-block transform hover:scale-105">
                 {t('reCtaButton')}

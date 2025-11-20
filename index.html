@@ -53,33 +53,17 @@
       font-family: 'Satoshi', sans-serif;
     }
 
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    .animate-fade-in-up {
-      animation: fadeInUp 0.8s ease-out forwards;
+    /* Scroll Animation Styles */
+    .scroll-element {
       opacity: 0;
-    }
-    .animation-delay-300 {
-      animation-delay: 300ms;
-    }
-    .animation-delay-600 {
-      animation-delay: 600ms;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
     }
     
-    @keyframes slideIndicator {
-      from { width: 0%; }
-      to { width: 100%; }
-    }
-    .animate-slide-indicator {
-      animation: slideIndicator linear forwards;
+    .scroll-element.scrolled {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     /* Loading Screen Styles */

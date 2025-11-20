@@ -52,7 +52,7 @@ const ContactSection: React.FC = () => {
     };
 
     return (
-      <div className="w-full px-4 sm:px-6 lg:px-8">
+      <div className="w-full px-4 sm:px-6 lg:px-8 scroll-element">
         {/* Main Content: Card */}
         <div className="max-w-8xl mx-auto bg-white rounded-2xl shadow-contact overflow-hidden lg:grid lg:grid-cols-5">
           {/* Left Side: Form */}

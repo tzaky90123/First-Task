@@ -24,7 +24,7 @@ const WhyJoinUsSection: React.FC = () => {
     ];
 
     return (
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-6 scroll-element">
             <SectionTitle subtitleKey="careersWhyUsTitle" titleKey="careersWhyUsHeadline" descriptionKey="careersWhyUsIntro" />
             <div className="grid md:grid-cols-2 gap-12 lg:gap-24 items-center">
                 <div>
@@ -56,7 +56,7 @@ const BenefitsSection: React.FC = () => {
     ];
     
     return (
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-6 scroll-element">
             <SectionTitle subtitleKey="careersBenefitsTitle" titleKey="careersBenefitsHeadline" descriptionKey="careersBenefitsNewIntro" />
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 {benefits.map((benefit, index) => (
@@ -79,7 +79,7 @@ const TestimonialsSection: React.FC = () => {
     ];
 
     return (
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-6 scroll-element">
             <SectionTitle subtitleKey="careersTestimonialsTitle" titleKey="careersTestimonialsHeadline" />
             <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                 {testimonials.map((item, index) => (
@@ -113,7 +113,7 @@ const CareerOpportunitiesSection: React.FC = () => {
     ];
     
     return (
-        <div className="container mx-auto px-6 text-center">
+        <div className="container mx-auto px-6 text-center scroll-element">
             <SectionTitle subtitleKey="careersOpeningsSubheadline" titleKey="careersOpeningsTitle" descriptionKey="careersOpeningsText" />
 
             {roles.length > 0 ? (

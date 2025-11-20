@@ -41,7 +41,7 @@ const TestimonialsSection: React.FC = () => {
     }, [currentIndex, goNext, resetTimeout]);
 
     return (
-        <div className="container mx-auto px-5 lg:px-20">
+        <div className="container mx-auto px-5 lg:px-20 scroll-element">
             <SectionTitle subtitleKey="testimonialsSectionTitle" titleKey="testimonialsSectionHeadline" />
             <div className="relative">
                 <div className="overflow-hidden">

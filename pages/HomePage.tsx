@@ -33,7 +33,7 @@ const ExpertiseSection: React.FC = () => {
     ];
   
     return (
-        <div className="container mx-auto px-5 lg:px-20">
+        <div className="container mx-auto px-5 lg:px-20 scroll-element">
           <SectionTitle subtitleKey="homeServicesTitle" titleKey="homeExpertiseSubtitle" />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((service, index) => (
@@ -66,7 +66,7 @@ const PartnersSection: React.FC = () => {
     const row2Logos = partnerLogos.slice(5);
 
     return (
-        <div className="container mx-auto px-5 lg:px-20">
+        <div className="container mx-auto px-5 lg:px-20 scroll-element">
             <SectionTitle subtitleKey="partnersSectionTitle" titleKey="partnersSectionHeadline" />
              <div className="flex flex-col items-center gap-y-8 md:gap-y-12">
                 <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 lg:gap-x-24">
@@ -133,7 +133,7 @@ const MasterpiecesSection: React.FC = () => {
     };
 
     return (
-        <div className="container mx-auto px-5 lg:px-20">
+        <div className="container mx-auto px-5 lg:px-20 scroll-element">
             <SectionTitle subtitleKey="homeMasterpiecesTitle" titleKey="homeMasterpiecesSubtitle" />
 
             <div className="hidden md:grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -246,7 +246,7 @@ const HorizontalBarChart: React.FC<{ t: (key: string) => string }> = ({ t }) => 
     }, []);
 
     return (
-        <div className="w-full h-full flex flex-col justify-center px-4 sm:px-8 animate-fade-in-up">
+        <div className="w-full h-full flex flex-col justify-center px-4 sm:px-8">
             {data.map((item, index) => (
                 <div key={index} className="w-full">
                     <div className="flex justify-between items-center mb-2 text-sm">
@@ -371,7 +371,7 @@ const DetailedProgressBar: React.FC<{
     }, [percentage]);
 
     return (
-        <div className="w-full h-full flex flex-col justify-center px-4 sm:px-8 animate-fade-in-up">
+        <div className="w-full h-full flex flex-col justify-center px-4 sm:px-8">
             <div className="flex justify-between items-end mb-2">
                 <span className="text-2xl font-bold text-brand-navy">{currentValue} / {target} {unit}</span>
                 <span className="text-xl font-bold text-brand-secondary">{Math.round(percentage)}%</span>
@@ -475,7 +475,7 @@ const StatisticsSection: React.FC = () => {
     ];
 
     return (
-        <div className="container mx-auto px-5 lg:px-20">
+        <div className="container mx-auto px-5 lg:px-20 scroll-element">
             <SectionTitle subtitleKey="statisticsSectionHeadline" titleKey="statisticsSectionTitle" />
 
             <div className="grid lg:grid-cols-5 gap-8 items-stretch">
@@ -558,7 +558,7 @@ const ProgramSection: React.FC = () => {
     ];
 
     return (
-        <div className="container mx-auto px-5 lg:px-20">
+        <div className="container mx-auto px-5 lg:px-20 scroll-element">
             <SectionTitle subtitleKey="programsSectionTitle" titleKey="programsSectionHeadline" />
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {programs.map((program, index) => (

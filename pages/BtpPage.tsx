@@ -19,7 +19,7 @@ const ServicesSection: React.FC = () => {
         { titleKey: 'btpService4Title', descKey: 'btpService4Desc', icon: <img src="https://cdn-icons-png.flaticon.com/512/1442/1442912.png" alt={t('btpService4Title')} className="h-8 w-8" loading="lazy" width="32" height="32" /> },
     ];
     return (
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-6 scroll-element">
             <SectionTitle subtitleKey="btpServicesNewTitle" titleKey="btpServicesNewSubtitle" />
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {services.map((service, index) => (
@@ -48,7 +48,7 @@ const ApproachSection: React.FC = () => {
         { titleKey: 'btpApproachTechTitle', descKey: 'btpApproachTechDesc', icon: <img src="https://cdn-icons-png.flaticon.com/512/2752/2752819.png" alt={t('btpApproachTechIconAlt')} className="h-8 w-8" loading="lazy" width="32" height="32" /> },
     ];
     return (
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-6 scroll-element">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
                 <div>
                     <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt={t('btpApproachImageAlt')} className="rounded-lg shadow-xl w-full h-auto object-cover" loading="lazy" width="576" height="384"/>
@@ -83,7 +83,7 @@ const ProjectsSection: React.FC = () => {
         { image: "https://images.pexels.com/photos/3773539/pexels-photo-3773539.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", titleKey: 'btpProject3Title', descKey: 'btpProject3Desc' },
     ];
     return (
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-6 scroll-element">
             <SectionTitle titleKey="btpProjectsTitle" />
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {projects.map((p, index) => (
