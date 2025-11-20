@@ -51,7 +51,7 @@ const IntroductionSection: React.FC = () => {
                         <span className="bg-white border border-gray-200 text-brand-text-gray font-semibold px-4 py-2 rounded-full text-sm transition-all duration-300 hover:shadow-md hover:border-brand-primary/50">{t('reIntroTypeMixedUse')}</span>
                     </div>
                 </div>
-                <div className="scroll-reveal delay-200">
+                <div className="scroll-reveal">
                     <img src="https://images.pexels.com/photos/259962/pexels-photo-259962.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt={t('reIntroImageAlt')} className="rounded-xl shadow-2xl w-full h-auto object-cover" loading="lazy" width="576" height="384"/>
                 </div>
             </div>
@@ -71,7 +71,7 @@ const PortfolioSection: React.FC = () => {
             <SectionTitle titleKey="rePortfolioTitle" descriptionKey="rePortfolioSubtitle" />
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {projects.map((p, index) => (
-                    <div key={p.titleKey} className={`bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 flex flex-col scroll-reveal delay-${index * 100}`}>
+                    <div key={p.titleKey} className={`bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 flex flex-col scroll-reveal`}>
                         <img src={p.image} alt={t(p.titleKey)} className="w-full h-56 object-cover" loading="lazy" width="400" height="224" />
                         <div className="p-6 flex-grow flex flex-col">
                             <h3 className="text-xl font-bold text-brand-primary mb-2">{t(p.titleKey)}</h3>
@@ -102,7 +102,7 @@ const SustainabilitySection: React.FC = () => {
                 <div className="md:col-span-2 scroll-reveal">
                      <img src="https://images.pexels.com/photos/439391/pexels-photo-439391.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt={t('reSustainabilityImageAlt')} className="rounded-lg shadow-xl w-full" loading="lazy" width="576" height="384" />
                 </div>
-                <div className="md:col-span-3 scroll-reveal delay-200">
+                <div className="md:col-span-3 scroll-reveal">
                     <div className="space-y-6">
                         {points.map(p => (
                             <div key={p.titleKey} className="flex items-start group">
@@ -136,7 +136,7 @@ const AmenitiesSection: React.FC = () => {
                 {amenities.map((amenity, index) => (
                     <div
                         key={amenity.titleKey}
-                        className={`bg-white p-8 rounded-xl shadow-soft text-center transition-all duration-300 group hover:shadow-xl hover:-translate-y-2 scroll-reveal delay-${index * 100}`}
+                        className={`bg-white p-8 rounded-xl shadow-soft text-center transition-all duration-300 group hover:shadow-xl hover:-translate-y-2 scroll-reveal`}
                     >
                         <div className="mx-auto mb-6 w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center transition-all duration-300 group-hover:bg-brand-secondary group-hover:scale-110">
                             <img src={amenity.iconUrl} alt={t(amenity.titleKey)} className="h-8 w-8" loading="lazy" />

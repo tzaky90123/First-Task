@@ -18,7 +18,7 @@ const IntroductionSection: React.FC = () => {
                     <p className="text-lg text-brand-text-gray leading-relaxed mb-4" dangerouslySetInnerHTML={{ __html: t('minesIntroText').replace('stimulant ainsi la croissance économique', '<strong>stimulant ainsi la croissance économique</strong>') }} />
                     <p className="text-lg text-brand-text-gray leading-relaxed" dangerouslySetInnerHTML={{ __html: t('minesIntroParagraph2') }} />
                 </div>
-                <div className="scroll-reveal delay-300">
+                <div className="scroll-reveal">
                     <img src="https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt={t('minesIntroImageAlt')} className="rounded-xl shadow-2xl w-full h-auto object-cover" loading="lazy" width="576" height="384"/>
                 </div>
             </div>
@@ -39,7 +39,7 @@ const ServicesSection: React.FC = () => {
             <SectionTitle titleKey="minesServicesTitle" />
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {services.map((service, index) => (
-                    <div key={service.titleKey} className={`group bg-white p-8 rounded-xl shadow-soft text-left transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 flex flex-col scroll-reveal delay-${index * 100}`}>
+                    <div key={service.titleKey} className={`group bg-white p-8 rounded-xl shadow-soft text-left transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 flex flex-col scroll-reveal`}>
                         <div className="text-brand-yellow mx-auto mb-6 w-16 h-16 p-3 flex items-center justify-center rounded-full bg-brand-navy/5 transition-colors duration-300 group-hover:bg-brand-yellow group-hover:text-brand-navy">{service.icon}</div>
                         <h3 className="text-xl font-bold text-brand-navy mb-3 text-center">{t(service.titleKey)}</h3>
                         <p className="text-brand-text-gray text-sm text-center flex-grow">{t(service.descKey)}</p>
@@ -62,7 +62,7 @@ const ProjectsSection: React.FC = () => {
             <SectionTitle titleKey="minesProjectsTitle" />
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {projects.map((p, index) => (
-                    <div key={p.titleKey} className={`group bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 flex flex-col scroll-reveal delay-${index * 100}`}>
+                    <div key={p.titleKey} className={`group bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 flex flex-col scroll-reveal`}>
                         <div className="relative overflow-hidden">
                             <img src={p.image} alt={t(p.titleKey)} className="w-full h-60 object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" width="400" height="240" />
                             <div className="absolute top-4 right-4 bg-brand-yellow text-brand-navy text-xs font-bold uppercase px-3 py-1 rounded-full">{p.tag}</div>
@@ -94,7 +94,7 @@ const SafetyEnvironmentSection: React.FC = () => {
                 </div>
                 <div className="space-y-8">
                     {commitments.map((item, index) => (
-                        <div key={item.titleKey} className={`flex items-start group scroll-reveal delay-${(index + 1) * 100 + 200}`}>
+                        <div key={item.titleKey} className={`flex items-start group scroll-reveal`}>
                             <div className="flex-shrink-0 h-16 w-16 rounded-full bg-brand-navy/5 text-brand-navy flex items-center justify-center transition-all duration-300 group-hover:bg-brand-secondary group-hover:text-white group-hover:scale-110">{item.icon}</div>
                             <div className="ml-5">
                                 <h3 className="text-xl font-bold text-brand-navy">{t(item.titleKey)}</h3>
