@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useLocalization } from '../context/LocalizationContext';
 import SectionTitle from './SectionTitle';
@@ -9,7 +8,7 @@ const AboutSection: React.FC = () => {
     return (
         <div className="container mx-auto px-6 lg:px-8">
             <SectionTitle subtitleKey="homeAboutSectionTitle" titleKey="homeAboutSectionHeadline" />
-            <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-0 bg-white rounded-lg shadow-soft overflow-hidden">
+            <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-0 bg-white rounded-lg shadow-soft overflow-hidden scroll-fade">
                 {/* Left Image Column */}
                 <div className="h-64 md:h-auto">
                     <img 

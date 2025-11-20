@@ -13,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
     <script>
       tailwind.config = {
         theme: {
@@ -49,24 +50,70 @@
       }
     </script>
   <style>
+    html.lenis, html.lenis body {
+      height: auto;
+    }
+    .lenis.lenis-smooth {
+      scroll-behavior: auto !important;
+    }
+    .lenis.lenis-smooth [data-lenis-prevent] {
+      overscroll-behavior: contain;
+    }
+    .lenis.lenis-stopped {
+      overflow: hidden;
+    }
+    .lenis.lenis-scrolling iframe {
+      pointer-events: none;
+    }
     body {
       font-family: 'Satoshi', sans-serif;
     }
-    .partner-logo {
-        transition: transform 0.3s ease;
+    
+    /* Simple Scroll Fade Animation */
+    .scroll-fade {
+        opacity: 0;
+        transform: translateY(15px);
+        transition: opacity 0.4s ease-out, transform 0.4s ease-out;
     }
-    .partner-logo:hover {
-        transform: scale(1.1);
+    .scroll-fade.visible {
+        opacity: 1;
+        transform: translateY(0);
     }
-    .logo-shadow {
-      /* No shadow effect */
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+      opacity: 0;
+    }
+    .animation-delay-300 {
+      animation-delay: 300ms;
+    }
+    .animation-delay-600 {
+      animation-delay: 600ms;
+    }
+    
+    @keyframes slideIndicator {
+      from { width: 0%; }
+      to { width: 100%; }
+    }
+    .animate-slide-indicator {
+      animation: slideIndicator linear forwards;
     }
 
     /* Loading Screen Styles */
     .loading-screen {
       position: fixed;
       inset: 0;
-      background-color: #1C1C1C; /* brand-dark */
+      background-color: #1C1C1C;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -75,32 +122,23 @@
       opacity: 1;
       visibility: visible;
     }
-
     .loading-screen.exit {
       opacity: 0;
       visibility: hidden;
     }
-
     .loading-icon {
       width: 80px;
       height: 80px;
       animation: scale-in 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
     }
-
     @keyframes scale-in {
-      from {
-        opacity: 0;
-        transform: scale(0.5);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
+      from { opacity: 0; transform: scale(0.5); }
+      to { opacity: 1; transform: scale(1); }
     }
 
     /* Blueprint Background */
     .blueprint-bg {
-        background-color: #f8fafc; /* Tailwind's gray-50 */
+        background-color: #f8fafc;
         background-image:
             linear-gradient(rgba(30, 58, 138, 0.07) 1px, transparent 1px),
             linear-gradient(to right, rgba(30, 58, 138, 0.07) 1px, transparent 1px);
@@ -109,11 +147,11 @@
 
     /* Grid Background */
     .grid-bg {
-        background-color: #f9fafb; /* gray-50 */
+        background-color: #f9fafb;
         background-image:
             linear-gradient(to right, #e5e7eb 1px, transparent 1px),
             linear-gradient(to bottom, #e5e7eb 1px, transparent 1px);
-        background-size: 4rem 4rem; /* 64px */
+        background-size: 4rem 4rem;
     }
   </style>
   <script type="importmap">

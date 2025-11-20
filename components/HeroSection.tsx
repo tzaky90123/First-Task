@@ -161,10 +161,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({ slides = defaultSlides, cta =
           <div>
               {slides.map((slide, index) => (
                   <div key={index} className={`${index === currentSlide ? 'block' : 'hidden'}`}>
-                      <h1 className="text-2xl md:text-4xl font-bold leading-tight mb-4">
+                      <h1 className="text-2xl md:text-4xl font-bold leading-tight mb-4 animate-fade-in-up">
                         {t(slide.title)}
                       </h1>
-                      <p className="text-base md:text-lg mb-8 max-w-5xl mx-auto">
+                      <p className="text-base md:text-lg mb-8 animate-fade-in-up animation-delay-300 max-w-5xl mx-auto">
                         {t(slide.subtitle)}
                       </p>
                   </div>
@@ -173,14 +173,14 @@ const HeroSection: React.FC<HeroSectionProps> = ({ slides = defaultSlides, cta =
                 cta.link.startsWith('#') ? (
                   <a
                     href={cta.link}
-                    className="bg-transparent border-2 border-white text-white text-lg font-bold py-3 px-8 sm:px-10 rounded-full hover:bg-white hover:text-brand-dark transition-colors duration-300 inline-block"
+                    className="bg-transparent border-2 border-white text-white text-lg font-bold py-3 px-8 sm:px-10 rounded-full hover:bg-white hover:text-brand-dark transition-colors duration-300 inline-block animate-fade-in-up animation-delay-600"
                   >
                     {t(cta.textKey)}
                   </a>
                 ) : (
                   <Link
                     to={cta.link}
-                    className="bg-transparent border-2 border-white text-white text-lg font-bold py-3 px-8 sm:px-10 rounded-full hover:bg-white hover:text-brand-dark transition-colors duration-300 inline-block"
+                    className="bg-transparent border-2 border-white text-white text-lg font-bold py-3 px-8 sm:px-10 rounded-full hover:bg-white hover:text-brand-dark transition-colors duration-300 inline-block animate-fade-in-up animation-delay-600"
                   >
                     {t(cta.textKey)}
                   </Link>
@@ -195,6 +195,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({ slides = defaultSlides, cta =
                         <div
                             className={`h-full rounded-full bg-white transition-all duration-200 ${index === currentSlide ? 'w-full opacity-100' : 'w-0 opacity-0'}`}
                         ></div>
+                        {index === currentSlide && (
+                            <div
+                                key={currentSlide} // Re-trigger animation on slide change
+                                className="absolute top-0 left-0 h-full rounded-full bg-white animate-slide-indicator"
+                                style={{ animationDuration: `${slideDuration}ms` }}
+                            ></div>
+                        )}
                     </button>
                 ))}
             </div>

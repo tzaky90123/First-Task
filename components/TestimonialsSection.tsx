@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useLocalization } from '../context/LocalizationContext';
 import SectionTitle from './SectionTitle';
@@ -44,7 +43,7 @@ const TestimonialsSection: React.FC = () => {
     return (
         <div className="container mx-auto px-5 lg:px-20">
             <SectionTitle subtitleKey="testimonialsSectionTitle" titleKey="testimonialsSectionHeadline" />
-            <div className="relative">
+            <div className="relative scroll-fade">
                 <div className="overflow-hidden">
                     <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
                         {testimonialPairs.map((pair, slideIndex) => (

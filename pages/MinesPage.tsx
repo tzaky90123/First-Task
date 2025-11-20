@@ -13,12 +13,12 @@ const IntroductionSection: React.FC = () => {
     return (
         <div className="container mx-auto px-6">
             <div className="grid md:grid-cols-2 gap-12 lg:gap-24 items-center">
-                <div>
+                <div className="scroll-fade">
                     <h2 className="text-3xl font-bold font-sans text-brand-navy mb-6">{t('minesIntroTitle')}</h2>
                     <p className="text-lg text-brand-text-gray leading-relaxed mb-4" dangerouslySetInnerHTML={{ __html: t('minesIntroText').replace('stimulant ainsi la croissance économique', '<strong>stimulant ainsi la croissance économique</strong>') }} />
                     <p className="text-lg text-brand-text-gray leading-relaxed" dangerouslySetInnerHTML={{ __html: t('minesIntroParagraph2') }} />
                 </div>
-                <div>
+                <div className="scroll-fade">
                     <img src="https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt={t('minesIntroImageAlt')} className="rounded-xl shadow-2xl w-full h-auto object-cover" loading="lazy" width="576" height="384"/>
                 </div>
             </div>
@@ -37,9 +37,9 @@ const ServicesSection: React.FC = () => {
     return (
         <div className="container mx-auto px-6">
             <SectionTitle titleKey="minesServicesTitle" />
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 scroll-fade">
                 {services.map((service, index) => (
-                    <div key={service.titleKey} className={`group bg-white p-8 rounded-xl shadow-soft text-left transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 flex flex-col`}>
+                    <div key={service.titleKey} className="group bg-white p-8 rounded-xl shadow-soft text-left transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 flex flex-col">
                         <div className="text-brand-yellow mx-auto mb-6 w-16 h-16 p-3 flex items-center justify-center rounded-full bg-brand-navy/5 transition-colors duration-300 group-hover:bg-brand-yellow group-hover:text-brand-navy">{service.icon}</div>
                         <h3 className="text-xl font-bold text-brand-navy mb-3 text-center">{t(service.titleKey)}</h3>
                         <p className="text-brand-text-gray text-sm text-center flex-grow">{t(service.descKey)}</p>
@@ -60,9 +60,9 @@ const ProjectsSection: React.FC = () => {
     return (
         <div className="container mx-auto px-6">
             <SectionTitle titleKey="minesProjectsTitle" />
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 scroll-fade">
                 {projects.map((p, index) => (
-                    <div key={p.titleKey} className={`group bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 flex flex-col`}>
+                    <div key={p.titleKey} className="group bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 flex flex-col">
                         <div className="relative overflow-hidden">
                             <img src={p.image} alt={t(p.titleKey)} className="w-full h-60 object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" width="400" height="240" />
                             <div className="absolute top-4 right-4 bg-brand-yellow text-brand-navy text-xs font-bold uppercase px-3 py-1 rounded-full">{p.tag}</div>
@@ -89,12 +89,12 @@ const SafetyEnvironmentSection: React.FC = () => {
         <div className="container mx-auto px-6">
             <SectionTitle titleKey="minesSafetyTitle" descriptionKey="minesSafetyText" />
             <div className="grid md:grid-cols-2 gap-12 lg:gap-24 items-center">
-                <div>
+                <div className="scroll-fade">
                     <img src="https://images.pexels.com/photos/4031818/pexels-photo-4031818.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt={t('minesSafetyImageAlt')} className="rounded-xl shadow-2xl w-full" loading="lazy" width="576" height="384"/>
                 </div>
-                <div className="space-y-8">
+                <div className="space-y-8 scroll-fade">
                     {commitments.map((item, index) => (
-                        <div key={item.titleKey} className={`flex items-start group`}>
+                        <div key={item.titleKey} className="flex items-start group">
                             <div className="flex-shrink-0 h-16 w-16 rounded-full bg-brand-navy/5 text-brand-navy flex items-center justify-center transition-all duration-300 group-hover:bg-brand-secondary group-hover:text-white group-hover:scale-110">{item.icon}</div>
                             <div className="ml-5">
                                 <h3 className="text-xl font-bold text-brand-navy">{t(item.titleKey)}</h3>
@@ -111,7 +111,7 @@ const SafetyEnvironmentSection: React.FC = () => {
 const TechnologySection: React.FC = () => {
     const { t } = useLocalization();
     return (
-        <div className="relative container mx-auto px-6 py-20 rounded-2xl overflow-hidden">
+        <div className="relative container mx-auto px-6 py-20 rounded-2xl overflow-hidden scroll-fade">
             <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('https://images.pexels.com/photos/5696144/pexels-photo-5696144.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')" }}></div>
             <div className="absolute inset-0 bg-brand-navy opacity-80 backdrop-blur-sm"></div>
             <div className="relative z-10 max-w-4xl mx-auto">
@@ -124,7 +124,7 @@ const TechnologySection: React.FC = () => {
 const TestimonialsSection: React.FC = () => {
     const { t } = useLocalization();
     return (
-        <div className="container mx-auto px-6 max-w-3xl text-center">
+        <div className="container mx-auto px-6 max-w-3xl text-center scroll-fade">
              <SectionTitle titleKey="minesTestimonialsTitle" />
              <div className="bg-white p-10 rounded-xl shadow-lg relative">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-brand-yellow rounded-full flex items-center justify-center text-brand-navy">
@@ -140,7 +140,7 @@ const TestimonialsSection: React.FC = () => {
 const CtaSection: React.FC = () => {
     const { t } = useLocalization();
     return (
-        <div className="container mx-auto px-6 text-center">
+        <div className="container mx-auto px-6 text-center scroll-fade">
             <div className="bg-white p-12 rounded-2xl shadow-2xl max-w-4xl mx-auto">
                 <SectionTitle titleKey="minesCtaTitle" descriptionKey="minesCtaText" />
                 <Link to="/contact" className="bg-brand-yellow text-brand-navy text-lg font-bold py-4 px-10 rounded-full hover:bg-opacity-90 transition-all duration-300 inline-block transform hover:scale-105 shadow-lg hover:shadow-xl">

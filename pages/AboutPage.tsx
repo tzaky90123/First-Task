@@ -1,5 +1,4 @@
 
-
 import React from 'react';
 import { useLocalization } from '../context/LocalizationContext';
 import FullScreenSection from '../components/FullScreenSection';
@@ -29,7 +28,7 @@ const PartnersSection: React.FC = () => {
     return (
         <div className="container mx-auto px-5 lg:px-20">
             <SectionTitle subtitleKey="partnersSectionTitle" titleKey="partnersSectionHeadline" />
-             <div className="space-y-8 md:space-y-12">
+             <div className="space-y-8 md:space-y-12 scroll-fade">
                 <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 lg:gap-x-24">
                     {row1Logos.map((logo, index) => (
                         <div key={index} className="flex items-center justify-center">

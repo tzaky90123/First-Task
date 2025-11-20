@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useLocalization } from '../context/LocalizationContext';
 import SectionLogoIcon from './SectionLogoIcon';
@@ -25,7 +24,7 @@ const SectionTitle: React.FC<SectionTitleProps> = ({ subtitleKey, titleKey, desc
     }
 
     return (
-        <div className="text-center mb-12 md:mb-16">
+        <div className="text-center mb-12 md:mb-16 scroll-fade">
             {subtitleKey && (
                 <div className="flex items-center justify-center mb-4">
                     <SectionLogoIcon className="h-5 w-auto mr-3" />
