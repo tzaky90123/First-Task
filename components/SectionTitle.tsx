@@ -25,7 +25,7 @@ const SectionTitle: React.FC<SectionTitleProps> = ({ subtitleKey, titleKey, desc
     }
 
     return (
-        <div className="text-center mb-12 md:mb-16 scroll-reveal">
+        <div className="text-center mb-12 md:mb-16">
             {subtitleKey && (
                 <div className="flex items-center justify-center mb-4">
                     <SectionLogoIcon className="h-5 w-auto mr-3" />
