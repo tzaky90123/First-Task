@@ -14,9 +14,10 @@ interface InputFieldProps {
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   required?: boolean;
+  placeholder?: string;
 }
 
-const InputField: React.FC<InputFieldProps> = ({ id, name, label, type, value, onChange, required }) => (
+const InputField: React.FC<InputFieldProps> = ({ id, name, label, type, value, onChange, required, placeholder }) => (
   <div>
     <label htmlFor={id} className="block text-sm font-medium text-brand-text-gray">{label}</label>
     <div className="mt-1">
@@ -27,7 +28,8 @@ const InputField: React.FC<InputFieldProps> = ({ id, name, label, type, value, o
         value={value}
         onChange={onChange}
         required={required}
-        className="block w-full px-4 py-3 text-sm text-brand-dark bg-gray-50 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition-all duration-300"
+        placeholder={placeholder}
+        className="block w-full px-4 py-3 text-sm text-brand-dark bg-gray-50 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition-all duration-300 placeholder-gray-400"
       />
     </div>
   </div>
@@ -57,9 +59,9 @@ const ContactSection: React.FC = () => {
           <div className="p-10 sm:p-12 lg:col-span-3">
             <h3 className="text-2xl font-bold text-brand-navy mb-8">{t('contactFormTitle')}</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
-              <InputField id="name" name="name" label={t('formName')} type="text" value={formState.name} onChange={handleInputChange as any} required />
-              <InputField id="email" name="email" label={t('formEmail')} type="email" value={formState.email} onChange={handleInputChange as any} required />
-              <InputField id="subject" name="subject" label={t('formSubject')} type="text" value={formState.subject} onChange={handleInputChange as any} required />
+              <InputField id="name" name="name" label={t('formName')} type="text" value={formState.name} onChange={handleInputChange as any} required placeholder={t('formName')} />
+              <InputField id="email" name="email" label={t('formEmail')} type="email" value={formState.email} onChange={handleInputChange as any} required placeholder={t('formEmail')} />
+              <InputField id="subject" name="subject" label={t('formSubject')} type="text" value={formState.subject} onChange={handleInputChange as any} required placeholder={t('formSubject')} />
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-brand-text-gray">{t('formMessage')}</label>
                 <div className="mt-1">
@@ -70,7 +72,8 @@ const ContactSection: React.FC = () => {
                     value={formState.message}
                     onChange={handleInputChange}
                     required
-                    className="block w-full px-4 py-3 text-sm text-brand-dark bg-gray-50 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition-all duration-300"
+                    placeholder={t('formMessagePlaceholder')}
+                    className="block w-full px-4 py-3 text-sm text-brand-dark bg-gray-50 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition-all duration-300 placeholder-gray-400"
                   ></textarea>
                 </div>
               </div>

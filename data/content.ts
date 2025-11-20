@@ -230,6 +230,31 @@ export const content: LocalizedContent = {
   btpService4Desc: { [Language.FR]: 'Une gestion de projet rigoureuse garantissant le respect des délais, des budgets et des normes de qualité.', [Language.EN]: 'Rigorous project management ensuring adherence to deadlines, budgets, and quality standards.' },
 
   btpApproachTitle: { [Language.FR]: 'Notre Approche : Excellence et Innovation', [Language.EN]: 'Our Approach: Excellence and Innovation' },
-  // FIX: Added missing English translation.
   btpApproachSubtitle: { [Language.FR]: 'Notre engagement envers la sécurité, la durabilité et la technologie', [Language.EN]: 'Our commitment to safety, sustainability, and technology' },
+
+  // Contact Section
+  contactFormTitle: { [Language.FR]: 'Envoyer un message', [Language.EN]: 'Send a message' },
+  formName: { [Language.FR]: 'Nom complet', [Language.EN]: 'Full Name' },
+  formEmail: { [Language.FR]: 'Adresse e-mail', [Language.EN]: 'Email Address' },
+  formSubject: { [Language.FR]: 'Sujet', [Language.EN]: 'Subject' },
+  formMessage: { [Language.FR]: 'Votre message', [Language.EN]: 'Your Message' },
+  formMessagePlaceholder: { [Language.FR]: 'Votre message...', [Language.EN]: 'Your message...' },
+  formSend: { [Language.FR]: 'Envoyer', [Language.EN]: 'Send' },
+  
+  contactInfoTitle: { [Language.FR]: 'Nos Coordonnées', [Language.EN]: 'Contact Details' },
+  address: { [Language.FR]: 'Adresse', [Language.EN]: 'Address' },
+  phone: { [Language.FR]: 'Téléphone', [Language.EN]: 'Phone' },
+  email: { [Language.FR]: 'E-mail', [Language.EN]: 'Email' },
+  
+  contactFormSuccess: { [Language.FR]: 'Message envoyé avec succès !', [Language.EN]: 'Message sent successfully!' },
+  contactMapTitle: { [Language.FR]: 'Carte de localisation', [Language.EN]: 'Location Map' },
+  
+  // Footer generic
+  footerDescription: { [Language.FR]: "Bâtir l'avenir du Sénégal avec passion, intégrité et excellence.", [Language.EN]: "Building Senegal's future with passion, integrity, and excellence." },
+  footerQuickLinks: { [Language.FR]: 'Liens Rapides', [Language.EN]: 'Quick Links' },
+  footerFollow: { [Language.FR]: 'Suivez-nous', [Language.EN]: 'Follow Us' },
+  footerRights: { [Language.FR]: 'Tous droits réservés.', [Language.EN]: 'All rights reserved.' },
+  ariaLinkedin: { [Language.FR]: 'LinkedIn', [Language.EN]: 'LinkedIn' },
+  ariaTwitter: { [Language.FR]: 'Twitter', [Language.EN]: 'Twitter' },
+  ariaFacebook: { [Language.FR]: 'Facebook', [Language.EN]: 'Facebook' },
 };
