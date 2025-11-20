@@ -6,42 +6,40 @@ const ScrollReveal: React.FC = () => {
   const location = useLocation();
 
   useEffect(() => {
-    // Wait for content to be rendered after route change
-    const timer = setTimeout(() => {
-      const elements = document.querySelectorAll('.scroll-reveal:not(.is-visible)');
-      if (!elements.length) return;
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px 0px -50px 0px', // Trigger slightly before bottom
+      threshold: 0.1,
+    };
 
-      const observer = new IntersectionObserver((entries) => {
-        // Simple stagger logic based on order of entries in the current batch
-        let staggerIndex = 0;
-        
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const target = entry.target as HTMLElement;
-            
-            // Apply a small delay based on index to create a stagger effect for groups
-            setTimeout(() => {
-                target.classList.add('is-visible');
-            }, staggerIndex * 80); // 80ms stagger
-            
-            staggerIndex++;
-            observer.unobserve(target);
-          }
-        });
-      }, {
-        root: null,
-        rootMargin: '0px 0px -30px 0px', // Trigger slightly before bottom
-        threshold: 0.05,
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target); // Only animate once
+        }
       });
+    }, observerOptions);
 
-      elements.forEach((el) => observer.observe(el));
-      
-      // Cleanup observer on unmount/change
-      return () => observer.disconnect();
-    }, 100);
+    const observeElements = () => {
+      document.querySelectorAll('.scroll-reveal:not(.observed)').forEach((el) => {
+        observer.observe(el);
+        el.classList.add('observed');
+      });
+    };
 
-    return () => clearTimeout(timer);
-  }, [location.pathname]);
+    // Observe currently present elements
+    observeElements();
+
+    // Watch for new elements (e.g., React mounting content)
+    const mutationObserver = new MutationObserver(observeElements);
+    mutationObserver.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      mutationObserver.disconnect();
+      observer.disconnect();
+    };
+  }, [location.pathname]); // Re-initialize on route change if needed
 
   return null;
 };

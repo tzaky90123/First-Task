@@ -84,7 +84,7 @@ const ContactSection: React.FC = () => {
           </div>
           
           {/* Right Side: Contact Info & Map */}
-          <div className="p-10 sm:p-12 lg:col-span-2 scroll-reveal">
+          <div className="p-10 sm:p-12 lg:col-span-2 scroll-reveal delay-200">
             <h3 className="text-2xl font-bold text-brand-navy mb-4">{t('contactInfoTitle')}</h3>
             <div className="w-20 h-0.5 bg-brand-secondary mb-8"></div>
             <ul className="space-y-8">

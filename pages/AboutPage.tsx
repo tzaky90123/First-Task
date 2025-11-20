@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 import { useLocalization } from '../context/LocalizationContext';
 import FullScreenSection from '../components/FullScreenSection';
@@ -31,7 +32,7 @@ const PartnersSection: React.FC = () => {
              <div className="space-y-8 md:space-y-12">
                 <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 lg:gap-x-24">
                     {row1Logos.map((logo, index) => (
-                        <div key={index} className="flex items-center justify-center scroll-reveal">
+                        <div key={index} className="flex items-center justify-center">
                             <img 
                                 src={logo} 
                                 alt={t('partnerLogoAlt').replace('{number}', String(index + 1))} 
@@ -43,7 +44,7 @@ const PartnersSection: React.FC = () => {
                 </div>
                 <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 lg:gap-x-24">
                     {row2Logos.map((logo, index) => (
-                        <div key={index} className="flex items-center justify-center scroll-reveal">
+                        <div key={index} className="flex items-center justify-center">
                             <img 
                                 src={logo} 
                                 alt={t('partnerLogoAlt').replace('{number}', String(index + 1 + row1Logos.length))} 

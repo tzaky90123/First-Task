@@ -20,7 +20,7 @@ const AboutSection: React.FC = () => {
                     />
                 </div>
                 {/* Right Text Column */}
-                <div className="p-8 md:p-12 flex flex-col justify-center h-full scroll-reveal">
+                <div className="p-8 md:p-12 flex flex-col justify-center h-full scroll-reveal delay-200">
                     <div className="text-sm text-brand-text-gray space-y-3 leading-relaxed flex flex-col h-full justify-center">
                         {['homeAboutP1', 'homeAboutP2', 'homeAboutP3', 'homeAboutP4', 'homeAboutP5', 'homeAboutP6'].map(pKey => (
                             <p key={pKey} dangerouslySetInnerHTML={{ __html: t(pKey) }} />
