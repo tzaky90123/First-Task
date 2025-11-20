@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
@@ -9,7 +10,9 @@ const ScrollReveal: React.FC = () => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
+        } else {
+          // Remove class when out of view to reset animation state, allowing it to replay
+          entry.target.classList.remove("visible");
         }
       });
     }, { threshold: 0.15 });
