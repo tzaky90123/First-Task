@@ -1,3 +1,4 @@
+
 import { LocalizedContent, Language } from '../types';
 
 export const content: LocalizedContent = {
@@ -230,7 +231,17 @@ export const content: LocalizedContent = {
   btpService4Desc: { [Language.FR]: 'Une gestion de projet rigoureuse garantissant le respect des délais, des budgets et des normes de qualité.', [Language.EN]: 'Rigorous project management ensuring adherence to deadlines, budgets, and quality standards.' },
 
   btpApproachTitle: { [Language.FR]: 'Notre Approche : Excellence et Innovation', [Language.EN]: 'Our Approach: Excellence and Innovation' },
-  btpApproachSubtitle: { [Language.FR]: 'Notre engagement envers la sécurité, la durabilité et la technologie', [Language.EN]: 'Our commitment to safety, sustainability, and technology' },
+  btpApproachSubtitle: { [Language.FR]: 'Notre engagement envers la sécurité, la durabilité et les technologies de pointe.', [Language.EN]: 'Our commitment to safety, sustainability, and cutting-edge technology.' },
+  btpApproachSafetyTitle: { [Language.FR]: 'La Sécurité Avant Tout', [Language.EN]: 'Safety First' },
+  btpApproachSafetyDesc: { [Language.FR]: 'Nous appliquons des protocoles de sécurité stricts sur tous nos chantiers pour assurer le bien-être de nos équipes et partenaires.', [Language.EN]: 'We apply strict safety protocols on all our sites to ensure the well-being of our teams and partners.' },
+  btpApproachSustainabilityTitle: { [Language.FR]: 'Pratiques de Construction Durable', [Language.EN]: 'Sustainable Building Practices' },
+  btpApproachSustainabilityDesc: { [Language.FR]: 'Nous intégrons des matériaux écologiques et des techniques de construction à faible impact pour préserver l\'environnement pour les générations futures.', [Language.EN]: 'We integrate eco-friendly materials and low-impact construction techniques to preserve the environment for future generations.' },
+  btpApproachTechTitle: { [Language.FR]: 'Technologie de Pointe', [Language.EN]: 'Cutting-Edge Technology' },
+  btpApproachTechDesc: { [Language.FR]: 'L\'utilisation du BIM (Building Information Modeling) et d\'autres technologies modernes nous permet d\'optimiser la conception, la planification et l\'exécution de chaque projet.', [Language.EN]: 'The use of BIM (Building Information Modeling) and other modern technologies allows us to optimize the design, planning, and execution of each project.' },
+  btpApproachImageAlt: { [Language.FR]: 'Réunion d\'équipe sur site', [Language.EN]: 'On-site team meeting' },
+  btpApproachSafetyIconAlt: { [Language.FR]: 'Icône Sécurité', [Language.EN]: 'Safety Icon' },
+  btpApproachSustainabilityIconAlt: { [Language.FR]: 'Icône Durabilité', [Language.EN]: 'Sustainability Icon' },
+  btpApproachTechIconAlt: { [Language.FR]: 'Icône Technologie', [Language.EN]: 'Technology Icon' },
 
   // Contact Section
   contactFormTitle: { [Language.FR]: 'Envoyer un message', [Language.EN]: 'Send a message' },
@@ -257,4 +268,13 @@ export const content: LocalizedContent = {
   ariaLinkedin: { [Language.FR]: 'LinkedIn', [Language.EN]: 'LinkedIn' },
   ariaTwitter: { [Language.FR]: 'Twitter', [Language.EN]: 'Twitter' },
   ariaFacebook: { [Language.FR]: 'Facebook', [Language.EN]: 'Facebook' },
+
+  // BTP Projects
+  btpProjectsTitle: { [Language.FR]: 'Nos Projets', [Language.EN]: 'Our Projects' },
+  btpProject1Title: { [Language.FR]: 'Développement d\'Infrastructures Urbaines', [Language.EN]: 'Urban Infrastructure Development' },
+  btpProject1Desc: { [Language.FR]: 'Modernisation des infrastructures urbaines pour améliorer la mobilité et la qualité de vie.', [Language.EN]: 'Modernization of urban infrastructure to improve mobility and quality of life.' },
+  btpProject2Title: { [Language.FR]: 'Équipements Publics et Commerciaux', [Language.EN]: 'Public & Commercial Facilities' },
+  btpProject2Desc: { [Language.FR]: 'Construction de bâtiments publics et d’espaces commerciaux répondant aux normes internationales.', [Language.EN]: 'Construction of public buildings and commercial spaces meeting international standards.' },
+  btpProject3Title: { [Language.FR]: 'Travaux Routiers et Tunnels', [Language.EN]: 'Road & Tunnel Works' },
+  btpProject3Desc: { [Language.FR]: 'Réalisation de travaux routiers et de tunnels garantissant sécurité, durabilité et performance.', [Language.EN]: 'Execution of road works and tunnels ensuring safety, durability, and performance.' },
 };
