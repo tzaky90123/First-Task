@@ -276,7 +276,7 @@ export const content: LocalizedContent = {
   reProjectHlmFeatures: { [Language.FR]: 'Accessibilité, Espaces verts, Proximité transports', [Language.EN]: 'Accessibility, Green spaces, Near transport' },
   reProjectNiagueFeatures: { [Language.FR]: 'Vue sur le lac, Calme, Potentiel de plus-value', [Language.EN]: 'Lake view, Quiet, Appreciation potential' },
 
-  // Real Estate Page - Sustainability (Updated as per request)
+  // Real Estate Page - Sustainability
   reSustainabilityTitle: { [Language.FR]: 'Construire un Avenir Durable', [Language.EN]: 'Building a Sustainable Future' },
   reSustainabilityText: { 
     [Language.FR]: 'Notre engagement pour la durabilité se traduit par des actions concrètes à chaque étape de nos projets immobiliers, minimisant l\'empreinte écologique et maximisant le confort de vie.', 
@@ -326,23 +326,46 @@ export const content: LocalizedContent = {
   minesHeroSubtitle: { [Language.FR]: 'Valorisation responsable des ressources.', [Language.EN]: 'Responsible resource valuation.' },
   minesHeroServicesSubtitle: { [Language.FR]: 'Exploration, extraction et traitement.', [Language.EN]: 'Exploration, extraction, and processing.' },
   minesHeroProjectsSubtitle: { [Language.FR]: 'Nos sites d\'exploitation.', [Language.EN]: 'Our mining sites.' },
-  minesIntroTitle: { [Language.FR]: 'Une Exploitation Responsable', [Language.EN]: 'Responsible Mining' },
-  minesIntroText: { [Language.FR]: 'SOCABEG Mining s\'engage dans une exploitation minière durable, respectueuse de l\'environnement et bénéfique pour les communautés locales, stimulant ainsi la croissance économique.', [Language.EN]: 'SOCABEG Mining is committed to sustainable mining that is environmentally friendly and beneficial to local communities, thereby <strong>stimulating economic growth</strong>.' },
-  minesIntroParagraph2: { [Language.FR]: 'Nous utilisons des technologies de pointe pour maximiser l\'efficacité tout en minimisant notre impact.', [Language.EN]: 'We use cutting-edge technologies to maximize efficiency while minimizing our impact.' },
-  minesIntroImageAlt: { [Language.FR]: 'Opération minière', [Language.EN]: 'Mining operation' },
   
-  minesServicesTitle: { [Language.FR]: 'Nos Services Miniers', [Language.EN]: 'Our Mining Services' },
-  minesService1Title: { [Language.FR]: 'Exploration', [Language.EN]: 'Exploration' },
-  minesService1Desc: { [Language.FR]: 'Études géologiques et prospection.', [Language.EN]: 'Geological studies and prospecting.' },
+  minesIntroTitle: { [Language.FR]: "Façonner l'Avenir de l'Industrie Minière au Sénégal", [Language.EN]: 'Shaping the Future of the Mining Industry in Senegal' },
+  minesIntroText: { 
+    [Language.FR]: 'La division minière de SOCABEG est un pilier de l\'exploitation responsable des richesses minérales du Sénégal. Nous nous spécialisons dans des projets d\'extraction et de traitement à grande échelle, offrant des services complets, de l\'exploration initiale à la livraison finale, <strong>stimulant ainsi la croissance économique</strong> tout en respectant les normes éthiques les plus strictes.', 
+    [Language.EN]: 'SOCABEG\'s mining division is a pillar of responsible mineral wealth exploitation in Senegal. We specialize in large-scale extraction and processing projects, offering comprehensive services from initial exploration to final delivery, <strong>thereby stimulating economic growth</strong> while adhering to the strictest ethical standards.' 
+  },
+  minesIntroParagraph2: { 
+    [Language.FR]: 'Nous nous engageons à une exploitation qui respecte à la fois <strong>l\'environnement et les communautés locales</strong>, en créant une valeur durable pour le Sénégal.', 
+    [Language.EN]: 'We are committed to operations that respect both <strong>the environment and local communities</strong>, creating sustainable value for Senegal.' 
+  },
+  minesIntroImageAlt: { [Language.FR]: 'Ingénieurs miniers inspectant des plans', [Language.EN]: 'Mining engineers inspecting plans' },
+  
+  minesServicesTitle: { [Language.FR]: 'Nos Services Miniers Complets', [Language.EN]: 'Our Comprehensive Mining Services' },
+  
+  minesService1Title: { [Language.FR]: 'Exploration et Évaluation de Site', [Language.EN]: 'Exploration and Site Evaluation' },
+  minesService1Desc: { 
+    [Language.FR]: 'Utilisation de levés géophysiques et d\'études de faisabilité pour identifier et quantifier les gisements miniers potentiels.', 
+    [Language.EN]: 'Use of geophysical surveys and feasibility studies to identify and quantify potential mineral deposits.' 
+  },
   minesServiceIcon1Alt: { [Language.FR]: 'Icône Exploration', [Language.EN]: 'Exploration Icon' },
-  minesService2Title: { [Language.FR]: 'Extraction', [Language.EN]: 'Extraction' },
-  minesService2Desc: { [Language.FR]: 'Méthodes d\'extraction efficaces et sûres.', [Language.EN]: 'Efficient and safe extraction methods.' },
+  
+  minesService2Title: { [Language.FR]: 'Extraction et Opérations', [Language.EN]: 'Extraction and Operations' },
+  minesService2Desc: { 
+    [Language.FR]: 'Déploiement de techniques minières à ciel ouvert et souterraines efficaces pour maximiser le rendement et la sécurité.', 
+    [Language.EN]: 'Deployment of efficient open-pit and underground mining techniques to maximize yield and safety.' 
+  },
   minesServiceIcon2Alt: { [Language.FR]: 'Icône Extraction', [Language.EN]: 'Extraction Icon' },
-  minesService3Title: { [Language.FR]: 'Traitement', [Language.EN]: 'Processing' },
-  minesService3Desc: { [Language.FR]: 'Valorisation des minerais extraits.', [Language.EN]: 'Processing of extracted ores.' },
+  
+  minesService3Title: { [Language.FR]: 'Traitement et Enrichissement du Minerai', [Language.EN]: 'Ore Processing and Beneficiation' },
+  minesService3Desc: { 
+    [Language.FR]: 'Installations de traitement de pointe pour le concassage, le broyage et la séparation afin d\'améliorer la qualité du produit final.', 
+    [Language.EN]: 'State-of-the-art processing facilities for crushing, grinding, and separation to improve final product quality.' 
+  },
   minesServiceIcon3Alt: { [Language.FR]: 'Icône Traitement', [Language.EN]: 'Processing Icon' },
-  minesService4Title: { [Language.FR]: 'Logistique', [Language.EN]: 'Logistics' },
-  minesService4Desc: { [Language.FR]: 'Transport et exportation des ressources.', [Language.EN]: 'Transport and export of resources.' },
+  
+  minesService4Title: { [Language.FR]: 'Logistique et Transport', [Language.EN]: 'Logistics and Transport' },
+  minesService4Desc: { 
+    [Language.FR]: 'Gestion de la chaîne d\'approvisionnement de bout en bout pour assurer une livraison fiable et ponctuelle des ressources aux marchés mondiaux.', 
+    [Language.EN]: 'End-to-end supply chain management to ensure reliable and punctual delivery of resources to global markets.' 
+  },
   minesServiceIcon4Alt: { [Language.FR]: 'Icône Logistique', [Language.EN]: 'Logistics Icon' },
 
   minesProjectsTitle: { [Language.FR]: 'Nos Sites', [Language.EN]: 'Our Sites' },

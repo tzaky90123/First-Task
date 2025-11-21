@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useLocalization } from '../context/LocalizationContext';
 import { Link } from 'react-router-dom';
@@ -14,7 +15,7 @@ const IntroductionSection: React.FC = () => {
             <div className="grid md:grid-cols-2 gap-12 lg:gap-24 items-center">
                 <div>
                     <h2 className="text-3xl font-bold font-sans text-brand-navy mb-6">{t('minesIntroTitle')}</h2>
-                    <p className="text-lg text-brand-text-gray leading-relaxed mb-4" dangerouslySetInnerHTML={{ __html: t('minesIntroText').replace('stimulant ainsi la croissance économique', '<strong>stimulant ainsi la croissance économique</strong>') }} />
+                    <p className="text-lg text-brand-text-gray leading-relaxed mb-4" dangerouslySetInnerHTML={{ __html: t('minesIntroText') }} />
                     <p className="text-lg text-brand-text-gray leading-relaxed" dangerouslySetInnerHTML={{ __html: t('minesIntroParagraph2') }} />
                 </div>
                 <div>
