@@ -150,18 +150,24 @@ export const content: LocalizedContent = {
 
   whyChooseUsSectionTitle: { [Language.FR]: 'Pourquoi Nous Choisir', [Language.EN]: 'Why Choose Us' },
   whyChooseUsSectionHeadline: { [Language.FR]: 'NOS VALEURS', [Language.EN]: 'OUR VALUES' },
-  value1Title: { [Language.FR]: 'Expertise Reconnue', [Language.EN]: 'Recognized Expertise' },
-  value1Desc: { [Language.FR]: 'Plus de 35 ans d\'expérience dans le BTP et l\'immobilier.', [Language.EN]: 'Over 35 years of experience in construction and real estate.' },
-  value2Title: { [Language.FR]: 'Qualité Supérieure', [Language.EN]: 'Superior Quality' },
-  value2Desc: { [Language.FR]: 'Matériaux de premier choix et finitions soignées.', [Language.EN]: 'Premium materials and meticulous finishes.' },
-  value3Title: { [Language.FR]: 'Innovation', [Language.EN]: 'Innovation' },
-  value3Desc: { [Language.FR]: 'Utilisation des dernières technologies de construction.', [Language.EN]: 'Use of the latest construction technologies.' },
-  value4Title: { [Language.FR]: 'Respect des Délais', [Language.EN]: 'On-Time Delivery' },
-  value4Desc: { [Language.FR]: 'Engagement ferme sur les dates de livraison.', [Language.EN]: 'Firm commitment to delivery dates.' },
-  value5Title: { [Language.FR]: 'Service Client', [Language.EN]: 'Customer Service' },
-  value5Desc: { [Language.FR]: 'Accompagnement personnalisé à chaque étape.', [Language.EN]: 'Personalized support at every step.' },
-  value6Title: { [Language.FR]: 'Durabilité', [Language.EN]: 'Sustainability' },
-  value6Desc: { [Language.FR]: 'Construction respectueuse de l\'environnement.', [Language.EN]: 'Environmentally friendly construction.' },
+  
+  value1Title: { [Language.FR]: 'Expérience Reconnue', [Language.EN]: 'Recognized Expertise' },
+  value1Desc: { [Language.FR]: 'Plus de 35 ans d’activité dans le BTP et l’immobilier au Sénégal, avec des milliers de logements livrés.', [Language.EN]: 'Over 35 years of activity in construction and real estate in Senegal, with thousands of homes delivered.' },
+  
+  value2Title: { [Language.FR]: 'Maîtrise des Projets', [Language.EN]: 'Project Mastery' },
+  value2Desc: { [Language.FR]: 'Une expertise complète du cycle de construction : études, réalisation, viabilisation, commercialisation.', [Language.EN]: 'Complete expertise in the construction cycle: studies, realization, servicing, marketing.' },
+  
+  value3Title: { [Language.FR]: 'Responsabilité Durable', [Language.EN]: 'Sustainable Responsibility' },
+  value3Desc: { [Language.FR]: "Techniques modernes à faible empreinte carbone et formation de la main-d'œuvre locale.", [Language.EN]: 'Modern techniques with low carbon footprint and training of local workforce.' },
+  
+  value4Title: { [Language.FR]: 'Innovation Techniques', [Language.EN]: 'Technical Innovation' },
+  value4Desc: { [Language.FR]: 'BIM, ERP BTP, coffrages Geoplast®, usine de préfabrication… SOCABEG investit dans la modernité.', [Language.EN]: 'BIM, construction ERP, Geoplast® formwork, prefabrication plant… SOCABEG invests in modernity.' },
+  
+  value5Title: { [Language.FR]: 'Projets Emblématiques', [Language.EN]: 'Iconic Projects' },
+  value5Desc: { [Language.FR]: 'Tivaouane Peulh, HLM Castor, Darou Salam, Cité IPRES… des projets qui transforment la ville.', [Language.EN]: 'Tivaouane Peulh, HLM Castor, Darou Salam, Cité IPRES… projects that transform the city.' },
+  
+  value6Title: { [Language.FR]: 'Confiance et Proximité', [Language.EN]: 'Trust and Proximity' },
+  value6Desc: { [Language.FR]: 'Entreprise 100% sénégalaise à taille humaine, proche de ses clients et de leurs besoins.', [Language.EN]: '100% Senegalese company on a human scale, close to its clients and their needs.' },
 
   testimonialsSectionTitle: { [Language.FR]: 'Témoignages', [Language.EN]: 'Testimonials' },
   testimonialsSectionHeadline: { [Language.FR]: 'CE QUE DISENT NOS CLIENTS', [Language.EN]: 'WHAT OUR CLIENTS SAY' },
