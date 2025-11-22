@@ -5,29 +5,51 @@ const ScrollAnimation: React.FC = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('scrolled');
-          observer.unobserve(entry.target); // Animate only once
+    // Use a single IntersectionObserver for better performance
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Add the class that triggers the CSS transition
+            entry.target.classList.add('scrolled');
+            // Unobserve the element once it has appeared to save resources (run once)
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.15, // Trigger when 15% of the element is visible
+        rootMargin: '0px 0px -50px 0px', // Offset to trigger slightly before the bottom of the viewport
+      }
+    );
+
+    const observeElements = () => {
+      // Select elements with the existing class names
+      const elements = document.querySelectorAll('.scroll-element, .scroll-fade');
+      elements.forEach((el) => {
+        // Only observe if not already animated
+        if (!el.classList.contains('scrolled')) {
+          observer.observe(el);
         }
       });
-    }, {
-      threshold: 0.15,
-      rootMargin: '0px 0px -50px 0px'
+    };
+
+    // 1. Run immediately inside a requestAnimationFrame to catch synchronous renders
+    requestAnimationFrame(() => {
+      observeElements();
     });
 
-    // Small delay to ensure elements are rendered in the DOM
-    const timeout = setTimeout(() => {
-        const elements = document.querySelectorAll('.scroll-element');
-        elements.forEach((el) => observer.observe(el));
-    }, 100);
+    // 2. Run after a short delay to ensure all dynamic content/lazy-loaded components are rendered
+    const timeoutId = setTimeout(() => {
+      observeElements();
+    }, 200);
 
+    // Cleanup function
     return () => {
-        clearTimeout(timeout);
-        observer.disconnect();
+      clearTimeout(timeoutId);
+      observer.disconnect();
     };
-  }, [location]);
+  }, [location]); // Re-run effect when the route changes
 
   return null;
 };
