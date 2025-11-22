@@ -151,38 +151,45 @@ export const content: LocalizedContent = {
   whyChooseUsSectionTitle: { [Language.FR]: 'Pourquoi Nous Choisir', [Language.EN]: 'Why Choose Us' },
   whyChooseUsSectionHeadline: { [Language.FR]: 'NOS VALEURS', [Language.EN]: 'OUR VALUES' },
   
-  value1Title: { [Language.FR]: 'Expérience Reconnue', [Language.EN]: 'Recognized Expertise' },
+  value1Title: { [Language.FR]: 'Expérience Reconnue', [Language.EN]: 'Experience recovery' },
   value1Desc: { [Language.FR]: 'Plus de 35 ans d’activité dans le BTP et l’immobilier au Sénégal, avec des milliers de logements livrés.', [Language.EN]: 'Over 35 years of activity in construction and real estate in Senegal, with thousands of homes delivered.' },
   
-  value2Title: { [Language.FR]: 'Maîtrise des Projets', [Language.EN]: 'Project Mastery' },
+  value2Title: { [Language.FR]: 'Maîtrise des Projets', [Language.EN]: 'Maîtrise des projects' },
   value2Desc: { [Language.FR]: 'Une expertise complète du cycle de construction : études, réalisation, viabilisation, commercialisation.', [Language.EN]: 'Complete expertise in the construction cycle: studies, realization, servicing, marketing.' },
   
-  value3Title: { [Language.FR]: 'Responsabilité Durable', [Language.EN]: 'Sustainable Responsibility' },
+  value3Title: { [Language.FR]: 'Responsabilité Durable', [Language.EN]: 'Responsabilité durable' },
   value3Desc: { [Language.FR]: "Techniques modernes à faible empreinte carbone et formation de la main-d'œuvre locale.", [Language.EN]: 'Modern techniques with low carbon footprint and training of local workforce.' },
   
-  value4Title: { [Language.FR]: 'Innovation Techniques', [Language.EN]: 'Technical Innovation' },
+  value4Title: { [Language.FR]: 'Innovation Techniques', [Language.EN]: 'Innovation techniques' },
   value4Desc: { [Language.FR]: 'BIM, ERP BTP, coffrages Geoplast®, usine de préfabrication… SOCABEG investit dans la modernité.', [Language.EN]: 'BIM, construction ERP, Geoplast® formwork, prefabrication plant… SOCABEG invests in modernity.' },
   
-  value5Title: { [Language.FR]: 'Projets Emblématiques', [Language.EN]: 'Iconic Projects' },
+  value5Title: { [Language.FR]: 'Projets Emblématiques', [Language.EN]: 'Projets emblématiques' },
   value5Desc: { [Language.FR]: 'Tivaouane Peulh, HLM Castor, Darou Salam, Cité IPRES… des projets qui transforment la ville.', [Language.EN]: 'Tivaouane Peulh, HLM Castor, Darou Salam, Cité IPRES… projects that transform the city.' },
   
-  value6Title: { [Language.FR]: 'Confiance et Proximité', [Language.EN]: 'Trust and Proximity' },
+  value6Title: { [Language.FR]: 'Confiance et Proximité', [Language.EN]: 'Confiance et proximité' },
   value6Desc: { [Language.FR]: 'Entreprise 100% sénégalaise à taille humaine, proche de ses clients et de leurs besoins.', [Language.EN]: '100% Senegalese company on a human scale, close to its clients and their needs.' },
 
   testimonialsSectionTitle: { [Language.FR]: 'Témoignages', [Language.EN]: 'Testimonials' },
   testimonialsSectionHeadline: { [Language.FR]: 'CE QUE DISENT NOS CLIENTS', [Language.EN]: 'WHAT OUR CLIENTS SAY' },
-  testimonial1Quote: { [Language.FR]: 'J\'ai acheté ma maison avec SOCABEG et je suis ravi de la qualité et du service. Une équipe très professionnelle !', [Language.EN]: 'I bought my house with SOCABEG and I am delighted with the quality and service. A very professional team!' },
-  testimonial1Name: { [Language.FR]: 'Moussa Diop', [Language.EN]: 'Moussa Diop' },
-  testimonial2Quote: { [Language.FR]: 'Un partenaire de confiance pour nos projets de construction. Délais respectés et travail impeccable.', [Language.EN]: 'A trusted partner for our construction projects. Deadlines met and impeccable work.' },
-  testimonial2Name: { [Language.FR]: 'Entreprise ABC', [Language.EN]: 'ABC Company' },
-  testimonial3Quote: { [Language.FR]: "L'accompagnement de SOCABEG a été déterminant dans la réussite de notre projet immobilier. Leur expertise est indéniable.", [Language.EN]: "SOCABEG's support was decisive in the success of our real estate project. Their expertise is undeniable." },
-  testimonial3Name: { [Language.FR]: 'Aminata Sow', [Language.EN]: 'Aminata Sow' },
-  testimonial4Quote: { [Language.FR]: "Qualité de construction irréprochable et un service après-vente très réactif. Je recommande vivement.", [Language.EN]: "Impeccable construction quality and very responsive after-sales service. I highly recommend." },
-  testimonial4Name: { [Language.FR]: 'Jean-Pierre Ndiaye', [Language.EN]: 'Jean-Pierre Ndiaye' },
-  testimonial5Quote: { [Language.FR]: "Investir avec SOCABEG a été l'une de mes meilleures décisions financières. Transparence et professionnalisme.", [Language.EN]: "Investing with SOCABEG was one of my best financial decisions. Transparency and professionalism." },
-  testimonial5Name: { [Language.FR]: 'Fatou Cissé', [Language.EN]: 'Fatou Cissé' },
-  testimonial6Quote: { [Language.FR]: "Une vision moderne de l'habitat qui respecte nos traditions. Merci SOCABEG pour ce cadre de vie exceptionnel.", [Language.EN]: "A modern vision of housing that respects our traditions. Thank you SOCABEG for this exceptional living environment." },
-  testimonial6Name: { [Language.FR]: 'Oumar Kane', [Language.EN]: 'Oumar Kane' },
+  
+  testimonial1Quote: { [Language.FR]: "J'ai acquis ma villa à la Cité Tivaouane Peulh avec SOCABEG. Le processus était transparent et l'équipe très professionnelle.", [Language.EN]: 'I acquired my villa at Cité Tivaouane Peulh with SOCABEG. The process was transparent and the team very professional.' },
+  testimonial1Name: { [Language.FR]: 'Amadou Diallo', [Language.EN]: 'Amadou Diallo' },
+  
+  testimonial2Quote: { [Language.FR]: "La qualité des finitions et le respect des délais sont les points forts de SOCABEG. Je suis très satisfaite de mon investissement.", [Language.EN]: 'The quality of finishes and adherence to deadlines are SOCABEG\'s strong points. I am very satisfied with my investment.' },
+  testimonial2Name: { [Language.FR]: 'Marieme Faye', [Language.EN]: 'Marieme Faye' },
+  
+  testimonial3Quote: { [Language.FR]: "SOCABEG offre des solutions de logement accessibles sans compromettre la qualité. Un partenaire de confiance pour l'avenir.", [Language.EN]: 'SOCABEG offers accessible housing solutions without compromising quality. A trusted partner for the future.' },
+  testimonial3Name: { [Language.FR]: 'Babacar Sy', [Language.EN]: 'Babacar Sy' },
+  
+  testimonial4Quote: { [Language.FR]: "L'équipe commerciale a été formidable, m'accompagnant dans toutes les démarches administratives. Un grand merci !", [Language.EN]: 'The sales team was wonderful, guiding me through all the administrative procedures. A big thank you!' },
+  testimonial4Name: { [Language.FR]: 'Khady Ndiaye', [Language.EN]: 'Khady Ndiaye' },
+  
+  testimonial5Quote: { [Language.FR]: "En tant qu'investisseur, j'apprécie la vision et la rigueur de SOCABEG. Leurs projets immobiliers sont parmi les meilleurs du marché.", [Language.EN]: 'As an investor, I appreciate SOCABEG\'s vision and rigor. Their real estate projects are among the best on the market.' },
+  testimonial5Name: { [Language.FR]: 'Ousmane Sow', [Language.EN]: 'Ousmane Sow' },
+  
+  testimonial6Quote: { [Language.FR]: "Je vis dans une résidence SOCABEG depuis deux ans. C'est un cadre de vie paisible et sécurisé pour mes enfants.", [Language.EN]: 'I have lived in a SOCABEG residence for two years. It is a peaceful and safe living environment for my children.' },
+  testimonial6Name: { [Language.FR]: 'Marie Sene', [Language.EN]: 'Marie Sene' },
+  
   prevTestimonialAria: { [Language.FR]: 'Témoignage précédent', [Language.EN]: 'Previous testimonial' },
   nextTestimonialAria: { [Language.FR]: 'Témoignage suivant', [Language.EN]: 'Next testimonial' },
 
@@ -217,23 +224,28 @@ export const content: LocalizedContent = {
 
   // BTP Page
   btpHeroTitle: { [Language.FR]: 'Construction & BTP', [Language.EN]: 'Construction & BTP' },
-  btpHeroSubtitle: { [Language.FR]: 'Expertise technique pour des projets d\'envergure.', [Language.EN]: 'Technical expertise for major projects.' },
+  btpHeroSubtitle: { [Language.FR]: 'Expertise technique pour des projets d\'invergure.', [Language.EN]: 'Technical expertise for major projects.' },
   btpExpertiseTitle: { [Language.FR]: 'Notre Expertise', [Language.EN]: 'Our Expertise' },
   btpHeroExpertiseSubtitle: { [Language.FR]: 'Génie civil, travaux publics et bâtiments.', [Language.EN]: 'Civil engineering, public works, and buildings.' },
-  btpProjectsTitle: { [Language.FR]: 'Projets Récents', [Language.EN]: 'Recent Projects' },
+  btpProjectsTitle: { [Language.FR]: 'Projets Phares : Notre Impact en Action', [Language.EN]: 'Flagship Projects: Our Impact in Action' },
   btpHeroProjectsSubtitle: { [Language.FR]: 'Découvrez nos dernières réalisations.', [Language.EN]: 'Discover our latest achievements.' },
   
-  btpServicesNewTitle: { [Language.FR]: 'Nos Services', [Language.EN]: 'Our Services' },
-  btpServicesNewSubtitle: { [Language.FR]: 'SOLUTIONS COMPLÈTES', [Language.EN]: 'COMPLETE SOLUTIONS' },
-  btpService1Title: { [Language.FR]: 'Génie Civil', [Language.EN]: 'Civil Engineering' },
-  btpService1Desc: { [Language.FR]: 'Conception et réalisation d\'infrastructures robustes.', [Language.EN]: 'Design and construction of robust infrastructure.' },
-  btpService2Title: { [Language.FR]: 'Construction Bâtiment', [Language.EN]: 'Building Construction' },
-  btpService2Desc: { [Language.FR]: 'Édifices résidentiels, commerciaux et industriels.', [Language.EN]: 'Residential, commercial, and industrial buildings.' },
-  btpService3Title: { [Language.FR]: 'Travaux Routiers', [Language.EN]: 'Road Works' },
-  btpService3Desc: { [Language.FR]: 'Aménagement de routes et voiries urbaines.', [Language.EN]: 'Development of roads and urban roadways.' },
-  btpService4Title: { [Language.FR]: 'Hydraulique', [Language.EN]: 'Hydraulics' },
-  btpService4Desc: { [Language.FR]: 'Ouvrages hydrauliques et assainissement.', [Language.EN]: 'Hydraulic structures and sanitation.' },
-  learnMoreLink: { [Language.FR]: 'En savoir plus', [Language.EN]: 'Learn more' },
+  btpServicesNewTitle: { [Language.FR]: 'NOS SERVICES DE CONSTRUCTION', [Language.EN]: 'OUR CONSTRUCTION SERVICES' },
+  btpServicesNewSubtitle: { [Language.FR]: 'L\'EXCELLENCE DANS LA CONSTRUCTION POUR CHAQUE PROJET.', [Language.EN]: 'BUILDING EXCELLENCE ACROSS EVERY PROJECT.' },
+  
+  btpService1Title: { [Language.FR]: 'Civil Engineering & Infrastructure', [Language.EN]: 'Civil Engineering & Infrastructure' },
+  btpService1Desc: { [Language.FR]: "Construction of roads, bridges, and sanitation networks to connect territories and boost trade.", [Language.EN]: 'Construction of roads, bridges, and sanitation networks to connect territories and boost trade.' },
+  
+  btpService2Title: { [Language.FR]: 'Public & Commercial Buildings', [Language.EN]: 'Public & Commercial Buildings' },
+  btpService2Desc: { [Language.FR]: "Building hospitals, schools, offices, and commercial complexes that become community pillars.", [Language.EN]: 'Building hospitals, schools, offices, and commercial complexes that become community pillars.' },
+  
+  btpService3Title: { [Language.FR]: 'Urban Development', [Language.EN]: 'Urban Development' },
+  btpService3Desc: { [Language.FR]: 'Servicing land and developing new districts, creating quality living spaces.', [Language.EN]: 'Servicing land and developing new districts, creating quality living spaces.' },
+  
+  btpService4Title: { [Language.FR]: 'Construction Project Management', [Language.EN]: 'Construction Project Management' },
+  btpService4Desc: { [Language.FR]: 'Rigorous project management ensuring adherence to deadlines, budgets, and quality standards.', [Language.EN]: 'Rigorous project management ensuring adherence to deadlines, budgets, and quality standards.' },
+  
+  learnMoreLink: { [Language.FR]: 'En savoir plus', [Language.EN]: 'Learn More' },
 
   btpApproachTitle: { [Language.FR]: 'Our Approach: Excellence and Innovation', [Language.EN]: 'Our Approach: Excellence and Innovation' },
   btpApproachSubtitle: { [Language.FR]: 'Our commitment to safety, sustainability, and cutting-edge technology.', [Language.EN]: 'Our commitment to safety, sustainability, and cutting-edge technology.' },
@@ -248,12 +260,12 @@ export const content: LocalizedContent = {
   btpApproachTechDesc: { [Language.FR]: 'The use of BIM (Building Information Modeling) and other modern technologies allows us to optimize the design, planning, and execution of each project.', [Language.EN]: 'The use of BIM (Building Information Modeling) and other modern technologies allows us to optimize the design, planning, and execution of each project.' },
   btpApproachTechIconAlt: { [Language.FR]: 'Icône Technologie', [Language.EN]: 'Technology Icon' },
 
-  btpProject1Title: { [Language.FR]: 'Urban Infrastructure Development', [Language.EN]: 'Urban Infrastructure Development' },
-  btpProject1Desc: { [Language.FR]: 'Modernisation des infrastructures urbaines pour améliorer la mobilité et la qualité de vie.', [Language.EN]: 'Modernization of urban infrastructure to improve mobility and quality of life.' },
-  btpProject2Title: { [Language.FR]: 'Public & Commercial Facilities', [Language.EN]: 'Public & Commercial Facilities' },
-  btpProject2Desc: { [Language.FR]: 'Construction de bâtiments publics et d’espaces commerciaux répondant aux normes internationales.', [Language.EN]: 'Construction of public buildings and commercial spaces meeting international standards.' },
-  btpProject3Title: { [Language.FR]: 'Road & Tunnel Works', [Language.EN]: 'Road & Tunnel Works' },
-  btpProject3Desc: { [Language.FR]: 'Réalisation de travaux routiers et de tunnels garantissant sécurité, durabilité et performance.', [Language.EN]: 'Execution of road and tunnel works ensuring safety, durability, and performance.' },
+  btpProject1Title: { [Language.FR]: "Pont de l'Avenir", [Language.EN]: "Future Bridge" },
+  btpProject1Desc: { [Language.FR]: "Un ouvrage d'art de 1,2 km reliant deux régions économiques clés. Achevé en 3 ans, ce projet a réduit le temps de trajet de 2 heures et dynamisé les échanges commerciaux locaux.", [Language.EN]: "A 1.2 km engineering structure connecting two key economic regions. Completed in 3 years, this project reduced travel time by 2 hours and boosted local trade." },
+  btpProject2Title: { [Language.FR]: "Hôpital Régional de Kaolack", [Language.EN]: "Kaolack Regional Hospital" },
+  btpProject2Desc: { [Language.FR]: "Construction d'une infrastructure sanitaire moderne de 250 lits. Ce projet de 24 mois a amélioré l'accès aux soins pour plus de 500 000 personnes.", [Language.EN]: "Construction of a modern 250-bed health infrastructure. This 24-month project improved access to care for over 500,000 people." },
+  btpProject3Title: { [Language.FR]: "Autoroute Dakar-Diamniadio", [Language.EN]: "Dakar-Diamniadio Highway" },
+  btpProject3Desc: { [Language.FR]: "Participation à la construction d'un tronçon de 15 km de cet axe vital. Notre intervention a contribué à désengorger la capitale et à soutenir le développement du pôle urbain de Diamniadio.", [Language.EN]: "Participation in the construction of a 15 km section of this vital axis. Our intervention contributed to decongesting the capital and supporting the development of the Diamniadio urban pole." },
   viewProjectButton: { [Language.FR]: 'Voir le projet →', [Language.EN]: 'View project →' },
 
   // Real Estate Page
@@ -291,182 +303,154 @@ export const content: LocalizedContent = {
   reSustainabilityImageAlt: { [Language.FR]: 'Architecture durable', [Language.EN]: 'Sustainable Architecture' },
   
   reSustainabilityPoint1Title: { [Language.FR]: 'Matériaux Éco-responsables', [Language.EN]: 'Eco-friendly Materials' },
-  reSustainabilityPoint1Desc: { 
-    [Language.FR]: 'Utilisation de matériaux locaux et recyclés pour réduire l\'impact carbone.', 
-    [Language.EN]: 'Use of local and recycled materials to reduce carbon impact.' 
-  },
-  
+  reSustainabilityPoint1Desc: { [Language.FR]: 'Utilisation de matériaux locaux et recyclés pour réduire l\'impact carbone.', [Language.EN]: 'Use of local and recycled materials to reduce carbon impact.' },
   reSustainabilityPoint2Title: { [Language.FR]: 'Efficacité Énergétique', [Language.EN]: 'Energy Efficiency' },
-  reSustainabilityPoint2Desc: { 
-    [Language.FR]: 'Conception bioclimatique, isolation performante et solutions d\'énergies renouvelables.', 
-    [Language.EN]: 'Bioclimatic design, high-performance insulation, and renewable energy solutions.' 
-  },
-  
-  reSustainabilityPoint3Title: { [Language.FR]: "Gestion de l'Eau", [Language.EN]: 'Water Management' },
-  reSustainabilityPoint3Desc: { 
-    [Language.FR]: 'Systèmes de récupération d\'eau de pluie et aménagement paysager à faible consommation d\'eau.', 
-    [Language.EN]: 'Rainwater harvesting systems and low-water consumption landscaping.' 
-  },
+  reSustainabilityPoint2Desc: { [Language.FR]: 'Conception bioclimatique, isolation performante et solutions d\'énergies renouvelables.', [Language.EN]: 'Bioclimatic design, high-performance insulation, and renewable energy solutions.' },
+  reSustainabilityPoint3Title: { [Language.FR]: 'Gestion de l\'Eau', [Language.EN]: 'Water Management' },
+  reSustainabilityPoint3Desc: { [Language.FR]: 'Systèmes de récupération d\'eau de pluie et aménagement paysager à faible consommation d\'eau.', [Language.EN]: 'Rainwater harvesting systems and low-water landscaping.' },
 
-  reAmenitiesTitle: { [Language.FR]: 'Équipements & Services', [Language.EN]: 'Amenities & Services' },
-  reAmenitiesText: { [Language.FR]: 'Tout ce dont vous avez besoin pour un quotidien agréable.', [Language.EN]: 'Everything you need for a pleasant daily life.' },
-  reAmenity1Title: { [Language.FR]: 'Piscines & Détente', [Language.EN]: 'Pools & Relaxation' },
-  reAmenity1Desc: { [Language.FR]: 'Espaces aquatiques pour se rafraîchir et se détendre.', [Language.EN]: 'Aquatic spaces to cool off and relax.' },
-  reAmenity2Title: { [Language.FR]: 'Salles de Sport', [Language.EN]: 'Fitness Centers' },
-  reAmenity2Desc: { [Language.FR]: 'Équipements modernes pour votre bien-être physique.', [Language.EN]: 'Modern equipment for your physical well-being.' },
-  reAmenity3Title: { [Language.FR]: 'Espaces Verts', [Language.EN]: 'Green Spaces' },
-  reAmenity3Desc: { [Language.FR]: 'Jardins paysagers pour une connexion avec la nature.', [Language.EN]: 'Landscaped gardens for a connection with nature.' },
+  reAmenitiesTitle: { [Language.FR]: 'Aménagements et Confort', [Language.EN]: 'Amenities & Comfort' },
+  reAmenitiesText: { [Language.FR]: 'Des espaces conçus pour votre bien-être.', [Language.EN]: 'Spaces designed for your well-being.' },
+  reAmenity1Title: { [Language.FR]: 'Espaces Verts', [Language.EN]: 'Green Spaces' },
+  reAmenity1Desc: { [Language.FR]: 'Jardins paysagers et zones de détente.', [Language.EN]: 'Landscaped gardens and relaxation areas.' },
+  reAmenity2Title: { [Language.FR]: 'Sécurité Moderne', [Language.EN]: 'Modern Security' },
+  reAmenity2Desc: { [Language.FR]: 'Surveillance 24/7 et contrôle d\'accès.', [Language.EN]: '24/7 surveillance and access control.' },
+  reAmenity3Title: { [Language.FR]: 'Espaces Communautaires', [Language.EN]: 'Community Areas' },
+  reAmenity3Desc: { [Language.FR]: 'Aires de jeux, salles de sport et lieux de rencontre.', [Language.EN]: 'Playgrounds, gyms, and meeting places.' },
 
-  reTestimonialsTitle: { [Language.FR]: 'Avis Clients', [Language.EN]: 'Client Reviews' },
-
-  reMarketTitle: { [Language.FR]: 'Aperçu du Marché', [Language.EN]: 'Market Insight' },
-  reMarketText: { [Language.FR]: 'Le marché immobilier sénégalais est en pleine expansion, offrant de solides opportunités d\'investissement.', [Language.EN]: 'The Senegalese real estate market is booming, offering strong investment opportunities.' },
+  reTestimonialsTitle: { [Language.FR]: 'Témoignages Clients', [Language.EN]: 'Client Stories' },
+  reMarketTitle: { [Language.FR]: 'Aperçu du Marché', [Language.EN]: 'Market Insights' },
+  reMarketText: { [Language.FR]: 'Tendances actuelles de l\'immobilier au Sénégal.', [Language.EN]: 'Current real estate trends in Senegal.' },
   reMarketImageAlt: { [Language.FR]: 'Graphique du marché immobilier', [Language.EN]: 'Real estate market chart' },
-
   reCtaTitle: { [Language.FR]: 'Prêt à Investir ?', [Language.EN]: 'Ready to Invest?' },
-  reCtaText: { [Language.FR]: 'Contactez-nous dès aujourd\'hui pour découvrir nos offres exclusives.', [Language.EN]: 'Contact us today to discover our exclusive offers.' },
-  reCtaButton: { [Language.FR]: 'Prendre Rendez-vous', [Language.EN]: 'Book an Appointment' },
+  reCtaText: { [Language.FR]: 'Contactez-nous pour découvrir nos offres exclusives.', [Language.EN]: 'Contact us to discover our exclusive offers.' },
+  reCtaButton: { [Language.FR]: 'Commencer Votre Projet', [Language.EN]: 'Start Your Project' },
 
   // Mines Page
-  minesHeroTitle: { [Language.FR]: 'Secteur Minier', [Language.EN]: 'Mining Sector' },
-  minesHeroSubtitle: { [Language.FR]: 'Valorisation responsable des ressources.', [Language.EN]: 'Responsible resource valuation.' },
-  minesHeroServicesSubtitle: { [Language.FR]: 'Exploration, extraction et traitement.', [Language.EN]: 'Exploration, extraction, and processing.' },
-  minesHeroProjectsSubtitle: { [Language.FR]: 'Nos sites d\'exploitation.', [Language.EN]: 'Our mining sites.' },
-  
-  minesIntroTitle: { [Language.FR]: "Façonner l'Avenir de l'Industrie Minière au Sénégal", [Language.EN]: 'Shaping the Future of the Mining Industry in Senegal' },
+  minesHeroTitle: { [Language.FR]: 'Opérations Minières', [Language.EN]: 'Mining Operations' },
+  minesHeroSubtitle: { [Language.FR]: 'Extraction responsable et durable.', [Language.EN]: 'Responsible and sustainable extraction.' },
+  minesHeroServicesSubtitle: { [Language.FR]: 'Nos services complets.', [Language.EN]: 'Our comprehensive services.' },
+  minesHeroProjectsSubtitle: { [Language.FR]: 'Projets d\'envergure.', [Language.EN]: 'Major projects.' },
+
+  minesIntroTitle: { [Language.FR]: 'Façonner l\'Avenir de l\'Industrie Minière au Sénégal', [Language.EN]: 'Shaping the Future of the Mining Industry in Senegal' },
   minesIntroText: { 
-    [Language.FR]: 'La division minière de SOCABEG est un pilier de l\'exploitation responsable des richesses minérales du Sénégal. Nous nous spécialisons dans des projets d\'extraction et de traitement à grande échelle, offrant des services complets, de l\'exploration initiale à la livraison finale, <strong>stimulant ainsi la croissance économique</strong> tout en respectant les normes éthiques les plus strictes.', 
-    [Language.EN]: 'SOCABEG\'s mining division is a pillar of responsible mineral wealth exploitation in Senegal. We specialize in large-scale extraction and processing projects, offering comprehensive services from initial exploration to final delivery, <strong>thereby stimulating economic growth</strong> while adhering to the strictest ethical standards.' 
+    [Language.FR]: 'La division minière de SOCABEG est un pilier de l\'exploitation responsable des richesses minérales du Sénégal. Nous nous spécialisons dans des projets d\'extraction et de traitement à grande échelle, offrant des services complets, de l\'exploration initiale à la livraison finale, <b>stimulant ainsi la croissance économique</b> tout en respectant les normes éthiques les plus strictes.', 
+    [Language.EN]: 'SOCABEG\'s mining division is a pillar of responsible mineral resource exploitation in Senegal. We specialize in large-scale extraction and processing projects, offering comprehensive services from initial exploration to final delivery, <b>driving economic growth</b> while adhering to the strictest ethical standards.' 
   },
   minesIntroParagraph2: { 
-    [Language.FR]: 'Nous nous engageons à une exploitation qui respecte à la fois <strong>l\'environnement et les communautés locales</strong>, en créant une valeur durable pour le Sénégal.', 
-    [Language.EN]: 'We are committed to operations that respect both <strong>the environment and local communities</strong>, creating sustainable value for Senegal.' 
+    [Language.FR]: 'Nous nous engageons à une exploitation qui respecte à la fois <b>l\'environnement et les communautés locales</b>, en créant une valeur durable pour le Sénégal.', 
+    [Language.EN]: 'We are committed to mining that respects both <b>the environment and local communities</b>, creating lasting value for Senegal.' 
   },
-  minesIntroImageAlt: { [Language.FR]: 'Ingénieurs miniers inspectant des plans', [Language.EN]: 'Mining engineers inspecting plans' },
-  
+  minesIntroImageAlt: { [Language.FR]: 'Opérations minières responsables', [Language.EN]: 'Responsible mining operations' },
+
   minesServicesTitle: { [Language.FR]: 'Nos Services Miniers Complets', [Language.EN]: 'Our Comprehensive Mining Services' },
-  
-  minesService1Title: { [Language.FR]: 'Exploration et Évaluation de Site', [Language.EN]: 'Exploration and Site Evaluation' },
-  minesService1Desc: { 
-    [Language.FR]: 'Utilisation de levés géophysiques et d\'études de faisabilité pour identifier et quantifier les gisements miniers potentiels.', 
-    [Language.EN]: 'Use of geophysical surveys and feasibility studies to identify and quantify potential mineral deposits.' 
-  },
+  minesService1Title: { [Language.FR]: 'Exploration et Évaluation de Site', [Language.EN]: 'Exploration & Site Assessment' },
+  minesService1Desc: { [Language.FR]: 'Utilisation de levés géophysiques et d\'études de faisabilité pour identifier et quantifier les gisements miniers potentiels.', [Language.EN]: 'Utilizing geophysical surveys and feasibility studies to identify and quantify potential mineral deposits.' },
   minesServiceIcon1Alt: { [Language.FR]: 'Icône Exploration', [Language.EN]: 'Exploration Icon' },
-  
-  minesService2Title: { [Language.FR]: 'Extraction et Opérations', [Language.EN]: 'Extraction and Operations' },
-  minesService2Desc: { 
-    [Language.FR]: 'Déploiement de techniques minières à ciel ouvert et souterraines efficaces pour maximiser le rendement et la sécurité.', 
-    [Language.EN]: 'Deployment of efficient open-pit and underground mining techniques to maximize yield and safety.' 
-  },
+  minesService2Title: { [Language.FR]: 'Extraction et Opérations', [Language.EN]: 'Extraction & Operations' },
+  minesService2Desc: { [Language.FR]: 'Déploiement de techniques minières à ciel ouvert et souterraines efficaces pour maximiser le rendement et la sécurité.', [Language.EN]: 'Deploying efficient open-pit and underground mining techniques to maximize yield and safety.' },
   minesServiceIcon2Alt: { [Language.FR]: 'Icône Extraction', [Language.EN]: 'Extraction Icon' },
-  
-  minesService3Title: { [Language.FR]: 'Traitement et Enrichissement du Minerai', [Language.EN]: 'Ore Processing and Beneficiation' },
-  minesService3Desc: { 
-    [Language.FR]: 'Installations de traitement de pointe pour le concassage, le broyage et la séparation afin d\'améliorer la qualité du produit final.', 
-    [Language.EN]: 'State-of-the-art processing facilities for crushing, grinding, and separation to improve final product quality.' 
-  },
+  minesService3Title: { [Language.FR]: 'Traitement et Enrichissement du Minerai', [Language.EN]: 'Ore Processing & Beneficiation' },
+  minesService3Desc: { [Language.FR]: 'Installations de traitement de pointe pour le concassage, le broyage et la séparation afin d\'améliorer la qualité du produit final.', [Language.EN]: 'State-of-the-art processing facilities for crushing, grinding, and separation to enhance final product quality.' },
   minesServiceIcon3Alt: { [Language.FR]: 'Icône Traitement', [Language.EN]: 'Processing Icon' },
-  
-  minesService4Title: { [Language.FR]: 'Logistique et Transport', [Language.EN]: 'Logistics and Transport' },
-  minesService4Desc: { 
-    [Language.FR]: 'Gestion de la chaîne d\'approvisionnement de bout en bout pour assurer une livraison fiable et ponctuelle des ressources aux marchés mondiaux.', 
-    [Language.EN]: 'End-to-end supply chain management to ensure reliable and punctual delivery of resources to global markets.' 
-  },
+  minesService4Title: { [Language.FR]: 'Logistique et Transport', [Language.EN]: 'Logistics & Transport' },
+  minesService4Desc: { [Language.FR]: 'Gestion de la chaîne d\'approvisionnement de bout en bout pour assurer une livraison fiable et ponctuelle des ressources aux marchés mondiaux.', [Language.EN]: 'End-to-end supply chain management ensuring reliable and timely delivery of resources to global markets.' },
   minesServiceIcon4Alt: { [Language.FR]: 'Icône Logistique', [Language.EN]: 'Logistics Icon' },
 
-  minesProjectsTitle: { [Language.FR]: 'Nos Sites', [Language.EN]: 'Our Sites' },
-  minesProject1Title: { [Language.FR]: 'Site Aurifère', [Language.EN]: 'Gold Site' },
-  minesProject1Desc: { [Language.FR]: 'Exploitation aurifère dans la région de Kédougou.', [Language.EN]: 'Gold mining in the Kédougou region.' },
-  minesProjectTagGold: { [Language.FR]: 'Or', [Language.EN]: 'Gold' },
-  minesProject2Title: { [Language.FR]: 'Phosphates de Matam', [Language.EN]: 'Matam Phosphates' },
-  minesProject2Desc: { [Language.FR]: 'Extraction de phosphates de haute qualité.', [Language.EN]: 'Extraction of high-quality phosphates.' },
-  minesProjectTagPhosphates: { [Language.FR]: 'Phosphates', [Language.EN]: 'Phosphates' },
-  minesProject3Title: { [Language.FR]: 'Sables Zirconifères', [Language.EN]: 'Zircon Sands' },
-  minesProject3Desc: { [Language.FR]: 'Exploitation des sables lourds sur la Grande Côte.', [Language.EN]: 'Heavy mineral sands mining on the Great Coast.' },
-  minesProjectTagZircon: { [Language.FR]: 'Zircon', [Language.EN]: 'Zircon' },
+  minesProjectsTitle: { [Language.FR]: 'Portefeuille de Projets Miniers', [Language.EN]: 'Mining Project Portfolio' },
+  minesProject1Title: { [Language.FR]: 'Mine d\'Or de Kédougou', [Language.EN]: 'Kédougou Gold Mine' },
+  minesProject1Desc: { [Language.FR]: 'Exploitation aurifère majeure avec des normes environnementales strictes.', [Language.EN]: 'Major gold mining operation with strict environmental standards.' },
+  minesProjectTagGold: { [Language.FR]: 'OR', [Language.EN]: 'GOLD' },
+  minesProject2Title: { [Language.FR]: 'Projet Phosphates de Matam', [Language.EN]: 'Matam Phosphates Project' },
+  minesProject2Desc: { [Language.FR]: 'Développement d\'une mine de phosphate pour soutenir l\'agriculture locale.', [Language.EN]: 'Development of a phosphate mine to support local agriculture.' },
+  minesProjectTagPhosphates: { [Language.FR]: 'PHOSPHATES', [Language.EN]: 'PHOSPHATES' },
+  minesProject3Title: { [Language.FR]: 'Exploitation de Zircon', [Language.EN]: 'Zircon Mining' },
+  minesProject3Desc: { [Language.FR]: 'Extraction de sables minéraux lourds sur la Grande Côte.', [Language.EN]: 'Extraction of heavy mineral sands on the Great Coast.' },
+  minesProjectTagZircon: { [Language.FR]: 'ZIRCON', [Language.EN]: 'ZIRCON' },
 
-  minesSafetyTitle: { [Language.FR]: 'Sécurité & Environnement', [Language.EN]: 'Safety & Environment' },
-  minesSafetyText: { [Language.FR]: 'La sécurité de nos employés et la protection de la nature sont nos priorités absolues.', [Language.EN]: 'The safety of our employees and nature protection are our absolute priorities.' },
-  minesSafetyImageAlt: { [Language.FR]: 'Sécurité sur site minier', [Language.EN]: 'Mining site safety' },
-  minesSafetyPoint1Title: { [Language.FR]: 'Zéro Incident', [Language.EN]: 'Zero Harm' },
-  minesSafetyPoint1Desc: { [Language.FR]: 'Objectif zéro accident sur tous nos sites.', [Language.EN]: 'Zero accident goal on all our sites.' },
+  minesSafetyTitle: { [Language.FR]: 'Sécurité et Environnement', [Language.EN]: 'Safety & Environment' },
+  minesSafetyText: { [Language.FR]: 'Notre priorité absolue.', [Language.EN]: 'Our top priority.' },
+  minesSafetyImageAlt: { [Language.FR]: 'Sécurité minière', [Language.EN]: 'Mining safety' },
+  minesSafetyPoint1Title: { [Language.FR]: 'Normes ISO', [Language.EN]: 'ISO Standards' },
+  minesSafetyPoint1Desc: { [Language.FR]: 'Certification ISO 14001 et 45001.', [Language.EN]: 'ISO 14001 and 45001 certification.' },
   minesSafetyPoint2Title: { [Language.FR]: 'Réhabilitation', [Language.EN]: 'Rehabilitation' },
   minesSafetyPoint2Desc: { [Language.FR]: 'Restauration des sites après exploitation.', [Language.EN]: 'Site restoration after mining.' },
-  minesSafetyPoint3Title: { [Language.FR]: 'Communauté', [Language.EN]: 'Community' },
-  minesSafetyPoint3Desc: { [Language.FR]: 'Investissement dans les projets locaux.', [Language.EN]: 'Investment in local projects.' },
+  minesSafetyPoint3Title: { [Language.FR]: 'Engagement Communautaire', [Language.EN]: 'Community Engagement' },
+  minesSafetyPoint3Desc: { [Language.FR]: 'Investissement dans les infrastructures locales.', [Language.EN]: 'Investment in local infrastructure.' },
 
-  minesTechTitle: { [Language.FR]: 'Innovation Technologique', [Language.EN]: 'Technological Innovation' },
-  minesTechText: { [Language.FR]: 'L\'automatisation et la digitalisation au cœur de nos processus.', [Language.EN]: 'Automation and digitalization at the heart of our processes.' },
+  minesTechTitle: { [Language.FR]: 'Technologie de Pointe', [Language.EN]: 'Cutting-Edge Technology' },
+  minesTechText: { [Language.FR]: 'Innovation au service de l\'efficacité.', [Language.EN]: 'Innovation for efficiency.' },
 
-  minesTestimonialsTitle: { [Language.FR]: 'Partenaires', [Language.EN]: 'Partners' },
-  minesTestimonial1Quote: { [Language.FR]: 'SOCABEG Mining opère avec un niveau de professionnalisme et de respect des normes environnementales exemplaire.', [Language.EN]: 'SOCABEG Mining operates with an exemplary level of professionalism and respect for environmental standards.' },
-  minesTestimonial1Name: { [Language.FR]: 'Directeur, Agence Environnementale', [Language.EN]: 'Director, Environmental Agency' },
+  minesTestimonialsTitle: { [Language.FR]: 'Témoignages', [Language.EN]: 'Testimonials' },
+  minesTestimonial1Quote: { [Language.FR]: 'SOCABEG Mining opère avec un professionnalisme exemplaire et un respect profond pour nos communautés locales.', [Language.EN]: 'SOCABEG Mining operates with exemplary professionalism and deep respect for our local communities.' },
+  minesTestimonial1Name: { [Language.FR]: 'Maire de la Commune de Kédougou', [Language.EN]: 'Mayor of Kédougou Municipality' },
 
-  minesCtaTitle: { [Language.FR]: 'Partenariats Stratégiques', [Language.EN]: 'Strategic Partnerships' },
-  minesCtaText: { [Language.FR]: 'Collaborons pour développer le potentiel minier du Sénégal.', [Language.EN]: 'Let\'s collaborate to develop Senegal\'s mining potential.' },
+  minesCtaTitle: { [Language.FR]: 'Partenariat Stratégique', [Language.EN]: 'Strategic Partnership' },
+  minesCtaText: { [Language.FR]: 'Développons ensemble les ressources de demain.', [Language.EN]: 'Let\'s develop tomorrow\'s resources together.' },
   minesCtaButton: { [Language.FR]: 'Devenir Partenaire', [Language.EN]: 'Become a Partner' },
 
   // Careers Page
-  careersHeroTitle: { [Language.FR]: 'Carrières chez SOCABEG', [Language.EN]: 'Careers at SOCABEG' },
-  careersWhyUsTitle: { [Language.FR]: 'Pourquoi Nous Rejoindre ?', [Language.EN]: 'Why Join Us?' },
-  careersWhyUsHeadline: { [Language.FR]: 'VOTRE AVENIR COMMENCE ICI', [Language.EN]: 'YOUR FUTURE STARTS HERE' },
-  careersWhyUsIntro: { [Language.FR]: 'Intégrez une équipe dynamique et participez à des projets qui transforment le Sénégal.', [Language.EN]: 'Join a dynamic team and participate in projects that are transforming Senegal.' },
+  careersHeroTitle: { [Language.FR]: 'Carrières', [Language.EN]: 'Careers' },
+  careersHeroSlide1Subtitle: { [Language.FR]: 'Rejoignez une équipe passionnée.', [Language.EN]: 'Join a passionate team.' },
+  careersHeroSlide2Subtitle: { [Language.FR]: 'Construisez votre avenir avec nous.', [Language.EN]: 'Build your future with us.' },
+  careersHeroSlide3Subtitle: { [Language.FR]: 'Développez vos compétences.', [Language.EN]: 'Develop your skills.' },
+
+  careersWhyUsTitle: { [Language.FR]: 'Pourquoi Nous Rejoindre', [Language.EN]: 'Why Join Us' },
+  careersWhyUsHeadline: { [Language.FR]: 'UNE CULTURE D\'EXCELLENCE', [Language.EN]: 'A CULTURE OF EXCELLENCE' },
+  careersWhyUsIntro: { [Language.FR]: 'Faites partie d\'une entreprise qui valorise le talent et l\'innovation.', [Language.EN]: 'Be part of a company that values talent and innovation.' },
   careersWhyJoinImageAlt: { [Language.FR]: 'Équipe SOCABEG', [Language.EN]: 'SOCABEG Team' },
   careersValueSafetyTitle: { [Language.FR]: 'Sécurité', [Language.EN]: 'Safety' },
-  careersValueSafetyDesc: { [Language.FR]: 'Un environnement de travail sûr pour tous.', [Language.EN]: 'A safe working environment for all.' },
+  careersValueSafetyDesc: { [Language.FR]: 'Un environnement de travail sûr et sain.', [Language.EN]: 'A safe and healthy work environment.' },
   careersSafetyIconAlt: { [Language.FR]: 'Icône Sécurité', [Language.EN]: 'Safety Icon' },
   careersValueExcellenceTitle: { [Language.FR]: 'Excellence', [Language.EN]: 'Excellence' },
-  careersValueExcellenceDesc: { [Language.FR]: 'Nous visons toujours le meilleur.', [Language.EN]: 'We always aim for the best.' },
+  careersValueExcellenceDesc: { [Language.FR]: 'Nous visons la plus haute qualité.', [Language.EN]: 'We aim for the highest quality.' },
   careersExcellenceIconAlt: { [Language.FR]: 'Icône Excellence', [Language.EN]: 'Excellence Icon' },
   careersValueTeamTitle: { [Language.FR]: 'Esprit d\'Équipe', [Language.EN]: 'Team Spirit' },
-  careersValueTeamDesc: { [Language.FR]: 'Collaborer pour réussir ensemble.', [Language.EN]: 'Collaborating to succeed together.' },
+  careersValueTeamDesc: { [Language.FR]: 'Collaboration et entraide.', [Language.EN]: 'Collaboration and mutual support.' },
   careersTeamIconAlt: { [Language.FR]: 'Icône Équipe', [Language.EN]: 'Team Icon' },
   careersValueGrowthTitle: { [Language.FR]: 'Croissance', [Language.EN]: 'Growth' },
-  careersValueGrowthDesc: { [Language.FR]: 'Opportunités de développement continu.', [Language.EN]: 'Opportunities for continuous development.' },
+  careersValueGrowthDesc: { [Language.FR]: 'Opportunités de développement professionnel.', [Language.EN]: 'Professional development opportunities.' },
   careersGrowthIconAlt: { [Language.FR]: 'Icône Croissance', [Language.EN]: 'Growth Icon' },
 
   careersBenefitsTitle: { [Language.FR]: 'Avantages', [Language.EN]: 'Benefits' },
   careersBenefitsHeadline: { [Language.FR]: 'CE QUE NOUS OFFRONS', [Language.EN]: 'WHAT WE OFFER' },
-  careersBenefitsNewIntro: { [Language.FR]: 'Des conditions de travail attractives pour votre épanouissement.', [Language.EN]: 'Attractive working conditions for your fulfillment.' },
-  careersBenefit1Title: { [Language.FR]: 'Rémunération', [Language.EN]: 'Remuneration' },
-  careersBenefit1Desc: { [Language.FR]: 'Salaire compétitif et primes.', [Language.EN]: 'Competitive salary and bonuses.' },
-  careersBenefit2Title: { [Language.FR]: 'Santé', [Language.EN]: 'Health' },
-  careersBenefit2Desc: { [Language.FR]: 'Couverture médicale complète.', [Language.EN]: 'Comprehensive medical coverage.' },
-  careersBenefit3Title: { [Language.FR]: 'Formation', [Language.EN]: 'Training' },
-  careersBenefit3Desc: { [Language.FR]: 'Programmes de formation continue.', [Language.EN]: 'Continuous training programs.' },
+  careersBenefitsNewIntro: { [Language.FR]: 'Des avantages compétitifs pour votre bien-être.', [Language.EN]: 'Competitive benefits for your well-being.' },
+  careersBenefit1Title: { [Language.FR]: 'Rémunération Competitive', [Language.EN]: 'Competitive Salary' },
+  careersBenefit1Desc: { [Language.FR]: 'Salaire attractif et primes.', [Language.EN]: 'Attractive salary and bonuses.' },
+  careersBenefit2Title: { [Language.FR]: 'Couverture Santé', [Language.EN]: 'Health Coverage' },
+  careersBenefit2Desc: { [Language.FR]: 'Assurance maladie complète.', [Language.EN]: 'Comprehensive health insurance.' },
+  careersBenefit3Title: { [Language.FR]: 'Formation Continue', [Language.EN]: 'Continuous Training' },
+  careersBenefit3Desc: { [Language.FR]: 'Programmes de développement.', [Language.EN]: 'Development programs.' },
   careersBenefit4Title: { [Language.FR]: 'Mentorat', [Language.EN]: 'Mentorship' },
-  careersBenefit4Desc: { [Language.FR]: 'Accompagnement par des seniors.', [Language.EN]: 'Mentorship by seniors.' },
+  careersBenefit4Desc: { [Language.FR]: 'Accompagnement par des seniors.', [Language.EN]: 'Guidance from seniors.' },
 
-  careersTestimonialsTitle: { [Language.FR]: 'Parole aux Employés', [Language.EN]: 'Employee Voices' },
-  careersTestimonialsHeadline: { [Language.FR]: 'ILS TÉMOIGNENT', [Language.EN]: 'THEY TESTIFY' },
-  careersTestimonial1Quote: { [Language.FR]: 'Travailler chez SOCABEG m\'a permis de développer mes compétences techniques sur des projets d\'envergure.', [Language.EN]: 'Working at SOCABEG has allowed me to develop my technical skills on major projects.' },
-  careersTestimonial1Name: { [Language.FR]: 'Ingénieur Civil', [Language.EN]: 'Civil Engineer' },
-  careersTestimonial2Quote: { [Language.FR]: 'Une culture d\'entreprise qui valorise l\'humain et l\'initiative.', [Language.EN]: 'A corporate culture that values people and initiative.' },
-  careersTestimonial2Name: { [Language.FR]: 'Responsable RH', [Language.EN]: 'HR Manager' },
+  careersTestimonialsTitle: { [Language.FR]: 'Témoignages Employés', [Language.EN]: 'Employee Testimonials' },
+  careersTestimonialsHeadline: { [Language.FR]: 'PAROLE À NOS ÉQUIPES', [Language.EN]: 'OUR TEAM SPEAKS' },
+  careersTestimonial1Quote: { [Language.FR]: 'Travailler chez SOCABEG m\'a permis de grandir professionnellement et de participer à des projets passionnants.', [Language.EN]: 'Working at SOCABEG has allowed me to grow professionally and participate in exciting projects.' },
+  careersTestimonial1Name: { [Language.FR]: 'Jean Dupont, Ingénieur Civil', [Language.EN]: 'Jean Dupont, Civil Engineer' },
+  careersTestimonial2Quote: { [Language.FR]: 'Une ambiance de travail formidable et des défis constants qui me motivent chaque jour.', [Language.EN]: 'A great work atmosphere and constant challenges that motivate me every day.' },
+  careersTestimonial2Name: { [Language.FR]: 'Aminata Sow, Architecte', [Language.EN]: 'Aminata Sow, Architect' },
 
   careersOpeningsTitle: { [Language.FR]: 'Postes Ouverts', [Language.EN]: 'Open Positions' },
   careersOpeningsSubheadline: { [Language.FR]: 'REJOIGNEZ-NOUS', [Language.EN]: 'JOIN US' },
-  careersOpeningsText: { [Language.FR]: 'Consultez nos offres actuelles ou envoyez une candidature spontanée.', [Language.EN]: 'Check our current offers or send a spontaneous application.' },
+  careersOpeningsText: { [Language.FR]: 'Consultez nos offres actuelles.', [Language.EN]: 'View our current openings.' },
+  careersNoOpenings: { [Language.FR]: 'Aucun poste ouvert pour le moment.', [Language.EN]: 'No open positions at the moment.' },
   careersRole1Title: { [Language.FR]: 'Chef de Chantier', [Language.EN]: 'Site Manager' },
   careersRole1Desc: { [Language.FR]: 'Supervision des travaux et gestion des équipes.', [Language.EN]: 'Work supervision and team management.' },
   careersRole2Title: { [Language.FR]: 'Ingénieur Structure', [Language.EN]: 'Structural Engineer' },
-  careersRole2Desc: { [Language.FR]: 'Calculs et dimensionnement des ouvrages.', [Language.EN]: 'Calculations and sizing of structures.' },
-  careersRole3Title: { [Language.FR]: 'Commercial Immobilier', [Language.EN]: 'Real Estate Sales' },
-  careersRole3Desc: { [Language.FR]: 'Vente et relation client.', [Language.EN]: 'Sales and customer relations.' },
+  careersRole2Desc: { [Language.FR]: 'Conception et analyse des structures.', [Language.EN]: 'Design and analysis of structures.' },
+  careersRole3Title: { [Language.FR]: 'Commercial Immobilier', [Language.EN]: 'Real Estate Sales Agent' },
+  careersRole3Desc: { [Language.FR]: 'Vente et relation client.', [Language.EN]: 'Sales and client relations.' },
   careersRole4Title: { [Language.FR]: 'Comptable', [Language.EN]: 'Accountant' },
   careersRole4Desc: { [Language.FR]: 'Gestion financière et comptabilité.', [Language.EN]: 'Financial management and accounting.' },
-  careersNoOpenings: { [Language.FR]: 'Aucun poste ouvert pour le moment.', [Language.EN]: 'No open positions at the moment.' },
-  careersOpeningsBtnView: { [Language.FR]: 'Voir Toutes les Offres', [Language.EN]: 'View All Offers' },
+  careersOpeningsBtnView: { [Language.FR]: 'Voir toutes les offres', [Language.EN]: 'View all offers' },
   careersOpeningsBtnSpontaneous: { [Language.FR]: 'Candidature Spontanée', [Language.EN]: 'Spontaneous Application' },
 
   // Contact Page
-  contactHeroTitleConstruction1: { [Language.FR]: 'Contactez SOCABEG', [Language.EN]: 'Contact SOCABEG' },
-  contactHeroTitleConstruction2: { [Language.FR]: 'Parlons de votre Projet', [Language.EN]: 'Let\'s Talk About Your Project' },
-  contactHeroTitleConstruction3: { [Language.FR]: 'Notre Équipe à votre Écoute', [Language.EN]: 'Our Team at Your Service' },
+  contactHeroTitleConstruction1: { [Language.FR]: 'Contactez-Nous', [Language.EN]: 'Contact Us' },
+  contactHeroTitleConstruction2: { [Language.FR]: 'Discutons de Votre Projet', [Language.EN]: 'Let\'s Discuss Your Project' },
+  contactHeroTitleConstruction3: { [Language.FR]: 'Nos Experts à Votre Écoute', [Language.EN]: 'Our Experts at Your Service' },
   contactHeroSubtitle: { [Language.FR]: 'Nous sommes là pour répondre à toutes vos questions.', [Language.EN]: 'We are here to answer all your questions.' },
   homeContactCtaText: { [Language.FR]: 'Prêt à démarrer ?', [Language.EN]: 'Ready to start?' },
-  homeContactCtaButton: { [Language.FR]: 'Nous Écrire', [Language.EN]: 'Write to Us' },
-
-  // Misc
-  socabegTitle: { [Language.FR]: 'SOCABEG Sénégal', [Language.EN]: 'SOCABEG Senegal' },
+  homeContactCtaButton: { [Language.FR]: 'Envoyez-nous un message', [Language.EN]: 'Send us a message' },
 };
