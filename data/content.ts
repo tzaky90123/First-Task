@@ -170,7 +170,7 @@ export const content: LocalizedContent = {
   value6Desc: { [Language.FR]: 'Entreprise 100% sénégalaise à taille humaine, proche de ses clients et de leurs besoins.', [Language.EN]: '100% Senegalese company on a human scale, close to its clients and their needs.' },
 
   testimonialsSectionTitle: { [Language.FR]: 'Témoignages', [Language.EN]: 'Testimonials' },
-  testimonialsSectionHeadline: { [Language.FR]: 'CE QUE DISENT NOS CLIENTS', [Language.EN]: 'WHAT OUR CLIENTS SAY' },
+  testimonialsSectionHeadline: { [Language.FR]: 'ILS NOUS FONT CONFIANCE', [Language.EN]: 'THEY TRUST US' },
   
   testimonial1Quote: { [Language.FR]: "J'ai acquis ma villa à la Cité Tivaouane Peulh avec SOCABEG. Le processus était transparent et l'équipe très professionnelle.", [Language.EN]: 'I acquired my villa at Cité Tivaouane Peulh with SOCABEG. The process was transparent and the team very professional.' },
   testimonial1Name: { [Language.FR]: 'Amadou Diallo', [Language.EN]: 'Amadou Diallo' },
