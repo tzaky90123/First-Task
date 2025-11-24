@@ -57,7 +57,7 @@ const ContactSection: React.FC = () => {
         <div className="max-w-8xl mx-auto bg-white rounded-2xl shadow-contact overflow-hidden lg:grid lg:grid-cols-5">
           {/* Left Side: Form */}
           <div className="p-10 sm:p-12 lg:col-span-3">
-            <h3 className="text-2xl font-bold text-brand-navy mb-8">{t('contactFormTitle')}</h3>
+            <h3 className="text-2xl font-bold text-brand-navy mb-6">{t('contactFormTitle')}</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <InputField id="name" name="name" label={t('formName')} type="text" value={formState.name} onChange={handleInputChange as any} required placeholder={t('formName')} />
               <InputField id="email" name="email" label={t('formEmail')} type="email" value={formState.email} onChange={handleInputChange as any} required placeholder={t('formEmail')} />
@@ -88,7 +88,7 @@ const ContactSection: React.FC = () => {
           {/* Right Side: Contact Info & Map */}
           <div className="p-10 sm:p-12 lg:col-span-2">
             <h3 className="text-2xl font-bold text-brand-navy mb-4">{t('contactInfoTitle')}</h3>
-            <div className="w-20 h-0.5 bg-brand-secondary mb-8"></div>
+            <div className="w-20 h-0.5 bg-brand-secondary mb-6"></div>
             <ul className="space-y-8">
               <li className="flex items-start">
                 <div className="flex-shrink-0 text-brand-primary pt-1"><IconLocationPin /></div>

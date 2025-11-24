@@ -24,10 +24,10 @@ const SectionTitle: React.FC<SectionTitleProps> = ({ subtitleKey, titleKey, desc
     }
 
     return (
-        <div className="text-center mb-12 md:mb-16">
+        <div className="text-center mb-8 md:mb-12">
             {subtitleKey && (
-                <div className="flex items-center justify-center mb-4">
-                    <SectionLogoIcon className="h-5 w-auto mr-3" />
+                <div className="flex items-center justify-center mb-2">
+                    <SectionLogoIcon className="h-5 w-auto mr-2" />
                     <h3 className={`text-sm font-bold ${subtitleColor} uppercase tracking-widest`}>
                         {t(subtitleKey)}
                     </h3>
@@ -41,7 +41,7 @@ const SectionTitle: React.FC<SectionTitleProps> = ({ subtitleKey, titleKey, desc
             )}
 
             {descriptionKey && (
-                <p className={`mt-4 text-base max-w-3xl mx-auto ${descriptionColor}`}>
+                <p className={`mt-3 text-base max-w-3xl mx-auto ${descriptionColor}`}>
                     {t(descriptionKey)}
                 </p>
             )}

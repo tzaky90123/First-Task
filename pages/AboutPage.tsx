@@ -27,27 +27,27 @@ const PartnersSection: React.FC = () => {
     return (
         <div className="container mx-auto px-5 lg:px-20">
             <SectionTitle subtitleKey="partnersSectionTitle" titleKey="partnersSectionHeadline" />
-             <div className="space-y-8 md:space-y-12">
-                <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 lg:gap-x-24">
+             <div className="space-y-10 md:space-y-14">
+                <div className="flex flex-wrap items-center justify-center gap-x-16 gap-y-10 lg:gap-x-32">
                     {row1Logos.map((logo, index) => (
-                        <div key={index} className="flex items-center justify-center">
+                        <div key={index} className="flex items-center justify-center p-4">
                             <img 
                                 src={logo} 
                                 alt={t('partnerLogoAlt').replace('{number}', String(index + 1))} 
-                                className="max-h-20 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 partner-logo" 
-                                loading="lazy" height="80" width="160"
+                                className="max-h-24 md:max-h-32 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 partner-logo" 
+                                loading="lazy" height="128" width="200"
                             />
                         </div>
                     ))}
                 </div>
-                <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 lg:gap-x-24">
+                <div className="flex flex-wrap items-center justify-center gap-x-16 gap-y-10 lg:gap-x-32">
                     {row2Logos.map((logo, index) => (
-                        <div key={index} className="flex items-center justify-center">
+                        <div key={index} className="flex items-center justify-center p-4">
                             <img 
                                 src={logo} 
                                 alt={t('partnerLogoAlt').replace('{number}', String(index + 1 + row1Logos.length))} 
-                                className="max-h-20 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 partner-logo" 
-                                loading="lazy" height="80" width="160"
+                                className="max-h-24 md:max-h-32 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 partner-logo" 
+                                loading="lazy" height="128" width="200"
                             />
                         </div>
                     ))}

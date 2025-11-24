@@ -27,8 +27,8 @@ const IntroductionSection: React.FC = () => {
         <div className="container mx-auto px-6 py-16 md:py-0 scroll-element">
             <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
                 <div>
-                    <h2 className="text-3xl font-bold font-sans text-brand-navy mb-6">{t('reIntroTitle')}</h2>
-                    <p className="text-lg text-brand-text-gray leading-relaxed mb-8">{t('reIntroText')}</p>
+                    <h2 className="text-3xl font-bold font-sans text-brand-navy mb-4">{t('reIntroTitle')}</h2>
+                    <p className="text-lg text-brand-text-gray leading-relaxed mb-6">{t('reIntroText')}</p>
                     
                     <div className="space-y-6 mb-8">
                         {features.map((feature, index) => (

@@ -14,7 +14,7 @@ const IntroductionSection: React.FC = () => {
         <div className="container mx-auto px-6 scroll-element">
             <div className="grid md:grid-cols-2 gap-12 lg:gap-24 items-center">
                 <div>
-                    <h2 className="text-3xl font-bold font-sans text-brand-navy mb-6">{t('minesIntroTitle')}</h2>
+                    <h2 className="text-3xl font-bold font-sans text-brand-navy mb-4">{t('minesIntroTitle')}</h2>
                     <p className="text-lg text-brand-text-gray leading-relaxed mb-4" dangerouslySetInnerHTML={{ __html: t('minesIntroText') }} />
                     <p className="text-lg text-brand-text-gray leading-relaxed" dangerouslySetInnerHTML={{ __html: t('minesIntroParagraph2') }} />
                 </div>

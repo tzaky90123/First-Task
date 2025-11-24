@@ -55,7 +55,7 @@ const ApproachSection: React.FC = () => {
                 </div>
                 <div className="bg-gray-50/50 p-8 rounded-lg">
                     <h2 className="text-3xl font-bold font-sans text-brand-blue-dark mb-3">{t('btpApproachTitle')}</h2>
-                    <p className="text-lg text-gray-600 mb-8">{t('btpApproachSubtitle')}</p>
+                    <p className="text-lg text-gray-600 mb-6">{t('btpApproachSubtitle')}</p>
                     <div className="space-y-8">
                         {approaches.map((item, index) => (
                             <div key={item.titleKey} className="flex items-start group">
