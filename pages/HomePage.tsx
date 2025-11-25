@@ -75,7 +75,7 @@ const PartnersSection: React.FC = () => {
                             <img 
                                 src={logo} 
                                 alt={t('partnerLogoAlt').replace('{number}', String(index + 1))} 
-                                className="max-h-24 md:max-h-32 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 partner-logo" 
+                                className="max-h-24 md:max-h-32 w-auto object-contain transition-all duration-300 partner-logo" 
                                 loading="lazy" height="128" width="200"
                             />
                         </div>
@@ -87,7 +87,7 @@ const PartnersSection: React.FC = () => {
                             <img 
                                 src={logo} 
                                 alt={t('partnerLogoAlt').replace('{number}', String(index + 1 + row1Logos.length))} 
-                                className="max-h-24 md:max-h-32 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 partner-logo" 
+                                className="max-h-24 md:max-h-32 w-auto object-contain transition-all duration-300 partner-logo" 
                                 loading="lazy" height="128" width="200"
                             />
                         </div>
@@ -427,7 +427,7 @@ const IconStatRoads = ({ className }: { className?: string }) => (
 );
 const IconStatLand = ({ className }: { className?: string }) => (
     <svg xmlns="http://www.w3.org/2000/svg" className={className} viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12,2A10,10,0,0,0,2,12a9.89,9.89,0,0,0,2.2,6.32L12,22l7.8-3.68A9.89,9.89,0,0,0,22,12,10,10,0,0,0,12,2Zm0,12a2,2,0,1,1,2-2A2,2,0,0,1,12,14Z"/>
+        <path d="M12,2A10,10,0,0,0,2,12a9.89,9.89,0,0,0,2.2,6.32L12,22l7.8-3.68A9.89,9.89,0,0,0,22,12,10,10,0,0,12,2Zm0,12a2,2,0,1,1,2-2A2,2,0,0,1,12,14Z"/>
     </svg>
 );
 
