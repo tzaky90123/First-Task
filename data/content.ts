@@ -43,10 +43,16 @@ export const content: LocalizedContent = {
   homeServicesMinesTitle: { [Language.FR]: 'Mines', [Language.EN]: 'Mining' },
   homeServicesMinesText: { [Language.FR]: 'Exploitation responsable des ressources naturelles pour soutenir la croissance économique du Sénégal.', [Language.EN]: 'Responsible exploitation of natural resources to support the economic growth of the Senegalese economy.' },
   
-  homeExpertiseSubtitle: { [Language.FR]: "NOS DOMAINES", [Language.EN]: "OUR DOMAINS" },
+  homeExpertiseSubtitle: { 
+    [Language.FR]: "AU CŒUR DE LA TRANSFORMATION DU SÉNÉGAL, SOCABEG DÉPLOIE SON EXPERTISE À TRAVERS TROIS PÔLES STRATÉGIQUES", 
+    [Language.EN]: "AT THE HEART OF SENEGAL'S TRANSFORMATION, SOCABEG DEPLOYS ITS EXPERTISE ACROSS THREE STRATEGIC AREAS" 
+  },
 
   homeAboutSectionTitle: { [Language.FR]: 'À Propos', [Language.EN]: 'About Us' },
-  homeAboutSectionHeadline: { [Language.FR]: 'NOTRE HÉRITAGE', [Language.EN]: 'OUR LEGACY' },
+  homeAboutSectionHeadline: { 
+    [Language.FR]: 'PLUS DE 35 ANS À VOTRE SERVICE', 
+    [Language.EN]: 'OVER 35 YEARS AT YOUR SERVICE' 
+  },
   homeAboutP1: { [Language.FR]: "<b>SOCABEG s’investit aux côtés des Sénégalais pour réaliser leurs projets immobiliers.</b>", [Language.EN]: "<b>SOCABEG is committed to working alongside the people of Senegal to bring their real estate projects to life.</b>" },
   homeAboutP2: { [Language.FR]: "Fondée en 1986 par M. Mamoune SAMB, SOCABEG s'est imposée comme un acteur majeur reconnu dans le domaine de la construction et de la promotion immobilière au Sénégal. Le Groupe SOCABEG exerce aujourd'hui ses activités dans les domaines du BTP, de la Promotion immobilière et le secteur minier.", [Language.EN]: "Founded in 1986 by Mr. Mamoune SAMB, SOCABEG has established itself as a recognized major player in the construction and real estate development sector in Senegal. Today, the SOCABEG Group operates in construction (BTP), real estate development, and the mining sector." },
   homeAboutP3: { [Language.FR]: "Elle dispose d'une très grande notoriété dans le paysage des affaires au Sénégal rassemblant les compétences de constructeur bien équipé et aménageur de site avec un très riche savoir-faire acquis dans l'habitat social. SOCABEG a une forte maîtrise de la chaîne de valeur en tant que développeur-constructeur avec une offre verticalisée et une une gamme de produits en adéquation avec le marché immobilier sénégalais.", [Language.EN]: "The company holds a prominent reputation in Senegal's business landscape, combining the skills of a well-equipped builder and site developer with extensive expertise acquired in social housing. SOCABEG demonstrates strong command of the value chain as a developer-builder, offering a vertically integrated service and a product range tailored to the Senegalese real estate market." },
@@ -55,7 +61,10 @@ export const content: LocalizedContent = {
   homeAboutP6: { [Language.FR]: "En proposant des projets immobiliers novateurs et de qualité, accessibles à un coût raisonnable, elle vise à allier excellence de construction et accessibilité financière. SOCABEG a joué un rôle clé dans l'essor de nouvelles zones urbaines en construisant des milliers de logements sociaux, répondant ainsi aux besoins d'une large part de la population sénégalaise aux revenus variés.", [Language.EN]: "By offering innovative, high-quality real estate projects at a reasonable cost, SOCABEG aims to combine construction excellence with financial accessibility. The company has played a key role in the growth of new urban areas by building thousands of social housing units, thereby meeting the needs of a large segment of the Senegalese population with diverse income levels." },
   aboutImageAlt: { [Language.FR]: "Ingénieurs SOCABEG planifiant un projet", [Language.EN]: "SOCABEG engineers planning a project" },
 
-  statisticsSectionTitle: { [Language.FR]: 'Stratégie', [Language.EN]: 'Strategy' },
+  statisticsSectionTitle: { 
+    [Language.FR]: "STRATÉGIE D'EXÉCUTION", 
+    [Language.EN]: 'EXECUTION STRATEGY' 
+  },
   statisticsSectionText: { [Language.FR]: 'Notre approche repose sur une planification rigoureuse, une exécution précise et une gestion de projet proactive. Nous nous engageons à livrer des résultats exceptionnels, dans le respect des délais et des budgets.', [Language.EN]: 'Our approach is based on rigorous planning, precise execution, and proactive project management. We are committed to delivering exceptional results, while respecting deadlines and budgets.' },
   statisticsSectionHeadline: { [Language.FR]: 'IMPACT', [Language.EN]: 'IMPACT' },
   stat1Label: { [Language.FR]: 'Terrains', [Language.EN]: 'Land' },
@@ -104,7 +113,10 @@ export const content: LocalizedContent = {
 
   partnerLogoAlt: { [Language.FR]: 'Logo Partenaire {number}', [Language.EN]: 'Partner Logo {number}' },
   partnersSectionTitle: { [Language.FR]: 'Partenaires', [Language.EN]: 'Partners' },
-  partnersSectionHeadline: { [Language.FR]: 'CONFIANCE', [Language.EN]: 'TRUST' },
+  partnersSectionHeadline: { 
+      [Language.FR]: 'ILS NOUS FONT CONFIANCE', 
+      [Language.EN]: 'THEY TRUST US' 
+  },
   partnersSectionDesc: { [Language.FR]: 'Nous collaborons avec des leaders de l\'industrie pour garantir l\'excellence et l\'innovation dans tous nos projets.', [Language.EN]: 'We collaborate with industry leaders to ensure excellence and innovation in all our projects.' },
 
   masterpieceBtpTitle: { [Language.FR]: 'BTP', [Language.EN]: 'Construction' },
@@ -114,7 +126,10 @@ export const content: LocalizedContent = {
   masterpieceMinesTitle: { [Language.FR]: 'Mines', [Language.EN]: 'Mining' },
   masterpieceMinesDesc: { [Language.FR]: 'Responsabilité', [Language.EN]: 'Responsibility' },
   homeMasterpiecesTitle: { [Language.FR]: 'Réalisations', [Language.EN]: 'Masterpieces' },
-  homeMasterpiecesSubtitle: { [Language.FR]: 'PROJETS', [Language.EN]: 'PROJECTS' },
+  homeMasterpiecesSubtitle: { 
+    [Language.FR]: 'ICONIC PROJECTS', 
+    [Language.EN]: 'ICONIC PROJECTS' 
+  },
   masterpiecesPrev: { [Language.FR]: 'Précédent', [Language.EN]: 'Previous' },
   masterpiecesNext: { [Language.FR]: 'Suivant', [Language.EN]: 'Next' },
 
@@ -145,12 +160,18 @@ export const content: LocalizedContent = {
   program3Price: { [Language.FR]: 'Dès 12M FCFA', [Language.EN]: 'From 12M FCFA' },
 
   programsSectionTitle: { [Language.FR]: 'Programmes', [Language.EN]: 'Programs' },
-  programsSectionHeadline: { [Language.FR]: 'OPPORTUNITÉS', [Language.EN]: 'OPPORTUNITIES' },
+  programsSectionHeadline: { 
+      [Language.FR]: 'REAL ESTATE OPPORTUNITIES', 
+      [Language.EN]: 'REAL ESTATE OPPORTUNITIES' 
+  },
   programDetailsButton: { [Language.FR]: 'Détails', [Language.EN]: 'Details' },
   programContactButton: { [Language.FR]: 'Contact', [Language.EN]: 'Contact' },
 
   whyChooseUsSectionTitle: { [Language.FR]: 'Pourquoi Nous', [Language.EN]: 'Why Us' },
-  whyChooseUsSectionHeadline: { [Language.FR]: 'VALEURS', [Language.EN]: 'VALUES' },
+  whyChooseUsSectionHeadline: { 
+    [Language.FR]: 'OUR VALUES', 
+    [Language.EN]: 'OUR VALUES' 
+  },
   
   value1Title: { [Language.FR]: 'Expérience', [Language.EN]: 'Experience' },
   value1Desc: { [Language.FR]: 'Plus de 35 ans d’activité dans le BTP et l’immobilier au Sénégal, avec des milliers de logements livrés.', [Language.EN]: 'Over 35 years of activity in construction and real estate in Senegal, with thousands of homes delivered.' },
@@ -171,7 +192,10 @@ export const content: LocalizedContent = {
   value6Desc: { [Language.FR]: 'Entreprise 100% sénégalaise à taille humaine, proche de ses clients et de leurs besoins.', [Language.EN]: '100% Senegalese company on a human scale, close to its clients and their needs.' },
 
   testimonialsSectionTitle: { [Language.FR]: 'Témoignages', [Language.EN]: 'Testimonials' },
-  testimonialsSectionHeadline: { [Language.FR]: 'AVIS', [Language.EN]: 'REVIEWS' },
+  testimonialsSectionHeadline: { 
+    [Language.FR]: 'THEY TRUST US', 
+    [Language.EN]: 'THEY TRUST US' 
+  },
   
   testimonial1Quote: { [Language.FR]: "J'ai acquis ma villa à la Cité Tivaouane Peulh avec SOCABEG. Le processus était transparent et l'équipe très professionnelle.", [Language.EN]: 'I acquired my villa at Cité Tivaouane Peulh with SOCABEG. The process was transparent and the team very professional.' },
   testimonial1Name: { [Language.FR]: 'Amadou Diallo', [Language.EN]: 'Amadou Diallo' },
@@ -228,11 +252,14 @@ export const content: LocalizedContent = {
   btpHeroSubtitle: { [Language.FR]: 'Expertise technique pour des projets d\'invergure.', [Language.EN]: 'Technical expertise for major projects.' },
   btpExpertiseTitle: { [Language.FR]: 'Expertise', [Language.EN]: 'Expertise' },
   btpHeroExpertiseSubtitle: { [Language.FR]: 'Génie civil, travaux publics et bâtiments.', [Language.EN]: 'Civil engineering, public works, and buildings.' },
-  btpProjectsTitle: { [Language.FR]: 'Projets Phares', [Language.EN]: 'Flagship Projects' },
+  btpProjectsTitle: { [Language.FR]: 'ICONIC PROJECTS', [Language.EN]: 'ICONIC PROJECTS' },
   btpHeroProjectsSubtitle: { [Language.FR]: 'Découvrez nos dernières réalisations.', [Language.EN]: 'Discover our latest achievements.' },
   
   btpServicesNewTitle: { [Language.FR]: 'SERVICES', [Language.EN]: 'SERVICES' },
-  btpServicesNewSubtitle: { [Language.FR]: 'EXCELLENCE', [Language.EN]: 'EXCELLENCE' },
+  btpServicesNewSubtitle: { 
+    [Language.FR]: 'AU CŒUR DE LA TRANSFORMATION DU SÉNÉGAL, SOCABEG DÉPLOIE SON EXPERTISE À TRAVERS TROIS PÔLES STRATÉGIQUES', 
+    [Language.EN]: "AT THE HEART OF SENEGAL'S TRANSFORMATION, SOCABEG DEPLOYS ITS EXPERTISE ACROSS THREE STRATEGIC AREAS" 
+  },
   
   btpService1Title: { [Language.FR]: 'Génie Civil', [Language.EN]: 'Civil Engineering' },
   btpService1Desc: { [Language.FR]: "Construction of roads, bridges, and sanitation networks to connect territories and boost trade.", [Language.EN]: 'Construction of roads, bridges, and sanitation networks to connect territories and boost trade.' },
@@ -248,7 +275,7 @@ export const content: LocalizedContent = {
   
   learnMoreLink: { [Language.FR]: 'Détails', [Language.EN]: 'Details' },
 
-  btpApproachTitle: { [Language.FR]: 'Notre Approche', [Language.EN]: 'Our Approach' },
+  btpApproachTitle: { [Language.FR]: 'NOTRE APPROCHE : EXCELLENCE ET INNOVATION', [Language.EN]: 'OUR APPROACH: EXCELLENCE AND INNOVATION' },
   btpApproachSubtitle: { [Language.FR]: 'Engagement, Durabilité, Innovation', [Language.EN]: 'Commitment, Sustainability, Innovation' },
   btpApproachImageAlt: { [Language.FR]: 'Approche BTP', [Language.EN]: 'BTP Approach' },
   btpApproachSafetyTitle: { [Language.FR]: 'Sécurité', [Language.EN]: 'Safety' },
@@ -275,7 +302,7 @@ export const content: LocalizedContent = {
   reHeroAmenitiesSubtitle: { [Language.FR]: 'Confort et commodités modernes.', [Language.EN]: 'Modern comfort and amenities.' },
   reHeroPortfolioSubtitle: { [Language.FR]: 'Notre portfolio de projets.', [Language.EN]: 'Our project portfolio.' },
 
-  reIntroTitle: { [Language.FR]: 'Espaces de Vie', [Language.EN]: 'Living Spaces' },
+  reIntroTitle: { [Language.FR]: 'Shaping Extraordinary Living and Working Spaces', [Language.EN]: 'Shaping Extraordinary Living and Working Spaces' },
   reIntroText: { [Language.FR]: 'Our Real Estate Development division is dedicated to creating projects that combine innovative design, functionality, and harmonious integration into their environment. From luxury residences to dynamic commercial spaces, we build places of life and opportunity for future generations.', [Language.EN]: 'Our Real Estate Development division is dedicated to creating projects that combine innovative design, functionality, and harmonious integration into their environment. From luxury residences to dynamic commercial spaces, we build places of life and opportunity for future generations.' },
   reIntroFeature1Title: { [Language.FR]: 'Design', [Language.EN]: 'Design' },
   reIntroFeature1Desc: { [Language.FR]: "Forward-thinking architectural concepts that define tomorrow’s trends.", [Language.EN]: "Forward-thinking architectural concepts that define tomorrow’s trends." },
@@ -288,7 +315,7 @@ export const content: LocalizedContent = {
   reIntroTypeMixedUse: { [Language.FR]: 'Mixte', [Language.EN]: 'Mixed' },
   reIntroImageAlt: { [Language.FR]: 'Projet immobilier moderne', [Language.EN]: 'Modern real estate project' },
 
-  rePortfolioTitle: { [Language.FR]: 'Portfolio', [Language.EN]: 'Portfolio' },
+  rePortfolioTitle: { [Language.FR]: 'Iconic Projects', [Language.EN]: 'Iconic Projects' },
   rePortfolioSubtitle: { [Language.FR]: 'RÉALISATIONS', [Language.EN]: 'ACHIEVEMENTS' },
   rePortfolioKeyFeatures: { [Language.FR]: 'Atouts', [Language.EN]: 'Features' },
   reProjectBalenaFeatures: { [Language.FR]: 'Design, Jardin, Sécurité', [Language.EN]: 'Design, Garden, Security' },
@@ -296,7 +323,7 @@ export const content: LocalizedContent = {
   reProjectNiagueFeatures: { [Language.FR]: 'Vue Lac, Calme, Plus-value', [Language.EN]: 'Lake View, Quiet, Value' },
 
   // Real Estate Page - Sustainability
-  reSustainabilityTitle: { [Language.FR]: 'Durabilité', [Language.EN]: 'Sustainability' },
+  reSustainabilityTitle: { [Language.FR]: 'Building a Sustainable Future', [Language.EN]: 'Building a Sustainable Future' },
   reSustainabilityText: { 
     [Language.FR]: 'Notre engagement pour la durabilité se traduit par des actions concrètes à chaque étape de nos projets immobiliers, minimisant l\'empreinte écologique et maximisant le confort de vie.', 
     [Language.EN]: 'Our commitment to sustainability is reflected in concrete actions at every stage of our real estate projects, minimizing the ecological footprint and maximizing living comfort.' 
@@ -310,7 +337,7 @@ export const content: LocalizedContent = {
   reSustainabilityPoint3Title: { [Language.FR]: 'Eau', [Language.EN]: 'Water' },
   reSustainabilityPoint3Desc: { [Language.FR]: 'Systèmes de récupération d\'eau de pluie et aménagement paysager à faible consommation d\'eau.', [Language.EN]: 'Rainwater harvesting systems and low-water landscaping.' },
 
-  reAmenitiesTitle: { [Language.FR]: 'Confort', [Language.EN]: 'Comfort' },
+  reAmenitiesTitle: { [Language.FR]: 'Amenities & Comfort', [Language.EN]: 'Amenities & Comfort' },
   reAmenitiesText: { [Language.FR]: 'Des espaces conçus pour votre bien-être.', [Language.EN]: 'Spaces designed for your well-being.' },
   reAmenity1Title: { [Language.FR]: 'Espaces Verts', [Language.EN]: 'Green Spaces' },
   reAmenity1Desc: { [Language.FR]: 'Jardins paysagers et zones de détente.', [Language.EN]: 'Landscaped gardens and relaxation areas.' },
@@ -319,8 +346,8 @@ export const content: LocalizedContent = {
   reAmenity3Title: { [Language.FR]: 'Communauté', [Language.EN]: 'Community' },
   reAmenity3Desc: { [Language.FR]: 'Aires de jeux, salles de sport et lieux de rencontre.', [Language.EN]: 'Playgrounds, gyms, and meeting places.' },
 
-  reTestimonialsTitle: { [Language.FR]: 'Avis Clients', [Language.EN]: 'Client Reviews' },
-  reMarketTitle: { [Language.FR]: 'Marché', [Language.EN]: 'Market' },
+  reTestimonialsTitle: { [Language.FR]: 'They Trust Us', [Language.EN]: 'They Trust Us' },
+  reMarketTitle: { [Language.FR]: 'Market Insights', [Language.EN]: 'Market Insights' },
   reMarketText: { [Language.FR]: 'Tendances actuelles de l\'immobilier au Sénégal.', [Language.EN]: 'Current real estate trends in Senegal.' },
   reMarketImageAlt: { [Language.FR]: 'Graphique marché', [Language.EN]: 'Market chart' },
   reCtaTitle: { [Language.FR]: 'Investir ?', [Language.EN]: 'Invest?' },
@@ -333,7 +360,10 @@ export const content: LocalizedContent = {
   minesHeroServicesSubtitle: { [Language.FR]: 'Nos services complets.', [Language.EN]: 'Our comprehensive services.' },
   minesHeroProjectsSubtitle: { [Language.FR]: 'Projets d\'envergure.', [Language.EN]: 'Major projects.' },
 
-  minesIntroTitle: { [Language.FR]: 'Avenir Minier', [Language.EN]: 'Mining Future' },
+  minesIntroTitle: { 
+    [Language.FR]: "SHAPING THE FUTURE OF THE MINING INDUSTRY IN SENEGAL", 
+    [Language.EN]: "SHAPING THE FUTURE OF THE MINING INDUSTRY IN SENEGAL" 
+  },
   minesIntroText: { 
     [Language.FR]: 'La division minière de SOCABEG est un pilier de l\'exploitation responsable des richesses minérales du Sénégal. Nous nous spécialisons dans des projets d\'extraction et de traitement à grande échelle, offrant des services complets, de l\'exploration initiale à la livraison finale, <b>stimulant ainsi la croissance économique</b> tout en respectant les normes éthiques les plus strictes.', 
     [Language.EN]: 'SOCABEG\'s mining division is a pillar of responsible mineral resource exploitation in Senegal. We specialize in large-scale extraction and processing projects, offering comprehensive services from initial exploration to final delivery, <b>driving economic growth</b> while adhering to the strictest ethical standards.' 
@@ -344,7 +374,10 @@ export const content: LocalizedContent = {
   },
   minesIntroImageAlt: { [Language.FR]: 'Opérations minières', [Language.EN]: 'Mining operations' },
 
-  minesServicesTitle: { [Language.FR]: 'Services', [Language.EN]: 'Services' },
+  minesServicesTitle: { 
+    [Language.FR]: "AT THE HEART OF SENEGAL'S TRANSFORMATION, SOCABEG DEPLOYS ITS EXPERTISE ACROSS THREE STRATEGIC AREAS", 
+    [Language.EN]: "AT THE HEART OF SENEGAL'S TRANSFORMATION, SOCABEG DEPLOYS ITS EXPERTISE ACROSS THREE STRATEGIC AREAS" 
+  },
   minesService1Title: { [Language.FR]: 'Exploration', [Language.EN]: 'Exploration' },
   minesService1Desc: { [Language.FR]: 'Utilisation de levés géophysiques et d\'études de faisabilité pour identifier et quantifier les gisements miniers potentiels.', [Language.EN]: 'Utilizing geophysical surveys and feasibility studies to identify and quantify potential mineral deposits.' },
   minesServiceIcon1Alt: { [Language.FR]: 'Icône Exploration', [Language.EN]: 'Exploration Icon' },
@@ -358,7 +391,10 @@ export const content: LocalizedContent = {
   minesService4Desc: { [Language.FR]: 'Gestion de la chaîne d\'approvisionnement de bout en bout pour assurer une livraison fiable et ponctuelle des ressources aux marchés mondiaux.', [Language.EN]: 'End-to-end supply chain management ensuring reliable and timely delivery of resources to global markets.' },
   minesServiceIcon4Alt: { [Language.FR]: 'Icône Logistique', [Language.EN]: 'Logistics Icon' },
 
-  minesProjectsTitle: { [Language.FR]: 'Projets', [Language.EN]: 'Projects' },
+  minesProjectsTitle: { 
+    [Language.FR]: "ICONIC PROJECTS", 
+    [Language.EN]: "ICONIC PROJECTS" 
+  },
   minesProject1Title: { [Language.FR]: 'Kédougou Or', [Language.EN]: 'Kédougou Gold' },
   minesProject1Desc: { [Language.FR]: 'Exploitation aurifère majeure avec des normes environnementales strictes.', [Language.EN]: 'Major gold mining operation with strict environmental standards.' },
   minesProjectTagGold: { [Language.FR]: 'OR', [Language.EN]: 'GOLD' },
@@ -369,7 +405,10 @@ export const content: LocalizedContent = {
   minesProject3Desc: { [Language.FR]: 'Extraction de sables minéraux lourds sur la Grande Côte.', [Language.EN]: 'Extraction of heavy mineral sands on the Great Coast.' },
   minesProjectTagZircon: { [Language.FR]: 'ZIRCON', [Language.EN]: 'ZIRCON' },
 
-  minesSafetyTitle: { [Language.FR]: 'Sécurité', [Language.EN]: 'Safety' },
+  minesSafetyTitle: { 
+    [Language.FR]: "SAFETY & ENVIRONMENT", 
+    [Language.EN]: "SAFETY & ENVIRONMENT" 
+  },
   minesSafetyText: { [Language.FR]: 'Priorité absolue.', [Language.EN]: 'Top priority.' },
   minesSafetyImageAlt: { [Language.FR]: 'Sécurité minière', [Language.EN]: 'Mining safety' },
   minesSafetyPoint1Title: { [Language.FR]: 'Normes ISO', [Language.EN]: 'ISO Standards' },
@@ -379,14 +418,23 @@ export const content: LocalizedContent = {
   minesSafetyPoint3Title: { [Language.FR]: 'Engagement', [Language.EN]: 'Engagement' },
   minesSafetyPoint3Desc: { [Language.FR]: 'Investissement dans les infrastructures locales.', [Language.EN]: 'Investment in local infrastructure.' },
 
-  minesTechTitle: { [Language.FR]: 'Technologie', [Language.EN]: 'Technology' },
+  minesTechTitle: { 
+    [Language.FR]: "CUTTING-EDGE TECHNOLOGY", 
+    [Language.EN]: "CUTTING-EDGE TECHNOLOGY" 
+  },
   minesTechText: { [Language.FR]: 'Innovation et efficacité.', [Language.EN]: 'Innovation and efficiency.' },
 
-  minesTestimonialsTitle: { [Language.FR]: 'Témoignages', [Language.EN]: 'Testimonials' },
+  minesTestimonialsTitle: { 
+    [Language.FR]: "THEY TRUST US", 
+    [Language.EN]: "THEY TRUST US" 
+  },
   minesTestimonial1Quote: { [Language.FR]: 'SOCABEG Mining opère avec un professionnalisme exemplaire et un respect profond pour nos communautés locales.', [Language.EN]: 'SOCABEG Mining operates with exemplary professionalism and deep respect for our local communities.' },
   minesTestimonial1Name: { [Language.FR]: 'Maire de Kédougou', [Language.EN]: 'Mayor of Kédougou' },
 
-  minesCtaTitle: { [Language.FR]: 'Partenariat', [Language.EN]: 'Partnership' },
+  minesCtaTitle: { 
+    [Language.FR]: "STRATEGIC PARTNERSHIP", 
+    [Language.EN]: "STRATEGIC PARTNERSHIP" 
+  },
   minesCtaText: { [Language.FR]: 'Développons ensemble les ressources de demain.', [Language.EN]: 'Let\'s develop tomorrow\'s resources together.' },
   minesCtaButton: { [Language.FR]: 'Devenir Partenaire', [Language.EN]: 'Become a Partner' },
 
@@ -397,7 +445,7 @@ export const content: LocalizedContent = {
   careersHeroSlide3Subtitle: { [Language.FR]: 'Développez vos compétences.', [Language.EN]: 'Develop your skills.' },
 
   careersWhyUsTitle: { [Language.FR]: 'Pourquoi Nous', [Language.EN]: 'Why Us' },
-  careersWhyUsHeadline: { [Language.FR]: 'CULTURE', [Language.EN]: 'CULTURE' },
+  careersWhyUsHeadline: { [Language.FR]: 'UNE CULTURE D\'EXCELLENCE', [Language.EN]: 'A CULTURE OF EXCELLENCE' },
   careersWhyUsIntro: { [Language.FR]: 'Faites partie d\'une entreprise qui valorise le talent et l\'innovation.', [Language.EN]: 'Be part of a company that values talent and innovation.' },
   careersWhyJoinImageAlt: { [Language.FR]: 'Équipe SOCABEG', [Language.EN]: 'SOCABEG Team' },
   careersValueSafetyTitle: { [Language.FR]: 'Sécurité', [Language.EN]: 'Safety' },
@@ -414,7 +462,7 @@ export const content: LocalizedContent = {
   careersGrowthIconAlt: { [Language.FR]: 'Icône Croissance', [Language.EN]: 'Growth Icon' },
 
   careersBenefitsTitle: { [Language.FR]: 'Avantages', [Language.EN]: 'Benefits' },
-  careersBenefitsHeadline: { [Language.FR]: 'OFFRE', [Language.EN]: 'OFFER' },
+  careersBenefitsHeadline: { [Language.FR]: 'CE QUE NOUS OFFRONS', [Language.EN]: 'WHAT WE OFFER' },
   careersBenefitsNewIntro: { [Language.FR]: 'Des avantages compétitifs pour votre bien-être.', [Language.EN]: 'Competitive benefits for your well-being.' },
   careersBenefit1Title: { [Language.FR]: 'Rémunération', [Language.EN]: 'Salary' },
   careersBenefit1Desc: { [Language.FR]: 'Salaire attractif et primes.', [Language.EN]: 'Attractive salary and bonuses.' },
@@ -426,13 +474,13 @@ export const content: LocalizedContent = {
   careersBenefit4Desc: { [Language.FR]: 'Accompagnement par des seniors.', [Language.EN]: 'Guidance from seniors.' },
 
   careersTestimonialsTitle: { [Language.FR]: 'Avis', [Language.EN]: 'Reviews' },
-  careersTestimonialsHeadline: { [Language.FR]: 'ÉQUIPE', [Language.EN]: 'TEAM' },
+  careersTestimonialsHeadline: { [Language.FR]: 'ILS NOUS FONT CONFIANCE', [Language.EN]: 'THEY TRUST US' },
   careersTestimonial1Quote: { [Language.FR]: 'Travailler chez SOCABEG m\'a permis de grandir professionnellement et de participer à des projets passionnants.', [Language.EN]: 'Working at SOCABEG has allowed me to grow professionally and participate in exciting projects.' },
   careersTestimonial1Name: { [Language.FR]: 'Jean Dupont', [Language.EN]: 'Jean Dupont' },
   careersTestimonial2Quote: { [Language.FR]: 'Une ambiance de travail formidable et des défis constants qui me motivent chaque jour.', [Language.EN]: 'A great work atmosphere and constant challenges that motivate me every day.' },
   careersTestimonial2Name: { [Language.FR]: 'Aminata Sow', [Language.EN]: 'Aminata Sow' },
 
-  careersOpeningsTitle: { [Language.FR]: 'Postes', [Language.EN]: 'Positions' },
+  careersOpeningsTitle: { [Language.FR]: 'POSTES OUVERTS', [Language.EN]: 'OPEN POSITIONS' },
   careersOpeningsSubheadline: { [Language.FR]: 'REJOINDRE', [Language.EN]: 'JOIN' },
   careersOpeningsText: { [Language.FR]: 'Consultez nos offres actuelles.', [Language.EN]: 'View our current openings.' },
   careersNoOpenings: { [Language.FR]: 'Aucun poste ouvert.', [Language.EN]: 'No open positions.' },
