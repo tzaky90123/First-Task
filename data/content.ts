@@ -73,11 +73,15 @@ export const content: LocalizedContent = {
   stat4Label: { [Language.FR]: 'Voiries', [Language.EN]: 'Roads' },
   stat5Label: { [Language.FR]: 'Foncier', [Language.EN]: 'Land Base' },
   
-  statChartTitle1: { [Language.FR]: "Ventes", [Language.EN]: "Sales" },
+  statChartTitle1: { [Language.FR]: "Terrains", [Language.EN]: "Land" },
   statChartTitle2: { [Language.FR]: "Filiales", [Language.EN]: "Subsidiaries" },
   statChartTitle3: { [Language.FR]: "Effectifs", [Language.EN]: "Staff" },
   statChartTitle4: { [Language.FR]: "Voiries", [Language.EN]: "Roads" },
   statChartTitle5: { [Language.FR]: "Foncier", [Language.EN]: "Land Base" },
+  
+  statLandAreaManaged: { [Language.FR]: 'Surface gérée', [Language.EN]: 'Land Area Managed' },
+  statEmployeesCount: { [Language.FR]: '150 Collaborateurs', [Language.EN]: '150 Employees' },
+
   statChartSubtitle1: { [Language.FR]: "(unités)", [Language.EN]: "(units)" },
   statChartSubtitle2: { [Language.FR]: "(entités)", [Language.EN]: "(entities)" },
   statChartSubtitle3: { [Language.FR]: "(croissance)", [Language.EN]: "(growth)" },
@@ -94,13 +98,17 @@ export const content: LocalizedContent = {
   statProgressChartUnit: { [Language.FR]: "Km", [Language.EN]: "Km" },
   statProgressChartTarget: { [Language.FR]: "% atteint", [Language.EN]: "% achieved" },
 
+  statInsight1: { 
+    [Language.FR]: "Une gestion rigoureuse de notre portefeuille foncier garantit la pérennité de nos projets.", 
+    [Language.EN]: "Rigorous management of our land portfolio ensures the longevity of our projects."
+  },
   statInsight2: { 
     [Language.FR]: "Keur Invest dirige les investissements stratégiques du groupe, tandis que SOCABEG Mining renforce les opérations industrielles.", 
     [Language.EN]: "Keur Invest leads the group’s strategic investments, while SOCABEG Mining strengthens industrial operations."
   },
   statInsight3: { 
-    [Language.FR]: 'Ce graphique illustre les tendances de notre main-d\'œuvre, avec une croissance maximale mise en évidence au T3, reflétant une montée en puissance significative des projets.', 
-    [Language.EN]: 'This chart illustrates our workforce trends, with peak growth highlighted in Q3, reflecting a significant project ramp-up.' 
+    [Language.FR]: 'Ce graphique illustre les tendances de notre main-d\'œuvre, reflétant une montée en puissance significative des projets.', 
+    [Language.EN]: 'This chart illustrates our workforce trends, reflecting a significant project ramp-up.' 
   },
   statInsight4: { 
     [Language.FR]: 'Ce graphique suit notre croissance constante dans le développement des infrastructures. Il reste 50 km pour atteindre notre objectif de 250 km.', 
@@ -114,7 +122,7 @@ export const content: LocalizedContent = {
   partnerLogoAlt: { [Language.FR]: 'Logo Partenaire {number}', [Language.EN]: 'Partner Logo {number}' },
   partnersSectionTitle: { [Language.FR]: 'Partenaires', [Language.EN]: 'Partners' },
   partnersSectionHeadline: { 
-      [Language.FR]: 'ILS NOUS FONT CONFIANCE', 
+      [Language.FR]: 'THEY TRUST US', 
       [Language.EN]: 'THEY TRUST US' 
   },
   partnersSectionDesc: { [Language.FR]: 'Nous collaborons avec des leaders de l\'industrie pour garantir l\'excellence et l\'innovation dans tous nos projets.', [Language.EN]: 'We collaborate with industry leaders to ensure excellence and innovation in all our projects.' },
@@ -375,7 +383,7 @@ export const content: LocalizedContent = {
   minesIntroImageAlt: { [Language.FR]: 'Opérations minières', [Language.EN]: 'Mining operations' },
 
   minesServicesTitle: { 
-    [Language.FR]: "AT THE HEART OF SENEGAL'S TRANSFORMATION, SOCABEG DEPLOYS ITS EXPERTISE ACROSS THREE STRATEGIC AREAS", 
+    [Language.FR]: "AT THE HEART OF SENEGAL'S TRANSFORMATION, SOCABEG DÉPLOIE SON EXPERTISE À TRAVERS TROIS PÔLES STRATÉGIQUES", 
     [Language.EN]: "AT THE HEART OF SENEGAL'S TRANSFORMATION, SOCABEG DEPLOYS ITS EXPERTISE ACROSS THREE STRATEGIC AREAS" 
   },
   minesService1Title: { [Language.FR]: 'Exploration', [Language.EN]: 'Exploration' },

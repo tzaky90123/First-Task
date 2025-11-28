@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef, useCallback, cloneElement } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocalization } from '../context/LocalizationContext';
@@ -178,6 +179,183 @@ const MasterpiecesSection: React.FC = () => {
 
 // --- Chart Components ---
 
+// 1. Circular Gauge for Land
+const CircularGauge: React.FC<{ value: string; label: string; subLabel: string }> = ({ value, label, subLabel }) => {
+    // Hardcoded visual representation as requested (thin radial arc, gold color)
+    // We'll approximate ~75% circle for the aesthetic
+    const radius = 90;
+    const stroke = 4;
+    const normalizedRadius = radius - stroke * 2;
+    const circumference = normalizedRadius * 2 * Math.PI;
+    const strokeDashoffset = circumference - (0.8 * circumference); // 80% filled
+
+    return (
+        <div className="w-full h-full flex flex-col items-center justify-center p-6">
+            <div className="relative w-64 h-64 flex items-center justify-center">
+                <svg
+                    height={radius * 2}
+                    width={radius * 2}
+                    className="transform -rotate-90"
+                >
+                    <circle
+                        stroke="#e5e7eb"
+                        strokeWidth={stroke}
+                        fill="transparent"
+                        r={normalizedRadius}
+                        cx={radius}
+                        cy={radius}
+                    />
+                    <circle
+                        stroke="#C5A43C"
+                        strokeWidth={stroke}
+                        strokeDasharray={circumference + ' ' + circumference}
+                        style={{ strokeDashoffset, transition: 'stroke-dashoffset 1s ease-out' }}
+                        strokeLinecap="round"
+                        fill="transparent"
+                        r={normalizedRadius}
+                        cx={radius}
+                        cy={radius}
+                    />
+                </svg>
+                <div className="absolute flex flex-col items-center justify-center text-center">
+                    <span className="text-3xl font-bold text-brand-navy">{value}</span>
+                </div>
+            </div>
+            <p className="mt-4 text-sm font-semibold text-brand-secondary uppercase tracking-widest">{subLabel}</p>
+        </div>
+    );
+};
+
+// 2. Large Counter for Subsidiaries
+const LargeCounter: React.FC<{ value: string; label: string }> = ({ value, label }) => {
+    return (
+        <div className="w-full h-full flex flex-col items-center justify-center p-8">
+            <span className="text-9xl font-black text-brand-navy leading-none mb-4">{value}</span>
+            <p className="text-xl font-bold text-brand-secondary uppercase tracking-widest">{label}</p>
+        </div>
+    );
+};
+
+// 3. Thin Donut Chart for Employees
+const DonutChart: React.FC<{ valueLabel: string; }> = ({ valueLabel }) => {
+    const size = 220;
+    const strokeWidth = 8;
+    const radius = (size - strokeWidth) / 2;
+    const circumference = 2 * Math.PI * radius;
+    // Let's pretend it's a full circle donut for the visual, or a specific percentage. 
+    // Request says "Thin Donut Chart... gold stroke with white center".
+    // We'll make it 100% gold stroke for the 'whole' look or partial if it represents progress.
+    // Assuming full ring for "Employees" count representation.
+    
+    return (
+        <div className="w-full h-full flex flex-col items-center justify-center p-6">
+            <div className="relative" style={{ width: size, height: size }}>
+                 <svg width={size} height={size} className="transform -rotate-90">
+                    <circle
+                        cx={size / 2}
+                        cy={size / 2}
+                        r={radius}
+                        fill="transparent"
+                        stroke="#e5e7eb"
+                        strokeWidth={strokeWidth}
+                    />
+                    <circle
+                        cx={size / 2}
+                        cy={size / 2}
+                        r={radius}
+                        fill="transparent"
+                        stroke="#C5A43C"
+                        strokeWidth={strokeWidth}
+                        strokeDasharray={circumference}
+                        strokeDashoffset={0} // Full circle
+                        strokeLinecap="round"
+                    />
+                </svg>
+                <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="text-2xl font-bold text-brand-navy">{valueLabel}</span>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+// 4. Horizontal Progress Bar for Roads
+const ProgressBar: React.FC<{ value: string; unit: string }> = ({ value, unit }) => {
+    const percentage = 80; // Visual representation for 200km out of 250km target (implied from context)
+
+    return (
+        <div className="w-full h-full flex flex-col items-center justify-center px-12">
+            <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+                <div 
+                    className="h-full bg-brand-secondary rounded-full" 
+                    style={{ width: `${percentage}%` }}
+                ></div>
+            </div>
+            <div className="mt-6 text-center">
+                 <span className="text-4xl font-bold text-brand-navy">{value}</span>
+                 <span className="text-xl text-brand-text-gray ml-2">{unit}</span>
+            </div>
+        </div>
+    );
+};
+
+// 5. Sparkline for Land Base
+const Sparkline: React.FC<{ data: { value: number }[]; valueLabel: string }> = ({ data, valueLabel }) => {
+    // Simple SVG sparkline
+    const width = 300;
+    const height = 150;
+    const values = data.map(d => d.value);
+    const max = Math.max(...values, 1) * 1.2;
+    const min = 0;
+    const range = max - min;
+    
+    // Create path d
+    const points = values.map((val, i) => {
+        const x = (i / (values.length - 1)) * width;
+        const y = height - ((val - min) / range) * height;
+        return `${x},${y}`;
+    }).join(' ');
+
+    const fillPath = `M0,${height} ${values.map((val, i) => {
+         const x = (i / (values.length - 1)) * width;
+         const y = height - ((val - min) / range) * height;
+         return `L${x},${y}`;
+    }).join(' ')} L${width},${height} Z`;
+
+    return (
+        <div className="w-full h-full flex flex-col items-center justify-center p-6">
+             <div className="relative mb-4">
+                 <svg width={width} height={height} overflow="visible">
+                    <defs>
+                        <linearGradient id="sparklineGradient" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stopColor="#C5A43C" stopOpacity={0.3}/>
+                            <stop offset="100%" stopColor="#C5A43C" stopOpacity={0.05}/>
+                        </linearGradient>
+                    </defs>
+                    <path d={fillPath} fill="url(#sparklineGradient)" stroke="none" />
+                    <polyline
+                        points={points}
+                        fill="none"
+                        stroke="#C5A43C"
+                        strokeWidth="3"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                    />
+                    {/* Dots */}
+                    {values.map((val, i) => {
+                        const x = (i / (values.length - 1)) * width;
+                        const y = height - ((val - min) / range) * height;
+                        return <circle key={i} cx={x} cy={y} r={4} fill="#fff" stroke="#C5A43C" strokeWidth={2} />;
+                    })}
+                 </svg>
+             </div>
+             <span className="text-3xl font-bold text-brand-navy">{valueLabel}</span>
+        </div>
+    );
+};
+
+
+// 6. Generic Bar Chart (Styled) - Main Sales Chart style (kept for reference or if used elsewhere)
 const BarChart: React.FC<{
     data: { label: string; value: number }[],
     t: (key: string) => string,
@@ -187,32 +365,23 @@ const BarChart: React.FC<{
     const maxValue = Math.max(...data.map(d => d.value), target || 0) * 1.1;
 
     return (
-        <div className="w-full h-full flex flex-col">
+        <div className="w-full h-full flex flex-col px-4">
             {/* Chart Area */}
-            <div className="flex-grow flex items-end justify-around space-x-4 pt-8 border-b border-gray-200 relative">
-                {/* Target Line */}
-                {target && (
-                    <div className="absolute top-0 left-0 right-0" style={{ bottom: `${(target / maxValue) * 100}%` }}>
-                        <div className="relative border-t-2 border-dashed border-red-400 w-full">
-                            <span className="absolute right-0 -top-3 text-xs text-red-500 font-semibold bg-white px-1">Target: {target}{unit}</span>
-                        </div>
-                    </div>
-                )}
+            <div className="flex-grow flex items-end justify-around space-x-6 pt-8 pb-4 relative">
+                {/* Gridlines */}
+                {[0.25, 0.5, 0.75, 1].map((tick) => (
+                    <div key={tick} className="absolute w-full border-t border-gray-100" style={{ bottom: `${tick * 100}%`, left: 0 }}></div>
+                ))}
 
                 {/* Bars */}
                 {data.map(d => (
-                    <div key={d.label} className="w-full flex flex-col items-center h-full justify-end group relative">
-                        {/* Tooltip */}
-                        <div className="absolute bottom-full mb-2 w-max px-2 py-1 text-xs text-white bg-brand-dark rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none transform -translate-x-1/2 left-1/2 z-10">
-                            {d.value} {unit}
-                        </div>
-                        
-                        {/* Bar with Label */}
+                    <div key={d.label} className="w-full flex flex-col items-center h-full justify-end group relative z-10">
+                         {/* Bar */}
                         <div
-                            className="w-3/4 bg-brand-secondary rounded-t-lg transition-all duration-500 ease-out group-hover:opacity-80 relative"
+                            className="w-1/2 bg-brand-secondary rounded-t-lg transition-all duration-500 ease-out group-hover:opacity-80 relative shadow-sm"
                             style={{ height: `${(d.value / maxValue) * 100}%` }}
                         >
-                             <span className="absolute -top-5 left-1/2 -translate-x-1/2 text-xs font-bold text-brand-navy opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                             <span className="absolute -top-6 left-1/2 -translate-x-1/2 text-xs font-bold text-brand-navy opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                 {d.value}
                             </span>
                         </div>
@@ -220,7 +389,7 @@ const BarChart: React.FC<{
                 ))}
             </div>
             {/* X-Axis Labels */}
-            <div className="flex justify-around space-x-4 pt-2">
+            <div className="flex justify-around space-x-6 pt-2 border-t border-gray-200">
                 {data.map(d => (
                     <div key={d.label} className="w-full text-center">
                         <div className="text-xs font-semibold text-brand-text-gray">{t(d.label)}</div>
@@ -231,177 +400,6 @@ const BarChart: React.FC<{
     );
 };
 
-const HorizontalBarChart: React.FC<{ t: (key: string) => string }> = ({ t }) => {
-    const data = [
-        { nameKey: 'statDonutChartKeurInvest', value: 60, color: '#D4AF37' }, // Gold
-        { nameKey: 'statDonutChartSocabegMining', value: 40, color: '#0B1C3F' } // Navy
-    ];
-    const [widths, setWidths] = useState([0, 0]);
-
-    useEffect(() => {
-        // Animate bars on component mount
-        const timer = setTimeout(() => setWidths(data.map(d => d.value)), 100);
-        return () => clearTimeout(timer);
-    }, []);
-
-    return (
-        <div className="w-full h-full flex flex-col justify-center px-4 sm:px-8">
-            {data.map((item, index) => (
-                <div key={index} className="w-full">
-                    <div className="flex justify-between items-center mb-2 text-sm">
-                        <span className="font-semibold text-brand-text-gray">{t(item.nameKey)}</span>
-                        <span className="font-bold" style={{ color: item.color }}>{item.value}%</span>
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-3.5">
-                        <div 
-                            className="h-3.5 rounded-full" 
-                            style={{ 
-                                width: `${widths[index]}%`, 
-                                backgroundColor: item.color,
-                                transition: 'width 1.2s cubic-bezier(0.25, 1, 0.5, 1)',
-                                transitionDelay: `${index * 150}ms`,
-                            }}
-                        ></div>
-                    </div>
-                </div>
-            ))}
-        </div>
-    );
-};
-
-const AreaChart: React.FC<{ data: { label: string; value: number }[], t: (key: string) => string, color?: string }> = ({ data, t, color = '#C5A43C' }) => {
-    const width = 320, height = 280,
-          padding = { top: 30, right: 20, bottom: 25, left: 30 };
-    
-    const chartWidth = width - padding.left - padding.right;
-    const chartHeight = height - padding.top - padding.bottom;
-    
-    const maxValue = Math.max(...data.map(p => p.value)) * 1.15;
-    
-    const getCoords = (pointValue: number, i: number) => {
-        const x = padding.left + (i / (data.length - 1)) * chartWidth;
-        const y = height - padding.bottom - (pointValue / maxValue) * chartHeight;
-        return { x, y };
-    }
-
-    const points = data.map((point, i) => {
-        const { x, y } = getCoords(point.value, i);
-        return `${x},${y}`;
-    }).join(' ');
-
-    const areaPath = `M${padding.left},${height - padding.bottom} L${points} L${width - padding.right},${height - padding.bottom} Z`;
-    
-    const gradientId = `areaGradient-${color.replace(/[^a-zA-Z0-9]/g, '')}`;
-
-    const numGridLines = 4;
-    const gridLines = Array.from({ length: numGridLines }).map((_, i) => {
-        const y = height - padding.bottom - ((i + 1) / numGridLines) * chartHeight;
-        return <line key={i} x1={padding.left} y1={y} x2={width - padding.right} y2={y} stroke="#e5e7eb" strokeWidth="1" strokeDasharray="3 3" />;
-    });
-
-    return (
-        <div className="w-full h-full flex flex-col">
-            <div className="flex-grow relative">
-                <svg viewBox={`0 0 ${width} ${height}`} className="absolute top-0 left-0 w-full h-full">
-                    <defs>
-                        <linearGradient id={gradientId} x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="5%" stopColor={color} stopOpacity={0.4}/>
-                            <stop offset="95%" stopColor={color} stopOpacity={0.05}/>
-                        </linearGradient>
-                    </defs>
-
-                    <g>{gridLines}</g>
-                    
-                    <path d={areaPath} fill={`url(#${gradientId})`} />
-                    
-                    <polyline
-                        fill="none"
-                        stroke={color}
-                        strokeWidth="3"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        points={points}
-                    />
-
-                    {data.map((point, i) => {
-                        const { x, y } = getCoords(point.value, i);
-                        const unit = color === '#C5A43C' ? 'Ha' : '';
-                        return (
-                            <g key={i} className="group cursor-pointer">
-                                <circle cx={x} cy={y} r="10" fill="transparent" />
-                                <circle cx={x} cy={y} r="4" fill="white" stroke={color} strokeWidth="2" className="transition-transform duration-300 group-hover:scale-125" />
-                                <g className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{ transform: `translate(${x}px, ${y - 10}px)` }}>
-                                    <rect x="-25" y="-22" width="50" height="18" rx="4" fill="#1C1C1C" />
-                                    <text x="0" y="-10" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold">
-                                        {point.value} {unit}
-                                    </text>
-                                    <path d="M -4 0 L 4 0 L 0 4 z" fill="#1C1C1C" transform="translate(0, -4)" />
-                                </g>
-                            </g>
-                        );
-                    })}
-                </svg>
-            </div>
-            <div className="flex justify-around space-x-4 pt-2 border-t border-gray-200">
-                {data.map(d => (
-                    <div key={d.label} className="w-full text-center">
-                        <div className="text-xs font-semibold text-brand-text-gray">{t(d.label)}</div>
-                    </div>
-                ))}
-            </div>
-        </div>
-    );
-};
-
-const DetailedProgressBar: React.FC<{
-    data: { label: string; value: number }[],
-    target: number,
-    unit: string,
-    t: (key: string) => string
-}> = ({ data, target, unit, t }) => {
-    const currentValue = data.length > 0 ? data[data.length - 1].value : 0;
-    const percentage = target > 0 ? (currentValue / target) * 100 : 0;
-    const remaining = target - currentValue;
-    const [progressWidth, setProgressWidth] = useState(0);
-
-    useEffect(() => {
-        const timer = setTimeout(() => setProgressWidth(percentage), 100);
-        return () => clearTimeout(timer);
-    }, [percentage]);
-
-    return (
-        <div className="w-full h-full flex flex-col justify-center px-4 sm:px-8">
-            <div className="flex justify-between items-end mb-2">
-                <span className="text-2xl font-bold text-brand-navy">{currentValue} / {target} {unit}</span>
-                <span className="text-xl font-bold text-brand-secondary">{Math.round(percentage)}%</span>
-            </div>
-            <div className="relative w-full bg-gray-200 rounded-full h-6">
-                <div
-                    className="bg-gradient-to-r from-yellow-400 to-brand-secondary h-6 rounded-full transition-all duration-1000 ease-out"
-                    style={{ width: `${progressWidth}%` }}
-                ></div>
-                {data.map((milestone, index) => {
-                    const milestonePercentage = (milestone.value / target) * 100;
-                    return (
-                        <div
-                            key={index}
-                            className="group absolute top-1/2 -translate-y-1/2 -translate-x-1/2"
-                            style={{ left: `${milestonePercentage}%` }}
-                        >
-                            <div className="h-4 w-4 bg-white border-2 border-brand-navy rounded-full z-10 transition-transform duration-300 group-hover:scale-125"></div>
-                            <div className="absolute bottom-full mb-2 w-max px-2 py-1 text-xs text-white bg-brand-dark rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none transform -translate-x-1/2 left-1/2 z-20">
-                                {t(milestone.label)}: {milestone.value} {unit}
-                            </div>
-                        </div>
-                    );
-                })}
-            </div>
-            <div className="text-right mt-3 text-sm text-brand-text-gray">
-                <span>Remaining: {remaining} {unit} to target</span>
-            </div>
-        </div>
-    );
-};
 
 const IconStatDomain = ({ className }: { className?: string }) => (
     <svg xmlns="http://www.w3.org/2000/svg" className={className} viewBox="0 0 24 24" fill="currentColor">
@@ -443,34 +441,35 @@ const StatisticsSection: React.FC = () => {
     ];
     
     const chartInsights = [
-        '', // No insight for "Serviced Plots"
+        'statInsight1', // Land
         'statInsight2', // Subsidiaries
         'statInsight3', // Employees
-        'statInsight4', // Roads and Networks
+        'statInsight4', // Roads
         'statInsight5', // Land Base
     ];
     
-    const chartData = [
-        [ { label: 'statBarChartLabelQ1', value: 450 }, { label: 'statBarChartLabelQ2', value: 650 }, { label: 'statBarChartLabelQ3', value: 800 }, { label: 'statBarChartLabelQ4', value: 950 } ],
-        [],
-        [ { label: 'statBarChartLabelQ1', value: 20 }, { label: 'statBarChartLabelQ2', value: 45 }, { label: 'statBarChartLabelQ3', value: 50 }, { label: 'statBarChartLabelQ4', value: 35 } ],
-        [],
-        [ { label: 'statBarChartLabelQ1', value: 80 }, { label: 'statBarChartLabelQ2', value: 150 }, { label: 'statBarChartLabelQ3', value: 120 }, { label: 'statBarChartLabelQ4', value: 150 } ],
-    ];
+    // Data used for sparkline or bar chart if needed
+    const landBaseData = [ { value: 80 }, { value: 150 }, { value: 120 }, { value: 150 } ];
 
-    const roadsChartData = [
-        { label: 'statBarChartLabelQ1', value: 50 },
-        { label: 'statBarChartLabelQ2', value: 90 },
-        { label: 'statBarChartLabelQ3', value: 150 },
-        { label: 'statBarChartLabelQ4', value: 200 },
-    ];
-
+    // Note: Items 1-5 from prompt map to indices 0-4 here.
+    // Item 6 in prompt "Main Sales Chart" is essentially replaced by the new Land Chart logic for item 0,
+    // or refers to a generic style we applied to BarChart if it were used.
+    
     const chartComponents = [
-        <BarChart data={chartData[0]} t={t} />,
-        <HorizontalBarChart t={t} />,
-        <AreaChart data={chartData[2]} t={t} color="#0052CC" />,
-        <DetailedProgressBar data={roadsChartData} target={250} unit="Km" t={t} />,
-        <AreaChart data={chartData[4]} t={t} />,
+        // 1. Land: Circular Gauge
+        <CircularGauge value="2,000 Ha" label={t('stat1Label')} subLabel={t('statLandAreaManaged')} />,
+        
+        // 2. Subsidiaries: Large Counter
+        <LargeCounter value="02" label={t('stat2Label')} />,
+        
+        // 3. Employees: Donut Chart
+        <DonutChart valueLabel={t('statEmployeesCount')} />,
+        
+        // 4. Roads: Progress Bar
+        <ProgressBar value="200" unit="Km" />,
+        
+        // 5. Land Base: Sparkline
+        <Sparkline data={landBaseData} valueLabel="500 Ha" />
     ];
 
     return (
@@ -505,7 +504,7 @@ const StatisticsSection: React.FC = () => {
                 <div className="lg:col-span-3 bg-white p-6 rounded-xl shadow-lg h-full flex flex-col min-h-[450px]">
                     <h3 className="text-xl font-semibold text-brand-navy mb-1">{t(`statChartTitle${activeIndex + 1}`)}</h3>
                     <p className="text-sm text-brand-text-gray mb-6">{t(`statChartSubtitle${activeIndex + 1}`)}</p>
-                    <div className="flex-grow h-80">
+                    <div className="flex-grow h-80 flex items-center justify-center">
                       {chartComponents[activeIndex]}
                     </div>
                     {chartInsights[activeIndex] && (
