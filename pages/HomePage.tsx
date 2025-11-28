@@ -5,7 +5,6 @@ import Footer from '../components/Footer';
 import FullScreenSection from '../components/FullScreenSection';
 import AboutSection from '../components/AboutSection';
 import HeroSection from '../components/HeroSection';
-import ContactSection from '../components/ContactSection';
 import SectionTitle from '../components/SectionTitle';
 import ValuesSection from '../components/ValuesSection';
 import TestimonialsSection from '../components/TestimonialsSection';
@@ -613,9 +612,6 @@ const HomePage: React.FC = () => {
       </FullScreenSection>
       <FullScreenSection className="bg-white py-16 md:py-20">
         <TestimonialsSection />
-      </FullScreenSection>
-      <FullScreenSection className="bg-brand-light py-16 md:py-20">
-        <ContactSection />
       </FullScreenSection>
       <Footer />
     </>

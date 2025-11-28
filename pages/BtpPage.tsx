@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import HeroSection from '../components/HeroSection';
 import FullScreenSection from '../components/FullScreenSection';
 import Footer from '../components/Footer';
-import ContactSection from '../components/ContactSection';
 import SectionTitle from '../components/SectionTitle';
 import TestimonialsSection from '../components/TestimonialsSection';
 
@@ -142,9 +141,6 @@ const BtpPage: React.FC = () => {
       </FullScreenSection>
        <FullScreenSection className="bg-white py-16 md:py-20">
         <TestimonialsSection />
-      </FullScreenSection>
-      <FullScreenSection className="bg-brand-light py-16 md:py-20">
-        <ContactSection />
       </FullScreenSection>
       <Footer />
     </>
