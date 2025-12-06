@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useLocalization } from '../context/LocalizationContext';
 import FullScreenSection from '../components/FullScreenSection';
@@ -34,7 +35,7 @@ const PartnersSection: React.FC = () => {
                             <img 
                                 src={logo} 
                                 alt={t('partnerLogoAlt').replace('{number}', String(index + 1))} 
-                                className="max-h-24 md:max-h-32 w-auto object-contain transition-all duration-300 partner-logo" 
+                                className="max-h-24 md:max-h-32 w-auto object-contain transition-all duration-300 grayscale-0 opacity-100" 
                                 loading="lazy" height="128" width="200"
                             />
                         </div>
@@ -46,7 +47,7 @@ const PartnersSection: React.FC = () => {
                             <img 
                                 src={logo} 
                                 alt={t('partnerLogoAlt').replace('{number}', String(index + 1 + row1Logos.length))} 
-                                className="max-h-24 md:max-h-32 w-auto object-contain transition-all duration-300 partner-logo" 
+                                className="max-h-24 md:max-h-32 w-auto object-contain transition-all duration-300 grayscale-0 opacity-100" 
                                 loading="lazy" height="128" width="200"
                             />
                         </div>

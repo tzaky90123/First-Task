@@ -6,7 +6,7 @@ export const content: LocalizedContent = {
   navHome: { [Language.FR]: 'Accueil', [Language.EN]: 'Home' },
   navAbout: { [Language.FR]: 'À Propos', [Language.EN]: 'About' },
   navBTP: { [Language.FR]: 'BTP', [Language.EN]: 'Construction' },
-  navRealEstate: { [Language.FR]: 'Promotion Immobilière', [Language.EN]: 'Real Estate' },
+  navRealEstate: { [Language.FR]: 'Immobilier', [Language.EN]: 'Real Estate' },
   navMines: { [Language.FR]: 'Mines', [Language.EN]: 'Mining' },
   navCareers: { [Language.FR]: 'Carrières', [Language.EN]: 'Careers' },
   navContact: { [Language.FR]: 'Contact', [Language.EN]: 'Contact' },
@@ -35,7 +35,13 @@ export const content: LocalizedContent = {
   heroSlide3Subtitle: { [Language.EN]: 'Engage in a durable and quality creation, or a harmonious environment that enriches the community.', [Language.FR]: "S'engager dans une création durable et de qualité, ou un environnement harmonieux qui enrichit la communauté." },
 
   homeCta: { [Language.FR]: 'Découvrir nos projets', [Language.EN]: 'Discover our projects' },
+  
   homeServicesTitle: { [Language.FR]: 'Expertise', [Language.EN]: 'Expertise' },
+  homeExpertiseSubtitle: { 
+    [Language.FR]: "AU CŒUR DE LA TRANSFORMATION DU SÉNÉGAL, SOCABEG DÉPLOIE SON EXPERTISE À TRAVERS TROIS PÔLES STRATÉGIQUES", 
+    [Language.EN]: "AT THE HEART OF SENEGAL'S TRANSFORMATION, SOCABEG DEPLOYS ITS EXPERTISE ACROSS THREE STRATEGIC AREAS" 
+  },
+  
   homeServicesBtpTitle: { [Language.FR]: 'Construction', [Language.EN]: 'Construction' },
   homeServicesBtpText: { [Language.FR]: 'Des infrastructures publiques aux projets privés, nous construisons des fondations solides pour le développement.', [Language.EN]: 'From public infrastructure to private projects, we build strong foundations for development.' },
   homeServicesReTitle: { [Language.FR]: 'Immobilier', [Language.EN]: 'Real Estate' },
@@ -43,16 +49,18 @@ export const content: LocalizedContent = {
   homeServicesMinesTitle: { [Language.FR]: 'Mines', [Language.EN]: 'Mining' },
   homeServicesMinesText: { [Language.FR]: 'Exploitation responsable des ressources naturelles pour soutenir la croissance économique du Sénégal.', [Language.EN]: 'Responsible exploitation of natural resources to support the economic growth of the Senegalese economy.' },
   
-  homeExpertiseSubtitle: { 
-    [Language.FR]: "AU CŒUR DE LA TRANSFORMATION DU SÉNÉGAL, SOCABEG DÉPLOIE SON EXPERTISE À TRAVERS TROIS PÔLES STRATÉGIQUES", 
-    [Language.EN]: "AT THE HEART OF SENEGAL'S TRANSFORMATION, SOCABEG DEPLOYS ITS EXPERTISE ACROSS THREE STRATEGIC AREAS" 
-  },
-
-  homeAboutSectionTitle: { [Language.FR]: 'À Propos', [Language.EN]: 'About Us' },
+  homeAboutSectionTitle: { [Language.FR]: 'À Propos', [Language.EN]: 'About' },
   homeAboutSectionHeadline: { 
     [Language.FR]: 'PLUS DE 35 ANS À VOTRE SERVICE', 
-    [Language.EN]: 'OVER 35 YEARS AT YOUR SERVICE' 
+    [Language.EN]: 'PLUS DE 35 ANS À VOTRE SERVICE' // Keep French as requested in structure
   },
+  homeAboutPreviewText: {
+    [Language.FR]: "SOCABEG est une entreprise multidisciplinaire opérant dans la construction, l'immobilier et les mines. Nous nous engageons à développer des infrastructures modernes et à contribuer au progrès économique et social du Sénégal.",
+    [Language.EN]: "SOCABEG is a multidisciplinary company operating in construction, real estate, and mining. We are committed to developing modern infrastructure and contributing to Senegal’s economic and social progress."
+  },
+  homeAboutBtn: { [Language.FR]: 'En savoir plus', [Language.EN]: 'Learn More About Us' },
+  
+  // Existing long about text for inner page
   homeAboutP1: { [Language.FR]: "<b>SOCABEG s’investit aux côtés des Sénégalais pour réaliser leurs projets immobiliers.</b>", [Language.EN]: "<b>SOCABEG is committed to working alongside the people of Senegal to bring their real estate projects to life.</b>" },
   homeAboutP2: { [Language.FR]: "Fondée en 1986 par M. Mamoune SAMB, SOCABEG s'est imposée comme un acteur majeur reconnu dans le domaine de la construction et de la promotion immobilière au Sénégal. Le Groupe SOCABEG exerce aujourd'hui ses activités dans les domaines du BTP, de la Promotion immobilière et le secteur minier.", [Language.EN]: "Founded in 1986 by Mr. Mamoune SAMB, SOCABEG has established itself as a recognized major player in the construction and real estate development sector in Senegal. Today, the SOCABEG Group operates in construction (BTP), real estate development, and the mining sector." },
   homeAboutP3: { [Language.FR]: "Elle dispose d'une très grande notoriété dans le paysage des affaires au Sénégal rassemblant les compétences de constructeur bien équipé et aménageur de site avec un très riche savoir-faire acquis dans l'habitat social. SOCABEG a une forte maîtrise de la chaîne de valeur en tant que développeur-constructeur avec une offre verticalisée et une une gamme de produits en adéquation avec le marché immobilier sénégalais.", [Language.EN]: "The company holds a prominent reputation in Senegal's business landscape, combining the skills of a well-equipped builder and site developer with extensive expertise acquired in social housing. SOCABEG demonstrates strong command of the value chain as a developer-builder, offering a vertically integrated service and a product range tailored to the Senegalese real estate market." },
@@ -61,148 +69,50 @@ export const content: LocalizedContent = {
   homeAboutP6: { [Language.FR]: "En proposant des projets immobiliers novateurs et de qualité, accessibles à un coût raisonnable, elle vise à allier excellence de construction et accessibilité financière. SOCABEG a joué un rôle clé dans l'essor de nouvelles zones urbaines en construisant des milliers de logements sociaux, répondant ainsi aux besoins d'une large part de la population sénégalaise aux revenus variés.", [Language.EN]: "By offering innovative, high-quality real estate projects at a reasonable cost, SOCABEG aims to combine construction excellence with financial accessibility. The company has played a key role in the growth of new urban areas by building thousands of social housing units, thereby meeting the needs of a large segment of the Senegalese population with diverse income levels." },
   aboutImageAlt: { [Language.FR]: "Ingénieurs SOCABEG planifiant un projet", [Language.EN]: "SOCABEG engineers planning a project" },
 
-  statisticsSectionTitle: { 
-    [Language.FR]: "STRATÉGIE D'EXÉCUTION", 
-    [Language.EN]: 'EXECUTION STRATEGY' 
+  whyChooseUsSectionTitle: { [Language.FR]: 'Pourquoi Nous', [Language.EN]: 'Why Choose US' },
+  whyChooseUsSectionHeadline: { 
+    [Language.FR]: 'NOS VALEURS', 
+    [Language.EN]: 'OUR VALUES' 
   },
-  statisticsSectionText: { [Language.FR]: 'Notre approche repose sur une planification rigoureuse, une exécution précise et une gestion de projet proactive. Nous nous engageons à livrer des résultats exceptionnels, dans le respect des délais et des budgets.', [Language.EN]: 'Our approach is based on rigorous planning, precise execution, and proactive project management. We are committed to delivering exceptional results, while respecting deadlines and budgets.' },
-  statisticsSectionHeadline: { [Language.FR]: 'IMPACT', [Language.EN]: 'IMPACT' },
-  stat1Label: { [Language.FR]: 'Terrains', [Language.EN]: 'Land' },
-  stat2Label: { [Language.FR]: 'Filiales', [Language.EN]: 'Subsidiaries' },
-  stat3Label: { [Language.FR]: 'Collaborateurs', [Language.EN]: 'Employees' },
-  stat4Label: { [Language.FR]: 'Voiries', [Language.EN]: 'Roads' },
-  stat5Label: { [Language.FR]: 'Foncier', [Language.EN]: 'Land Base' },
   
-  statChartTitle1: { [Language.FR]: "Terrains", [Language.EN]: "Land" },
-  statChartTitle2: { [Language.FR]: "Filiales", [Language.EN]: "Subsidiaries" },
-  statChartTitle3: { [Language.FR]: "Effectifs", [Language.EN]: "Staff" },
-  statChartTitle4: { [Language.FR]: "Voiries", [Language.EN]: "Roads" },
-  statChartTitle5: { [Language.FR]: "Foncier", [Language.EN]: "Land Base" },
+  value1Title: { [Language.FR]: 'Expertise', [Language.EN]: 'Expertise in 3 sectors' },
+  value1Desc: { [Language.FR]: 'Plus de 35 ans d’activité dans le BTP, l’immobilier et les mines.', [Language.EN]: 'Leading operations in Construction, Real Estate, and Mining.' },
   
-  statLandAreaManaged: { [Language.FR]: 'Surface gérée', [Language.EN]: 'Land Area Managed' },
-  statEmployeesCount: { [Language.FR]: '150 Collaborateurs', [Language.EN]: '150 Employees' },
-
-  statChartSubtitle1: { [Language.FR]: "(unités)", [Language.EN]: "(units)" },
-  statChartSubtitle2: { [Language.FR]: "(entités)", [Language.EN]: "(entities)" },
-  statChartSubtitle3: { [Language.FR]: "(croissance)", [Language.EN]: "(growth)" },
-  statChartSubtitle4: { [Language.FR]: "(objectif)", [Language.EN]: "(target)" },
-  statChartSubtitle5: { [Language.FR]: "(hectares)", [Language.EN]: "(hectares)" },
-  statBarChartLabelQ1: { [Language.FR]: "T1", [Language.EN]: "Q1" },
-  statBarChartLabelQ2: { [Language.FR]: "T2", [Language.EN]: "Q2" },
-  statBarChartLabelQ3: { [Language.FR]: "T3", [Language.EN]: "Q3" },
-  statBarChartLabelQ4: { [Language.FR]: "T4", [Language.EN]: "Q4" },
-  statDonutChartLabelSubsidiaries: { [Language.FR]: "Filiales", [Language.EN]: "Subsidiaries" },
-  statDonutChartKeurInvest: { [Language.FR]: "Keur Invest", [Language.EN]: "Keur Invest" },
-  statDonutChartSocabegMining: { [Language.FR]: "SOCABEG Mining", [Language.EN]: "SOCABEG Mining" },
-  statProgressChartTitle: { [Language.FR]: "Progression", [Language.EN]: "Progress" },
-  statProgressChartUnit: { [Language.FR]: "Km", [Language.EN]: "Km" },
-  statProgressChartTarget: { [Language.FR]: "% atteint", [Language.EN]: "% achieved" },
-
-  statInsight1: { 
-    [Language.FR]: "Une gestion rigoureuse de notre portefeuille foncier garantit la pérennité de nos projets.", 
-    [Language.EN]: "Rigorous management of our land portfolio ensures the longevity of our projects."
-  },
-  statInsight2: { 
-    [Language.FR]: "Keur Invest dirige les investissements stratégiques du groupe, tandis que SOCABEG Mining renforce les opérations industrielles.", 
-    [Language.EN]: "Keur Invest leads the group’s strategic investments, while SOCABEG Mining strengthens industrial operations."
-  },
-  statInsight3: { 
-    [Language.FR]: 'Ce graphique illustre les tendances de notre main-d\'œuvre, reflétant une montée en puissance significative des projets.', 
-    [Language.EN]: 'This chart illustrates our workforce trends, reflecting a significant project ramp-up.' 
-  },
-  statInsight4: { 
-    [Language.FR]: 'Ce graphique suit notre croissance constante dans le développement des infrastructures. Il reste 50 km pour atteindre notre objectif de 250 km.', 
-    [Language.EN]: 'This chart tracks our steady growth in infrastructure development. 50 km remain to reach our 250 km target.'
-  },
-  statInsight5: { 
-      [Language.FR]: 'L\'acquisition stratégique de terres continue de sécuriser notre portefeuille pour les futurs développements.', 
-      [Language.EN]: 'Strategic land acquisition continues to secure our portfolio for future developments.' 
-  },
+  value2Title: { [Language.FR]: 'Qualité & Sécurité', [Language.EN]: 'Commitment to quality & safety' },
+  value2Desc: { [Language.FR]: 'Des standards élevés pour la protection de tous.', [Language.EN]: 'High standards ensuring the safety and satisfaction of our stakeholders.' },
+  
+  value3Title: { [Language.FR]: 'Équipe', [Language.EN]: 'Professional team' },
+  value3Desc: { [Language.FR]: 'Une main-d\'œuvre qualifiée et passionnée.', [Language.EN]: 'A qualified and passionate workforce dedicated to success.' },
+  
+  value4Title: { [Language.FR]: 'Expérience', [Language.EN]: 'Proven track record' },
+  value4Desc: { [Language.FR]: 'Des milliers de projets livrés avec succès.', [Language.EN]: 'Thousands of projects successfully delivered across the region.' },
 
   partnerLogoAlt: { [Language.FR]: 'Logo Partenaire {number}', [Language.EN]: 'Partner Logo {number}' },
-  partnersSectionTitle: { [Language.FR]: 'Partenaires', [Language.EN]: 'Partners' },
+  partnersSectionTitle: { [Language.FR]: 'Nos Partenaires', [Language.EN]: 'Our Partners' },
   partnersSectionHeadline: { 
-      [Language.FR]: 'THEY TRUST US', 
-      [Language.EN]: 'THEY TRUST US' 
+      [Language.FR]: 'Confiance des leaders au Sénégal', 
+      [Language.EN]: 'Trusted by Leaders Across Senegal' 
   },
-  partnersSectionDesc: { [Language.FR]: 'Nous collaborons avec des leaders de l\'industrie pour garantir l\'excellence et l\'innovation dans tous nos projets.', [Language.EN]: 'We collaborate with industry leaders to ensure excellence and innovation in all our projects.' },
 
+  homeMasterpiecesTitle: { [Language.FR]: 'Nos Projets', [Language.EN]: 'Our Project' },
+  homeMasterpiecesSubtitle: { 
+    [Language.FR]: 'ICONIC PROJECTS', 
+    [Language.EN]: 'ICONIC PROJECTS' 
+  },
+  homeMasterpiecesBtn: { [Language.FR]: 'Voir plus de projets', [Language.EN]: 'See More Projects' },
   masterpieceBtpTitle: { [Language.FR]: 'BTP', [Language.EN]: 'Construction' },
   masterpieceBtpDesc: { [Language.FR]: 'Infrastructures', [Language.EN]: 'Infrastructure' },
   masterpieceReTitle: { [Language.FR]: 'Immobilier', [Language.EN]: 'Real Estate' },
   masterpieceReDesc: { [Language.FR]: 'Espaces modernes', [Language.EN]: 'Modern spaces' },
   masterpieceMinesTitle: { [Language.FR]: 'Mines', [Language.EN]: 'Mining' },
   masterpieceMinesDesc: { [Language.FR]: 'Responsabilité', [Language.EN]: 'Responsibility' },
-  homeMasterpiecesTitle: { [Language.FR]: 'Réalisations', [Language.EN]: 'Masterpieces' },
-  homeMasterpiecesSubtitle: { 
-    [Language.FR]: 'ICONIC PROJECTS', 
-    [Language.EN]: 'ICONIC PROJECTS' 
-  },
   masterpiecesPrev: { [Language.FR]: 'Précédent', [Language.EN]: 'Previous' },
   masterpiecesNext: { [Language.FR]: 'Suivant', [Language.EN]: 'Next' },
 
-  program1Title: { [Language.FR]: 'Cité Balena', [Language.EN]: 'Balena City' },
-  program1Type: { [Language.FR]: 'Villa', [Language.EN]: 'Villa' },
-  program1Bedrooms: { [Language.FR]: '4 Chambres', [Language.EN]: '4 Bedrooms' },
-  program1Bathrooms: { [Language.FR]: '3 SDB', [Language.EN]: '3 Baths' },
-  program1Area: { [Language.FR]: '250 m²', [Language.EN]: '250 m²' },
-  program1Location: { [Language.FR]: 'Diamniadio', [Language.EN]: 'Diamniadio' },
-  program1Desc: { [Language.FR]: 'Villas modernes alliant confort et sécurité dans un cadre verdoyant.', [Language.EN]: 'Modern villas combining comfort and safety in a green setting.' },
-  program1Price: { [Language.FR]: 'Dès 45M FCFA', [Language.EN]: 'From 45M FCFA' },
-
-  program2Title: { [Language.FR]: 'Résidence HLM', [Language.EN]: 'HLM Residence' },
-  program2Type: { [Language.FR]: 'Appartement', [Language.EN]: 'Apartment' },
-  program2Bathrooms: { [Language.FR]: '2 SDB', [Language.EN]: '2 Baths' },
-  program2Area: { [Language.FR]: '120 m²', [Language.EN]: '120 m²' },
-  program2Location: { [Language.FR]: 'Dakar', [Language.EN]: 'Dakar' },
-  program2Desc: { [Language.FR]: 'Appartements spacieux au cœur de la ville, proches de toutes commodités.', [Language.EN]: 'Spacious apartments in the heart of the city, close to all amenities.' },
-  program2Price: { [Language.FR]: 'Dès 30M FCFA', [Language.EN]: 'From 30M FCFA' },
-
-  program3Title: { [Language.FR]: 'Le Lac Rose', [Language.EN]: 'The Pink Lake' },
-  program3Type: { [Language.FR]: 'Terrain', [Language.EN]: 'Land' },
-  program3Bedrooms: { [Language.FR]: 'N/A', [Language.EN]: 'N/A' },
-  program3Bathrooms: { [Language.FR]: 'N/A', [Language.EN]: 'N/A' },
-  program3Area: { [Language.FR]: '300 m²', [Language.EN]: '300 m²' },
-  program3Location: { [Language.FR]: 'Lac Rose', [Language.EN]: 'Pink Lake' },
-  program3Desc: { [Language.FR]: 'Terrains prêts à bâtir avec vue imprenable sur le Lac Rose.', [Language.EN]: 'Build-ready plots with stunning views of the Pink Lake.' },
-  program3Price: { [Language.FR]: 'Dès 12M FCFA', [Language.EN]: 'From 12M FCFA' },
-
-  programsSectionTitle: { [Language.FR]: 'Programmes', [Language.EN]: 'Programs' },
-  programsSectionHeadline: { 
-      [Language.FR]: 'REAL ESTATE OPPORTUNITIES', 
-      [Language.EN]: 'REAL ESTATE OPPORTUNITIES' 
-  },
-  programDetailsButton: { [Language.FR]: 'Détails', [Language.EN]: 'Details' },
-  programContactButton: { [Language.FR]: 'Contact', [Language.EN]: 'Contact' },
-
-  whyChooseUsSectionTitle: { [Language.FR]: 'Pourquoi Nous', [Language.EN]: 'Why Us' },
-  whyChooseUsSectionHeadline: { 
-    [Language.FR]: 'OUR VALUES', 
-    [Language.EN]: 'OUR VALUES' 
-  },
-  
-  value1Title: { [Language.FR]: 'Expérience', [Language.EN]: 'Experience' },
-  value1Desc: { [Language.FR]: 'Plus de 35 ans d’activité dans le BTP et l’immobilier au Sénégal, avec des milliers de logements livrés.', [Language.EN]: 'Over 35 years of activity in construction and real estate in Senegal, with thousands of homes delivered.' },
-  
-  value2Title: { [Language.FR]: 'Maîtrise', [Language.EN]: 'Mastery' },
-  value2Desc: { [Language.FR]: 'Une expertise complète du cycle de construction : études, réalisation, viabilisation, commercialisation.', [Language.EN]: 'Complete expertise in the construction cycle: studies, realization, servicing, marketing.' },
-  
-  value3Title: { [Language.FR]: 'Responsabilité', [Language.EN]: 'Responsibility' },
-  value3Desc: { [Language.FR]: "Techniques modernes à faible empreinte carbone et formation de la main-d'œuvre locale.", [Language.EN]: 'Modern techniques with low carbon footprint and training of local workforce.' },
-  
-  value4Title: { [Language.FR]: 'Innovation', [Language.EN]: 'Innovation' },
-  value4Desc: { [Language.FR]: 'BIM, ERP BTP, coffrages Geoplast®, usine de préfabrication… SOCABEG investit dans la modernité.', [Language.EN]: 'BIM, construction ERP, Geoplast® formwork, prefabrication plant… SOCABEG invests in modernity.' },
-  
-  value5Title: { [Language.FR]: 'Projets', [Language.EN]: 'Projects' },
-  value5Desc: { [Language.FR]: 'Tivaouane Peulh, HLM Castor, Darou Salam, Cité IPRES… des projets qui transforment la ville.', [Language.EN]: 'Tivaouane Peulh, HLM Castor, Darou Salam, Cité IPRES… projects that transform the city.' },
-  
-  value6Title: { [Language.FR]: 'Proximité', [Language.EN]: 'Proximity' },
-  value6Desc: { [Language.FR]: 'Entreprise 100% sénégalaise à taille humaine, proche de ses clients et de leurs besoins.', [Language.EN]: '100% Senegalese company on a human scale, close to its clients and their needs.' },
-
   testimonialsSectionTitle: { [Language.FR]: 'Témoignages', [Language.EN]: 'Testimonials' },
   testimonialsSectionHeadline: { 
-    [Language.FR]: 'THEY TRUST US', 
-    [Language.EN]: 'THEY TRUST US' 
+    [Language.FR]: 'Ce que disent nos clients', 
+    [Language.EN]: 'What Our Clients Say' 
   },
   
   testimonial1Quote: { [Language.FR]: "J'ai acquis ma villa à la Cité Tivaouane Peulh avec SOCABEG. Le processus était transparent et l'équipe très professionnelle.", [Language.EN]: 'I acquired my villa at Cité Tivaouane Peulh with SOCABEG. The process was transparent and the team very professional.' },
@@ -239,6 +149,10 @@ export const content: LocalizedContent = {
   email: { [Language.FR]: 'E-mail', [Language.EN]: 'E-mail' },
   contactMapTitle: { [Language.FR]: 'Localisation', [Language.EN]: 'Location' },
   contactFormSuccess: { [Language.FR]: 'Message envoyé !', [Language.EN]: 'Message sent!' },
+
+  homeBigCtaTitle: { [Language.FR]: 'Prêt à travailler avec nous ?', [Language.EN]: 'Ready to Work With Us?' },
+  homeBigCtaSubtitle: { [Language.FR]: 'Bâtissons l\'avenir du Sénégal ensemble.', [Language.EN]: 'Let’s Build Senegal’s Future Together.' },
+  homeBigCtaButton: { [Language.FR]: 'Contactez-nous aujourd\'hui', [Language.EN]: 'Contact Us Today' },
 
   footerDescription: { [Language.FR]: 'Bâtir l\'avenir du Sénégal avec innovation et qualité.', [Language.EN]: 'Building Senegal\'s future with innovation and quality.' },
   footerQuickLinks: { [Language.FR]: 'Liens', [Language.EN]: 'Links' },

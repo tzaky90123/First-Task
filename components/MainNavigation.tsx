@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { NavLink as RouterNavLink } from 'react-router-dom';
 import { useLocalization } from '../context/LocalizationContext';
@@ -17,27 +18,27 @@ const MainNavigation: React.FC = () => {
     const { t } = useLocalization();
 
     // This navigation is designed to be part of the hero section and is hidden on mobile.
-    // Mobile navigation is handled by the main Header component's overlay menu.
     return (
         <nav
             aria-label="Main navigation"
-            className="hidden md:flex justify-center"
+            className="hidden md:flex justify-center w-full"
         >
-            <ul className="flex justify-center items-center space-x-8">
-                {mainNavLinks.map(link => (
-                    <li key={link.path}>
+            <ul className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2">
+                {mainNavLinks.map((link, index) => (
+                    <li key={link.path} className="flex items-center">
                         <RouterNavLink
                             to={link.path}
                             end={link.path === '/'}
                             className={({ isActive }) =>
-                                `relative block py-2 px-1 text-sm font-medium text-white uppercase tracking-widest transition-opacity duration-300 ease-in-out
-                                ${isActive ? 'opacity-100' : 'opacity-70 hover:opacity-100'}
-                                after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-[1px] after:bg-brand-secondary after:transition-all after:duration-300
-                                ${isActive ? 'after:w-full' : 'hover:after:w-full'}`
+                                `text-sm lg:text-base font-bold text-white uppercase tracking-widest transition-colors duration-300 hover:text-brand-secondary
+                                ${isActive ? 'text-brand-secondary' : ''}`
                             }
                         >
                             {t(link.label)}
                         </RouterNavLink>
+                        {index < mainNavLinks.length - 1 && (
+                            <span className="ml-6 text-white/40 text-sm">|</span>
+                        )}
                     </li>
                 ))}
             </ul>
