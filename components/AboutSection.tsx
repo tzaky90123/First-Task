@@ -18,7 +18,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ previewMode = false }) => {
                 {/* Left Image Column */}
                 <div className={`h-full flex items-center justify-center p-6 md:p-12`}>
                     <img 
-                        src="https://images.pexels.com/photos/585418/pexels-photo-585418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+                        src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
                         alt={t('aboutImageAlt')} 
                         className="w-full h-auto object-cover rounded-lg shadow-sm"
                         loading="lazy" width="600" height="400"

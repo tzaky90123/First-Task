@@ -179,7 +179,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           <div>
               {activeSlides.map((slide, index) => (
                   <div key={index} className={`${index === currentSlide ? 'block' : 'hidden'}`}>
-                      <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4 animate-fade-in-up uppercase">
+                      <h1 className="text-lg md:text-2xl lg:text-3xl font-bold leading-tight mb-4 animate-fade-in-up uppercase">
                         {t(slide.title)}
                       </h1>
                       <p className="text-base md:text-lg lg:text-xl mb-8 animate-fade-in-up animation-delay-300 max-w-5xl mx-auto">
