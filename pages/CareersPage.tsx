@@ -6,6 +6,7 @@ import HeroSection from '../components/HeroSection';
 import FullScreenSection from '../components/FullScreenSection';
 import Footer from '../components/Footer';
 import SectionTitle from '../components/SectionTitle';
+import TestimonialsSection from '../components/TestimonialsSection';
 
 // --- SVG Icons for Benefits Section ---
 const IconRemuneration = () => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-full w-full"><path d="M23,8H1a1,1,0,0,0-1,1V21a1,1,0,0,0,1,1H23a1,1,0,0,0,1,1V9A1,1,0,0,0,23,8ZM2,10H22V20H2ZM12,15a3,3,0,1,0-3-3A3,3,0,0,0,12,15Zm0-4a1,1,0,1,1-1,1A1,1,0,0,1,12,11ZM19,2H5A3,3,0,0,0,2,5V6H22V5A3,3,0,0,0,19,2Z"/></svg>;
@@ -65,38 +66,6 @@ const BenefitsSection: React.FC = () => {
                         <div className="text-brand-navy mx-auto mb-6 w-16 h-16 p-3 flex items-center justify-center rounded-full bg-brand-navy/5 transition-all duration-300 group-hover:bg-brand-yellow group-hover:scale-110">{benefit.icon}</div>
                         <h3 className="text-xl font-bold text-brand-navy mb-3">{t(benefit.titleKey)}</h3>
                         <p className="text-brand-text-gray text-sm flex-grow">{t(benefit.descKey)}</p>
-                    </div>
-                ))}
-            </div>
-        </div>
-    );
-};
-
-const TestimonialsSection: React.FC = () => {
-    const { t } = useLocalization();
-    const testimonials = [
-        { quoteKey: 'careersTestimonial1Quote', nameKey: 'careersTestimonial1Name', image: "https://images.pexels.com/photos/5212353/pexels-photo-5212353.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" },
-        { quoteKey: 'careersTestimonial2Quote', nameKey: 'careersTestimonial2Name', image: "https://images.pexels.com/photos/4246210/pexels-photo-4246210.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" },
-    ];
-
-    return (
-        <div className="container mx-auto px-6 scroll-element">
-            <SectionTitle subtitleKey="careersTestimonialsTitle" titleKey="careersTestimonialsHeadline" />
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                {testimonials.map((item, index) => (
-                     <div key={item.nameKey} className="bg-white rounded-xl shadow-lg overflow-hidden">
-                        <div className="p-8">
-                             <blockquote className="text-lg text-brand-text-gray italic leading-relaxed mb-6 relative">
-                                <span className="absolute -top-3 -left-4 text-6xl text-brand-primary/10 font-serif">“</span>
-                                {t(item.quoteKey)}
-                            </blockquote>
-                        </div>
-                        <div className="bg-gray-50 px-8 py-4 flex items-center">
-                            <img className="h-14 w-14 rounded-full object-cover" src={item.image} alt={t(item.nameKey)} loading="lazy" width="56" height="56" />
-                            <div className="ml-4">
-                                <cite className="not-italic font-bold text-brand-navy">{t(item.nameKey)}</cite>
-                            </div>
-                        </div>
                     </div>
                 ))}
             </div>

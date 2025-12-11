@@ -53,9 +53,9 @@ const ServicesSection: React.FC = () => {
 const ProjectsSection: React.FC = () => {
     const { t } = useLocalization();
     const projects = [
-        { image: "https://images.pexels.com/photos/47047/gold-ingots-golden-treasure-47047.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", titleKey: 'minesProject1Title', descKey: 'minesProject1Desc', tagKey: 'minesProjectTagGold' },
-        { image: "https://images.pexels.com/photos/10126780/pexels-photo-10126780.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", titleKey: 'minesProject2Title', descKey: 'minesProject2Desc', tagKey: 'minesProjectTagPhosphates' },
-        { image: "https://images.pexels.com/photos/3326129/pexels-photo-3326129.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", titleKey: 'minesProject3Title', descKey: 'minesProject3Desc', tagKey: 'minesProjectTagZircon' },
+        { image: "https://images.pexels.com/photos/366551/pexels-photo-366551.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", titleKey: 'minesProject1Title', descKey: 'minesProject1Desc', tagKey: 'minesProjectTagGold' },
+        { image: "https://images.pexels.com/photos/3782226/pexels-photo-3782226.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", titleKey: 'minesProject2Title', descKey: 'minesProject2Desc', tagKey: 'minesProjectTagPhosphates' },
+        { image: "https://images.pexels.com/photos/1676865/pexels-photo-1676865.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", titleKey: 'minesProject3Title', descKey: 'minesProject3Desc', tagKey: 'minesProjectTagZircon' },
     ];
     return (
         <div className="container mx-auto px-6 scroll-element">
