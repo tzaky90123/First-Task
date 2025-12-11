@@ -53,4 +53,143 @@ const ServicesSection: React.FC = () => {
 const ProjectsSection: React.FC = () => {
     const { t } = useLocalization();
     const projects = [
-        { image: "https://images.pexels.com/photos/2555627/pexels-photo-2555627.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+        { image: "https://images.pexels.com/photos/2555627/pexels-photo-2555627.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", titleKey: 'minesProject1Title', descKey: 'minesProject1Desc', tagKey: 'minesProjectTagGold' },
+        { image: "https://images.pexels.com/photos/3207536/pexels-photo-3207536.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", titleKey: 'minesProject2Title', descKey: 'minesProject2Desc', tagKey: 'minesProjectTagPhosphates' },
+        { image: "https://images.pexels.com/photos/2892617/pexels-photo-2892617.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", titleKey: 'minesProject3Title', descKey: 'minesProject3Desc', tagKey: 'minesProjectTagZircon' },
+    ];
+    return (
+        <div className="container mx-auto px-6 scroll-element">
+            <SectionTitle titleKey="minesProjectsTitle" />
+            <div className="grid md:grid-cols-3 gap-8">
+                {projects.map((p, index) => (
+                    <div key={p.titleKey} className="group relative overflow-hidden rounded-lg shadow-lg h-[400px]">
+                        <img src={p.image} alt={t(p.titleKey)} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-transparent to-transparent opacity-90"></div>
+                        <div className="absolute bottom-0 left-0 p-8 w-full">
+                            <span className="inline-block px-3 py-1 bg-brand-secondary text-white text-xs font-bold rounded-full mb-3">{t(p.tagKey)}</span>
+                            <h3 className="text-2xl font-bold text-white mb-2">{t(p.titleKey)}</h3>
+                            <p className="text-gray-300 text-sm line-clamp-2">{t(p.descKey)}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
+
+const SafetySection: React.FC = () => {
+    const { t } = useLocalization();
+    const points = [
+        { titleKey: 'minesSafetyPoint1Title', descKey: 'minesSafetyPoint1Desc' },
+        { titleKey: 'minesSafetyPoint2Title', descKey: 'minesSafetyPoint2Desc' },
+        { titleKey: 'minesSafetyPoint3Title', descKey: 'minesSafetyPoint3Desc' },
+    ];
+    return (
+        <div className="container mx-auto px-6 scroll-element">
+            <div className="bg-brand-navy text-white rounded-3xl p-8 md:p-16 relative overflow-hidden">
+                <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-brand-secondary rounded-full opacity-20 blur-3xl"></div>
+                <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-64 h-64 bg-blue-500 rounded-full opacity-20 blur-3xl"></div>
+                
+                <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 className="text-3xl font-bold font-sans mb-6">{t('minesSafetyTitle')}</h2>
+                        <p className="text-lg text-gray-300 mb-8">{t('minesSafetyText')}</p>
+                        <div className="space-y-6">
+                            {points.map((point, index) => (
+                                <div key={point.titleKey} className="flex items-start">
+                                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-brand-secondary mt-1 flex items-center justify-center">
+                                        <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
+                                    </div>
+                                    <div className="ml-4">
+                                        <h4 className="text-xl font-bold text-white">{t(point.titleKey)}</h4>
+                                        <p className="text-gray-400 mt-1">{t(point.descKey)}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="relative">
+                        <img src="https://images.pexels.com/photos/12745330/pexels-photo-12745330.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt={t('minesSafetyImageAlt')} className="rounded-xl shadow-2xl w-full h-auto object-cover border-4 border-white/10" loading="lazy" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+const TechnologySection: React.FC = () => {
+    const { t } = useLocalization();
+    return (
+        <div className="container mx-auto px-6 text-center scroll-element">
+            <SectionTitle titleKey="minesTechTitle" descriptionKey="minesTechText" />
+            <div className="mt-10">
+                 <img src="https://images.pexels.com/photos/256297/pexels-photo-256297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt={t('minesTechTitle')} className="w-full h-[400px] object-cover rounded-xl shadow-lg" loading="lazy" />
+            </div>
+        </div>
+    );
+};
+
+const TestimonialsSection: React.FC = () => {
+    const { t } = useLocalization();
+    return (
+        <div className="container mx-auto px-6 scroll-element">
+            <SectionTitle titleKey="minesTestimonialsTitle" />
+            <div className="max-w-4xl mx-auto bg-white p-10 rounded-2xl shadow-lg text-center">
+                <svg className="w-12 h-12 text-brand-secondary mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21L14.017 18C14.017 16.0547 15.1924 14.6602 16.6797 14.0156C17.207 13.7852 17.5312 13.25 17.5312 12.6328V11.1016C17.5312 10.2266 16.8203 9.51562 15.9453 9.51562H14.5312V6.51562H16.2969C18.6602 6.51562 20.5781 8.43359 20.5781 10.7969V12.1875C20.5781 12.1875 20.5781 12.1875 20.5781 12.1875C20.5781 17.0547 16.5898 21 14.017 21ZM5.01562 21L5.01562 18C5.01562 16.0547 6.19141 14.6602 7.67578 14.0156C8.20312 13.7852 8.52734 13.25 8.52734 12.6328V11.1016C8.52734 10.2266 7.81641 9.51562 6.94141 9.51562H5.52734V6.51562H7.29297C9.65625 6.51562 11.5742 8.43359 11.5742 10.7969V12.1875C11.5742 12.1875 11.5742 12.1875 11.5742 12.1875C11.5742 17.0547 7.58594 21 5.01562 21Z" /></svg>
+                <blockquote className="text-xl md:text-2xl text-brand-navy font-medium leading-relaxed mb-6">
+                    "{t('minesTestimonial1Quote')}"
+                </blockquote>
+                <cite className="not-italic text-brand-text-gray font-semibold text-lg">- {t('minesTestimonial1Name')}</cite>
+            </div>
+        </div>
+    );
+};
+
+const CtaSection: React.FC = () => {
+    const { t } = useLocalization();
+    return (
+        <div className="container mx-auto px-6 text-center scroll-element">
+            <SectionTitle titleKey="minesCtaTitle" descriptionKey="minesCtaText" />
+            <Link to="/contact" className="bg-brand-secondary border-2 border-brand-secondary text-white text-lg font-bold py-3 px-8 sm:px-10 rounded-full hover:bg-white hover:text-black hover:border-white transition-colors duration-300 inline-block shadow-md">
+                {t('minesCtaButton')}
+            </Link>
+        </div>
+    );
+};
+
+const MinesPage: React.FC = () => {
+  const { t } = useLocalization();
+  const minesSlides = [
+    {
+      img: 'https://images.pexels.com/photos/371900/pexels-photo-371900.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      title: 'minesHeroSlide1Title',
+      subtitle: 'minesHeroSlide1Subtitle',
+    },
+    {
+      img: 'https://images.pexels.com/photos/2555635/pexels-photo-2555635.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      title: 'minesHeroSlide2Title',
+      subtitle: 'minesHeroSlide2Subtitle',
+    },
+    {
+      img: 'https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      title: 'minesHeroSlide3Title',
+      subtitle: 'minesHeroSlide3Subtitle',
+    },
+  ];
+
+  return (
+    <>
+      <HeroSection slides={minesSlides} />
+      <FullScreenSection className="bg-brand-light py-16 md:py-20"><IntroductionSection /></FullScreenSection>
+      <FullScreenSection className="bg-white py-16 md:py-20"><ServicesSection /></FullScreenSection>
+      <FullScreenSection className="grid-bg py-16 md:py-20"><ProjectsSection /></FullScreenSection>
+      <FullScreenSection className="bg-brand-navy py-16 md:py-20"><SafetySection /></FullScreenSection>
+      <FullScreenSection className="bg-white py-16 md:py-20"><TechnologySection /></FullScreenSection>
+      <FullScreenSection className="bg-brand-light py-16 md:py-20"><TestimonialsSection /></FullScreenSection>
+      <FullScreenSection className="bg-brand-warm-light py-16 md:py-20"><CtaSection /></FullScreenSection>
+      <Footer />
+    </>
+  );
+};
+
+export default MinesPage;
