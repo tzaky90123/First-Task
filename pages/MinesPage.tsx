@@ -53,9 +53,9 @@ const ServicesSection: React.FC = () => {
 const ProjectsSection: React.FC = () => {
     const { t } = useLocalization();
     const projects = [
-        { image: "https://images.pexels.com/photos/2555627/pexels-photo-2555627.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", titleKey: 'minesProject1Title', descKey: 'minesProject1Desc', tagKey: 'minesProjectTagGold' },
-        { image: "https://images.pexels.com/photos/3207536/pexels-photo-3207536.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", titleKey: 'minesProject2Title', descKey: 'minesProject2Desc', tagKey: 'minesProjectTagPhosphates' },
-        { image: "https://images.pexels.com/photos/2892617/pexels-photo-2892617.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", titleKey: 'minesProject3Title', descKey: 'minesProject3Desc', tagKey: 'minesProjectTagZircon' },
+        { image: "https://images.pexels.com/photos/47047/gold-ingots-golden-treasure-47047.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", titleKey: 'minesProject1Title', descKey: 'minesProject1Desc', tagKey: 'minesProjectTagGold' },
+        { image: "https://images.pexels.com/photos/10126780/pexels-photo-10126780.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", titleKey: 'minesProject2Title', descKey: 'minesProject2Desc', tagKey: 'minesProjectTagPhosphates' },
+        { image: "https://images.pexels.com/photos/3326129/pexels-photo-3326129.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", titleKey: 'minesProject3Title', descKey: 'minesProject3Desc', tagKey: 'minesProjectTagZircon' },
     ];
     return (
         <div className="container mx-auto px-6 scroll-element">
@@ -80,37 +80,62 @@ const ProjectsSection: React.FC = () => {
 const SafetySection: React.FC = () => {
     const { t } = useLocalization();
     const points = [
-        { titleKey: 'minesSafetyPoint1Title', descKey: 'minesSafetyPoint1Desc' },
-        { titleKey: 'minesSafetyPoint2Title', descKey: 'minesSafetyPoint2Desc' },
-        { titleKey: 'minesSafetyPoint3Title', descKey: 'minesSafetyPoint3Desc' },
+        { 
+            titleKey: 'minesSafetyPoint1Title', 
+            descKey: 'minesSafetyPoint1Desc', 
+            icon: (
+                <svg className="w-6 h-6 text-brand-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+            )
+        },
+        { 
+            titleKey: 'minesSafetyPoint2Title', 
+            descKey: 'minesSafetyPoint2Desc',
+             icon: (
+                <svg className="w-6 h-6 text-brand-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                     {/* Using a shield-like leaf concept for rehabilitation/protection */}
+                </svg>
+            )
+        },
+        { 
+            titleKey: 'minesSafetyPoint3Title', 
+            descKey: 'minesSafetyPoint3Desc',
+             icon: (
+                <svg className="w-6 h-6 text-brand-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+            )
+        },
     ];
     return (
         <div className="container mx-auto px-6 scroll-element">
-            <div className="bg-brand-navy text-white rounded-3xl p-8 md:p-16 relative overflow-hidden">
-                <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-brand-secondary rounded-full opacity-20 blur-3xl"></div>
-                <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-64 h-64 bg-blue-500 rounded-full opacity-20 blur-3xl"></div>
-                
-                <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h2 className="text-3xl font-bold font-sans mb-6">{t('minesSafetyTitle')}</h2>
-                        <p className="text-lg text-gray-300 mb-8">{t('minesSafetyText')}</p>
-                        <div className="space-y-6">
-                            {points.map((point, index) => (
-                                <div key={point.titleKey} className="flex items-start">
-                                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-brand-secondary mt-1 flex items-center justify-center">
-                                        <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
-                                    </div>
-                                    <div className="ml-4">
-                                        <h4 className="text-xl font-bold text-white">{t(point.titleKey)}</h4>
-                                        <p className="text-gray-400 mt-1">{t(point.descKey)}</p>
-                                    </div>
-                                </div>
-                            ))}
+            <div className="text-center mb-16">
+                 <h2 className="text-3xl font-bold font-sans text-brand-navy mb-2 uppercase">{t('minesSafetyTitle')}</h2>
+                 <p className="text-brand-text-gray">{t('minesSafetyText')}</p>
+            </div>
+            
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+                 {/* Left: Image */}
+                <div className="relative">
+                     <img src="https://images.pexels.com/photos/12745330/pexels-photo-12745330.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt={t('minesSafetyImageAlt')} className="rounded-xl shadow-lg w-full h-auto object-cover" loading="lazy" />
+                </div>
+
+                {/* Right: List */}
+                <div className="space-y-8">
+                    {points.map((point, index) => (
+                        <div key={point.titleKey} className="flex items-start group">
+                             <div className="flex-shrink-0 h-14 w-14 rounded-full bg-gray-100 flex items-center justify-center mr-6 shadow-sm transition-colors duration-300 group-hover:bg-brand-yellow">
+                                {/* Icon */}
+                                {point.icon}
+                             </div>
+                             <div>
+                                 <h4 className="text-xl font-bold text-brand-navy mb-1">{t(point.titleKey)}</h4>
+                                 <p className="text-brand-text-gray">{t(point.descKey)}</p>
+                             </div>
                         </div>
-                    </div>
-                    <div className="relative">
-                        <img src="https://images.pexels.com/photos/12745330/pexels-photo-12745330.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt={t('minesSafetyImageAlt')} className="rounded-xl shadow-2xl w-full h-auto object-cover border-4 border-white/10" loading="lazy" />
-                    </div>
+                    ))}
                 </div>
             </div>
         </div>
@@ -183,7 +208,7 @@ const MinesPage: React.FC = () => {
       <FullScreenSection className="bg-brand-light py-16 md:py-20"><IntroductionSection /></FullScreenSection>
       <FullScreenSection className="bg-white py-16 md:py-20"><ServicesSection /></FullScreenSection>
       <FullScreenSection className="grid-bg py-16 md:py-20"><ProjectsSection /></FullScreenSection>
-      <FullScreenSection className="bg-brand-navy py-16 md:py-20"><SafetySection /></FullScreenSection>
+      <FullScreenSection className="bg-white py-16 md:py-20"><SafetySection /></FullScreenSection>
       <FullScreenSection className="bg-white py-16 md:py-20"><TechnologySection /></FullScreenSection>
       <FullScreenSection className="bg-brand-light py-16 md:py-20"><TestimonialsSection /></FullScreenSection>
       <FullScreenSection className="bg-brand-warm-light py-16 md:py-20"><CtaSection /></FullScreenSection>

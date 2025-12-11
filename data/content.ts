@@ -356,11 +356,11 @@ export const content: LocalizedContent = {
   reAmenitiesTitle: { [Language.FR]: 'Amenities & Comfort', [Language.EN]: 'Amenities & Comfort' },
   reAmenitiesText: { [Language.FR]: 'Des espaces conçus pour votre bien-être.', [Language.EN]: 'Spaces designed for your well-being.' },
   reAmenity1Title: { [Language.FR]: 'Espaces Verts', [Language.EN]: 'Green Spaces' },
-  reAmenity1Desc: { [Language.FR]: 'Jardins paysagers et zones de détente.', [Language.EN]: 'Landscaped gardens and relaxation areas.' },
+  reAmenity1Desc: { [Language.FR]: 'Jardins paysagers, sentiers de promenade et espaces de détente.', [Language.EN]: 'Landscaped gardens, walking paths, and relaxation areas.' },
   reAmenity2Title: { [Language.FR]: 'Sécurité', [Language.EN]: 'Security' },
-  reAmenity2Desc: { [Language.FR]: 'Surveillance 24/7 et contrôle d\'accès.', [Language.EN]: '24/7 surveillance and access control.' },
+  reAmenity2Desc: { [Language.FR]: 'Surveillance 24h/7j, accès contrôlé et systèmes de sécurité intelligents.', [Language.EN]: '24/7 surveillance, controlled access, and smart monitoring systems.' },
   reAmenity3Title: { [Language.FR]: 'Communauté', [Language.EN]: 'Community' },
-  reAmenity3Desc: { [Language.FR]: 'Aires de jeux, salles de sport et lieux de rencontre.', [Language.EN]: 'Playgrounds, gyms, and meeting places.' },
+  reAmenity3Desc: { [Language.FR]: 'Aires de jeux, espaces fitness et lieux de vie commune.', [Language.EN]: 'Playgrounds, fitness areas, and shared social spaces.' },
   reTestimonialsTitle: { [Language.FR]: 'They Trust Us', [Language.EN]: 'They Trust Us' },
   reMarketTitle: { [Language.FR]: 'Market Insights', [Language.EN]: 'Market Insights' },
   reMarketText: { [Language.FR]: 'Tendances actuelles de l\'immobilier au Sénégal.', [Language.EN]: 'Current real estate trends in Senegal.' },
@@ -385,22 +385,30 @@ export const content: LocalizedContent = {
     [Language.EN]: 'We are committed to mining that respects both <b>the environment and local communities</b>, creating lasting value for Senegal.' 
   },
   minesIntroImageAlt: { [Language.FR]: 'Opérations minières', [Language.EN]: 'Mining operations' },
+  
+  // --- UPDATED MINES SERVICES TITLE ---
   minesServicesTitle: { 
-    [Language.FR]: "AT THE HEART OF SENEGAL'S TRANSFORMATION, SOCABEG DÉPLOIE SON EXPERTISE À TRAVERS TROIS PÔLES STRATÉGIQUES", 
-    [Language.EN]: "AT THE HEART OF SENEGAL'S TRANSFORMATION, SOCABEG DEPLOYS ITS EXPERTISE ACROSS THREE STRATEGIC AREAS" 
+    [Language.FR]: "NOS SERVICES MINIERS COMPLETS", 
+    [Language.EN]: "OUR COMPREHENSIVE MINING SERVICES" 
   },
-  minesService1Title: { [Language.FR]: 'Exploration', [Language.EN]: 'Exploration' },
+  
+  // --- UPDATED MINES SERVICES BOX CONTENT ---
+  minesService1Title: { [Language.FR]: 'Exploration & Évaluation de Site', [Language.EN]: 'Exploration & Site Assessment' },
   minesService1Desc: { [Language.FR]: 'Utilisation de levés géophysiques et d\'études de faisabilité pour identifier et quantifier les gisements miniers potentiels.', [Language.EN]: 'Utilizing geophysical surveys and feasibility studies to identify and quantify potential mineral deposits.' },
   minesServiceIcon1Alt: { [Language.FR]: 'Icône Exploration', [Language.EN]: 'Exploration Icon' },
-  minesService2Title: { [Language.FR]: 'Extraction', [Language.EN]: 'Extraction' },
+  
+  minesService2Title: { [Language.FR]: 'Extraction & Opérations', [Language.EN]: 'Extraction & Operations' },
   minesService2Desc: { [Language.FR]: 'Déploiement de techniques minières à ciel ouvert et souterraines efficaces pour maximiser le rendement et la sécurité.', [Language.EN]: 'Deploying efficient open-pit and underground mining techniques to maximize yield and safety.' },
   minesServiceIcon2Alt: { [Language.FR]: 'Icône Extraction', [Language.EN]: 'Extraction Icon' },
-  minesService3Title: { [Language.FR]: 'Traitement', [Language.EN]: 'Processing' },
+  
+  minesService3Title: { [Language.FR]: 'Traitement du Minerai & Valorisation', [Language.EN]: 'Ore Processing & Beneficiation' },
   minesService3Desc: { [Language.FR]: 'Installations de traitement de pointe pour le concassage, le broyage et la séparation afin d\'améliorer la qualité du produit final.', [Language.EN]: 'State-of-the-art processing facilities for crushing, grinding, and separation to enhance final product quality.' },
   minesServiceIcon3Alt: { [Language.FR]: 'Icône Traitement', [Language.EN]: 'Processing Icon' },
-  minesService4Title: { [Language.FR]: 'Logistique', [Language.EN]: 'Logistics' },
+  
+  minesService4Title: { [Language.FR]: 'Logistique & Transport', [Language.EN]: 'Logistics & Transport' },
   minesService4Desc: { [Language.FR]: 'Gestion de la chaîne d\'approvisionnement de bout en bout pour assurer une livraison fiable et ponctuelle des ressources aux marchés mondiaux.', [Language.EN]: 'End-to-end supply chain management ensuring reliable and timely delivery of resources to global markets.' },
   minesServiceIcon4Alt: { [Language.FR]: 'Icône Logistique', [Language.EN]: 'Logistics Icon' },
+  
   minesProjectsTitle: { 
     [Language.FR]: "ICONIC PROJECTS", 
     [Language.EN]: "ICONIC PROJECTS" 
@@ -414,18 +422,24 @@ export const content: LocalizedContent = {
   minesProject3Title: { [Language.FR]: 'Zircon', [Language.EN]: 'Zircon' },
   minesProject3Desc: { [Language.FR]: 'Extraction de sables minéraux lourds sur la Grande Côte.', [Language.EN]: 'Extraction of heavy mineral sands on the Great Coast.' },
   minesProjectTagZircon: { [Language.FR]: 'ZIRCON', [Language.EN]: 'ZIRCON' },
+  
+  // --- UPDATED SAFETY SECTION TEXT ---
   minesSafetyTitle: { 
     [Language.FR]: "SAFETY & ENVIRONMENT", 
     [Language.EN]: "SAFETY & ENVIRONMENT" 
   },
-  minesSafetyText: { [Language.FR]: 'Priorité absolue.', [Language.EN]: 'Top priority.' },
+  minesSafetyText: { [Language.FR]: 'Priorité absolue.', [Language.EN]: 'Our top priority.' },
   minesSafetyImageAlt: { [Language.FR]: 'Sécurité minière', [Language.EN]: 'Mining safety' },
+  
   minesSafetyPoint1Title: { [Language.FR]: 'Normes ISO', [Language.EN]: 'ISO Standards' },
-  minesSafetyPoint1Desc: { [Language.FR]: 'Certification ISO 14001 et 45001.', [Language.EN]: 'ISO 14001 and 45001 certification.' },
+  minesSafetyPoint1Desc: { [Language.FR]: 'Garantir des opérations sûres et des pratiques respectueuses de l\'environnement.', [Language.EN]: 'Ensuring safe operations and environmentally responsible practices.' },
+  
   minesSafetyPoint2Title: { [Language.FR]: 'Réhabilitation', [Language.EN]: 'Rehabilitation' },
-  minesSafetyPoint2Desc: { [Language.FR]: 'Restauration des sites après exploitation.', [Language.EN]: 'Site restoration after mining.' },
-  minesSafetyPoint3Title: { [Language.FR]: 'Engagement', [Language.EN]: 'Engagement' },
-  minesSafetyPoint3Desc: { [Language.FR]: 'Investissement dans les infrastructures locales.', [Language.EN]: 'Investment in local infrastructure.' },
+  minesSafetyPoint2Desc: { [Language.FR]: 'Mise en œuvre de programmes de restauration des terres après les activités minières.', [Language.EN]: 'Implementing land restoration programs after mining activities.' },
+  
+  minesSafetyPoint3Title: { [Language.FR]: 'Engagement Communautaire', [Language.EN]: 'Community Engagement' },
+  minesSafetyPoint3Desc: { [Language.FR]: 'Soutenir les infrastructures locales et les projets de développement social.', [Language.EN]: 'Supporting local infrastructure and social development projects.' },
+  
   minesTechTitle: { 
     [Language.FR]: "CUTTING-EDGE TECHNOLOGY", 
     [Language.EN]: "CUTTING-EDGE TECHNOLOGY" 
