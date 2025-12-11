@@ -1,3 +1,4 @@
+
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocalization } from '../context/LocalizationContext';
@@ -237,7 +238,7 @@ const CtaSection: React.FC = () => {
     return (
         <div className="container mx-auto px-6 text-center scroll-element">
             <SectionTitle titleKey="reCtaTitle" descriptionKey="reCtaText" />
-            <Link to="/contact" className="bg-brand-secondary text-brand-dark text-lg font-bold py-4 px-10 rounded-full hover:bg-opacity-90 transition-colors duration-300 inline-block transform hover:scale-105">
+            <Link to="/contact" className="bg-brand-secondary border-2 border-brand-secondary text-white text-lg font-bold py-3 px-8 sm:px-10 rounded-full hover:bg-white hover:text-black hover:border-white transition-colors duration-300 inline-block shadow-md">
                 {t('reCtaButton')}
             </Link>
         </div>
@@ -249,18 +250,18 @@ const RealEstatePage: React.FC = () => {
   const realEstateSlides = [
     {
       img: 'https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      title: 'reHeroTitle',
-      subtitle: 'reHeroSubtitle',
+      title: 'reHeroSlide1Title',
+      subtitle: 'reHeroSlide1Subtitle',
     },
     {
       img: 'https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      title: 'reAmenitiesTitle',
-      subtitle: 'reHeroAmenitiesSubtitle',
+      title: 'reHeroSlide2Title',
+      subtitle: 'reHeroSlide2Subtitle',
     },
     {
       img: 'https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      title: 'rePortfolioTitle',
-      subtitle: 'reHeroPortfolioSubtitle',
+      title: 'reHeroSlide3Title',
+      subtitle: 'reHeroSlide3Subtitle',
     },
   ];
 

@@ -25,7 +25,7 @@ const ValuesSection: React.FC<ValuesSectionProps> = ({ items }) => {
             <SectionTitle subtitleKey="whyChooseUsSectionTitle" titleKey="whyChooseUsSectionHeadline" />
             <div className={`grid grid-cols-1 md:grid-cols-2 ${displayValues.length <= 4 ? 'lg:grid-cols-4' : 'lg:grid-cols-3'} gap-8`}>
                 {displayValues.map((value, index) => (
-                    <div key={index} className="bg-white p-8 rounded-lg shadow-soft text-left transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group h-full border-t-4 border-transparent hover:border-brand-secondary">
+                    <div key={index} className="bg-white p-8 rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.1)] text-left transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group h-full border-t-4 border-transparent hover:border-brand-secondary">
                         <img src={value.icon} alt={t(value.titleKey)} className="h-12 w-12 mb-6 transition-transform duration-300 group-hover:scale-110" loading="lazy" width="48" height="48" />
                         <h3 className="text-xl font-bold text-brand-primary mb-3 font-sans">{t(value.titleKey)}</h3>
                         <p className="text-brand-text-gray text-sm leading-relaxed">{t(value.descKey)}</p>

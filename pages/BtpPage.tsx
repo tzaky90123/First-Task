@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useLocalization } from '../context/LocalizationContext';
 import { Link } from 'react-router-dom';
@@ -112,18 +113,18 @@ const BtpPage: React.FC = () => {
     const btpSlides = [
         {
           img: 'https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-          title: 'btpHeroTitle',
-          subtitle: 'btpHeroSubtitle',
+          title: 'btpHeroSlide1Title',
+          subtitle: 'btpHeroSlide1Subtitle',
         },
         {
           img: 'https://images.pexels.com/photos/439416/pexels-photo-439416.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-          title: 'btpExpertiseTitle',
-          subtitle: 'btpHeroExpertiseSubtitle',
+          title: 'btpHeroSlide2Title',
+          subtitle: 'btpHeroSlide2Subtitle',
         },
         {
           img: 'https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-          title: 'btpProjectsTitle',
-          subtitle: 'btpHeroProjectsSubtitle',
+          title: 'btpHeroSlide3Title',
+          subtitle: 'btpHeroSlide3Subtitle',
         },
     ];
 

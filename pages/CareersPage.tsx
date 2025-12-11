@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useLocalization } from '../context/LocalizationContext';
 import { Link } from 'react-router-dom';
@@ -7,7 +8,7 @@ import Footer from '../components/Footer';
 import SectionTitle from '../components/SectionTitle';
 
 // --- SVG Icons for Benefits Section ---
-const IconRemuneration = () => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-full w-full"><path d="M23,8H1a1,1,0,0,0-1,1V21a1,1,0,0,0,1,1H23a1,1,0,0,0,1-1V9A1,1,0,0,0,23,8ZM2,10H22V20H2ZM12,15a3,3,0,1,0-3-3A3,3,0,0,0,12,15Zm0-4a1,1,0,1,1-1,1A1,1,0,0,1,12,11ZM19,2H5A3,3,0,0,0,2,5V6H22V5A3,3,0,0,0,19,2Z"/></svg>;
+const IconRemuneration = () => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-full w-full"><path d="M23,8H1a1,1,0,0,0-1,1V21a1,1,0,0,0,1,1H23a1,1,0,0,0,1,1V9A1,1,0,0,0,23,8ZM2,10H22V20H2ZM12,15a3,3,0,1,0-3-3A3,3,0,0,0,12,15Zm0-4a1,1,0,1,1-1,1A1,1,0,0,1,12,11ZM19,2H5A3,3,0,0,0,2,5V6H22V5A3,3,0,0,0,19,2Z"/></svg>;
 const IconHealth = () => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-full w-full"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78zM15 12h-2v2h-2v-2H9v-2h2V8h2v2h2v2z" /></svg>;
 const IconMentorship = () => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-full w-full"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>;
 
@@ -132,10 +133,10 @@ const CareerOpportunitiesSection: React.FC = () => {
             )}
             
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-                <Link to="#" className="bg-brand-primary text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg w-full sm:w-auto">
+                <Link to="#" className="bg-brand-secondary border-2 border-brand-secondary text-white text-lg font-bold py-3 px-8 sm:px-10 rounded-full hover:bg-white hover:text-black hover:border-white transition-colors duration-300 inline-block shadow-md w-full sm:w-auto">
                     {t('careersOpeningsBtnView')}
                 </Link>
-                <Link to="/contact" className="bg-gray-200 text-brand-navy font-bold py-3 px-8 rounded-full hover:bg-gray-300 transition-all duration-300 w-full sm:w-auto">
+                <Link to="/contact" className="bg-brand-secondary border-2 border-brand-secondary text-white text-lg font-bold py-3 px-8 sm:px-10 rounded-full hover:bg-white hover:text-black hover:border-white transition-colors duration-300 inline-block shadow-md w-full sm:w-auto">
                     {t('careersOpeningsBtnSpontaneous')}
                 </Link>
             </div>

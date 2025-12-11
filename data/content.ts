@@ -55,8 +55,8 @@ export const content: LocalizedContent = {
     [Language.EN]: 'PLUS DE 35 ANS À VOTRE SERVICE' // Keep French as requested in structure
   },
   homeAboutPreviewText: {
-    [Language.FR]: "SOCABEG est une entreprise multidisciplinaire opérant dans la construction, l'immobilier et les mines. Nous nous engageons à développer des infrastructures modernes et à contribuer au progrès économique et social du Sénégal.",
-    [Language.EN]: "SOCABEG is a multidisciplinary company operating in construction, real estate, and mining. We are committed to developing modern infrastructure and contributing to Senegal’s economic and social progress."
+    [Language.FR]: "SOCABEG, fondée en 1986 par M. Mamoune SAMB, est un acteur majeur du BTP et de la promotion immobilière au Sénégal, reconnu pour son expertise dans l'habitat social, la construction d'infrastructures publiques et le développement de nouveaux écoquartiers. Forte d'un savoir-faire solide et d'une maîtrise complète de la chaîne de valeur, l'entreprise a réalisé des milliers de logements, lotissements et de projets structurants au profit d'institutions publiques, de coopératives et de clients privés. Guidée par ses valeurs d’intégrité, de qualité, d’innovation et de responsabilité sociale, SOCABEG œuvre pour offrir des solutions immobilières modernes, durables et accessibles, contribuant ainsi activement à l’essor urbain du Sénégal.",
+    [Language.EN]: "SOCABEG, founded in 1986 by Mr. Mamoune SAMB, is a major player in construction and real estate development in Senegal, recognized for its expertise in social housing, public infrastructure construction, and the development of new eco-districts. With solid know-how and complete mastery of the value chain, the company has delivered thousands of housing units, subdivisions, and structuring projects for public institutions, cooperatives, and private clients. Guided by its values of integrity, quality, innovation, and social responsibility, SOCABEG strives to offer modern, sustainable, and accessible real estate solutions, actively contributing to Senegal’s urban growth."
   },
   homeAboutBtn: { [Language.FR]: 'En savoir plus', [Language.EN]: 'Learn More About Us' },
   
@@ -75,17 +75,38 @@ export const content: LocalizedContent = {
     [Language.EN]: 'OUR VALUES' 
   },
   
+  // New Home Values
+  homeValue1Title: { [Language.FR]: 'Experience learned', [Language.EN]: 'Experience learned' },
+  homeValue1Desc: { [Language.FR]: '35+ activities in BTP and Senegalese real estate, with millions of free housing.', [Language.EN]: '35+ activities in BTP and Senegalese real estate, with millions of free housing.' },
+
+  homeValue2Title: { [Language.FR]: 'Maîtrise des projects', [Language.EN]: 'Project Mastery' },
+  homeValue2Desc: { [Language.FR]: 'Une expertise complete du cycle de construction: études, réalisation, viabilisation, commercialisation.', [Language.EN]: 'Complete expertise of the construction cycle: studies, realization, servicing, marketing.' },
+
+  homeValue3Title: { [Language.FR]: 'Responsive durable', [Language.EN]: 'Sustainable Responsibility' },
+  homeValue3Desc: { [Language.FR]: "Techniques modernes à faible empreinte carbone et formation de la main-d'œuvre locale.", [Language.EN]: 'Modern low-carbon techniques and local workforce training.' },
+
+  homeValue4Title: { [Language.FR]: 'Innovation techniques', [Language.EN]: 'Technical Innovation' },
+  homeValue4Desc: { [Language.FR]: 'BIM, ERP BTP, Geoplast® coffrages, usine de préfabrication… SOCABEG investit dans la modernité.', [Language.EN]: 'BIM, BTP ERP, Geoplast® formwork, prefabrication plant… SOCABEG invests in modernity.' },
+
+  homeValue5Title: { [Language.FR]: 'Projets emblématiques', [Language.EN]: 'Iconic Projects' },
+  homeValue5Desc: { [Language.FR]: 'Tivaouane Peulh, HLM Castor, Darou Salam, Cité IPRES… des projects qui transforment la ville.', [Language.EN]: 'Tivaouane Peulh, HLM Castor, Darou Salam, Cité IPRES… projects that transform the city.' },
+
+  homeValue6Title: { [Language.FR]: 'Confiance et proximité', [Language.EN]: 'Trust and Proximity' },
+  homeValue6Desc: { [Language.FR]: 'Entreprise 100% sénégalaise à taille humaine, proche de ses clients et de leurs besoins.', [Language.EN]: '100% Senegalese human-sized company, close to its clients and their needs.' },
+
+  // Default values kept for reference or fallback
   value1Title: { [Language.FR]: 'Expertise', [Language.EN]: 'Expertise in 3 sectors' },
   value1Desc: { [Language.FR]: 'Plus de 35 ans d’activité dans le BTP, l’immobilier et les mines.', [Language.EN]: 'Leading operations in Construction, Real Estate, and Mining.' },
-  
   value2Title: { [Language.FR]: 'Qualité & Sécurité', [Language.EN]: 'Commitment to quality & safety' },
   value2Desc: { [Language.FR]: 'Des standards élevés pour la protection de tous.', [Language.EN]: 'High standards ensuring the safety and satisfaction of our stakeholders.' },
-  
   value3Title: { [Language.FR]: 'Équipe', [Language.EN]: 'Professional team' },
   value3Desc: { [Language.FR]: 'Une main-d\'œuvre qualifiée et passionnée.', [Language.EN]: 'A qualified and passionate workforce dedicated to success.' },
-  
   value4Title: { [Language.FR]: 'Expérience', [Language.EN]: 'Proven track record' },
   value4Desc: { [Language.FR]: 'Des milliers de projets livrés avec succès.', [Language.EN]: 'Thousands of projects successfully delivered across the region.' },
+  value5Title: { [Language.FR]: 'Innovation', [Language.EN]: 'Innovation' },
+  value5Desc: { [Language.FR]: 'Des solutions modernes.', [Language.EN]: 'Modern solutions.' },
+  value6Title: { [Language.FR]: 'Confiance', [Language.EN]: 'Trust' },
+  value6Desc: { [Language.FR]: 'Un partenaire fiable.', [Language.EN]: 'A reliable partner.' },
 
   partnerLogoAlt: { [Language.FR]: 'Logo Partenaire {number}', [Language.EN]: 'Partner Logo {number}' },
   partnersSectionTitle: { [Language.FR]: 'Nos Partenaires', [Language.EN]: 'Our Partners' },
@@ -162,41 +183,111 @@ export const content: LocalizedContent = {
   ariaFacebook: { [Language.FR]: 'Facebook', [Language.EN]: 'Facebook' },
   footerRights: { [Language.FR]: 'Tous droits réservés.', [Language.EN]: 'All rights reserved.' },
 
+  // --- NEW HERO TITLES & SUBTITLES ---
+
   // About Page
+  aboutHeroSlide1Title: { [Language.FR]: 'Bâtir l\'avenir avec intégrité', [Language.EN]: 'Building the Future with Integrity' },
+  aboutHeroSlide1Subtitle: { [Language.FR]: 'Un partenaire de confiance offrant des solutions de construction et immobilières de qualité depuis notre fondation.', [Language.EN]: 'A trusted partner delivering quality construction and property solutions since our foundation.' },
+  
+  aboutHeroSlide2Title: { [Language.FR]: 'Engagés pour la Qualité et l\'Innovation', [Language.EN]: 'Committed to Quality and Innovation' },
+  aboutHeroSlide2Subtitle: { [Language.FR]: 'Nous maintenons des standards élevés dans chaque projet pour offrir la meilleure valeur à nos clients.', [Language.EN]: 'We uphold high standards in every project to provide the best value for our clients.' },
+  
+  aboutHeroSlide3Title: { [Language.FR]: 'Notre Parcours vers l\'Excellence', [Language.EN]: 'Our Journey Toward Excellence' },
+  aboutHeroSlide3Subtitle: { [Language.FR]: 'De nos débuts à aujourd\'hui, nous continuons de grandir en tant que partenaire de construction fiable.', [Language.EN]: 'From our early beginnings to today, we continue to grow as a reliable construction partner.' },
+
+  aboutHeroCta: { [Language.FR]: 'Notre Histoire', [Language.EN]: 'Our History' },
+
+  // Construction Page (BTP)
+  btpHeroSlide1Title: { [Language.FR]: 'Solutions de Construction Professionnelles et Ponctuelles', [Language.EN]: 'Professional & On-Time Construction Solutions' },
+  btpHeroSlide1Subtitle: { [Language.FR]: 'Fournir des services de construction solides, efficaces et de haute qualité.', [Language.EN]: 'Delivering strong, efficient, and high-quality building services.' },
+  
+  btpHeroSlide2Title: { [Language.FR]: 'Nous Construisons Plus que des Structures', [Language.EN]: 'We Build More Than Structures' },
+  btpHeroSlide2Subtitle: { [Language.FR]: 'Alliant qualité, sécurité et précision dans chaque projet de construction.', [Language.EN]: 'Combining quality, safety, and precision in every construction project.' },
+  
+  btpHeroSlide3Title: { [Language.FR]: 'Construction Moderne pour les Besoins d\'Aujourd\'hui', [Language.EN]: 'Modern Construction for Today\'s Needs' },
+  btpHeroSlide3Subtitle: { [Language.FR]: 'Propulsé par une technologie avancée pour assurer des résultats durables et précis.', [Language.EN]: 'Powered by advanced technology to ensure durable and precise results.' },
+
+  // Real Estate Page
+  reHeroSlide1Title: { [Language.FR]: 'Un Confort de Vie pour un Avenir Meilleur', [Language.EN]: 'Comfortable Living for a Better Life' },
+  reHeroSlide1Subtitle: { [Language.FR]: 'Des propriétés conçues pour le confort moderne, la sécurité et le style de vie.', [Language.EN]: 'Properties designed for modern comfort, safety, and lifestyle.' },
+  
+  reHeroSlide2Title: { [Language.FR]: 'Investissements Immobiliers à Grande Valeur', [Language.EN]: 'Real Estate Investments with Greater Value' },
+  reHeroSlide2Subtitle: { [Language.FR]: 'Découvrez des projets premium avec un fort potentiel de croissance à long terme.', [Language.EN]: 'Discover premium projects with strong long-term growth potential.' },
+  
+  reHeroSlide3Title: { [Language.FR]: 'Des Espaces Conçus pour Inspirer', [Language.EN]: 'Spaces Designed to Inspire' },
+  reHeroSlide3Subtitle: { [Language.FR]: 'Du concept au détail, chaque propriété est conçue pour répondre à vos besoins.', [Language.EN]: 'From concept to detail, each property is crafted to meet your needs.' },
+
+  // Mining Page
+  minesHeroSlide1Title: { [Language.FR]: 'Opérations Minières Sûres et Durables', [Language.EN]: 'Safe & Sustainable Mining Operations' },
+  minesHeroSlide1Subtitle: { [Language.FR]: 'Priorité à la sécurité, à la qualité et à l\'efficacité dans chaque processus minier.', [Language.EN]: 'Prioritizing safety, quality, and efficiency in every mining process.' },
+  
+  minesHeroSlide2Title: { [Language.FR]: 'Exploiter Responsablement les Ressources Terrestres', [Language.EN]: 'Responsibly Harnessing the Earth\'s Resources' },
+  minesHeroSlide2Subtitle: { [Language.FR]: 'Guidés par la technologie moderne pour obtenir des résultats sans nuire à l\'environnement.', [Language.EN]: 'Driven by modern technology to deliver results without harming the environment.' },
+  
+  minesHeroSlide3Title: { [Language.FR]: 'Solutions Minières Professionnelles pour l\'Industrie Moderne', [Language.EN]: 'Professional Mining Solutions for Modern Industry' },
+  minesHeroSlide3Subtitle: { [Language.FR]: 'Fournir des services miniers fiables répondant aux normes internationales.', [Language.EN]: 'Providing reliable mining services that meet international standards.' },
+
+  // Careers Page
+  careersHeroSlide1Title: { [Language.FR]: 'Développez Votre Carrière Avec Nous', [Language.EN]: 'Grow Your Career With Us' },
+  careersHeroSlide1Subtitle: { [Language.FR]: 'Rejoignez une équipe professionnelle engagée à bâtir un avenir meilleur.', [Language.EN]: 'Join a professional team committed to building a better future.' },
+  
+  careersHeroSlide2Title: { [Language.FR]: 'Une Carrière qui a de l\'Impact', [Language.EN]: 'A Career That Makes an Impact' },
+  careersHeroSlide2Subtitle: { [Language.FR]: 'Explorez des opportunités qui vous aident à grandir tout en contribuant de manière significative.', [Language.EN]: 'Explore opportunities that help you grow while contributing meaningfully.' },
+  
+  careersHeroSlide3Title: { [Language.FR]: 'Construisez Votre Avenir Ici', [Language.EN]: 'Build Your Future Here' },
+  careersHeroSlide3Subtitle: { [Language.FR]: 'Nous accueillons des individus talentueux pour grandir et réussir avec nous.', [Language.EN]: 'We welcome talented individuals to grow and succeed with us.' },
+
+  // Contact Page
+  contactHeroSlide1Title: { [Language.FR]: 'Contactez-nous', [Language.EN]: 'Get in Touch With Us' },
+  contactHeroSlide1Subtitle: { [Language.FR]: 'Notre équipe est prête à vous assister pour toute demande.', [Language.EN]: 'Our team is ready to assist you with any inquiries.' },
+  
+  contactHeroSlide2Title: { [Language.FR]: 'Nous Sommes Prêts à Être Votre Partenaire', [Language.EN]: 'We\'re Ready to Be Your Partner' },
+  contactHeroSlide2Subtitle: { [Language.FR]: 'Recevez les meilleures solutions pour vos besoins en construction et immobilier.', [Language.EN]: 'Receive the best solutions for your construction and property needs.' },
+  
+  contactHeroSlide3Title: { [Language.FR]: 'Commençons Votre Projet Ensemble', [Language.EN]: 'Let\'s Start Your Project Together' },
+  contactHeroSlide3Subtitle: { [Language.FR]: 'Contactez-nous pour des consultations et les meilleures propositions de projet.', [Language.EN]: 'Contact us for consultations and the best project proposals.' },
+  
+  // Extra Contact Page Keys
+  contactHeroTitleConstruction1: { [Language.FR]: 'Contact', [Language.EN]: 'Contact' },
+  contactHeroTitleConstruction2: { [Language.FR]: 'Projet', [Language.EN]: 'Project' },
+  contactHeroTitleConstruction3: { [Language.FR]: 'Experts', [Language.EN]: 'Experts' },
+  contactHeroSubtitle: { [Language.FR]: 'Nous sommes là pour répondre à toutes vos questions.', [Language.EN]: 'We are here to answer all your questions.' },
+  homeContactCtaText: { [Language.FR]: 'Prêt ?', [Language.EN]: 'Ready?' },
+  homeContactCtaButton: { [Language.FR]: 'Message', [Language.EN]: 'Message' },
+
+  // --- End New Hero Titles & Subtitles ---
+
+  // Kept for backward compatibility or body content use if necessary
   aboutHeroTitle: { [Language.FR]: 'À Propos', [Language.EN]: 'About' },
-  aboutHeroSlide1Subtitle: { [Language.FR]: 'Une histoire de passion et de construction.', [Language.EN]: 'A history of passion and construction.' },
+  aboutHeroSubtitle: { [Language.FR]: 'Enracinés dans l\'histoire, tournés vers l\'avenir.', [Language.EN]: 'Rooted in history, focused on the future.' },
+  aboutVisionSectionTitle: { [Language.FR]: 'Notre But', [Language.EN]: 'Our Purpose' },
+  aboutVisionSectionHeadline: { [Language.FR]: 'VISION & MISSION', [Language.EN]: 'Vision & Mission' },
+  aboutCtaTitle: { [Language.FR]: 'Travaillons Ensemble', [Language.EN]: 'Let’s Work Together' },
+  aboutCtaSubtitle: { [Language.FR]: 'Contactez notre équipe dès aujourd\'hui.', [Language.EN]: 'Contact Our Team Today' },
   aboutMissionTitle: { [Language.FR]: 'Mission', [Language.EN]: 'Mission' },
   aboutMissionText: { [Language.FR]: 'Offrir des solutions immobilières durables et accessibles.', [Language.EN]: 'Provide sustainable and accessible real estate solutions.' },
   aboutValuesTitle: { [Language.FR]: 'Valeurs', [Language.EN]: 'Values' },
 
-  // BTP Page
   btpHeroTitle: { [Language.FR]: 'Construction', [Language.EN]: 'Construction' },
   btpHeroSubtitle: { [Language.FR]: 'Expertise technique pour des projets d\'invergure.', [Language.EN]: 'Technical expertise for major projects.' },
   btpExpertiseTitle: { [Language.FR]: 'Expertise', [Language.EN]: 'Expertise' },
   btpHeroExpertiseSubtitle: { [Language.FR]: 'Génie civil, travaux publics et bâtiments.', [Language.EN]: 'Civil engineering, public works, and buildings.' },
   btpProjectsTitle: { [Language.FR]: 'ICONIC PROJECTS', [Language.EN]: 'ICONIC PROJECTS' },
   btpHeroProjectsSubtitle: { [Language.FR]: 'Découvrez nos dernières réalisations.', [Language.EN]: 'Discover our latest achievements.' },
-  
   btpServicesNewTitle: { [Language.FR]: 'SERVICES', [Language.EN]: 'SERVICES' },
   btpServicesNewSubtitle: { 
     [Language.FR]: 'AU CŒUR DE LA TRANSFORMATION DU SÉNÉGAL, SOCABEG DÉPLOIE SON EXPERTISE À TRAVERS TROIS PÔLES STRATÉGIQUES', 
     [Language.EN]: "AT THE HEART OF SENEGAL'S TRANSFORMATION, SOCABEG DEPLOYS ITS EXPERTISE ACROSS THREE STRATEGIC AREAS" 
   },
-  
   btpService1Title: { [Language.FR]: 'Génie Civil', [Language.EN]: 'Civil Engineering' },
   btpService1Desc: { [Language.FR]: "Construction of roads, bridges, and sanitation networks to connect territories and boost trade.", [Language.EN]: 'Construction of roads, bridges, and sanitation networks to connect territories and boost trade.' },
-  
   btpService2Title: { [Language.FR]: 'Bâtiments', [Language.EN]: 'Buildings' },
   btpService2Desc: { [Language.FR]: "Building hospitals, schools, offices, and commercial complexes that become community pillars.", [Language.EN]: 'Building hospitals, schools, offices, and commercial complexes that become community pillars.' },
-  
   btpService3Title: { [Language.FR]: 'Urbanisme', [Language.EN]: 'Urbanism' },
   btpService3Desc: { [Language.FR]: 'Servicing land and developing new districts, creating quality living spaces.', [Language.EN]: 'Servicing land and developing new districts, creating quality living spaces.' },
-  
   btpService4Title: { [Language.FR]: 'Gestion', [Language.EN]: 'Management' },
   btpService4Desc: { [Language.FR]: 'Rigorous project management ensuring adherence to deadlines, budgets, and quality standards.', [Language.EN]: 'Rigorous project management ensuring adherence to deadlines, budgets, and quality standards.' },
-  
   learnMoreLink: { [Language.FR]: 'Détails', [Language.EN]: 'Details' },
-
   btpApproachTitle: { [Language.FR]: 'NOTRE APPROCHE : EXCELLENCE ET INNOVATION', [Language.EN]: 'OUR APPROACH: EXCELLENCE AND INNOVATION' },
   btpApproachSubtitle: { [Language.FR]: 'Engagement, Durabilité, Innovation', [Language.EN]: 'Commitment, Sustainability, Innovation' },
   btpApproachImageAlt: { [Language.FR]: 'Approche BTP', [Language.EN]: 'BTP Approach' },
@@ -209,7 +300,6 @@ export const content: LocalizedContent = {
   btpApproachTechTitle: { [Language.FR]: 'Technologie', [Language.EN]: 'Technology' },
   btpApproachTechDesc: { [Language.FR]: 'The use of BIM (Building Information Modeling) and other modern technologies allows us to optimize the design, planning, and execution of each project.', [Language.EN]: 'The use of BIM (Building Information Modeling) and other modern technologies allows us to optimize the design, planning, and execution of each project.' },
   btpApproachTechIconAlt: { [Language.FR]: 'Icône Technologie', [Language.EN]: 'Technology Icon' },
-
   btpProject1Title: { [Language.FR]: "Pont de l'Avenir", [Language.EN]: "Future Bridge" },
   btpProject1Desc: { [Language.FR]: "Un ouvrage d'art de 1,2 km reliant deux régions économiques clés. Achevé en 3 ans, ce projet a réduit le temps de trajet de 2 heures et dynamisé les échanges commerciaux locaux.", [Language.EN]: "A 1.2 km engineering structure connecting two key economic regions. Completed in 3 years, this project reduced travel time by 2 hours and boosted local trade." },
   btpProject2Title: { [Language.FR]: "Hôpital de Kaolack", [Language.EN]: "Kaolack Hospital" },
@@ -217,13 +307,10 @@ export const content: LocalizedContent = {
   btpProject3Title: { [Language.FR]: "Autoroute DD", [Language.EN]: "DD Highway" },
   btpProject3Desc: { [Language.FR]: "Participation à la construction d'un tronçon de 15 km de cet axe vital. Notre intervention a contribué à désengorger la capitale et à soutenir le développement du pôle urbain de Diamniadio.", [Language.EN]: "Participation in the construction of a 15 km section of this vital axis. Our intervention contributed to decongesting the capital and supporting the development of the Diamniadio urban pole." },
   viewProjectButton: { [Language.FR]: 'Voir', [Language.EN]: 'View' },
-
-  // Real Estate Page
   reHeroTitle: { [Language.FR]: 'Immobilier', [Language.EN]: 'Real Estate' },
   reHeroSubtitle: { [Language.FR]: 'Créer des espaces de vie inspirants.', [Language.EN]: 'Creating inspiring living spaces.' },
   reHeroAmenitiesSubtitle: { [Language.FR]: 'Confort et commodités modernes.', [Language.EN]: 'Modern comfort and amenities.' },
   reHeroPortfolioSubtitle: { [Language.FR]: 'Notre portfolio de projets.', [Language.EN]: 'Our project portfolio.' },
-
   reIntroTitle: { [Language.FR]: 'Shaping Extraordinary Living and Working Spaces', [Language.EN]: 'Shaping Extraordinary Living and Working Spaces' },
   reIntroText: { [Language.FR]: 'Our Real Estate Development division is dedicated to creating projects that combine innovative design, functionality, and harmonious integration into their environment. From luxury residences to dynamic commercial spaces, we build places of life and opportunity for future generations.', [Language.EN]: 'Our Real Estate Development division is dedicated to creating projects that combine innovative design, functionality, and harmonious integration into their environment. From luxury residences to dynamic commercial spaces, we build places of life and opportunity for future generations.' },
   reIntroFeature1Title: { [Language.FR]: 'Design', [Language.EN]: 'Design' },
@@ -236,29 +323,24 @@ export const content: LocalizedContent = {
   reIntroTypeCommercial: { [Language.FR]: 'Commercial', [Language.EN]: 'Commercial' },
   reIntroTypeMixedUse: { [Language.FR]: 'Mixte', [Language.EN]: 'Mixed' },
   reIntroImageAlt: { [Language.FR]: 'Projet immobilier moderne', [Language.EN]: 'Modern real estate project' },
-
   rePortfolioTitle: { [Language.FR]: 'Iconic Projects', [Language.EN]: 'Iconic Projects' },
   rePortfolioSubtitle: { [Language.FR]: 'RÉALISATIONS', [Language.EN]: 'ACHIEVEMENTS' },
   rePortfolioKeyFeatures: { [Language.FR]: 'Atouts', [Language.EN]: 'Features' },
   reProjectBalenaFeatures: { [Language.FR]: 'Design, Jardin, Sécurité', [Language.EN]: 'Design, Garden, Security' },
   reProjectHlmFeatures: { [Language.FR]: 'Accessibilité, Verdure, Transport', [Language.EN]: 'Accessibility, Greenery, Transport' },
   reProjectNiagueFeatures: { [Language.FR]: 'Vue Lac, Calme, Plus-value', [Language.EN]: 'Lake View, Quiet, Value' },
-
-  // Real Estate Page - Sustainability
   reSustainabilityTitle: { [Language.FR]: 'Building a Sustainable Future', [Language.EN]: 'Building a Sustainable Future' },
   reSustainabilityText: { 
     [Language.FR]: 'Notre engagement pour la durabilité se traduit par des actions concrètes à chaque étape de nos projets immobiliers, minimisant l\'empreinte écologique et maximisant le confort de vie.', 
     [Language.EN]: 'Our commitment to sustainability is reflected in concrete actions at every stage of our real estate projects, minimizing the ecological footprint and maximizing living comfort.' 
   },
   reSustainabilityImageAlt: { [Language.FR]: 'Architecture durable', [Language.EN]: 'Sustainable Architecture' },
-  
   reSustainabilityPoint1Title: { [Language.FR]: 'Matériaux', [Language.EN]: 'Materials' },
   reSustainabilityPoint1Desc: { [Language.FR]: 'Utilisation de matériaux locaux et recyclés pour réduire l\'impact carbone.', [Language.EN]: 'Use of local and recycled materials to reduce carbon impact.' },
   reSustainabilityPoint2Title: { [Language.FR]: 'Énergie', [Language.EN]: 'Energy' },
   reSustainabilityPoint2Desc: { [Language.FR]: 'Conception bioclimatique, isolation performante et solutions d\'énergies renouvelables.', [Language.EN]: 'Bioclimatic design, high-performance insulation, and renewable energy solutions.' },
   reSustainabilityPoint3Title: { [Language.FR]: 'Eau', [Language.EN]: 'Water' },
   reSustainabilityPoint3Desc: { [Language.FR]: 'Systèmes de récupération d\'eau de pluie et aménagement paysager à faible consommation d\'eau.', [Language.EN]: 'Rainwater harvesting systems and low-water landscaping.' },
-
   reAmenitiesTitle: { [Language.FR]: 'Amenities & Comfort', [Language.EN]: 'Amenities & Comfort' },
   reAmenitiesText: { [Language.FR]: 'Des espaces conçus pour votre bien-être.', [Language.EN]: 'Spaces designed for your well-being.' },
   reAmenity1Title: { [Language.FR]: 'Espaces Verts', [Language.EN]: 'Green Spaces' },
@@ -267,7 +349,6 @@ export const content: LocalizedContent = {
   reAmenity2Desc: { [Language.FR]: 'Surveillance 24/7 et contrôle d\'accès.', [Language.EN]: '24/7 surveillance and access control.' },
   reAmenity3Title: { [Language.FR]: 'Communauté', [Language.EN]: 'Community' },
   reAmenity3Desc: { [Language.FR]: 'Aires de jeux, salles de sport et lieux de rencontre.', [Language.EN]: 'Playgrounds, gyms, and meeting places.' },
-
   reTestimonialsTitle: { [Language.FR]: 'They Trust Us', [Language.EN]: 'They Trust Us' },
   reMarketTitle: { [Language.FR]: 'Market Insights', [Language.EN]: 'Market Insights' },
   reMarketText: { [Language.FR]: 'Tendances actuelles de l\'immobilier au Sénégal.', [Language.EN]: 'Current real estate trends in Senegal.' },
@@ -275,13 +356,10 @@ export const content: LocalizedContent = {
   reCtaTitle: { [Language.FR]: 'Investir ?', [Language.EN]: 'Invest?' },
   reCtaText: { [Language.FR]: 'Contactez-nous pour découvrir nos offres exclusives.', [Language.EN]: 'Contact us to discover our exclusive offers.' },
   reCtaButton: { [Language.FR]: 'Commencer', [Language.EN]: 'Start' },
-
-  // Mines Page
   minesHeroTitle: { [Language.FR]: 'Mines', [Language.EN]: 'Mining' },
   minesHeroSubtitle: { [Language.FR]: 'Extraction responsable et durable.', [Language.EN]: 'Responsible and sustainable extraction.' },
   minesHeroServicesSubtitle: { [Language.FR]: 'Nos services complets.', [Language.EN]: 'Our comprehensive services.' },
   minesHeroProjectsSubtitle: { [Language.FR]: 'Projets d\'envergure.', [Language.EN]: 'Major projects.' },
-
   minesIntroTitle: { 
     [Language.FR]: "SHAPING THE FUTURE OF THE MINING INDUSTRY IN SENEGAL", 
     [Language.EN]: "SHAPING THE FUTURE OF THE MINING INDUSTRY IN SENEGAL" 
@@ -295,7 +373,6 @@ export const content: LocalizedContent = {
     [Language.EN]: 'We are committed to mining that respects both <b>the environment and local communities</b>, creating lasting value for Senegal.' 
   },
   minesIntroImageAlt: { [Language.FR]: 'Opérations minières', [Language.EN]: 'Mining operations' },
-
   minesServicesTitle: { 
     [Language.FR]: "AT THE HEART OF SENEGAL'S TRANSFORMATION, SOCABEG DÉPLOIE SON EXPERTISE À TRAVERS TROIS PÔLES STRATÉGIQUES", 
     [Language.EN]: "AT THE HEART OF SENEGAL'S TRANSFORMATION, SOCABEG DEPLOYS ITS EXPERTISE ACROSS THREE STRATEGIC AREAS" 
@@ -312,7 +389,6 @@ export const content: LocalizedContent = {
   minesService4Title: { [Language.FR]: 'Logistique', [Language.EN]: 'Logistics' },
   minesService4Desc: { [Language.FR]: 'Gestion de la chaîne d\'approvisionnement de bout en bout pour assurer une livraison fiable et ponctuelle des ressources aux marchés mondiaux.', [Language.EN]: 'End-to-end supply chain management ensuring reliable and timely delivery of resources to global markets.' },
   minesServiceIcon4Alt: { [Language.FR]: 'Icône Logistique', [Language.EN]: 'Logistics Icon' },
-
   minesProjectsTitle: { 
     [Language.FR]: "ICONIC PROJECTS", 
     [Language.EN]: "ICONIC PROJECTS" 
@@ -326,7 +402,6 @@ export const content: LocalizedContent = {
   minesProject3Title: { [Language.FR]: 'Zircon', [Language.EN]: 'Zircon' },
   minesProject3Desc: { [Language.FR]: 'Extraction de sables minéraux lourds sur la Grande Côte.', [Language.EN]: 'Extraction of heavy mineral sands on the Great Coast.' },
   minesProjectTagZircon: { [Language.FR]: 'ZIRCON', [Language.EN]: 'ZIRCON' },
-
   minesSafetyTitle: { 
     [Language.FR]: "SAFETY & ENVIRONMENT", 
     [Language.EN]: "SAFETY & ENVIRONMENT" 
@@ -339,33 +414,27 @@ export const content: LocalizedContent = {
   minesSafetyPoint2Desc: { [Language.FR]: 'Restauration des sites après exploitation.', [Language.EN]: 'Site restoration after mining.' },
   minesSafetyPoint3Title: { [Language.FR]: 'Engagement', [Language.EN]: 'Engagement' },
   minesSafetyPoint3Desc: { [Language.FR]: 'Investissement dans les infrastructures locales.', [Language.EN]: 'Investment in local infrastructure.' },
-
   minesTechTitle: { 
     [Language.FR]: "CUTTING-EDGE TECHNOLOGY", 
     [Language.EN]: "CUTTING-EDGE TECHNOLOGY" 
   },
   minesTechText: { [Language.FR]: 'Innovation et efficacité.', [Language.EN]: 'Innovation and efficiency.' },
-
   minesTestimonialsTitle: { 
     [Language.FR]: "THEY TRUST US", 
     [Language.EN]: "THEY TRUST US" 
   },
   minesTestimonial1Quote: { [Language.FR]: 'SOCABEG Mining opère avec un professionnalisme exemplaire et un respect profond pour nos communautés locales.', [Language.EN]: 'SOCABEG Mining operates with exemplary professionalism and deep respect for our local communities.' },
   minesTestimonial1Name: { [Language.FR]: 'Maire de Kédougou', [Language.EN]: 'Mayor of Kédougou' },
-
   minesCtaTitle: { 
     [Language.FR]: "STRATEGIC PARTNERSHIP", 
     [Language.EN]: "STRATEGIC PARTNERSHIP" 
   },
   minesCtaText: { [Language.FR]: 'Développons ensemble les ressources de demain.', [Language.EN]: 'Let\'s develop tomorrow\'s resources together.' },
   minesCtaButton: { [Language.FR]: 'Devenir Partenaire', [Language.EN]: 'Become a Partner' },
-
-  // Careers Page
   careersHeroTitle: { [Language.FR]: 'Carrières', [Language.EN]: 'Careers' },
   careersHeroSlide1Subtitle: { [Language.FR]: 'Rejoignez une équipe passionnée.', [Language.EN]: 'Join a passionate team.' },
   careersHeroSlide2Subtitle: { [Language.FR]: 'Construisez votre avenir avec nous.', [Language.EN]: 'Build your future with us.' },
   careersHeroSlide3Subtitle: { [Language.FR]: 'Développez vos compétences.', [Language.EN]: 'Develop your skills.' },
-
   careersWhyUsTitle: { [Language.FR]: 'Pourquoi Nous', [Language.EN]: 'Why Us' },
   careersWhyUsHeadline: { [Language.FR]: 'UNE CULTURE D\'EXCELLENCE', [Language.EN]: 'A CULTURE OF EXCELLENCE' },
   careersWhyUsIntro: { [Language.FR]: 'Faites partie d\'une entreprise qui valorise le talent et l\'innovation.', [Language.EN]: 'Be part of a company that values talent and innovation.' },
@@ -382,7 +451,6 @@ export const content: LocalizedContent = {
   careersValueGrowthTitle: { [Language.FR]: 'Croissance', [Language.EN]: 'Growth' },
   careersValueGrowthDesc: { [Language.FR]: 'Opportunités de développement professionnel.', [Language.EN]: 'Professional development opportunities.' },
   careersGrowthIconAlt: { [Language.FR]: 'Icône Croissance', [Language.EN]: 'Growth Icon' },
-
   careersBenefitsTitle: { [Language.FR]: 'Avantages', [Language.EN]: 'Benefits' },
   careersBenefitsHeadline: { [Language.FR]: 'CE QUE NOUS OFFRONS', [Language.EN]: 'WHAT WE OFFER' },
   careersBenefitsNewIntro: { [Language.FR]: 'Des avantages compétitifs pour votre bien-être.', [Language.EN]: 'Competitive benefits for your well-being.' },
@@ -394,14 +462,12 @@ export const content: LocalizedContent = {
   careersBenefit3Desc: { [Language.FR]: 'Programmes de développement.', [Language.EN]: 'Development programs.' },
   careersBenefit4Title: { [Language.FR]: 'Mentorat', [Language.EN]: 'Mentorship' },
   careersBenefit4Desc: { [Language.FR]: 'Accompagnement par des seniors.', [Language.EN]: 'Guidance from seniors.' },
-
   careersTestimonialsTitle: { [Language.FR]: 'Avis', [Language.EN]: 'Reviews' },
   careersTestimonialsHeadline: { [Language.FR]: 'ILS NOUS FONT CONFIANCE', [Language.EN]: 'THEY TRUST US' },
   careersTestimonial1Quote: { [Language.FR]: 'Travailler chez SOCABEG m\'a permis de grandir professionnellement et de participer à des projets passionnants.', [Language.EN]: 'Working at SOCABEG has allowed me to grow professionally and participate in exciting projects.' },
   careersTestimonial1Name: { [Language.FR]: 'Jean Dupont', [Language.EN]: 'Jean Dupont' },
   careersTestimonial2Quote: { [Language.FR]: 'Une ambiance de travail formidable et des défis constants qui me motivent chaque jour.', [Language.EN]: 'A great work atmosphere and constant challenges that motivate me every day.' },
   careersTestimonial2Name: { [Language.FR]: 'Aminata Sow', [Language.EN]: 'Aminata Sow' },
-
   careersOpeningsTitle: { [Language.FR]: 'POSTES OUVERTS', [Language.EN]: 'OPEN POSITIONS' },
   careersOpeningsSubheadline: { [Language.FR]: 'REJOINDRE', [Language.EN]: 'JOIN' },
   careersOpeningsText: { [Language.FR]: 'Consultez nos offres actuelles.', [Language.EN]: 'View our current openings.' },
@@ -416,12 +482,4 @@ export const content: LocalizedContent = {
   careersRole4Desc: { [Language.FR]: 'Gestion financière et comptabilité.', [Language.EN]: 'Financial management and accounting.' },
   careersOpeningsBtnView: { [Language.FR]: 'Voir les offres', [Language.EN]: 'View offers' },
   careersOpeningsBtnSpontaneous: { [Language.FR]: 'Candidature', [Language.EN]: 'Application' },
-
-  // Contact Page
-  contactHeroTitleConstruction1: { [Language.FR]: 'Contact', [Language.EN]: 'Contact' },
-  contactHeroTitleConstruction2: { [Language.FR]: 'Projet', [Language.EN]: 'Project' },
-  contactHeroTitleConstruction3: { [Language.FR]: 'Experts', [Language.EN]: 'Experts' },
-  contactHeroSubtitle: { [Language.FR]: 'Nous sommes là pour répondre à toutes vos questions.', [Language.EN]: 'We are here to answer all your questions.' },
-  homeContactCtaText: { [Language.FR]: 'Prêt ?', [Language.EN]: 'Ready?' },
-  homeContactCtaButton: { [Language.FR]: 'Message', [Language.EN]: 'Message' },
 };

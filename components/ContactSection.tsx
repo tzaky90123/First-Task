@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useLocalization } from '../context/LocalizationContext';
 
@@ -78,7 +79,7 @@ const ContactSection: React.FC = () => {
                 </div>
               </div>
               <div>
-                <button type="submit" className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-brand-primary hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-primary transition-all duration-300">
+                <button type="submit" className="w-full flex justify-center py-3 px-8 sm:px-10 border-2 border-brand-secondary rounded-full text-lg font-bold text-white bg-brand-secondary hover:bg-white hover:text-black hover:border-white transition-colors duration-300 shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-secondary">
                   {t('formSend')}
                 </button>
               </div>

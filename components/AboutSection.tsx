@@ -16,12 +16,12 @@ const AboutSection: React.FC<AboutSectionProps> = ({ previewMode = false }) => {
             <SectionTitle subtitleKey="homeAboutSectionTitle" titleKey="homeAboutSectionHeadline" />
             <div className={`max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-0 bg-white rounded-lg shadow-soft overflow-hidden ${previewMode ? 'items-center' : ''}`}>
                 {/* Left Image Column */}
-                <div className={`h-full ${previewMode ? 'min-h-[400px]' : 'h-64 md:h-auto'}`}>
+                <div className={`h-full flex items-center justify-center p-6 md:p-12`}>
                     <img 
-                        src="https://socabeg.com/images/socabeg.jpg" 
+                        src="https://images.pexels.com/photos/585418/pexels-photo-585418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
                         alt={t('aboutImageAlt')} 
-                        className="w-full h-full object-cover"
-                        loading="lazy" width="600" height="750"
+                        className="w-full h-auto object-cover rounded-lg shadow-sm"
+                        loading="lazy" width="600" height="400"
                     />
                 </div>
                 {/* Right Text Column */}
@@ -31,7 +31,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ previewMode = false }) => {
                              <p className="text-lg text-brand-text-gray leading-relaxed mb-8">
                                 {t('homeAboutPreviewText')}
                              </p>
-                             <Link to="/a-propos" className="inline-block bg-brand-secondary text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition-colors duration-300">
+                             <Link to="/a-propos" className="bg-brand-secondary border-2 border-brand-secondary text-white text-lg font-bold py-3 px-8 sm:px-10 rounded-full hover:bg-white hover:text-black hover:border-white transition-colors duration-300 inline-block shadow-md">
                                 {t('homeAboutBtn')}
                              </Link>
                         </div>
