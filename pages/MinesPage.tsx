@@ -142,22 +142,6 @@ const SafetySection: React.FC = () => {
     );
 };
 
-const TestimonialsSection: React.FC = () => {
-    const { t } = useLocalization();
-    return (
-        <div className="container mx-auto px-6 scroll-element">
-            <SectionTitle titleKey="minesTestimonialsTitle" />
-            <div className="max-w-4xl mx-auto bg-white p-10 rounded-2xl shadow-lg text-center">
-                <svg className="w-12 h-12 text-brand-secondary mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21L14.017 18C14.017 16.0547 15.1924 14.6602 16.6797 14.0156C17.207 13.7852 17.5312 13.25 17.5312 12.6328V11.1016C17.5312 10.2266 16.8203 9.51562 15.9453 9.51562H14.5312V6.51562H16.2969C18.6602 6.51562 20.5781 8.43359 20.5781 10.7969V12.1875C20.5781 12.1875 20.5781 12.1875 20.5781 12.1875C20.5781 17.0547 16.5898 21 14.017 21ZM5.01562 21L5.01562 18C5.01562 16.0547 6.19141 14.6602 7.67578 14.0156C8.20312 13.7852 8.52734 13.25 8.52734 12.6328V11.1016C8.52734 10.2266 7.81641 9.51562 6.94141 9.51562H5.52734V6.51562H7.29297C9.65625 6.51562 11.5742 8.43359 11.5742 10.7969V12.1875C11.5742 12.1875 11.5742 12.1875 11.5742 12.1875C11.5742 17.0547 7.58594 21 5.01562 21Z" /></svg>
-                <blockquote className="text-xl md:text-2xl text-brand-navy font-medium leading-relaxed mb-6">
-                    "{t('minesTestimonial1Quote')}"
-                </blockquote>
-                <cite className="not-italic text-brand-text-gray font-semibold text-lg">- {t('minesTestimonial1Name')}</cite>
-            </div>
-        </div>
-    );
-};
-
 const CtaSection: React.FC = () => {
     const { t } = useLocalization();
     return (
@@ -197,7 +181,6 @@ const MinesPage: React.FC = () => {
       <FullScreenSection className="bg-white py-16 md:py-20"><ServicesSection /></FullScreenSection>
       <FullScreenSection className="grid-bg py-16 md:py-20"><ProjectsSection /></FullScreenSection>
       <FullScreenSection className="bg-white py-16 md:py-20"><SafetySection /></FullScreenSection>
-      <FullScreenSection className="bg-brand-light py-16 md:py-20"><TestimonialsSection /></FullScreenSection>
       <FullScreenSection className="bg-brand-warm-light py-16 md:py-20"><CtaSection /></FullScreenSection>
       <Footer />
     </>

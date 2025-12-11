@@ -136,23 +136,23 @@ export const content: LocalizedContent = {
     [Language.EN]: 'What Our Clients Say' 
   },
   
-  testimonial1Quote: { [Language.FR]: "J'ai acquis ma villa à la Cité Tivaouane Peulh avec SOCABEG. Le processus était transparent et l'équipe très professionnelle.", [Language.EN]: 'I acquired my villa at Cité Tivaouane Peulh with SOCABEG. The process was transparent and the team very professional.' },
-  testimonial1Name: { [Language.FR]: 'Amadou Diallo', [Language.EN]: 'Amadou Diallo' },
+  testimonial1Quote: { [Language.FR]: "J’ai pu diversifier mon portefeuille immobilier en quelques années grâce à la variété de leurs offres, ce qui m’a permis d’atteindre mes objectifs financiers avec succès.", [Language.EN]: 'I was able to diversify my real estate portfolio in a few years thanks to the variety of their offers, which allowed me to successfully achieve my financial goals.' },
+  testimonial1Name: { [Language.FR]: 'Amadou DIALLO – Entrepreneur', [Language.EN]: 'Amadou DIALLO – Entrepreneur' },
   
-  testimonial2Quote: { [Language.FR]: "La qualité des finitions et le respect des délais sont les points forts de SOCABEG. Je suis très satisfaite de mon investissement.", [Language.EN]: 'The quality of finishes and adherence to deadlines are SOCABEG\'s strong points. I am very satisfied with my investment.' },
-  testimonial2Name: { [Language.FR]: 'Marieme Faye', [Language.EN]: 'Marieme Faye' },
+  testimonial2Quote: { [Language.FR]: "En tant que vendeuse, le format de paiement flexible sur certains programmes de SOCABEG m’a été d’un grand soutien. J'ai pu acquérir des biens sans passer par les institutions bancaires, ce qui fut un véritable soulagement.", [Language.EN]: 'As a merchant, the flexible payment format on certain SOCABEG programs was a great support. I was able to acquire property without going through banking institutions, which was a real relief.' },
+  testimonial2Name: { [Language.FR]: 'Marie SÈNE – Commerçante', [Language.EN]: 'Marie SÈNE – Merchant' },
   
-  testimonial3Quote: { [Language.FR]: "SOCABEG offre des solutions de logement accessibles sans compromettre la qualité. Un partenaire de confiance pour l'avenir.", [Language.EN]: 'SOCABEG offers accessible housing solutions without compromising quality. A trusted partner for the future.' },
-  testimonial3Name: { [Language.FR]: 'Babacar Sy', [Language.EN]: 'Babacar Sy' },
+  testimonial3Quote: { [Language.FR]: "Investir chez SOCABEG a été une expérience extrêmement enrichissante. Ne sachant pas par où commencer pour acquérir un terrain, ils m’ont proposé des opportunités que je n’aurais jamais découvertes seul. Je recommande vivement leurs services.", [Language.EN]: 'Investing with SOCABEG was an extremely rewarding experience. Not knowing where to start to acquire land, they offered me opportunities I would never have discovered alone. I highly recommend their services.' },
+  testimonial3Name: { [Language.FR]: 'Ibrahima NDIAYE – Dentiste', [Language.EN]: 'Ibrahima NDIAYE – Dentist' },
   
-  testimonial4Quote: { [Language.FR]: "L'équipe commerciale a été formidable, m'accompagnant dans toutes les démarches administratives. Un grand merci !", [Language.EN]: 'The sales team was wonderful, guiding me through all the administrative procedures. A big thank you!' },
-  testimonial4Name: { [Language.FR]: 'Khady Ndiaye', [Language.EN]: 'Khady Ndiaye' },
+  testimonial4Quote: { [Language.FR]: "Étant en location depuis plusieurs années, j’ai travaillé dur pour offrir un toit à ma famille. Ce rêve s’est concrétisé grâce à un programme de logement proposé par SOCABEG. Leur accompagnement a été précieux à chaque étape.", [Language.EN]: 'Having been renting for several years, I worked hard to provide a roof for my family. This dream came true thanks to a housing program offered by SOCABEG. Their support was invaluable at every step.' },
+  testimonial4Name: { [Language.FR]: 'Moussa TRAORÉ – Retraité', [Language.EN]: 'Moussa TRAORÉ – Retired' },
   
-  testimonial5Quote: { [Language.FR]: "En tant qu'investisseur, j'apprécie la vision et la rigueur de SOCABEG. Leurs projets immobiliers sont parmi les meilleurs du marché.", [Language.EN]: 'As an investor, I appreciate SOCABEG\'s vision and rigor. Their real estate projects are among the best on the market.' },
-  testimonial5Name: { [Language.FR]: 'Ousmane Sow', [Language.EN]: 'Ousmane Sow' },
+  testimonial5Quote: { [Language.FR]: "Je suis finalement satisfait de la transparence et de l’engagement de SOCABEG. Ils ont su transformer une longue attente en une expérience agréable, malgré quelques contraintes qui ont impacté la livraison du projet.", [Language.EN]: 'I am ultimately satisfied with SOCABEG\'s transparency and commitment. They were able to turn a long wait into a pleasant experience, despite some constraints that impacted the project delivery.' },
+  testimonial5Name: { [Language.FR]: 'Papa Moussa FALL – Professeur', [Language.EN]: 'Papa Moussa FALL – Professor' },
   
-  testimonial6Quote: { [Language.FR]: "Je vis dans une résidence SOCABEG depuis deux ans. C'est un cadre de vie paisible et sécurisé pour mes enfants.", [Language.EN]: 'I have lived in a SOCABEG residence for two years. It is a peaceful and safe living environment for my children.' },
-  testimonial6Name: { [Language.FR]: 'Marie Sene', [Language.EN]: 'Marie Sene' },
+  testimonial6Quote: { [Language.FR]: "En tant que partenaire, nous avons pu concrétiser un projet de viabilisation et de construction avec SOCABEG. La qualité de la collaboration a été très appréciée.", [Language.EN]: 'As a partner, we were able to realize a servicing and construction project with SOCABEG. The quality of the collaboration was greatly appreciated.' },
+  testimonial6Name: { [Language.FR]: 'TOIT IMMO – Immobilier', [Language.EN]: 'TOIT IMMO – Real Estate' },
   
   prevTestimonialAria: { [Language.FR]: 'Précédent', [Language.EN]: 'Previous' },
   nextTestimonialAria: { [Language.FR]: 'Suivant', [Language.EN]: 'Next' },
