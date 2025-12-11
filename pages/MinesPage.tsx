@@ -142,18 +142,6 @@ const SafetySection: React.FC = () => {
     );
 };
 
-const TechnologySection: React.FC = () => {
-    const { t } = useLocalization();
-    return (
-        <div className="container mx-auto px-6 text-center scroll-element">
-            <SectionTitle titleKey="minesTechTitle" descriptionKey="minesTechText" />
-            <div className="mt-10">
-                 <img src="https://images.pexels.com/photos/256297/pexels-photo-256297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt={t('minesTechTitle')} className="w-full h-[400px] object-cover rounded-xl shadow-lg" loading="lazy" />
-            </div>
-        </div>
-    );
-};
-
 const TestimonialsSection: React.FC = () => {
     const { t } = useLocalization();
     return (
@@ -209,7 +197,6 @@ const MinesPage: React.FC = () => {
       <FullScreenSection className="bg-white py-16 md:py-20"><ServicesSection /></FullScreenSection>
       <FullScreenSection className="grid-bg py-16 md:py-20"><ProjectsSection /></FullScreenSection>
       <FullScreenSection className="bg-white py-16 md:py-20"><SafetySection /></FullScreenSection>
-      <FullScreenSection className="bg-white py-16 md:py-20"><TechnologySection /></FullScreenSection>
       <FullScreenSection className="bg-brand-light py-16 md:py-20"><TestimonialsSection /></FullScreenSection>
       <FullScreenSection className="bg-brand-warm-light py-16 md:py-20"><CtaSection /></FullScreenSection>
       <Footer />

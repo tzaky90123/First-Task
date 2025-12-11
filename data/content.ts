@@ -462,18 +462,23 @@ export const content: LocalizedContent = {
   careersWhyUsHeadline: { [Language.FR]: 'UNE CULTURE D\'EXCELLENCE', [Language.EN]: 'A CULTURE OF EXCELLENCE' },
   careersWhyUsIntro: { [Language.FR]: 'Faites partie d\'une entreprise qui valorise le talent et l\'innovation.', [Language.EN]: 'Be part of a company that values talent and innovation.' },
   careersWhyJoinImageAlt: { [Language.FR]: 'Équipe SOCABEG', [Language.EN]: 'SOCABEG Team' },
+  
   careersValueSafetyTitle: { [Language.FR]: 'Sécurité', [Language.EN]: 'Safety' },
-  careersValueSafetyDesc: { [Language.FR]: 'Un environnement de travail sûr et sain.', [Language.EN]: 'A safe and healthy work environment.' },
+  careersValueSafetyDesc: { [Language.FR]: 'Priorité au bien-être des employés grâce à des normes de sécurité strictes.', [Language.EN]: 'Prioritizing employee well-being through strict safety standards.' },
   careersSafetyIconAlt: { [Language.FR]: 'Icône Sécurité', [Language.EN]: 'Safety Icon' },
+  
   careersValueExcellenceTitle: { [Language.FR]: 'Excellence', [Language.EN]: 'Excellence' },
   careersValueExcellenceDesc: { [Language.FR]: 'Nous visons la plus haute qualité.', [Language.EN]: 'We aim for the highest quality.' },
   careersExcellenceIconAlt: { [Language.FR]: 'Icône Excellence', [Language.EN]: 'Excellence Icon' },
+  
   careersValueTeamTitle: { [Language.FR]: 'Esprit d\'Équipe', [Language.EN]: 'Team Spirit' },
-  careersValueTeamDesc: { [Language.FR]: 'Collaboration et entraide.', [Language.EN]: 'Collaboration and mutual support.' },
+  careersValueTeamDesc: { [Language.FR]: 'Un lieu de travail bâti sur le travail d\'équipe et le succès partagé.', [Language.EN]: 'A workplace built on teamwork and shared success.' },
   careersTeamIconAlt: { [Language.FR]: 'Icône Équipe', [Language.EN]: 'Team Icon' },
+  
   careersValueGrowthTitle: { [Language.FR]: 'Croissance', [Language.EN]: 'Growth' },
-  careersValueGrowthDesc: { [Language.FR]: 'Opportunités de développement professionnel.', [Language.EN]: 'Professional development opportunities.' },
+  careersValueGrowthDesc: { [Language.FR]: 'Aider les employés à développer leurs compétences et carrières.', [Language.EN]: 'Helping employees grow their skills and careers.' },
   careersGrowthIconAlt: { [Language.FR]: 'Icône Croissance', [Language.EN]: 'Growth Icon' },
+  
   careersBenefitsTitle: { [Language.FR]: 'Avantages', [Language.EN]: 'Benefits' },
   careersBenefitsHeadline: { [Language.FR]: 'CE QUE NOUS OFFRONS', [Language.EN]: 'WHAT WE OFFER' },
   careersBenefitsNewIntro: { [Language.FR]: 'Des avantages compétitifs pour votre bien-être.', [Language.EN]: 'Competitive benefits for your well-being.' },
