@@ -83,20 +83,20 @@ const AboutCtaSection: React.FC = () => {
 const AboutPage: React.FC = () => {
   const { t } = useLocalization();
   
-  // Updated configuration for About Page Hero with 3 slides
+  // Updated configuration for About Page Hero with construction themed slides
   const aboutSlides = [
     {
-        img: 'https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+        img: 'https://images.pexels.com/photos/159306/construction-site-build-construction-work-159306.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
         title: 'aboutHeroSlide1Title',
         subtitle: 'aboutHeroSlide1Subtitle',
     },
     {
-        img: 'https://images.pexels.com/photos/3862632/pexels-photo-3862632.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+        img: 'https://images.pexels.com/photos/534220/pexels-photo-534220.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
         title: 'aboutHeroSlide2Title',
         subtitle: 'aboutHeroSlide2Subtitle',
     },
     {
-        img: 'https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+        img: 'https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
         title: 'aboutHeroSlide3Title',
         subtitle: 'aboutHeroSlide3Subtitle',
     }

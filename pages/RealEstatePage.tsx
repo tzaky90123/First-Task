@@ -62,13 +62,14 @@ const IntroductionSection: React.FC = () => {
 const PortfolioSection: React.FC = () => {
     const { t } = useLocalization();
     const projects = [
-        { image: 'https://socabeg.com/images/balena.jpg', titleKey: 'program1Title', descKey: 'program1Desc', featuresKey: 'reProjectBalenaFeatures' },
-        { image: 'https://socabeg.com/images/hlm.jpg', titleKey: 'program2Title', descKey: 'program2Desc', featuresKey: 'reProjectHlmFeatures' },
-        { image: 'https://socabeg.com/images/lac.jpg', titleKey: 'program3Title', descKey: 'program3Desc', featuresKey: 'reProjectNiagueFeatures' },
+        { image: 'https://socabeg.com/images/balena.jpg', titleKey: 'reProject1Title', descKey: 'reProject1Desc', featuresKey: 'reProject1Features' },
+        { image: 'https://socabeg.com/images/hlm.jpg', titleKey: 'reProject2Title', descKey: 'reProject2Desc', featuresKey: 'reProject2Features' },
+        { image: 'https://socabeg.com/images/lac.jpg', titleKey: 'reProject3Title', descKey: 'reProject3Desc', featuresKey: 'reProject3Features' },
     ];
     return (
         <div className="container mx-auto px-6 scroll-element">
-            <SectionTitle titleKey="rePortfolioTitle" descriptionKey="rePortfolioSubtitle" />
+            {/* Switched descriptionKey to subtitleKey for better hierarchy as requested */}
+            <SectionTitle titleKey="rePortfolioTitle" subtitleKey="rePortfolioSubtitle" />
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {projects.map((p, index) => (
                     <div key={p.titleKey} className="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 flex flex-col">

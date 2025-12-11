@@ -55,8 +55,8 @@ export const content: LocalizedContent = {
     [Language.EN]: 'PLUS DE 35 ANS À VOTRE SERVICE' // Keep French as requested in structure
   },
   homeAboutPreviewText: {
-    [Language.FR]: "SOCABEG, fondée en 1986 par M. Mamoune SAMB, est un acteur majeur du BTP et de la promotion immobilière au Sénégal, reconnu pour son expertise dans l'habitat social, la construction d'infrastructures publiques et le développement de nouveaux écoquartiers. Forte d'un savoir-faire solide et d'une maîtrise complète de la chaîne de valeur, l'entreprise a réalisé des milliers de logements, lotissements et de projets structurants au profit d'institutions publiques, de coopératives et de clients privés. Guidée par ses valeurs d’intégrité, de qualité, d’innovation et de responsabilité sociale, SOCABEG œuvre pour offrir des solutions immobilières modernes, durables et accessibles, contribuant ainsi activement à l’essor urbain du Sénégal.",
-    [Language.EN]: "SOCABEG, founded in 1986 by Mr. Mamoune SAMB, is a major player in construction and real estate development in Senegal, recognized for its expertise in social housing, public infrastructure construction, and the development of new eco-districts. With solid know-how and complete mastery of the value chain, the company has delivered thousands of housing units, subdivisions, and structuring projects for public institutions, cooperatives, and private clients. Guided by its values of integrity, quality, innovation, and social responsibility, SOCABEG strives to offer modern, sustainable, and accessible real estate solutions, actively contributing to Senegal’s urban growth."
+    [Language.FR]: "SOCABEG, fondée en 1986 par M. Mamoune SAMB, est un acteur majeur du BTP et de la promotion immobilière au Sénégal, reconnu pour son expertise dans l'habitat social, la construction d'infrastructures publiques et le développement de nouveaux écoquartiers. Forte d'un savoir-faire solide et d'une maîtrise complète de la chaîne de valeur, l'entreprise a réalisé des milliers de logements, lotissements et de projets structurants au profit d'institutions publiques, de coopératives et de clients privés. Guidée par ses valeurs d’intégrité, d’innovation et de responsabilité sociale, SOCABEG œuvre pour offrir des solutions immobilières modernes, durables et accessibles, contribuant ainsi activement à l’essor urbain du Sénégal.",
+    [Language.EN]: "SOCABEG, founded in 1986 by Mr. Mamoune SAMB, is a major player in construction and real estate development in Senegal, recognized for its expertise in social housing, public infrastructure construction, and the development of new eco-districts. With solid know-how and complete mastery of the value chain, the company has delivered thousands of housing units, subdivisions, and structuring projects for public institutions, cooperatives, and private clients. Guided by its values of integrity, innovation, and social responsibility, SOCABEG strives to offer modern, sustainable, and accessible real estate solutions, actively contributing to Senegal’s urban growth."
   },
   homeAboutBtn: { [Language.FR]: 'En savoir plus', [Language.EN]: 'Learn More About Us' },
   
@@ -323,23 +323,35 @@ export const content: LocalizedContent = {
   reIntroTypeCommercial: { [Language.FR]: 'Commercial', [Language.EN]: 'Commercial' },
   reIntroTypeMixedUse: { [Language.FR]: 'Mixte', [Language.EN]: 'Mixed' },
   reIntroImageAlt: { [Language.FR]: 'Projet immobilier moderne', [Language.EN]: 'Modern real estate project' },
-  rePortfolioTitle: { [Language.FR]: 'Iconic Projects', [Language.EN]: 'Iconic Projects' },
-  rePortfolioSubtitle: { [Language.FR]: 'RÉALISATIONS', [Language.EN]: 'ACHIEVEMENTS' },
-  rePortfolioKeyFeatures: { [Language.FR]: 'Atouts', [Language.EN]: 'Features' },
-  reProjectBalenaFeatures: { [Language.FR]: 'Design, Jardin, Sécurité', [Language.EN]: 'Design, Garden, Security' },
-  reProjectHlmFeatures: { [Language.FR]: 'Accessibilité, Verdure, Transport', [Language.EN]: 'Accessibility, Greenery, Transport' },
-  reProjectNiagueFeatures: { [Language.FR]: 'Vue Lac, Calme, Plus-value', [Language.EN]: 'Lake View, Quiet, Value' },
-  reSustainabilityTitle: { [Language.FR]: 'Building a Sustainable Future', [Language.EN]: 'Building a Sustainable Future' },
+  
+  // Real Estate Portfolio Section
+  rePortfolioTitle: { [Language.FR]: 'Notre Projet', [Language.EN]: 'Our Project' },
+  rePortfolioSubtitle: { [Language.FR]: 'Projet Emblématique', [Language.EN]: 'Iconic Project' },
+  rePortfolioKeyFeatures: { [Language.FR]: 'Atouts', [Language.EN]: 'Key Features' },
+  
+  reProject1Title: { [Language.FR]: 'Balena City', [Language.EN]: 'Balena City' },
+  reProject1Desc: { [Language.FR]: 'Villas modernes alliant confort et sécurité dans un cadre verdoyant.', [Language.EN]: 'Modern villas combining comfort and safety in a green setting.' },
+  reProject1Features: { [Language.FR]: 'Design contemporain, Jardin privé, Sécurité 24/7', [Language.EN]: 'Contemporary design, Private garden, 24/7 Security' },
+
+  reProject2Title: { [Language.FR]: 'HLM Residence', [Language.EN]: 'HLM Residence' },
+  reProject2Desc: { [Language.FR]: 'Appartements spacieux au cœur de la ville, proches de toutes commodités.', [Language.EN]: 'Spacious apartments in the heart of the city, close to all amenities.' },
+  reProject2Features: { [Language.FR]: 'Accessibilité, Espaces verts, Proche transport', [Language.EN]: 'Accessibility, Green spaces, Near transport' },
+
+  reProject3Title: { [Language.FR]: 'The Pink Lake', [Language.EN]: 'The Pink Lake' },
+  reProject3Desc: { [Language.FR]: 'Terrains prêts à bâtir avec une vue imprenable sur le Lac Rose.', [Language.EN]: 'Build-ready plots with stunning views of the Pink Lake.' },
+  reProject3Features: { [Language.FR]: 'Vue sur le lac, Calme, Potentiel de plus-value', [Language.EN]: 'Lake view, Quiet, Appreciation potential' },
+
+  reSustainabilityTitle: { [Language.FR]: 'CONSTRUIRE UN AVENIR DURABLE', [Language.EN]: 'BUILDING A SUSTAINABLE FUTURE' },
   reSustainabilityText: { 
     [Language.FR]: 'Notre engagement pour la durabilité se traduit par des actions concrètes à chaque étape de nos projets immobiliers, minimisant l\'empreinte écologique et maximisant le confort de vie.', 
     [Language.EN]: 'Our commitment to sustainability is reflected in concrete actions at every stage of our real estate projects, minimizing the ecological footprint and maximizing living comfort.' 
   },
   reSustainabilityImageAlt: { [Language.FR]: 'Architecture durable', [Language.EN]: 'Sustainable Architecture' },
-  reSustainabilityPoint1Title: { [Language.FR]: 'Matériaux', [Language.EN]: 'Materials' },
+  reSustainabilityPoint1Title: { [Language.FR]: 'Matériaux Écologiques', [Language.EN]: 'Eco-friendly Materials' },
   reSustainabilityPoint1Desc: { [Language.FR]: 'Utilisation de matériaux locaux et recyclés pour réduire l\'impact carbone.', [Language.EN]: 'Use of local and recycled materials to reduce carbon impact.' },
-  reSustainabilityPoint2Title: { [Language.FR]: 'Énergie', [Language.EN]: 'Energy' },
+  reSustainabilityPoint2Title: { [Language.FR]: 'Efficacité Énergétique', [Language.EN]: 'Energy Efficiency' },
   reSustainabilityPoint2Desc: { [Language.FR]: 'Conception bioclimatique, isolation performante et solutions d\'énergies renouvelables.', [Language.EN]: 'Bioclimatic design, high-performance insulation, and renewable energy solutions.' },
-  reSustainabilityPoint3Title: { [Language.FR]: 'Eau', [Language.EN]: 'Water' },
+  reSustainabilityPoint3Title: { [Language.FR]: 'Gestion de l\'Eau', [Language.EN]: 'Water Management' },
   reSustainabilityPoint3Desc: { [Language.FR]: 'Systèmes de récupération d\'eau de pluie et aménagement paysager à faible consommation d\'eau.', [Language.EN]: 'Rainwater harvesting systems and low-water landscaping.' },
   reAmenitiesTitle: { [Language.FR]: 'Amenities & Comfort', [Language.EN]: 'Amenities & Comfort' },
   reAmenitiesText: { [Language.FR]: 'Des espaces conçus pour votre bien-être.', [Language.EN]: 'Spaces designed for your well-being.' },
